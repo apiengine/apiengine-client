@@ -20,7 +20,7 @@ define([
       methodsCollection.apiId = this.options.apiId;
       methodsCollection.fetch({
         success: function (collection) {
-          that.$el.html(_.template(methodsListTemplate, {apiId: that.options.apiId, methods: collection.models}));
+          that.$el.html(_.template(methodsListTemplate, {owner: that.options.owner, apiId: that.options.apiId, methods: collection.models}));
         }
       })
     }

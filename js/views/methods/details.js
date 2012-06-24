@@ -45,7 +45,7 @@ define([
       var methodModel = new MethodModel({id: this.options.methodId});
       methodModel.fetch({
         success: function (method) {
-          that.$el.html(_.template(methodTemplate, {method: method}));
+          that.$el.html(_.template(methodTemplate, {method: method, owner: that.options.owner}));
           var requestCollection = new RequestCollection();
           requestCollection.methodId = method.id;
 
@@ -55,7 +55,7 @@ define([
                 $('.requests-container', that.$el).html('');
               _.each(requests.models, function(request) {
                 that.$el.append('<div data-request-id="'+request.id+'"></div>');
-                var requestView = new RequestDetailsView({request: request, el: '[data-request-id="'+request.id+'"]'});
+                var requestView = new RequestDetailsView({request: request, el: '[data-request-id="'+request.id+'"]', owner: that.options.owner});
                 requestView.render();
               });
               if(requests.models.length === 0) {

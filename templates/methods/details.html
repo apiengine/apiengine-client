@@ -1,4 +1,6 @@
 <h1><%= method.get('type') %> - <%= method.get('resource') %></h1>
 <hr />
+<% if(owner) {%>
 <a class="btn js-new-request">New Request</a><hr />
+<% }; %>
 <div class="requests-container">Loading request</div>

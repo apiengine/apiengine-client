@@ -56,7 +56,7 @@ define([
     },
     render: function () {
       var that = this;
-      this.$el.html(_.template(requestDetailsTemplate, {request: this.options.request }));
+      this.$el.html(_.template(requestDetailsTemplate, {request: this.options.request, owner: this.options.owner }));
       $('.request-body', this.$el).append(prettyprint(JSON.parse(this.options.request.get('requestBody'))));
       $('.response-body', this.$el).append(prettyprint(JSON.parse(this.options.request.get('responseBody'))));
      
