@@ -3,8 +3,9 @@ define([
   'underscore',
   'backbone',
   'models/session',
-  'text!templates/header/main-menu.html'
-], function($, _, Backbone, Session, mainMenuTemplate){
+  'text!templates/header/main-menu.html',
+  'views/header/account-menu'
+], function($, _, Backbone, Session, mainMenuTemplate, AccountMenuView){
   var MainMenuView = Backbone.View.extend({
     el: '.main-menu-container',
     initialize: function () {
@@ -24,6 +25,9 @@ define([
         
         this.$el.html(_.template(mainMenuTemplate, {username: null}));
       }
+
+      var accountMenu = new AccountMenuView();
+      accountMenu.render();
     },
     events: {
       'click .logout': 'logout'

@@ -1,21 +1,32 @@
 
-<div class="api-edit-container">
-  <div class="login-form-container">
-    <h3>Login</h3>
-    <form class="edit-api">
-        <label for="">Api Name</label>
-        <input name="name" type="text" required autofocus />
-        <br />
-     <input type="radio" name="private_api" value="1" checked /> Public<br />
-<input type="radio" name="private_api" value="0" /> Private
-<br />
-        <input type="submit" id="submit" value="Submit" />
 
-    </form>
+<div class="method-edit-container well">
+  <form class="form-horizontal edit-api">
+  <fieldset>
+    <legend>Create a new API</legend>
+    <div class="control-group">
+      <label class="control-label" for="input02">API Name</label>
+      <div class="controls">
+               
+          <input name="name" type="text" required autofocus />
+      </div>
+      </div>
+      <div class="control-group">
+      <label class="control-label" for="input01">Resource URL</label>
+      <div class="controls">       <input type="radio" name="private_api" value="0" checked /> Public<br />
+  <input type="radio" name="private_api" value="1" /> Private
+      </div>
+      </div>
+
+<div class="form-actions">
+            <button id="submit" type="submit" class="btn btn-primary">Create API</button>
+            <a class="btn" href="#/">Cancel</a>
+          </div>
 
 
-    <% _.each(errors, function (error) { %>
+    </div>
+  </fieldset>
+      <% _.each(errors, function (error) { %>
     <p class="error"><%= error %></p>
     <% }); %>
-  </div>
-</div>
+</form>

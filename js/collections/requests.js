@@ -3,11 +3,11 @@ define([
   'underscore',
   'backbone'
 ], function($, _, Backbone){
-  var Methods = Backbone.Collection.extend({
+  var Requests = Backbone.Collection.extend({
     url: function () {
-    	return '/apis/' + this.apiId + '/methods'
+    	return '/methods/' + this.methodId + '/requests'
     }
   });
 
-  return Methods;
+  return Requests;
 });

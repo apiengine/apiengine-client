@@ -7,6 +7,7 @@ require.config({
     underscore: 'libs/underscore/underscore-min', // https://github.com/amdjs
     backbone: 'libs/backbone/backbone-min', // https://github.com/amdjs
     jsoneditor: 'libs/jsoneditor/jsoneditor-min',
+    prettyprint: 'libs/prettyprint/prettyprint',
 
     // Require.js plugins
     text: 'libs/require/text',

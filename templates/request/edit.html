@@ -1,0 +1,47 @@
+
+
+
+
+<div class="method-edit-container well">
+  <form class="form-horizontal update-request">
+  <fieldset>
+    <legend>Editing request</legend>
+
+
+    <div class="control-group">
+      <label class="control-label" for="input02">Request name</label>
+      <div class="controls">
+               
+          <input name="name" value="<%= request.get('name') %>" type="text" required autofocus />
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="input02">Request description</label>
+      <div class="controls">
+               
+          <textarea name="description" type="text"><%= request.get('description') %></textarea>
+      </div>
+    </div>
+
+
+      <label class="control-label" for="input02">Request Editor</label>
+    <div class="request-body">     
+		</div>
+
+      <label class="control-label" for="input02">Response Editor</label>
+    <div class="response-body">     
+    </div>
+
+
+<div class="form-actions">
+            <button id="submit" type="submit" class="btn btn-primary">Update request</button>
+            <a class="btn js-cancel-edit" href="#/">Cancel</a>
+          </div>
+
+
+    </div>
+  </fieldset>
+
+</form>
+

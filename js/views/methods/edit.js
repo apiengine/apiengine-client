@@ -17,7 +17,7 @@ define([
       'submit form.edit-method': 'editMethod'
     },
     editMethod: function (ev) {
-      $('[type=submit]', ev.currentTarget).val('Logging in').attr('disabled', 'disabled');
+      $('[type=submit]', ev.currentTarget).text('Creating method').attr('disabled', 'disabled');
       // Serialize the form into an object using a jQuery plgin
       var methodData = $(ev.currentTarget).serializeObject();
       var method = new MethodModel;

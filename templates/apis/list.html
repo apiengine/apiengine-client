@@ -1,6 +1,33 @@
+ <% if(!is_public) { %>
 <div class="btn-group">
-	<a class="btn" href="#/apis/edit">New Api</a>
+	<a class="btn btn-primary" href="#/apis/edit">New Api</a>
 </div>
-<ul class="api-list">
-	<li>Loading</li>
+  <hr />
+
+<% }; %>
+<ul class="nav nav-list">
+  <li class="nav-header">
+    <%= is_public === true ? "Public Api's" : "My Api's" %>
+  </li>
+    <% if(apis.length > 0) { 
+    	_.each(apis, function(api){ 
+
+    	%>
+
+
+
+  <li>
+    <a href="#/apis/<%= api.id%>">
+    	<% if(api.get('private_api') === true) { %>
+    		<i class="icon-lock"></i>
+    	<% }; %>
+    	<%= api.get('name') %>
+    </a>
+  </li>
+
+  <% }) } else { %>
+  <li>
+    No Api's
+  </li>
+  <% }; %>
 </ul>

@@ -27,13 +27,16 @@ define([
       // our Session models auth attribute
       if(Session.get('auth')){
         this.$el.html(_.template(homeTemplate, {username: Session.get('login')}));
-        var apisList = new ApisList();
+        var apisList = new ApisList({is_public: false, el: '.private-container'});
         apisList.render();
       } else {
         this.$el.html(_.template(homeTemplate, {errors: Session.get('errors'), _: _})); 
         var authView = new AuthView();
         authView.render();
       }
+
+        var apisList = new ApisList({is_public: true, el: '.public-container'});
+        apisList.render();
     },
     events: {
       'submit form.login': 'login', // On form submission

@@ -1,6 +1,13 @@
-<a class="btn" href="#/apis/1/methods/edit">New Method</a>
+<div class="btn-group">
+	<a class="btn btn-primary" href="#/apis/<%= apiId %>/methods/edit">New Method</a>
+</div>
+  <hr />
+
 <ul  class="nav nav-list">
 	<% _.each(methods, function(method) { %> 
-		<li><a href=""><%= method.get('type') %> - <%= method.get('resource') %></a></li>
+		<li><a href="#/apis/<%=apiId%>/method/<%=method.id%>"><%= method.get('type') %> - <%= method.get('resource') %></a></li>
 	<% }); %>
+	<% if(methods.length === 0 ) { %>
+		<li>No methods</li>
+	<% }; %>
 </ul>

@@ -4,10 +4,9 @@ define([
   'backbone',
   'models/session',
   'text!templates/apis/list.html',
-  'text!templates/apis/list-item.html',
   'collections/apis'
-], function($, _, Backbone, Session, apisListTemplate, apisListItemTemplate, ApisCollection){
-  var UsersPage = Backbone.View.extend({
+], function($, _, Backbone, Session, apisListTemplate, ApisCollection){
+  var ApisPage = Backbone.View.extend({
     el: '.private-container',
     initialize: function () {
       var that = this;
@@ -15,18 +14,14 @@ define([
     },
     render: function () {
       var that = this;
-      this.$el.html(apisListTemplate);
-      var users = new ApisCollection();
-      users.fetch({
+      var apis = new ApisCollection();
+      apis.is_public =  this.options.is_public;
+      apis.fetch({
         success: function (collection) {
-          var listHTML = '';
-          _.each(collection.models, function (api) {
-            listHTML += _.template(apisListItemTemplate, {_:_, api: api});
-          });
-          that.$el.find('.api-list').html(listHTML);
+          that.$el.html(_.template(apisListTemplate, {_:_, is_public: that.options.is_public, apis: collection.models}));
         }
       });
     }
   });
-  return UsersPage;
+  return ApisPage;
 });

@@ -16,10 +16,11 @@ define([
       var that = this;
       this.$el.html('Loading');
 
-      var methodsCollection =  new MethodsCollection({api_id: this.options.apiId});
+      var methodsCollection =  new MethodsCollection();
+      methodsCollection.apiId = this.options.apiId;
       methodsCollection.fetch({
         success: function (collection) {
-          that.$el.html(_.template(methodsListTemplate, {methods: collection.models}));
+          that.$el.html(_.template(methodsListTemplate, {apiId: that.options.apiId, methods: collection.models}));
         }
       })
     }

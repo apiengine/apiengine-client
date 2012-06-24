@@ -1,5 +1,13 @@
-<form class="well">
-<input type="text" />
-<div class="json">     
+
+
+<div class="well">
+  <h1><%= request.get('name') %></h1>
+  <p><%= request.get('description') %></p>
+  <h2>Request</h2>
+  <div class="request-body"></div>
+
+  <h2>Response</h2>
+  <div class="response-body"></div>
+  <hr />
+        <button id="submit" type="submit" class="js-edit-request btn btn-primary">Edit request</button>
 </div>
-</form>

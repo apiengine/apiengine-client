@@ -17,7 +17,7 @@ define([
       'submit form.edit-api': 'editApi'
     },
     editApi: function (ev) {
-      $('[type=submit]', ev.currentTarget).val('Logging in').attr('disabled', 'disabled');
+      $('[type=submit]', ev.currentTarget).text('Creating API').attr('disabled', 'disabled');
       // Serialize the form into an object using a jQuery plgin
       var apiData = $(ev.currentTarget).serializeObject();
       var api = new ApiModel;
