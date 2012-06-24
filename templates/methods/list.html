@@ -6,7 +6,7 @@
 <% }; %>
 <ul  class="nav nav-list">
 	<% _.each(methods, function(method) { %> 
-		<li><a href="#/apis/<%=apiId%>/method/<%=method.id%>"><%= method.get('type') %> - <%= method.get('resource') %></a></li>
+		<li data-method-id="<%= method.id %>"><a  href="#/apis/<%=apiId%>/method/<%=method.id%>"><%= method.get('type') %> - <%= method.get('resource') %></a></li>
 	<% }); %>
 	<% if(methods.length === 0 ) { %>
 		<li>No methods</li>

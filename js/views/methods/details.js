@@ -40,6 +40,8 @@ define([
       });
     },
     render: function () {
+      $('[data-method-id]').removeClass('active');
+      $('[data-method-id="'+this.options.methodId+'"]').addClass('active');
       var that = this;
       this.$el.html('loading');
       var methodModel = new MethodModel({id: this.options.methodId});
