@@ -1,0 +1,6 @@
+<a class="btn" href="#/apis/1/methods/edit">New Method</a>
+<ul  class="nav nav-list">
+	<% _.each(methods, function(method) { %> 
+		<li><a href=""><%= method.get('type') %> - <%= method.get('resource') %></a></li>
+	<% }); %>
+</ul>

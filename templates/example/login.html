@@ -1,0 +1,46 @@
+<style>
+  .login-container {
+    width: 960px;
+    margin: auto;
+    background: #fff;
+  }
+  .login-form-container {
+    padding: 20px;
+  }
+</style>
+
+<div class="login-container">
+  <div class="login-form-container">
+    <h3>Login</h3>
+    <form class="login">
+        <label for="">Username</label>
+        <input name="login" type="text" required autofocus />
+        <br />
+        <label for="">Password</label>
+        <input name="password" type="password" required />
+        <br />
+        <input type="submit" id="submit" value="Login" />
+
+    </form>
+    <br />
+    <hr />
+    <br />
+    <h3>Register</h3>
+    <form class="register">
+        <label for="">Email</label>
+        <input name="email" type="text" required  />
+        <br />
+        <label for="">Username</label>
+        <input name="login" type="text" required  />
+        <br />
+        <label for="">Password</label>
+        <input name="password" type="password" required />
+        <br />
+        <input type="submit" id="submit" value="Register" />
+    </form>
+
+    <% _.each(errors, function (error) { %>
+    <p class="error"><%= error %></p>
+    <% }); %>
+  </div>
+</div>

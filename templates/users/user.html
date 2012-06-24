@@ -1,0 +1,13 @@
+<div style="padding: 10px; position: relative;">
+
+	<img src="css/50cent.jpg" style="float: left; width: 70px; height: 70px; margin-right: 5px;" />	
+	<audio class="mejs-budder" controls="controls" height="100px" width="600px">
+		<source src="<%= user.get('url') %>" type="audio/mp3" />
+		Your browser does not support the audio tag.
+	</audio>
+	<div style="position: absolute; left: 130px; outline: 1px solid #fbfbfb; width: 470px; height: 51px;">
+		<span class="track-title"><%= user.get('name') %></span>
+		<span>By Daft Punk</span>
+	</div>
+	<div style="clear: both;"></div>
+</div>

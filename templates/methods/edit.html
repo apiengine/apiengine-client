@@ -1,0 +1,29 @@
+
+<div class="method-edit-container">
+  <div class="login-form-container">
+    <h3>Edit Method</h3>
+    <form class="edit-method">
+        <label for="">Method Name</label>
+
+        <select class="btn" name="type">
+          <option value="PUT">PUT</option>
+          <option value="DELETE">DELETE</option>
+          <option value="POST">POST</option>
+          <option value="GET">GET</option>
+        </select>
+        <input name="resource" type="text" required autofocus />
+        <br />
+
+
+
+<br />
+        <input type="submit" id="submit" value="Submit" />
+
+    </form>
+
+
+    <% _.each(errors, function (error) { %>
+    <p class="error"><%= error %></p>
+    <% }); %>
+  </div>
+</div>

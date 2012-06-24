@@ -1,0 +1,5 @@
+.public-container,
+.private-container {
+  width: 50%;
+  float: left;
+}
