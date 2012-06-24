@@ -34,7 +34,7 @@ define([
         success: function (request) {
         $(ev.currentTarget).text('New request').removeAttr('disabled');
           that.$el.append('<div data-request-id="'+request.id+'"></div>');
-                var requestView = new RequestDetailsView({request: request, el: '[data-request-id="'+request.id+'"]'});
+                var requestView = new RequestDetailsView({request: request, el: '[data-request-id="'+request.id+'"]', owner: true});
                 requestView.render();
         }
       });
