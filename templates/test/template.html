@@ -1,0 +1,28 @@
+<h3>Tested against http://apidocco.com</h3>
+<table class="table-striped table-bordered table">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Resource</th>
+      <th>Request</th>
+      <th>Request Body</th>
+      <th>Status code</th>
+      <th>Request Response</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% _.each(methods, function (method) { %>
+    <tr>
+      <td><%= method.type %></td>
+      <td><%= method.resource %></td>
+      <td><%= method.requests[0].name %></td>
+      <td><%= method.requests[0].request %></td>
+      <td><%= method.requests[0].statusCode %></td>
+      <td><%= typeof method.requests[0].actualResponse === 'string' ? method.requests[0].actualResponse : JSON.stringify(method.requests[0].actualResponse) %></td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>
+
+
+

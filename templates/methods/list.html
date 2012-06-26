@@ -1,9 +1,14 @@
 <% if(owner) { %>
-<div class="btn-group">
 	<a class="btn btn-primary" href="#/apis/<%= apiId %>/methods/edit">New Method</a>
-</div>
-  <hr />
+
+
+
 <% }; %>
+<% if(apiId === '1') { %>
+	<a class="btn btn-success js-test-api">Test Api</a>
+ <hr />
+<% }; %>
+
 <ul  class="nav nav-list">
 	<% _.each(methods, function(method) { %> 
 		<li data-method-id="<%= method.id %>"><a  href="#/apis/<%=apiId%>/method/<%=method.id%>"><%= method.get('type') %> - <%= method.get('resource') %></a></li>
