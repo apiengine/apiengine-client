@@ -1,13 +1,13 @@
  <% if(!is_public) { %>
 <div class="btn-group">
-	<a class="btn btn-primary" href="#/apis/edit">New Api</a>
+	<a class="btn btn-primary" href="#/apis/edit">New API</a>
 </div>
   <hr />
 
 <% }; %>
 <ul class="nav nav-list">
   <li class="nav-header">
-    <%= is_public === true ? "Public Api's" : "My Api's" %>
+    <%= is_public === true ? "Public APIs" : "My APIs" %>
   </li>
     <% if(apis.length > 0) { 
     	_.each(apis, function(api){ 
@@ -27,7 +27,7 @@
 
   <% }) } else { %>
   <li>
-    No Api's
+    No APIs
   </li>
   <% }; %>
 </ul>
