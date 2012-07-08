@@ -8,6 +8,7 @@ define([
   var AppRouter = Backbone.Router.extend({
     routes: {
 
+      '/layouttest': 'layouttest',
       '/apis/edit/:id': 'editApi',
       '/apis/edit': 'editApi',
       '/apis/:id': 'showApi',
@@ -22,7 +23,13 @@ define([
 		var appView = options.appView;
     var router = new AppRouter(options);
 
-
+    router.on('route:layouttest', function (apiId, methodId) {
+      require(['views/layouttest'], function (ApiDetailsView) {
+        var apiDetailsView = Vm.create(appView, 'ApiDetailsView', ApiDetailsView, {});
+        apiDetailsView.render();
+      });
+    });
+    
     router.on('route:showApi', function (apiId, methodId) {
       require(['views/apis/details'], function (ApiDetailsView) {
         var apiDetailsView = Vm.create(appView, 'ApiDetailsView', ApiDetailsView, {apiId: apiId, methodId: methodId});
