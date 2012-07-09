@@ -4545,6 +4545,7 @@ a.badge:hover {
   background-color: #b94a48;
 }
 
+.badge-DELETE,
 .label-important[href],
 .badge-important[href] {
   background-color: #953b39;
@@ -4555,11 +4556,12 @@ a.badge:hover {
   background-color: #f89406;
 }
 
+.badge-PUT,
 .label-warning[href],
 .badge-warning[href] {
   background-color: #c67605;
 }
-
+.badge-POST,
 .label-success,
 .badge-success {
   background-color: #468847;
@@ -4570,6 +4572,7 @@ a.badge:hover {
   background-color: #356635;
 }
 
+.badge-GET,
 .label-info,
 .badge-info {
   background-color: #3a87ad;

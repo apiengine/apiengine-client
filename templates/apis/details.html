@@ -1,14 +1,30 @@
+
+<style>
+.request-list-container,
+.resource-list-container {
+	border-right: 1px solid #ccc;
+}
+.request-list-container .badge.notification-total,
+.resource-list-container .badge.notification-total {
+	float: right;
+}
+</style>
+
 <h1><%= api.get('name') %> API</h1>
 <hr />
 <div class="row-fluid ">
-	<div class="span3 well">
-		<div class="api-methods-container" data-user-id="<%= api.get('UserId') %>">
+	<div class="span2 ">
+		<div class="resource-list-container">
+					<div class="api-methods-container" data-user-id="<%= api.get('UserId') %>">
 			Loading
 		</div>
+		
+		</div>
 	</div>
-	<div class="span9 ">
+	<div class="span10 ">
 		<div class="method-container">
 			Choose a method
 		</div>
 	</div>
 </div>
+

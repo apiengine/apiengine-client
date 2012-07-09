@@ -1,3 +1,6 @@
+
+<!--
+
 <% if(owner) { %>
 	<a class="btn btn-primary" href="#/apis/<%= apiId %>/methods/edit">New Method</a>
 
@@ -8,10 +11,13 @@
 	<a class="btn btn-success js-test-api">Test Api</a>
  <hr />
 <% }; %>
-
+-->
 <ul  class="nav nav-list">
+				 <li class="nav-header">
+	    Users
+		  </li>
 	<% _.each(methods, function(method) { %> 
-		<li data-method-id="<%= method.id %>"><a  href="#/apis/<%=apiId%>/method/<%=method.id%>"><%= method.get('type') %> - <%= method.get('resource') %></a></li>
+		<li data-method-id="<%= method.id %>"><a  href="#/apis/<%=apiId%>/method/<%=method.id%>"><span class="badge badge-<%= method.get('type') %>"><%= method.get('type') %></span> - <%= method.get('resource') %><span class="badge notification-total">2</span></a></li>
 	<% }); %>
 	<% if(methods.length === 0 ) { %>
 		<li>No methods</li>
