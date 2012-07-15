@@ -63,8 +63,21 @@ th.request-body-header {
 </style>
 <div style="position: relative;">
 <h1 style="margin-left: 20px;">ApiDocco API</h1>
+<div class="btn-toolbar"  style="position: absolute; right: 20px; top: 10px;">
+  
 
-<div class="btn-group"  style="position: absolute; right: 120px; top: 10px;">
+<div class="btn-group">
+          <button class="btn btn-warning">Edit</button>
+          <button class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#" data-bitly-type="bitly_hover_card">Action</a></li>
+            <li><a href="#" data-bitly-type="bitly_hover_card">Another action</a></li>
+            <li><a href="#" data-bitly-type="bitly_hover_card">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#" data-bitly-type="bitly_hover_card">Separated link</a></li>
+          </ul>
+        </div>
+<div class="btn-group" >
           <button class="btn btn-inverse">Version 1.0</button>
           <button class="btn btn-inverse dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
           <ul class="dropdown-menu">
@@ -75,7 +88,7 @@ th.request-body-header {
             <li><a href="#" data-bitly-type="bitly_hover_card">Separated link</a></li>
           </ul>
         </div>
-<div class="btn-group" style="position: absolute; right: 20px; top: 10px;">
+<div class="btn-group" style="">
           <button class="btn btn-info">Share</button>
           <button class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
           <ul class="dropdown-menu">
@@ -87,6 +100,7 @@ th.request-body-header {
           </ul>
         </div>
  </div>
+   </div>
 <hr>
 
 <div class="row_fluid">
@@ -192,6 +206,7 @@ border: 1px solid #000;
           <th>Property Name</th>
           <th>Value</th>
           <th>Description</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -199,36 +214,54 @@ border: 1px solid #000;
         <td><code>somearrays[]</code></td>
         <td><code class="apitype">array</code></td>
         <td>Type of resource. Always <code>compute#diskList</code>.</td>
+        <td>
+        	<div class="btn-group">
+          <button class="btn btn-primary">Action</button>
+          <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#" data-bitly-type="bitly_hover_card">Edit</a></li>
+            <li><a href="#" data-bitly-type="bitly_hover_card">Add a field</a></li>
+            <li class="divider"></li>
+            <li><a href="#" data-bitly-type="bitly_hover_card">Delete</a></li>
+          </ul>
+        </div>
+      </td>
       </tr>
       <tr id="id">
         <td><code style="margin-left: 20px;">id</code></td>
         <td><code class="apitype">string</code></td>
         <td>Unique identifier for the resource; defined by the server (output only).</td>
+        <td></td>
       </tr>
       <tr id="id">
         <td><code style="margin-left: 20px;">someobject{}</code></td>
         <td><code class="apitype">object</code></td>
         <td>Unique identifier for the resource; defined by the server (output only).</td>
+        <td></td>
       </tr>
       <tr id="selfLink">
         <td><code style="margin-left: 40px;">selfLink</code></td>
         <td><code class="apitype">string</code></td>
         <td>Server-defined URL for this resource (output only).</td>
+        <td></td>
       </tr>      
       <tr id="id">
         <td><code style="margin-left: 20px;">somestring</code></td>
         <td><code class="apitype">object</code></td>
         <td>Unique identifier for the resource; defined by the server (output only).</td>
+        <td></td>
       </tr>
       <tr id="items">
         <td><code>items[]</code></td>
         <td><code class="apitype">list</code></td>
         <td>The persistent disk resources.</td>
+        <td></td>
       </tr>
       <tr id="nextPageToken">
         <td><code>nextPageToken</code></td>
         <td><code class="apitype">string</code></td>
         <td>A token used to continue a truncated list request.</td>
+        <td></td>
       </tr>
       </tbody>
     </table>
