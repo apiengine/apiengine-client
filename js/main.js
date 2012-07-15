@@ -8,6 +8,7 @@ require.config({
     backbone: 'libs/backbone/backbone-min', // https://github.com/amdjs
     jsoneditor: 'libs/jsoneditor/jsoneditor-min',
     prettyprint: 'libs/prettyprint/prettyprint',
+    bootstrap: 'libs/bootstrap/bootstrap.min',
 
     // Require.js plugins
     text: 'libs/require/text',

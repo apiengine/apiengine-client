@@ -4,6 +4,7 @@ define([
   'backbone',
   'models/session',
   'text!templates/layouttest.html',
+  'bootstrap'
 ], function($, _, Backbone, Session, layoutTemplate){
   var UsersPage = Backbone.View.extend({
     el: '.page',
@@ -14,6 +15,9 @@ define([
     render: function () {
       var that = this;
       that.$el.html(layoutTemplate);
+      $('.js-new-resource').on('click', function (){  
+        $('#myModal').modal({});  
+      });
     }
   });
   return UsersPage;

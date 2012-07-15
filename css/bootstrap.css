@@ -4525,7 +4525,13 @@ a.thumbnail:hover {
      -moz-border-radius: 3px;
           border-radius: 3px;
 }
-
+.badge-method-type {
+  border-radius: 0 !important;
+  width: 47px;
+text-align: center;
+  line-height: 20px;
+  font-weight: normal;
+}
 .badge {
   padding: 1px 9px 2px;
   -webkit-border-radius: 9px;

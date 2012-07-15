@@ -1,3 +1,9 @@
+<div class="well">
+ <div class="btn-group">
+  <button class="btn active">My API's (20)</button>
+  <button class="btn">Watched API's (30)</button>
+</div>
+</div> 
  <% if(!is_public) { %>
 <div class="btn-group">
 	<a class="btn btn-primary" href="#/apis/edit">New API</a>
@@ -5,29 +11,21 @@
   <hr />
 
 <% }; %>
-<ul class="nav nav-list">
-  <li class="nav-header">
-    <%= is_public === true ? "Public APIs" : "My APIs" %>
-  </li>
     <% if(apis.length > 0) { 
     	_.each(apis, function(api){ 
 
     	%>
 
+<div class="well">
 
-
-  <li>
     <a href="#/apis/<%= api.id%>">
     	<% if(api.get('private_api') === true) { %>
     		<i class="icon-lock"></i>
     	<% }; %>
     	<%= api.get('name') %>
     </a>
-  </li>
-
+    <p>Google Compute Engine offers scalable and flexible virtual machine computing capabilities in the cloud. With Google Compute Engine, you can solve large scale processing and analytic problems on Google’s computing, storage, and networking infrastructure.</p>
+</div>
   <% }) } else { %>
-  <li>
-    No APIs
-  </li>
   <% }; %>
 </ul>
