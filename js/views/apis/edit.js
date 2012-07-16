@@ -22,11 +22,10 @@ define([
       var apiData = $(ev.currentTarget).serializeObject();
       var api = new ApiModel;
       console.log(apiData);
-      apiData.user = 'thomasdavis';
       if(apiData.private === '0') {
-        apiData.private = true;
-      } else {
         apiData.private = false;
+      } else {
+        apiData.private = true;
       }
       api.save(apiData, {
         success: function (model) {

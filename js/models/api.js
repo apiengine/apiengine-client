@@ -1,10 +1,16 @@
 define([
   'underscore',
-  'backbone'
-], function(_, Backbone) {
+  'backbone',
+  'models/session'
+], function(_, Backbone, Session) {
   var ApiModel = Backbone.Model.extend({
-    urlRoot: '/user/thomasdavis/api'
-
+    urlRoot: function () {
+    	if(this.location === 'profile') {
+    		return '/user/' + Session.get('login') + '/api';
+    	} else {
+    		return '/api';
+    	}
+    }
   });
   return ApiModel;
 

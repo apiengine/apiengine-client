@@ -32,9 +32,7 @@ define([
     logout: function() {
       // Do a DELETE to /session and clear the clientside data
       var that = this;
-      this.id = '';
-      $.ajax('/session',{
-        type: 'DELETE',
+      this.destroy({
         success: function (model, resp) {
           
           // Set auth to false to trigger a change:auth event

@@ -10,7 +10,9 @@
         <div class="nav-collapse">
           <ul class="nav">
             <li class="active"><a href="#" data-bitly-type="bitly_hover_card">Home</a></li>
-            <li><a href="https://github.com/thomasdavis/apidocco/issues" data-bitly-type="bitly_hover_card">Feedback</a></li>
+            <% if(username) { %>
+            <li class=""><a href="#/<%= username %>" data-bitly-type="bitly_hover_card">My Api's</a></li>
+            <% }; %>
             <li class=""><a href="#/layouttest" data-bitly-type="bitly_hover_card">Layout Test</a></li>
        
           </ul>

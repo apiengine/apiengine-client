@@ -1,4 +1,4 @@
-  <% if(user && user.login) { %><div class="well">
+  <% if(username && location === 'profile') { %><div class="well">
  <div class="btn-group js-api-filter" data-toggle="buttons-radio" style="width: 400px; display: block; float: left;">
 
 
@@ -9,6 +9,8 @@
 
   <a class="btn btn-primary" style="float: right;" href="#/apis/edit">New API</a>
 </div> 
+  <% } else { %>
+
   <% }; %>
  <% if(!is_public) { %>
   <hr />

@@ -16,11 +16,14 @@ define([
     render: function () {
       var that = this;
       var apis = new ApisCollection();
-      apis.is_public =  this.options.is_public;
+
+      if(that.options.location) {
+        apis.location = that.options.location;
+      };
       apis.fetch({
         success: function (collection) {
-          that.$el.html(_.template(apisListTemplate, {_:_, is_public: that.options.is_public, apis: collection.models, user: Session.get('user')}));
-          $('.js-api-filter').button()
+          that.$el.html(_.template(apisListTemplate, {_:_, is_public: that.options.is_public, apis: collection.models, username: Session.get('login'), location: that.options.location}));
+          $('.js-api-filter').button();
         }
       });
     }

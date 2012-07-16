@@ -43,7 +43,7 @@ define([
       var that = this;
       this.$el.html(_.template(newApiTemplate, {errors: []}));
 
-        var apisList = new ApisList({is_public: false, el: '.private-container'});
+        var apisList = new ApisList({location: 'profile', el: '.private-container'});
         apisList.render();
 
     }
