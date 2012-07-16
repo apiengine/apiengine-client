@@ -21,6 +21,9 @@ define([
         }
       });
     },
+    defaults: {
+     
+    },
     login: function(creds) {
       // Do a POST to /session and send the serialized form creds
       this.clear({silent: true});

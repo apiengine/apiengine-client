@@ -24,7 +24,7 @@ define([
         var apisList = new ApisList({is_public: false, el: '.private-container'});
         apisList.render();
       } else {
-        this.$el.html(_.template(homeTemplate, {errors: Session.get('errors'), _: _})); 
+        this.$el.html(_.template(homeTemplate, {username: false, errors: Session.get('errors'), _: _})); 
         var authView = new AuthView();
         authView.render();
       }

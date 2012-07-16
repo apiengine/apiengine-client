@@ -54,7 +54,7 @@ define([
 
     router.on('route:editApi', function (actions) {
       require(['views/apis/edit'], function (EditApiView) {
-        var editApiView = Vm.create(appView, 'EditApiView', EditApiView);
+        var editApiView = Vm.create(appView, 'EditApiView', EditMethodViewitApiView);
         editApiView.render();
       });
     });

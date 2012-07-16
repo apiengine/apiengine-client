@@ -46,9 +46,8 @@ define([
       var userModel = new UserModel({id: this.options.username});
       userModel.fetch({
         success: function (user) {
-          that.$el.html(_.template(newApiTemplate, {user: user}));
 
-      
+          that.$el.html(_.template(newApiTemplate, {user: user}));
           var apisList = new ApisList({username: that.options.username, el: '.private-container'});
           apisList.render();
         }
