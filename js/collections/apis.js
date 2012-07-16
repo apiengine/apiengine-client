@@ -6,8 +6,8 @@ define([
 ], function($, _, Backbone, Session){
   var Apis = Backbone.Collection.extend({
     url: function () {
-      if(this.location === 'profile') {
-        return '/user/' + Session.get('login') + '/api';
+      if(this.username) {
+        return '/user/' + this.username + '/api';
       } else {
         return '/api';
       }
@@ -19,3 +19,4 @@ define([
 
   return Apis;
 });
+  

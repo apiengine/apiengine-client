@@ -24,11 +24,15 @@
 <div class="well">
 
     <a href="#/apis/<%= api.id%>">
-    	<% if(api.get('private_api') === true) { %>
+    	<% if(api.get('private') === true) { %>
     		<i class="icon-lock"></i>
     	<% }; %>
     	<%= api.get('name') %>
-    </a>
+    </a> /
+     <a href="#/<%= api.get('user') %>">
+ 
+      <%= api.get('user') %>
+    </a> 
     <p>Google Compute Engine offers scalable and flexible virtual machine computing capabilities in the cloud. With Google Compute Engine, you can solve large scale processing and analytic problems on Google’s computing, storage, and networking infrastructure.</p>
 </div>
   <% }) } else { %>

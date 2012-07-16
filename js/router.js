@@ -17,7 +17,7 @@ define([
       'login': 'login',
       'register': 'register',
       '': 'home',
-      '*actions': 'defaultAction' // All urls will trigger this route
+      ':username': 'defaultAction' // All urls will trigger this route
     }
   });
 
@@ -72,9 +72,10 @@ define([
       });
     });
         
-		router.on('route:defaultAction', function (actions) {
+		router.on('route:defaultAction', function (username) {
+      console.log(username, 'errrr');
 			require(['views/profile/page'], function (ProfilePage) {
-        var profilePage = Vm.create(appView, 'ProfilePage', ProfilePage);
+        var profilePage = Vm.create(appView, 'ProfilePage', ProfilePage, {username: username});
         profilePage.render();
       });
 		});

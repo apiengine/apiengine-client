@@ -6,7 +6,7 @@ define([
   'models/session',
   'text!templates/apis/list.html',
   'collections/apis'
-], function($, _, Backbone, bootstrap, Session, apisListTemplate, ApisCollection){
+], function($, _, Backbone, bootstrap, Session, apisListTemplate, ApisCollection, UserModel){
   var ApisPage = Backbone.View.extend({
     el: '.private-container',
     initialize: function () {
@@ -16,9 +16,11 @@ define([
     render: function () {
       var that = this;
       var apis = new ApisCollection();
+      console.log(this.options.username, 'asdasdasd');
 
-      if(that.options.location) {
-        apis.location = that.options.location;
+
+      if(that.options.username) {
+        apis.username = that.options.username;
       };
       apis.fetch({
         success: function (collection) {
@@ -26,6 +28,8 @@ define([
           $('.js-api-filter').button();
         }
       });
+
+      
     }
   });
   return ApisPage;

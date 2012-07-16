@@ -6,19 +6,21 @@
 					<h1>ApiDocco - Beta</h1>
 					<p>ApiDocco is a web app built as a tool to significantly aid your applications RESTful API development.</p>
 					<p>The goal is to build a platform that allows developers to take their API to the next level with the following planned features</p>
-<div class="alert alert-info">
-  <h4 class="alert-heading">Free!</h4>
-  Manage public API's for free!
-</div>
+					<% if(!username) { %>
+	<div class="alert alert-info">
+	  <h4 class="alert-heading">Free!</h4>
+	  Manage public API's for free!
+	</div>
 <a href="#/register" class="btn btn-superlarge btn-primary" href="#">Sign up</a>
+<% }; %>
 			</div>
 			<div style="float: right; width: 400px; height:  200px; background: #ccc"></div>
 			<div style="clear: both;"></div>
-			</div>
-
 	</div>
-	<div class="">
-				<div class="public-container ">
+
+</div>
+<div class="">
+	<div class="public-container ">
 		Loading
 	</div>
 </div>

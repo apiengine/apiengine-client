@@ -7,8 +7,10 @@ define([
   'models/session',
   'text!templates/profile/page.html',
   'models/api',
-  'views/apis/list'
-], function($, _, Backbone, bootstrap, Router, Session, newApiTemplate, ApiModel, ApisList){
+  'views/apis/list',
+  'models/user'
+
+], function($, _, Backbone, bootstrap, Router, Session, newApiTemplate, ApiModel, ApisList, UserModel){
   var NewApiPage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
@@ -41,11 +43,16 @@ define([
     },  
     render: function () {
       var that = this;
-      this.$el.html(_.template(newApiTemplate, {errors: []}));
+      var userModel = new UserModel({id: this.options.username});
+      userModel.fetch({
+        success: function (user) {
+          that.$el.html(_.template(newApiTemplate, {user: user}));
 
-        var apisList = new ApisList({location: 'profile', el: '.private-container'});
-        apisList.render();
-
+      
+          var apisList = new ApisList({username: that.options.username, el: '.private-container'});
+          apisList.render();
+        }
+      });
     }
   });
   return NewApiPage;
