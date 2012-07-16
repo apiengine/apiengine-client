@@ -14,11 +14,10 @@ define([
       Session.on('change:auth', function (session) {
           that.render();
       });
-      Session.on('change:errors', function (errors) {
-          that.render();
-      });
+    
     },
     render: function () {
+      console.log('a', Session.get('auth'))
       // Simply choose which template to choose depending on
       // our Session models auth attribute
       if(Session.get('auth')){
@@ -37,6 +36,7 @@ define([
       $('[type=submit]', ev.currentTarget).val('Logging in').attr('disabled', 'disabled');
       // Serialize the form into an object using a jQuery plgin
       var creds = $(ev.currentTarget).serializeObject();
+      Session.set({auth: false}, {silent: true});
       Session.login(creds);
       return false;
     }

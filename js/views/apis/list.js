@@ -19,7 +19,7 @@ define([
       apis.is_public =  this.options.is_public;
       apis.fetch({
         success: function (collection) {
-          that.$el.html(_.template(apisListTemplate, {_:_, is_public: that.options.is_public, apis: collection.models}));
+          that.$el.html(_.template(apisListTemplate, {_:_, is_public: that.options.is_public, apis: collection.models, user: Session.get('user')}));
           $('.js-api-filter').button()
         }
       });

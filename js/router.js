@@ -8,14 +8,14 @@ define([
   var AppRouter = Backbone.Router.extend({
     routes: {
 
-      '/layouttest': 'layouttest',
-      '/apis/edit/:id': 'editApi',
-      '/apis/edit': 'editApi',
-      '/apis/:id': 'showApi',
-      '/apis/:id/method/:method_id': 'showApi',
-      '/apis/:id/methods/edit': 'editMethod',
-      '/login': 'login',
-      '/register': 'register',
+      'layouttest': 'layouttest',
+      'apis/edit/:id': 'editApi',
+      'apis/edit': 'editApi',
+      'apis/:id': 'showApi',
+      'apis/:id/method/:method_id': 'showApi',
+      'apis/:id/methods/edit': 'editMethod',
+      'login': 'login',
+      'register': 'register',
       '': 'home',
       '*actions': 'defaultAction' // All urls will trigger this route
     }

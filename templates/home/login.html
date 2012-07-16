@@ -2,13 +2,20 @@
     <h3>Login</h3>
     <form class="login">
         <label for="">Username</label>
-        <input name="login" type="text" required autofocus />
+        <input name="login" type="text" required autofocus placeholder="Username" />
         <br />
         <label for="">Password</label>
-        <input name="password" type="password" required />
+        <input name="password" type="password" required placeholder="Password" />
         <br />
         <input type="submit" class="btn" id="submit" value="Login" />
 
     </form>
 
+        <% _.each(errors, function (error) { %>
+    <div class="alert alert-error">
+      <a class="close" data-dismiss="alert" href="#">×</a>
+      <h4 class="alert-heading">Auth failed!</h4>
+        Check your username and password
+    </div>
+    <% }); %>
 </div>

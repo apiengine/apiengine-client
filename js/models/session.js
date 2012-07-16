@@ -23,8 +23,10 @@ define([
     },
     login: function(creds) {
       // Do a POST to /session and send the serialized form creds
+      this.clear({silent: true});
       this.save(creds, {
-         success: function () {}
+         success: function () {},
+         wait: true
       });
     },
     logout: function() {
