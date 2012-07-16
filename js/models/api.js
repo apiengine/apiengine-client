@@ -3,7 +3,7 @@ define([
   'backbone'
 ], function(_, Backbone) {
   var ApiModel = Backbone.Model.extend({
-    urlRoot: '/apis'
+    urlRoot: '/user/thomasdavis/api'
 
   });
   return ApiModel;

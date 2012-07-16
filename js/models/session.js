@@ -15,9 +15,9 @@ define([
           withCredentials: true
         };
         // If we have a csrf token send it through with the next request
-        if(typeof that.get('_csrf') !== 'undefined') {
-          console.log(that.get('_csrf'));
-          jqXHR.setRequestHeader('X-CSRF-Token', that.get('_csrf'));
+        if(typeof that.get('csrf') !== 'undefined') {
+          console.log(that.get('csrf'));
+          jqXHR.setRequestHeader('X-CSRF-Token', that.get('csrf'));
         }
       });
     },
@@ -30,14 +30,15 @@ define([
     logout: function() {
       // Do a DELETE to /session and clear the clientside data
       var that = this;
-      this.destroy({
+      this.id = '';
+      $.ajax('/session',{
+        type: 'DELETE',
         success: function (model, resp) {
           
-          model.clear()
           // Set auth to false to trigger a change:auth event
           // The server also returns a new csrf token so that
           // the user can relogin without refreshing the page
-          that.set({auth: false, _csrf: resp._csrf});
+          that.set({auth: false, csrf: resp.csrf});
           
         }
       });      

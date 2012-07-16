@@ -14,6 +14,9 @@ define([
       '/apis/:id': 'showApi',
       '/apis/:id/method/:method_id': 'showApi',
       '/apis/:id/methods/edit': 'editMethod',
+      '/login': 'login',
+      '/register': 'register',
+      '': 'home',
       '*actions': 'defaultAction' // All urls will trigger this route
     }
   });
@@ -29,7 +32,19 @@ define([
         apiDetailsView.render();
       });
     });
-    
+    router.on('route:login', function (apiId) {
+      require(['views/home/login'], function (LoginView) {
+        var loginView = Vm.create(appView, 'LoginView', LoginView, {});
+        loginView.render();
+      });
+    });
+  
+    router.on('route:register', function (apiId) {
+      require(['views/home/register'], function (RegisterView) {
+        var registerView = Vm.create(appView, 'RegisterView', RegisterView, {});
+        registerView.render();
+      });
+    });      
     router.on('route:showApi', function (apiId, methodId) {
       require(['views/apis/details'], function (ApiDetailsView) {
         var apiDetailsView = Vm.create(appView, 'ApiDetailsView', ApiDetailsView, {apiId: apiId, methodId: methodId});
@@ -49,11 +64,18 @@ define([
         editMethodView.render();
       });
     });
-    
+    router.on('route:home', function () {
+      console.log('home');
+      require(['views/home/page'], function (HomeView) {
+        var homeView = Vm.create(appView, 'HomeView', HomeView, {});
+        homeView.render();
+      });
+    });
+        
 		router.on('route:defaultAction', function (actions) {
-			require(['views/home/page'], function (HomePage) {
-        var homePage = Vm.create(appView, 'HomePage', HomePage);
-        homePage.render();
+			require(['views/profile/page'], function (ProfilePage) {
+        var profilePage = Vm.create(appView, 'ProfilePage', ProfilePage);
+        profilePage.render();
       });
 		});
     

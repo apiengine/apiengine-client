@@ -2,11 +2,13 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'bootstrap',
   'router',
   'models/session',
-  'text!templates/apis/edit.html',
-  'models/api'
-], function($, _, Backbone, Router, Session, newApiTemplate, ApiModel){
+  'text!templates/profile/page.html',
+  'models/api',
+  'views/apis/list'
+], function($, _, Backbone, bootstrap, Router, Session, newApiTemplate, ApiModel, ApisList){
   var NewApiPage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
@@ -22,12 +24,6 @@ define([
       var apiData = $(ev.currentTarget).serializeObject();
       var api = new ApiModel;
       console.log(apiData);
-      apiData.user = 'thomasdavis';
-      if(apiData.private === '0') {
-        apiData.private = true;
-      } else {
-        apiData.private = false;
-      }
       api.save(apiData, {
         success: function (model) {
           console.log(model);
@@ -36,9 +32,20 @@ define([
       });
       return false;
     },
+    events: {
+      'click .js-edit-profile': 'editProfile'
+    },
+    editProfile: function (ev) {
+      $(ev.currentTarget).attr('disabled', 'disabled');
+      $('#js-edit-profile-form').modal({})
+    },  
     render: function () {
       var that = this;
       this.$el.html(_.template(newApiTemplate, {errors: []}));
+
+        var apisList = new ApisList({is_public: false, el: '.private-container'});
+        apisList.render();
+
     }
   });
   return NewApiPage;
