@@ -2,6 +2,7 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'bootstrap',
   'router',
   'vm',
   'models/session',
@@ -11,7 +12,7 @@ define([
   'views/methods/list',
   'views/methods/details',
   'models/api'
-], function($, _, Backbone, Router, Vm, Session, apiDetailsTemplate, ApiModel, MethodsCollection, MethodsListView, MethodDetailView, ApiModel){
+], function($, _, Backbone, Bootstrap, Router, Vm, Session, apiDetailsTemplate, ApiModel, MethodsCollection, MethodsListView, MethodDetailView, ApiModel){
   var NewApiPage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
@@ -26,9 +27,16 @@ define([
 
       if($('.api-methods-container').length === 0) {
         this.$el.html('Loading API');
-        var apiModel = new ApiModel({id: this.options.apiId});
+        var apiModel = new ApiModel({username: this.options.username, apiname: this.options.apiname, version: this.options.version});
         apiModel.fetch({
           success: function (api) {
+              that.$el.html(_.template(apiDetailsTemplate, {api: api, errors: []}));
+              $('.js-api-pages a').click(function (e) {
+  e.preventDefault();
+  $(this).tab('show');
+})
+
+             /*
             var owner = false;
             if(Session.get('user_id') === api.get('UserId')){
               owner = true;
@@ -40,10 +48,12 @@ define([
              if(typeof that.options.methodId !== 'undefined') {
                 var methodDetailView = Vm.create(that, 'methoddetailview', MethodDetailView, {methodId: that.options.methodId, apiId: that.options.apiId, owner: owner});
                 methodDetailView.render();
-              }
+             }
+             */
           }
         })
       } else {
+        /*
          var owner = false;
           if(Session.get('user_id')*1 === $('.api-methods-container').attr('data-user-id')*1){
             owner = true;
@@ -51,7 +61,7 @@ define([
         if(typeof that.options.methodId !== 'undefined') {
           var methodDetailView = Vm.create(that, 'methoddetailview', MethodDetailView, {methodId: that.options.methodId, apiId: that.options.apiId, owner: owner});
           methodDetailView.render();
-        }
+        }*/
       }
     }
   });

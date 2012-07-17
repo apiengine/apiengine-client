@@ -5,11 +5,7 @@ define([
 ], function(_, Backbone, Session) {
   var ApiModel = Backbone.Model.extend({
     urlRoot: function () {
-    	if(this.location === 'profile') {
-    		return '/user/' + Session.get('login') + '/api';
-    	} else {
-    		return '/api';
-    	}
+    		return '/user/' +this.get('username')+ '/api/' +this.get('apiname')+ '/' + this.get('version');
     }
   });
   return ApiModel;

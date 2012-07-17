@@ -23,7 +23,7 @@
 
 <div class="well">
 
-    <a href="#/apis/<%= api.id%>">
+    <a href="#/<%= api.get('user') %>/<%= api.get('name') %>/version/<%= api.get('versions')[0] %>">
     	<% if(api.get('private') === true) { %>
     		<i class="icon-lock"></i>
     	<% }; %>
@@ -33,8 +33,17 @@
  
       <%= api.get('user') %>
     </a> 
-    <p>Google Compute Engine offers scalable and flexible virtual machine computing capabilities in the cloud. With Google Compute Engine, you can solve large scale processing and analytic problems on Google’s computing, storage, and networking infrastructure.</p>
+    <p>Google Compute Engine offers scalable and flexible virtual machine computing capabilities in the cloud. With Google Compute Engine, you can solve large scale processing and analytic problems on Google’s computing, storage, and networking infrastructure. 
+      <p>Version - 
+      <%= api.get('versions')[0] %>
+    </p>
+    </p>
 </div>
   <% }) } else { %>
+  <div class="alert alert-block">
+  <a class="close" data-dismiss="alert" href="#">×</a>
+  <h4 class="alert-heading">Oh my goodness!</h4>
+    This user has no API's
+</div>
   <% }; %>
 </ul>

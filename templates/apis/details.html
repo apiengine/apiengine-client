@@ -1,30 +1,354 @@
-
 <style>
-.request-list-container,
+.method-list-container,
 .resource-list-container {
 	border-right: 1px solid #ccc;
 }
-.request-list-container .badge.notification-total,
+.method-list-container .badge.notification-total,
 .resource-list-container .badge.notification-total {
 	float: right;
 }
-</style>
+.method-list-container  li a {
+	position: relative;
+}
+.method-list-container .method-name {
+	padding-left: 70px;
+}
+.method-list-container .badge-method-type {
+	position: absolute;
+}
+.method-list-container .nav-list {
+	padding-left: 0;
+}
+.user-profile-image {
+	width: 60px;
+	height: 60px;
+	background: #ebebeb;
+	float: left;
+}
+.comments-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
 
-<h1><%= api.get('name') %> API</h1>
-<hr />
-<div class="row-fluid ">
-	<div class="span2 ">
+.comments-list > li {
+	margin-bottom: 20px;
+}
+.comment {
+	float: left;
+	width: 800px;
+	margin-left: 20px;
+}
+.comment-username {
+	font-weight: bold;
+}
+.comment-input {
+	width: 100%;
+	height: 77px !important;
+}
+th.request-body-header {
+	background: #08C !important;
+	color: #fff !important;
+}
+.activity-log {
+	margin-top: 20px;
+	list-style: none;
+	background: #f0f0f0;
+	padding: 10px;
+	border: 1px solid #ccc;
+}
+.activity-log > li {
+	margin-t
+}
+</style>
+<div style="position: relative;">
+<h1 style="margin-left: 20px;"><%= api.get('api') %> / <%= api.get('user') %></h1>
+<p style="margin-left: 20px;">What goes down and out must fly in and outwards.</p>
+<div class="btn-toolbar"  style="position: absolute; right: 20px; top: 10px;">
+  
+
+<div class="btn-group">
+          <button class="btn btn-warning">Edit</button>
+          <button class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#" data-bitly-type="bitly_hover_card">Action</a></li>
+            <li><a href="#" data-bitly-type="bitly_hover_card">Another action</a></li>
+            <li><a href="#" data-bitly-type="bitly_hover_card">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#" data-bitly-type="bitly_hover_card">Separated link</a></li>
+          </ul>
+        </div>
+<div class="btn-group" >
+          <button class="btn btn-inverse">Version 1.0</button>
+          <button class="btn btn-inverse dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#" data-bitly-type="bitly_hover_card">Action</a></li>
+            <li><a href="#" data-bitly-type="bitly_hover_card">Another action</a></li>
+            <li><a href="#" data-bitly-type="bitly_hover_card">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#" data-bitly-type="bitly_hover_card">Separated link</a></li>
+          </ul>
+        </div>
+				<div class="btn-group" style="">
+          <button class="btn btn-info">Share</button>
+          <button class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#" data-bitly-type="bitly_hover_card">Action</a></li>
+            <li><a href="#" data-bitly-type="bitly_hover_card">Another action</a></li>
+            <li><a href="#" data-bitly-type="bitly_hover_card">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#" data-bitly-type="bitly_hover_card">Separated link</a></li>
+          </ul>
+        </div>
+ </div>	
+   </div>
+<hr>
+
+<div class="row_fluid">
+	<div class="span4">
 		<div class="resource-list-container">
-					<div class="api-methods-container" data-user-id="<%= api.get('UserId') %>">
-			Loading
-		</div>
-		
+			<ul class="nav nav-list">
+					<li>
+
+		<button class="btn js-new-resource">New Resource</button>
+
+	</li>
+			 <li class="nav-header">
+	    Users
+		  </li>
+			  <li>
+			    <a href="#">
+			     /user/some
+			    </a>
+			  </li> 
+			  <li class="active">
+	<a href="#">
+			     /resources/some
+			    </a>
+			  </li> 
+			  	 <li class="nav-header">
+	    Resources
+		  </li>	  <li class="nav-header">
+			     /resources/some
+			  	<ul class="nav nav-list">
+				<li>
+	
+				</li>	 
+			  <li>
+			    <a href="#">
+			      <span class="badge badge-method-type badge-PUT">PUT</span>
+			      <span class="method-name">
+			      	Update a user
+			      </span><span class="badge badge-info notification-total">2</span>
+			    </a>
+			  </li>
+			  <li>
+			    <a href="#">
+			      <span class="badge badge-method-type badge-POST">POST</span>
+			      <span class="method-name">Create a blank user</span>
+			    </a>
+			  </li>
+			  			  <li>
+			    <a href="#">
+			      <span class="badge badge-method-type badge-GET">GET</span>
+			      <span class="method-name">Get a list of users</span><span class="badge badge-info notification-total">6</span>
+			    </a>
+			  </li>
+			  			  <li>
+			    <a href="#">
+			      <span class="badge badge-method-type badge-DELETE">DELETE</span>
+			      <span class="method-name">Delete a user</span>
+			    </a>
+			  </li>
+			</ul>
+			  </li> 
+			   	 <li class="nav-header">
+	    Comments
+		  </li>	  <li class="">
+	<a href="#">
+			     /comments/
+			    </a>
+			  </li> 
+			  
+			  <li class="">
+			    <a href="#">
+			     /resources/some
+			    </a>
+			  </li> 
+			</ul>
 		</div>
 	</div>
-	<div class="span10 ">
-		<div class="method-container">
-			Choose a method
+	<div class="span4">
+
+		<div class="method-list-container">
+		
+	</div>
+	</div>
+	<div class="span12">
+		<h3>Update a user</h3>
+		<p>Google Compute Engine offers scalable and flexible virtual machine computing capabilities in the cloud. With Google Compute Engine, you can solve large scale processing and analytic problems on Google’s computing, storage, and networking infrastructure.<p>
+<hr>
+<style>
+.matchpre td { 
+border: 1px solid #000;
+}
+.table td {
+	border-bottom: none;
+}
+</style>
+<table class="table">
+      <thead>
+        <tr>
+          <th>Property Name</th>
+          <th>Value</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr id="kind">
+        <td><code>somearrays[]</code></td>
+        <td><code class="apitype">array</code></td>
+        <td>Type of resource. Always <code>compute#diskList</code>.</td>
+        <td>
+        	<div class="btn-group">
+          <button class="btn btn-primary">Action</button>
+          <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#" data-bitly-type="bitly_hover_card">Edit</a></li>
+            <li><a href="#" data-bitly-type="bitly_hover_card">Add a field</a></li>
+            <li class="divider"></li>
+            <li><a href="#" data-bitly-type="bitly_hover_card">Delete</a></li>
+          </ul>
+        </div>
+      </td>
+      </tr>
+      <tr id="id">
+        <td><code style="margin-left: 20px;">id</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>Unique identifier for the resource; defined by the server (output only).</td>
+        <td></td>
+      </tr>
+      <tr id="id">
+        <td><code style="margin-left: 20px;">someobject{}</code></td>
+        <td><code class="apitype">object</code></td>
+        <td>Unique identifier for the resource; defined by the server (output only).</td>
+        <td></td>
+      </tr>
+      <tr id="selfLink">
+        <td><code style="margin-left: 40px;">selfLink</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>Server-defined URL for this resource (output only).</td>
+        <td></td>
+      </tr>      
+      <tr id="id">
+        <td><code style="margin-left: 20px;">somestring</code></td>
+        <td><code class="apitype">object</code></td>
+        <td>Unique identifier for the resource; defined by the server (output only).</td>
+        <td></td>
+      </tr>
+      <tr id="items">
+        <td><code>items[]</code></td>
+        <td><code class="apitype">list</code></td>
+        <td>The persistent disk resources.</td>
+        <td></td>
+      </tr>
+      <tr id="nextPageToken">
+        <td><code>nextPageToken</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>A token used to continue a truncated list request.</td>
+        <td></td>
+      </tr>
+      </tbody>
+    </table>
+
+
+
+			<form class="form-horizontal" style="margin-top: 30px;">
+  <fieldset>
+    <div class="control-group">
+        <input type="text" class="comment-input input-xlarge" id="input01">
+        <button class="btn btn-primary" style="margin-top: 20px; margin-bottom: 20px;">Add comment</button>
+    </div>
+  </fieldset>
+</form>
+
+   <div class="btn-group">
+  <button class="btn active">All</button>
+  <button class="btn">Activity</button>
+  <button class="btn">Comments</button>
+</div>
+  <hr />
+	<div class="comments-container">
+		<ul class="comments-list">
+			<li>
+				<div class="comment-container">
+					<div class="comment-user-container">
+						<div class="user-profile-image"></div>
+
+						<div class="comment">
+							<div class="comment-username">John Howard</div>
+							I'm a fucking dick sucking. It actually bothered me. Like, the audience in the last panel made it obvious that he wasn't reacting to what was said, and that it was during another part of the interview. Would have been funnier without the audience.</div>
+						<div style="clear: both;"></div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="comment-container">
+					<div class="comment-user-container">
+						<div class="user-profile-image">
+							<img src="http://www.designdownloader.com/item/pngl/maintenance_k01/maintenance_k01-20111010143211-00017.png" style="width: 60px; height: 60px;" />
+						</div>
+
+						<div class="comment">
+							<div class="comment-username">Mark Hibberd</div>
+							Like, the audience in the last panel made it obvious that he wasn't reacting to what was said, and that it was during another part of the interview. Would have been funnier without the audience.
+
+					<div class="activity-log-changes">
+								<ul class="activity-log">
+								  <li class=""><i  class="icon-minus-sign"></i>
+								    Deleted the property name
+								  </li>
+								  <li><i  class="icon-plus-sign"></i>
+								    Added a property name
+								  </li>
+								</ul>
+								</div>
+						</div>
+						<div style="clear: both;"></div>
+
+		
+						<div style="clear: both;"></div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<hr>
+				<div class="comment-container">
+					<div class="comment-user-container">
+						<div class="user-profile-image"></div>
+						<div class="comment">
+							<div class="comment-username">Peter Andre</div>
+						<p>I have solved it! I know why people hate Gingers! It is a form of subliminal racisim. Just rearange two letters and you will see. Now think of that the next time you decide to pick on a redhead.</p></div>
+						<div style="clear: both;"></div>
+
+					</div>
+				</div>
+			</li>
 		</div>
 	</div>
 </div>
 
+<div class="modal hide" id="myModal">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">×</button>
+    <h3>Modal header</h3>
+  </div>
+  <div class="modal-body">
+    <p>One fine body…</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Close</a>
+    <a href="#" class="btn btn-primary">Save changes</a>
+  </div>
+</div>
