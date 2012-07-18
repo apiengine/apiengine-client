@@ -7,4 +7,5 @@
 
 
 @import url("theme.css");
+@import url("highlight/styles/github.css");
 @import url("jsoneditor.css");

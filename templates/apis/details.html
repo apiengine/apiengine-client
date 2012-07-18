@@ -185,7 +185,11 @@ th.request-body-header {
 	</div>
 	</div>
 	<div class="span12">
-		<h3>Update a user</h3>
+		<h2>Users - Update a user</h2>
+		<code class="xml" style="display: block; width: 100%; margin-top: 10px; margin-bottom: 20px;">
+			PUT /user/{user}
+		</code>
+	
 		<p>Google Compute Engine offers scalable and flexible virtual machine computing capabilities in the cloud. With Google Compute Engine, you can solve large scale processing and analytic problems on Google’s computing, storage, and networking infrastructure.<p>
 <hr>
 <style>
@@ -196,6 +200,10 @@ border: 1px solid #000;
 	border-bottom: none;
 }
 </style>
+<h3>Request</h3>
+<pre class="headers"><code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
 <table class="table">
       <thead>
         <tr>
@@ -263,6 +271,32 @@ border: 1px solid #000;
     </table>
 
 
+	<h3>Mock Server Url</h3>
+				<code class="xml" style="display: block; width: 100%; margin-top: 10px; margin-bottom: 20px;">
+			http://mockserver.apiengine.com/someserver/user/{user}
+		</code>
+    
+<h3>Code Demos</h3>
+<ul class="nav nav-tabs" id="myTab">
+  <li class="active"><a href="#home">Curl</a></li>
+  <li><a href="#profile">Node.js</a></li>
+  <li><a href="#messages">Rails</a></li>
+  <li><a href="#settings">jQuery</a></li>
+</ul>
+ 
+<div class="tab-content">
+  <div class="tab-pane active" id="home">
+<pre>
+<code class="xml">
+curl 	url -i -H "Accept: application/json" http://192.168.0.165/persons/person/1  
+</code>
+</pre>
+  </div>
+
+
+
+</div>
+
 
 			<form class="form-horizontal" style="margin-top: 30px;">
   <fieldset>
@@ -273,11 +307,6 @@ border: 1px solid #000;
   </fieldset>
 </form>
 
-   <div class="btn-group">
-  <button class="btn active">All</button>
-  <button class="btn">Activity</button>
-  <button class="btn">Comments</button>
-</div>
   <hr />
 	<div class="comments-container">
 		<ul class="comments-list">

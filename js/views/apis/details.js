@@ -11,8 +11,9 @@ define([
   'collections/methods',
   'views/methods/list',
   'views/methods/details',
-  'models/api'
-], function($, _, Backbone, Bootstrap, Router, Vm, Session, apiDetailsTemplate, ApiModel, MethodsCollection, MethodsListView, MethodDetailView, ApiModel){
+  'models/api',
+  'libs/highlight/highlight'
+], function($, _, Backbone, Bootstrap, Router, Vm, Session, apiDetailsTemplate, ApiModel, MethodsCollection, MethodsListView, MethodDetailView, ApiModel, hljs){
   var NewApiPage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
@@ -28,9 +29,14 @@ define([
       if($('.api-methods-container').length === 0) {
         this.$el.html('Loading API');
         var apiModel = new ApiModel({username: this.options.username, apiname: this.options.apiname, version: this.options.version});
+
+
         apiModel.fetch({
           success: function (api) {
+              console.log('hljf' , hljs)
               that.$el.html(_.template(apiDetailsTemplate, {api: api, errors: []}));
+              
+  $('code').each(function(i, e) {hljs.highlightBlock(e); });
               $('.js-api-pages a').click(function (e) {
   e.preventDefault();
   $(this).tab('show');
@@ -63,6 +69,7 @@ define([
           methodDetailView.render();
         }*/
       }
+
     }
   });
   return NewApiPage;
