@@ -16,3 +16,10 @@ html {
     overflow-x: hidden;
     overflow-y: auto;
 }
+
+.logo {
+    width: 257px;
+    height: 257px;
+    background-size: 257px;
+    background: url('../img/logo.jpg') no-repeat;
+}
