@@ -1,4 +1,4 @@
-  <% if(username && location === 'profile') { %><div class="well">
+  <% if(currentUser) { %><div class="well">
  <div class="btn-group js-api-filter" data-toggle="buttons-radio" style="width: 400px; display: block; float: left;">
 
 
@@ -7,7 +7,7 @@
 
 </div>
 
-  <a class="btn btn-primary" style="float: right;" href="#/apis/edit">New API</a>
+  <a class="btn btn-primary js-new-api-button" style="float: right;" href="">New API</a>
 </div> 
   <% } else { %>
 
@@ -47,3 +47,45 @@
 </div>
   <% }; %>
 </ul>
+
+
+
+
+<div class="modal hide" id="js-new-api-modal">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">×</button>
+    <h3>Edit profile</h3>
+  </div>
+
+
+<div class="method-edit-container well">
+  <form class="form-horizontal edit-api js-new-api-form">
+  <fieldset>
+    <legend>Create a new API</legend>
+    <div class="control-group">
+      <label class="control-label" for="input02">API Name</label>
+      <div class="controls">
+               
+          <input name="name" type="text" required autofocus />
+      </div>
+      </div>
+      <div class="control-group">
+      <label class="control-label" for="input01">Resource URL</label>
+      <div class="controls">       <input type="radio" name="private" value="0" checked /> Public<br />
+  <input type="radio" name="private" value="1" /> Private
+      </div>
+      </div>
+
+<div class="form-actions">
+            <button id="submit" type="submit" class="btn btn-primary">Create API</button>
+            <a class="btn" href="#/">Cancel</a>
+          </div>
+
+
+    </div>
+  </fieldset>
+
+</form>
+
+</div>
+</div>

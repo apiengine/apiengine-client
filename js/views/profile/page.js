@@ -15,7 +15,10 @@ define([
     el: '.page',
     initialize: function () {
       var that = this;
-      
+      this.userModel = new UserModel({id: this.options.username});
+      this.userModel.on('change', function(userModel) {
+        that.renderProfile();
+      });
     },  
     events: {
       'submit form.edit-api': 'editApi'
@@ -35,26 +38,48 @@ define([
       return false;
     },
     events: {
-      'click .js-edit-profile': 'editProfile'
+      'click .js-edit-profile': 'editProfile',
+      'submit .js-save-profile-form': 'saveProfile'
     },
     editProfile: function (ev) {
-      $(ev.currentTarget).attr('disabled', 'disabled');
-      $('#js-edit-profile-form').modal({})
+      $('#js-edit-profile-form').modal('show');
     },  
-    render: function () {
+    saveProfile: function (ev) {
       var that = this;
-      var userModel = new UserModel({id: this.options.username});
-      userModel.fetch({
-        success: function (user) {
-          currentUser = false;
-          if(Session.get('login') === that.options.username ) { 
-            currentUser = true;
-          }
-          that.$el.html(_.template(newApiTemplate, {user: user}));
-          var apisList = new ApisList({currentUser: currentUser, username: that.options.username, el: '.private-container'});
-          apisList.render();
+      this.userModel.set($(ev.currentTarget).serializeObject());
+      if(this.userModel.get('publicize') === 'true') { 
+        this.userModel.set({publicize: true});
+      } else {
+        this.userModel.set({publicize: false});
+
+      }
+      this.userModel.id = this.options.username;
+      this.userModel.save({}, {
+        success: function(resp){
+          
         }
       });
+      return false;
+    },
+    render: function () {
+      var that = this;
+      this.userModel.fetch({
+        success: function (user) {
+          
+        }
+      });
+    },
+    renderProfile: function () {
+      $('#js-edit-profile-form').modal('hide');
+
+      var that = this;
+      currentUser = false;
+      if(Session.get('login') === that.options.username ) { 
+        currentUser = true;
+      }
+      that.$el.html(_.template(newApiTemplate, {user: that.userModel}));
+      var apisList = new ApisList({currentUser: currentUser, username: that.options.username, el: '.private-container'});
+      apisList.render();
     }
   });
   return NewApiPage;

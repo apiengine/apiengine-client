@@ -1,3 +1,6 @@
+html {
+    overflow-y: scroll;
+}
 .autoresize {
 	 width: 400px; 
     min-height: 120px; 

@@ -1,26 +1,28 @@
 <div class="container" style="width: 960px;">
-<div class="row-fluid">
-	<div class="">
-			<div class="well">
-		
-				<div style="float: left; width: 80px; height:  80px; background: #ccc"><img src="<%= user.gravatar() %>" /></div>		
-				<div style="float: left; width: 500px; margin-left: 20px;">
-						<h1><%= user.get('login') %> (Thomas Davis)</h1>
-						<p>ApiDocco is a web app built as a tool to significantly aid your applications RESTful API development.</p>
-						<% if(currentUser) { %>
-	          <button class="btn btn-success dropdown-toggle js-edit-profile" data-toggle="dropdown">Edit </button>
-	          <% }; %>
+	<div class="row-fluid">
+		<div class="">
+				<div class="well">
+			
+					<div style="float: left; width: 80px; height:  80px; background: #ccc"><img src="http://www.gravatar.com/avatar/<%= user.get('gravatar') %>.jpg" /></div>		
+					<div style="float: left; width: 500px; margin-left: 20px;">
+							<h1><%= user.get('login') %> (Thomas Davis)</h1>
+							<h2><%= user.get('url') %></h2>
+							<h2><%= user.get('email') %></h2>
+							<p>ApiDocco is a web app built as a tool to significantly aid your applications RESTful API development.</p>
+							<% if(currentUser) { %>
+		          <button class="btn btn-success dropdown-toggle js-edit-profile" data-toggle="dropdown">Edit </button>
+		          <% }; %>
 
-						<div style="clear: both;"></div>
+							<div style="clear: both;"></div>
+					</div>
+					<div style="clear: both;"></div>
 				</div>
-				<div style="clear: both;"></div>
 			</div>
+		<div class="">
+		<div class="private-container ">
+			Loading
 		</div>
-	<div class="">
-				<div class="private-container ">
-		Loading
 	</div>
-</div>
 
 <!--
 
@@ -38,25 +40,49 @@
 <div class="modal hide" id="js-edit-profile-form">
 	<div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">×</button>
-    <h3>Modal header</h3>
+    <h3>Edit profile</h3>
   </div>
   <div class="modal-body">
-   <form class="form-horizontal">
+  	<p>Use this form to edit your user profile for now because I am a lazy UI designer.
+   <form class="form-horizontal js-save-profile-form">
   <fieldset>
-    <legend>Legend text</legend>
+    <legend>Info</legend>
     <div class="control-group">
-      <label class="control-label" for="input01">Text input</label>
+      <label class="control-label" for="input01">Url</label>
       <div class="controls">
-        <input type="text" class="input-xlarge" id="input01">
-        <p class="help-block">Supporting help text</p>
+        <input type="url" class="input-xlarge" name="url" id="input01" value="<%= user.get('url') %>">
+        <p class="help-block">Your homepage!</p>
       </div>
     </div>
+		<div class="control-group">
+            <label class="control-label" for="textarea">Description</label>
+            <div class="controls">
+              <textarea class="input-xlarge" id="textarea" rows="3"></textarea>
+            </div>
+    </div>
+
+		<div class="control-group">
+            <label class="control-label">Publicize email</label>
+            <div class="controls">
+              <label class="radio">
+                <input type="radio" name="publicize" value="true" id="optionsRadios1" checked="" <%= user.get('publicize') === true ? 'checked' : '' %>>
+                Make my email address public
+              </label>
+              <label class="radio">
+                <input type="radio" id="optionsRadios2" value="false" name="publicize" <%= user.get('publicize') === false ? 'checked' : '' %>>
+                Keep it private please
+              </label>
+            </div>
+          </div>
+
   </fieldset>
-</form>
   </div>
   <div class="modal-footer">
     <a href="#" class="btn" data-dismiss="modal">Close</a>
-    <a href="#" class="btn btn-primary">Save changes</a>
+    <input type="submit" value="Save changes" class="btn btn-primary js-save-profile">
   </div>
+</form>
 
+
+	</div>
 	</div>

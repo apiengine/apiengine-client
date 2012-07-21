@@ -58,7 +58,9 @@ th.request-body-header {
 	border: 1px solid #ccc;
 }
 .activity-log > li {
-	margin-t
+}
+.action-column {
+	width: 100px;
 }
 </style>
 <div style="position: relative;">
@@ -201,16 +203,53 @@ border: 1px solid #000;
 }
 </style>
 <h3>Request</h3>
-<pre class="headers"><code>Status: 200 OK
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999</code></pre>
-<table class="table">
+<h4>Headers</h4>
+
+<table class="table request-table">
       <thead>
         <tr>
           <th>Property Name</th>
           <th>Value</th>
           <th>Description</th>
           <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+   
+      <tr id="items">
+        <td><code>Accept</code></td>
+        <td><code class="apitype">application/json, text/javascript</code></td>
+        <td>Some description about this request header</td>
+        <td></td>
+      </tr>
+      <tr id="nextPageToken">
+        <td><code>X-Requested-With</code></td>
+        <td><code class="apitype">XMLHttpRequest</code></td>
+        <td>For security reasons this request header must be set</td>
+        <td class="action-column"><div class="btn-group">
+          <button class="btn btn-primary">Action</button>
+          <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#" data-bitly-type="bitly_hover_card">Edit</a></li>
+            <li><a href="#" data-bitly-type="bitly_hover_card">Add a field</a></li>
+            <li class="divider"></li>
+            <li><a href="#" data-bitly-type="bitly_hover_card">Delete</a></li>
+          </ul>
+        </div></td>
+      </tr>
+      </tbody>
+    </table>
+
+<h4>Body</h4>
+
+
+<table class="table request-table">
+      <thead>
+        <tr>
+          <th>Property Name</th>
+          <th>Value</th>
+          <th>Description</th>
+          <th class="action-column">Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -275,7 +314,7 @@ X-RateLimit-Remaining: 4999</code></pre>
 				<code class="xml" style="display: block; width: 100%; margin-top: 10px; margin-bottom: 20px;">
 			http://mockserver.apiengine.com/someserver/user/{user}
 		</code>
-    
+
 <h3>Code Demos</h3>
 <ul class="nav nav-tabs" id="myTab">
   <li class="active"><a href="#home">Curl</a></li>
@@ -371,7 +410,7 @@ curl 	url -i -H "Accept: application/json" http://192.168.0.165/persons/person/1
 <div class="modal hide" id="myModal">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">×</button>
-    <h3>Modal header</h3>
+    <h3>Edit profile</h3>
   </div>
   <div class="modal-body">
     <p>One fine body…</p>
