@@ -44,10 +44,11 @@ define([
       var apis = new ApisCollection();
       console.log(this.options.username, 'asdasdasd');
       currentUser = false;
-      if(Session.get('login') === that.options.username ) { 
+      console.log(Session.get('login'), that.options.username);
+      if(Session.get('login') === that.options.username && typeof Session.get('login') !== 'undefined') { 
         currentUser = true;
       }
-
+      console.log(currentUser);
       if(that.options.username) {
         apis.username = that.options.username;
       };
