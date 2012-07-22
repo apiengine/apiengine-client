@@ -17,6 +17,7 @@ define([
       'login': 'login',
       'register': 'register',
       '': 'home',
+      ':username/:apiname/version/:version/resource/:resource': 'apiPage',
       ':username/:apiname/version/:version': 'apiPage',
       ':username': 'defaultAction' // All urls will trigger this route
     }
@@ -26,9 +27,9 @@ define([
     
 		var appView = options.appView;
     var router = new AppRouter(options);
-    router.on('route:apiPage', function (username, apiname, version) {
+    router.on('route:apiPage', function (username, apiname, version, resourceId) {
       require(['views/apis/details'], function (ApiDetailsView) {
-        var apiDetailsView = Vm.create(appView, 'ApiDetailsView', ApiDetailsView, {username: username, apiname: apiname, version: version});
+        var apiDetailsView = Vm.create(appView, 'ApiDetailsView', ApiDetailsView, {username: username, apiname: apiname, version: version, resourceId: resourceId});
         apiDetailsView.render();
       });
     });

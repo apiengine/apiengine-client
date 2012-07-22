@@ -4,15 +4,15 @@ define([
   'backbone',
   'models/session'
 ], function($, _, Backbone, Session){
-  var Methods = Backbone.Collection.extend({
+  var Resources = Backbone.Collection.extend({
     url: function () {
-        return '/user/' + this.username + '/api/' + this.api + '/' + this.version + '/resource/' + this.resourceId;
+        return '/user/' + this.username + '/api/' + this.api + '/' + this.version + '/resource';
     },
     initialize: function () {
     	console.log(this);
     }
   });
 
-  return Methods;
+  return Resources;
 });
   

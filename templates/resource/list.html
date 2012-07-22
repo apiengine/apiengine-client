@@ -1,18 +1,18 @@
 <ul class="nav nav-list">
 					<li>
 
-		<button class="btn js-new-method">New Method</button>
+		<button class="btn js-new-resource">New Resource</button>
 
 	</li>
 		 <li class="nav-header">
-	    Methods
+	    Resources
 		  </li>	
-			 <% _.each(resource.get('methods'), function (method) { %>
+			 <% _.each(resources.models, function (resource) { %>
  <li>
 
 
-			    <a href="#/<%= resource.get('username')%>/<%= resource.get('api')%>/version/<%= resource.get('version') %>/resource/<%= resource.id%>">
-			     <%= method %>
+			    <a href="#/<%= resources.username%>/<%= resources.api%>/version/<%= resources.version %>/resource/<%= resource.id%>">
+			     <%= resource.get('label') %>
 			    </a>
 			  </li> 
 			 <% }); %>

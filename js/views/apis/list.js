@@ -34,6 +34,10 @@ define([
       }
       apiModel.save(apiData, {
         success: function (api) {
+
+      $('#js-new-api-modal').modal('hide');
+
+          window.location = '#/' + api.get('user') + '/' + api.get('name') + '/version/1';
           console.log('saved', api);
         }
       });

@@ -2,48 +2,52 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'bootstrap',
   'models/session',
   'text!templates/methods/list.html',
   'collections/methods',
-  'text!templates/test/template.html'
-], function($, _, Backbone, Session, methodsListTemplate, MethodsCollection, testTemplate){
-  var UsersPage = Backbone.View.extend({
-    el: '.api-methods-container',
+  'models/method'
+  ], function($, _, Backbone, bootstrap, Session, resourceListTemplate, ResourcesCollection, MethodModel){
+  var ApisPage = Backbone.View.extend({
+    el: '.method-list-container',
     initialize: function () {
       var that = this;
       
     },
-    events: {
-
-      'click .js-test-api': 'testApi'
-    },
-    testApi: function (ev) {
-      $(ev.currentTarget).text('Testing api').attr('disabled', 'disabled');
-      var TestModel = Backbone.Model.extend({
-        url: '/apis/1/test'
-      });
-      var testModel = new TestModel();
-
-          $('.method-container').html('<h3>Loading test</h3>');
-      testModel.fetch({
-        success: function (model) {
-          $(ev.currentTarget).text('Test Api').removeAttr('disabled');
-          $('.method-container').html(_.template(testTemplate, {_:_, methods: model.get('methods')}));
-        }
-      })
-    },
     render: function () {
+      console.log('render methods');
       var that = this;
-      this.$el.html('Loading');
-
-      var methodsCollection =  new MethodsCollection();
-      methodsCollection.apiId = this.options.apiId;
-      methodsCollection.fetch({
+      var resources = new ResourcesCollection();
+      var resource = new MethodModel();
+      /*
+      resources.username = that.options.username;
+      resources.api = that.options.api;
+      resources.version = that.options.version;
+      resources.resourceId = that.options.resourceId;
+      resources.fetch({
         success: function (collection) {
-          that.$el.html(_.template(methodsListTemplate, {owner: that.options.owner, apiId: that.options.apiId, methods: collection.models}));
+          console.log(collection);
+          that.$el.html(_.template(resourceListTemplate, {_:_, is_public: that.options.is_public, methods: collection, username: Session.get('login'), location: that.options.location}));
+          $('.js-api-filter').button();
         }
-      })
+      });
+      */
+      resource.set({
+        username: that.options.username,
+        api: that.options.api,
+        version: that.options.version,
+        resourceId: that.options.resourceId
+      });
+      resource.fetch({
+        success: function (model) {
+          console.log(model);
+          that.$el.html(_.template(resourceListTemplate, {_:_, is_public: that.options.is_public, resource: model, username: Session.get('login'), location: that.options.location}));
+          $('.js-api-filter').button();
+        }
+      });
+
+      
     }
   });
-  return UsersPage;
+  return ApisPage;
 });
