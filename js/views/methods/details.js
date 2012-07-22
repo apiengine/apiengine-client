@@ -5,70 +5,31 @@ define([
   'router',
   'models/session',
   'text!templates/methods/details.html',
-  'models/method',
-  'models/request',
-  'views/request/details',
-  'collections/requests'
-], function($, _, Backbone, Router, Session, methodTemplate, MethodModel, RequestModel, RequestDetailsView, RequestCollection){
+  'models/method'
+], function($, _, Backbone, Router, Session, methodTemplate, MethodModel){
   var MethodDetailsView = Backbone.View.extend({
     el: '.method-container',
     initialize: function () {
       var that = this;
       
     },  
-    events: {
-      'click .js-new-request': 'newRequest'
-    },
-    newRequest: function (ev) {
-
-      $(ev.currentTarget).text('Adding request').attr('disabled', 'disabled');
-      var that = this;
-      var requestModel = new RequestModel();
-      requestModel.save({
-        name: 'No name',
-        description: 'No Description',
-        requestBody: '{"hello": "world"}',
-        responseBody: '{"hello": "world"}',
-        MethodId: this.options.methodId
-      }, {
-        success: function (request) {
-        $(ev.currentTarget).text('New request').removeAttr('disabled');
-          that.$el.append('<div data-request-id="'+request.id+'"></div>');
-                var requestView = new RequestDetailsView({request: request, el: '[data-request-id="'+request.id+'"]', owner: true});
-                requestView.render();
-        }
-      });
-    },
+   
     render: function () {
-      $('[data-method-id]').removeClass('active');
-      $('[data-method-id="'+this.options.methodId+'"]').addClass('active');
       var that = this;
-      this.$el.html('loading');
-      var methodModel = new MethodModel({id: this.options.methodId});
-      methodModel.fetch({
-        success: function (method) {
-          that.$el.html(_.template(methodTemplate, {method: method, owner: that.options.owner}));
-          var requestCollection = new RequestCollection();
-          requestCollection.methodId = method.id;
-
-          requestCollection.fetch({ 
-            success: function (requests) {
-
-                $('.requests-container', that.$el).html('');
-              _.each(requests.models, function(request) {
-                that.$el.append('<div data-request-id="'+request.id+'"></div>');
-                var requestView = new RequestDetailsView({request: request, el: '[data-request-id="'+request.id+'"]', owner: that.options.owner});
-                requestView.render();
-              });
-              if(requests.models.length === 0) {
-
-                $('.requests-container', that.$el).html('No request');
-              }
-  
-            }
-          });
-        }
+      var methodModel = new MethodModel();
+      methodModel.set({
+        method: this.options.method,
+        version: this.options.version,
+        api: this.options.api,
+        username: this.options.username,
+        resourceId: this.options.resourceId
       });
+      methodModel.fetch({
+        success: function(model) {
+          that.$el.html(_.template(methodTemplate, {method: model}));
+
+        }
+      })
     }
   });
   return MethodDetailsView;

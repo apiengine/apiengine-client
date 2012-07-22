@@ -15,8 +15,9 @@ define([
   'models/api',
   'models/resource',
   'models/method',
-  'libs/highlight/highlight'
-], function($, _, Backbone, Bootstrap, Router, Vm, Session, apiDetailsTemplate, ApiModel, MethodsCollection, MethodsListView, ResourceListView, MethodDetailView, ApiModel, ResourceModel, MethodModel, hljs){
+  'libs/highlight/highlight',
+  'views/methods/details'
+], function($, _, Backbone, Bootstrap, Router, Vm, Session, apiDetailsTemplate, ApiModel, MethodsCollection, MethodsListView, ResourceListView, MethodDetailView, ApiModel, ResourceModel, MethodModel, hljs, MethodView){
   var NewApiPage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
@@ -92,6 +93,10 @@ define([
               var methodListView = new MethodsListView({username: that.options.username, api: that.options.apiname, version: that.options.version, resourceId: that.options.resourceId});
               methodListView.render();              
             }
+            if(typeof that.options.method !== 'undefined') {
+              var methodView = new MethodView({username: that.options.username, api: that.options.apiname, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
+              methodView.render();              
+            }            
              /*
             var owner = false;
             if(Session.get('user_id') === api.get('UserId')){
