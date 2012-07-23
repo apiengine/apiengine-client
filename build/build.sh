@@ -9,4 +9,5 @@ mkdir output/img
 cp -r ../img output
 cp ../index.html output/index.html
 sed -i 's/js\/libs\/require\/require.js/js\/main.js/g' output/index.html
-s3cmd put --recursive --acl-public output/* s3://apiengine
+sed -i 's/ data-main="js\/main"//g' output/index.html
+s3cmd put --recursive --acl-public  --add-header=Cache-Control:max-age=604800  output/* s3://apiengine
