@@ -11,8 +11,8 @@
  <li>
 
 
-			    <a href="#/<%= resource.get('username')%>/<%= resource.get('api')%>/version/<%= resource.get('version') %>/resource/<%= resource.id%>/<%= method %>">
-			     <%= method.label %>
+			    <a href="#/<%= resource.get('username')%>/<%= resource.get('api')%>/version/<%= resource.get('version') %>/resource/<%= resource.id%>/<%= method.method %>">
+			     <%= method.method %> - <%= method.label %>
 			    </a>
 			  </li> 
 			 <% }); %>

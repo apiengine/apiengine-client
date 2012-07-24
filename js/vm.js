@@ -23,6 +23,7 @@ define([
 		  context.children[name] = view;
 		}
 		Events.trigger('viewCreated');
+		window.views = views;
 		return view;
 	}
 	

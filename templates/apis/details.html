@@ -1,233 +1,235 @@
-<style>
-.method-list-container,
-.resource-list-container {
-	border-right: 1px solid #ccc;
-}
-.method-list-container .badge.notification-total,
-.resource-list-container .badge.notification-total {
-	float: right;
-}
-.method-list-container  li a {
-	position: relative;
-}
-.method-list-container .method-name {
-	padding-left: 70px;
-}
-.method-list-container .badge-method-type {
-	position: absolute;
-}
-.method-list-container .nav-list {
-	padding-left: 0;
-}
-.user-profile-image {
-	width: 60px;
-	height: 60px;
-	background: #ebebeb;
-	float: left;
-}
-.comments-list {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
+<div class="api-container">
+  <style>
+  .method-list-container,
+  .resource-list-container {
+  	border-right: 1px solid #ccc;
+  }
+  .method-list-container .badge.notification-total,
+  .resource-list-container .badge.notification-total {
+  	float: right;
+  }
+  .method-list-container  li a {
+  	position: relative;
+  }
+  .method-list-container .method-name {
+  	padding-left: 70px;
+  }
+  .method-list-container .badge-method-type {
+  	position: absolute;
+  }
+  .method-list-container .nav-list {
+  	padding-left: 0;
+  }
+  .user-profile-image {
+  	width: 60px;
+  	height: 60px;
+  	background: #ebebeb;
+  	float: left;
+  }
+  .comments-list {
+  	list-style: none;
+  	padding: 0;
+  	margin: 0;
+  }
 
-.comments-list > li {
-	margin-bottom: 20px;
-}
-.comment {
-	float: left;
-	width: 800px;
-	margin-left: 20px;
-}
-.comment-username {
-	font-weight: bold;
-}
-.comment-input {
-	width: 100%;
-	height: 77px !important;
-}
-th.request-body-header {
-	background: #08C !important;
-	color: #fff !important;
-}
-.activity-log {
-	margin-top: 20px;
-	list-style: none;
-	background: #f0f0f0;
-	padding: 10px;
-	border: 1px solid #ccc;
-}
-.activity-log > li {
-}
-.action-column {
-	width: 100px;
-}
-</style>
-
-
-
-<div style="position: relative;">
-<h1 style="margin-left: 20px;"><%= api.get('api') %> / <%= api.get('user') %></h1>
-<p style="margin-left: 20px;">What goes down and out must fly in and outwards.</p>
-<div class="btn-toolbar"  style="position: absolute; right: 20px; top: 10px;">
-  
-
-<div class="btn-group">
-          <button class="btn btn-warning">Edit</button>
-          <button class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
-          <ul class="dropdown-menu">
-            <li><a href="#" data-bitly-type="bitly_hover_card">Action</a></li>
-            <li><a href="#" data-bitly-type="bitly_hover_card">Another action</a></li>
-            <li><a href="#" data-bitly-type="bitly_hover_card">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#" data-bitly-type="bitly_hover_card">Separated link</a></li>
-          </ul>
-        </div>
-<div class="btn-group" >
-          <button class="btn btn-inverse">Version 1.0</button>
-          <button class="btn btn-inverse dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
-          <ul class="dropdown-menu">
-            <li><a href="#" data-bitly-type="bitly_hover_card">Action</a></li>
-            <li><a href="#" data-bitly-type="bitly_hover_card">Another action</a></li>
-            <li><a href="#" data-bitly-type="bitly_hover_card">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#" data-bitly-type="bitly_hover_card">Separated link</a></li>
-          </ul>
-        </div>
-				<div class="btn-group" style="">
-          <button class="btn btn-info">Share</button>
-          <button class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
-          <ul class="dropdown-menu">
-            <li><a href="#" data-bitly-type="bitly_hover_card">Action</a></li>
-            <li><a href="#" data-bitly-type="bitly_hover_card">Another action</a></li>
-            <li><a href="#" data-bitly-type="bitly_hover_card">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#" data-bitly-type="bitly_hover_card">Separated link</a></li>
-          </ul>
-        </div>
- </div>	
-   </div>
-<hr>
-<div class="row-fluid">
+  .comments-list > li {
+  	margin-bottom: 20px;
+  }
+  .comment {
+  	float: left;
+  	width: 800px;
+  	margin-left: 20px;
+  }
+  .comment-username {
+  	font-weight: bold;
+  }
+  .comment-input {
+  	width: 100%;
+  	height: 77px !important;
+  }
+  th.request-body-header {
+  	background: #08C !important;
+  	color: #fff !important;
+  }
+  .activity-log {
+  	margin-top: 20px;
+  	list-style: none;
+  	background: #f0f0f0;
+  	padding: 10px;
+  	border: 1px solid #ccc;
+  }
+  .activity-log > li {
+  }
+  .action-column {
+  	width: 100px;
+  }
+  </style>
 
 
-	<div class="span2">
-		<div class="resource-list-container">
-			Loading resources
-		</div>
-	</div>
-		<div class="span2">
 
-		<div class="method-list-container">
-		<div class="alert alert-block">
-  <a class="close" data-dismiss="alert" href="#">×</a>
-  <h4 class="alert-heading">Warning!</h4>
-  Select a resource to get started
-</div>
-	</div>
-	</div>
-	<div class="span8">
-		<div class="method-container">
-		</div>
-		Page
-	</div>
+  <div style="position: relative;">
+  <h1 style="margin-left: 20px;"><%= api.get('api') %> / <%= api.get('user') %></h1>
+  <p style="margin-left: 20px;">What goes down and out must fly in and outwards.</p>
+  <div class="btn-toolbar"  style="position: absolute; right: 20px; top: 10px;">
+    
 
-</div>
-
-
-<div class="modal hide" id="js-new-resource-modal">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal">×</button>
-    <h3>Edit profile</h3>
-  </div>
-
-
-<div class="method-edit-container well">
-  <form class="form-horizontal edit-api js-new-resource-form">
-  <fieldset>
-    <legend>Create a new resource</legend>
-    <div class="control-group">
-      <label class="control-label" for="input02">Resource Label</label>
-      <div class="controls">
-               
-          <input name="label" type="text" required autofocus />
-      </div>
-      </div>
-      <div class="control-group">
-      <label class="control-label" for="input02">Resource Endpoint</label>
-      <div class="controls">
-               
-          <input name="resource" type="text" required autofocus />
-      </div>
-      </div>
-      <div class="control-group">
-      <label class="control-label" for="input01">Resource URL</label>
-      <div class="controls">       <input type="radio" name="private" value="0" checked /> Public<br />
-  <input type="radio" name="private" value="1" /> Private
-      </div>
-      </div>
-
-<div class="form-actions">
-            <button id="submit" type="submit" class="btn btn-primary">Create API</button>
-            <a class="btn" href="#/">Cancel</a>
+  <div class="btn-group">
+            <button class="btn btn-warning">Edit</button>
+            <button class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><a href="#" data-bitly-type="bitly_hover_card">Action</a></li>
+              <li><a href="#" data-bitly-type="bitly_hover_card">Another action</a></li>
+              <li><a href="#" data-bitly-type="bitly_hover_card">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="#" data-bitly-type="bitly_hover_card">Separated link</a></li>
+            </ul>
           </div>
+  <div class="btn-group" >
+            <button class="btn btn-inverse">Version 1.0</button>
+            <button class="btn btn-inverse dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><a href="#" data-bitly-type="bitly_hover_card">Action</a></li>
+              <li><a href="#" data-bitly-type="bitly_hover_card">Another action</a></li>
+              <li><a href="#" data-bitly-type="bitly_hover_card">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="#" data-bitly-type="bitly_hover_card">Separated link</a></li>
+            </ul>
+          </div>
+  				<div class="btn-group" style="">
+            <button class="btn btn-info">Share</button>
+            <button class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><a href="#" data-bitly-type="bitly_hover_card">Action</a></li>
+              <li><a href="#" data-bitly-type="bitly_hover_card">Another action</a></li>
+              <li><a href="#" data-bitly-type="bitly_hover_card">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="#" data-bitly-type="bitly_hover_card">Separated link</a></li>
+            </ul>
+          </div>
+   </div>	
+     </div>
+  <hr>
+  <div class="row-fluid">
 
 
-    </div>
-  </fieldset>
+  	<div class="span2">
+  		<div class="resource-list-container">
+  			Loading resources
+  		</div>
+  	</div>
+  		<div class="span2">
 
-</form>
+  		<div class="method-list-container">
+  		<div class="alert alert-block">
+    <a class="close" data-dismiss="alert" href="#">×</a>
+    <h4 class="alert-heading">Warning!</h4>
+    Select a resource to get started
+  </div>
+  	</div>
+  	</div>
+  	<div class="span8">
+  		<div class="method-container">
+  		</div>
+  		Page
+  	</div>
 
-</div>
-</div>
-
-
-<div class="modal hide" id="js-new-method-modal">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal">×</button>
-    <h3>Edit profile</h3>
   </div>
 
 
-<div class="method-edit-container well">
-  <form class="form-horizontal edit-api js-new-method-form">
-  <fieldset>
-    <legend>Create a new method</legend>
-  <div class="control-group">
-            <label class="control-label" for="select01">Method Type</label>
-            <div class="controls">
-              <select name="method" id="select01">
-                <option value="GET">GET</option>
-                <option value="POST">POST</option>
-                <option value="PUT">PUT</option>
-                <option value="DELETE">DELETE</option>
-              </select>
+  <div class="modal hide" id="js-new-resource-modal">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">×</button>
+      <h3>Edit profile</h3>
+    </div>
+
+
+  <div class="method-edit-container well">
+    <form class="form-horizontal edit-api js-new-resource-form">
+    <fieldset>
+      <legend>Create a new resource</legend>
+      <div class="control-group">
+        <label class="control-label" for="input02">Resource Label</label>
+        <div class="controls">
+                 
+            <input name="label" type="text" required autofocus />
+        </div>
+        </div>
+        <div class="control-group">
+        <label class="control-label" for="input02">Resource Endpoint</label>
+        <div class="controls">
+                 
+            <input name="resource" type="text" required autofocus />
+        </div>
+        </div>
+        <div class="control-group">
+        <label class="control-label" for="input01">Resource URL</label>
+        <div class="controls">       <input type="radio" name="private" value="0" checked /> Public<br />
+    <input type="radio" name="private" value="1" /> Private
+        </div>
+        </div>
+
+  <div class="form-actions">
+              <button id="submit" type="submit" class="btn btn-primary">Create API</button>
+              <a class="btn" href="#/">Cancel</a>
             </div>
-          </div>
- <div class="control-group">
-      <label class="control-label" for="input02">Method Label</label>
-      <div class="controls">
-               
-          <input name="label" type="text" required autofocus />
-      </div>
-      </div>
-      <div class="control-group">
-      <label class="control-label" for="input01">Resource URL</label>
-      <div class="controls">       <input type="radio" name="private" value="0" checked /> Public<br />
-  <input type="radio" name="private" value="1" /> Private
-      </div>
-      </div>
-
-<div class="form-actions">
-            <button id="submit" type="submit" class="btn btn-primary">Create API</button>
-            <a class="btn" href="#/">Cancel</a>
-          </div>
 
 
+      </div>
+    </fieldset>
+
+  </form>
+
+  </div>
+  </div>
+
+
+  <div class="modal hide" id="js-new-method-modal">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">×</button>
+      <h3>Edit profile</h3>
     </div>
-  </fieldset>
 
-</form>
 
-</div>
+  <div class="method-edit-container well">
+    <form class="form-horizontal edit-api js-new-method-form">
+    <fieldset>
+      <legend>Create a new method</legend>
+    <div class="control-group">
+              <label class="control-label" for="select01">Method Type</label>
+              <div class="controls">
+                <select name="method" id="select01">
+                  <option value="GET">GET</option>
+                  <option value="POST">POST</option>
+                  <option value="PUT">PUT</option>
+                  <option value="DELETE">DELETE</option>
+                </select>
+              </div>
+            </div>
+   <div class="control-group">
+        <label class="control-label" for="input02">Method Label</label>
+        <div class="controls">
+                 
+            <input name="label" type="text" required autofocus />
+        </div>
+        </div>
+        <div class="control-group">
+        <label class="control-label" for="input01">Resource URL</label>
+        <div class="controls">       <input type="radio" name="private" value="0" checked /> Public<br />
+    <input type="radio" name="private" value="1" /> Private
+        </div>
+        </div>
+
+  <div class="form-actions">
+              <button id="submit" type="submit" class="btn btn-primary">Create API</button>
+              <a class="btn" href="#/">Cancel</a>
+            </div>
+
+
+      </div>
+    </fieldset>
+
+  </form>
+
+  </div>
+  </div>
 </div>

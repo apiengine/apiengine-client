@@ -72,22 +72,24 @@ define([
     render: function () { 
       var that = this;
 
-      if($('.api-methods-container').length === 0) {
+      if($('.api-container').length === 0) {
         this.$el.html('Loading API');
+      }
         var apiModel = new ApiModel({username: this.options.username, apiname: this.options.apiname, version: this.options.version});
-
 
         apiModel.fetch({
           success: function (api) {
             console.log('hljf' , hljs)
-            that.$el.html(_.template(apiDetailsTemplate, {api: api, errors: []}));
-              
-            $('code').each(function(i, e) {hljs.highlightBlock(e); });
-              $('.js-api-pages a').click(function (e) {
-              e.preventDefault();
-              $(this).tab('show');
-            });
-            var resourceListView = new ResourceListView({username: that.options.username, api: that.options.apiname, version: that.options.version});
+            if($('.api-container').length === 0) {
+              that.$el.html(_.template(apiDetailsTemplate, {api: api, errors: []}));
+                
+              $('code').each(function(i, e) {hljs.highlightBlock(e); });
+                $('.js-api-pages a').click(function (e) {
+                e.preventDefault();
+                $(this).tab('show');
+              });
+            };
+            var resourceListView = Vm.create(that, 'resourceListView', ResourceListView, {username: that.options.username, api: that.options.apiname, version: that.options.version});
             resourceListView.render();
             if(typeof that.options.resourceId !== 'undefined') {
               var methodListView = new MethodsListView({username: that.options.username, api: that.options.apiname, version: that.options.version, resourceId: that.options.resourceId});
@@ -113,17 +115,7 @@ define([
              */
           }
         })
-      } else {
-        /*
-         var owner = false;
-          if(Session.get('user_id')*1 === $('.api-methods-container').attr('data-user-id')*1){
-            owner = true;
-          }
-        if(typeof that.options.methodId !== 'undefined') {
-          var methodDetailView = Vm.create(that, 'methoddetailview', MethodDetailView, {methodId: that.options.methodId, apiId: that.options.apiId, owner: owner});
-          methodDetailView.render();
-        }*/
-      }
+      
 
     }
   });

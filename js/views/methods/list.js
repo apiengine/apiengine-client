@@ -38,13 +38,16 @@ define([
         version: that.options.version,
         resourceId: that.options.resourceId
       });
-      resource.fetch({
-        success: function (model) {
-          console.log(model);
-          that.$el.html(_.template(resourceListTemplate, {_:_, is_public: that.options.is_public, resource: model, username: Session.get('login'), location: that.options.location}));
-          $('.js-api-filter').button();
-        }
-      });
+      if($('.method-list-container').length !== 0) {
+
+        resource.fetch({
+          success: function (model) {
+            console.log(model);
+            that.$el.html(_.template(resourceListTemplate, {_:_, is_public: that.options.is_public, resource: model, username: Session.get('login'), location: that.options.location}));
+            $('.js-api-filter').button();
+          }
+        });
+      };
 
       
     }
