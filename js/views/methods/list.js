@@ -32,6 +32,8 @@ define([
         }
       });
       */
+      that.$el.attr('data-resource-id', that.options.resourceId);
+
       resource.set({
         username: that.options.username,
         api: that.options.api,

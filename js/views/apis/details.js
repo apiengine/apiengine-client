@@ -69,12 +69,28 @@ define([
       });
       return false;
     },
+    showDetails: function () {
+      var that = this;
+      if($('.resource-list-container').attr('data-api-id') !== that.options.apiname) {
+        var resourceListView = Vm.create(that, 'resourceListView', ResourceListView, {username: that.options.username, api: that.options.apiname, version: that.options.version});
+        resourceListView.render();
+      };
+      if(typeof that.options.resourceId !== 'undefined' && $('.method-list-container').attr('data-resource-id') !== that.options.resourceId) {
+        console.log('render methods list');
+        var methodListView = new MethodsListView({username: that.options.username, api: that.options.apiname, version: that.options.version, resourceId: that.options.resourceId});
+        methodListView.render();              
+      }
+      if(typeof that.options.method !== 'undefined') {
+        var methodView = new MethodView({username: that.options.username, api: that.options.apiname, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
+        methodView.render();              
+      }   
+    },
     render: function () { 
       var that = this;
 
       if($('.api-container').length === 0) {
         this.$el.html('Loading API');
-      }
+      
         var apiModel = new ApiModel({username: this.options.username, apiname: this.options.apiname, version: this.options.version});
 
         apiModel.fetch({
@@ -89,16 +105,7 @@ define([
                 $(this).tab('show');
               });
             };
-            var resourceListView = Vm.create(that, 'resourceListView', ResourceListView, {username: that.options.username, api: that.options.apiname, version: that.options.version});
-            resourceListView.render();
-            if(typeof that.options.resourceId !== 'undefined') {
-              var methodListView = new MethodsListView({username: that.options.username, api: that.options.apiname, version: that.options.version, resourceId: that.options.resourceId});
-              methodListView.render();              
-            }
-            if(typeof that.options.method !== 'undefined') {
-              var methodView = new MethodView({username: that.options.username, api: that.options.apiname, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
-              methodView.render();              
-            }            
+            that.showDetails();
              /*
             var owner = false;
             if(Session.get('user_id') === api.get('UserId')){
@@ -115,7 +122,10 @@ define([
              */
           }
         })
-      
+      } else {
+         that.showDetails();
+
+      }
 
     }
   });

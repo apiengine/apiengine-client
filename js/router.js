@@ -28,6 +28,7 @@ define([
     
 		var appView = options.appView;
     var router = new AppRouter(options);
+    Backbone.router = router;
     router.on('route:apiPage', function (username, apiname, version, resourceId, method) {
       require(['views/apis/details'], function (ApiDetailsView) {
         var apiDetailsView = Vm.create(appView, 'ApiDetailsView', ApiDetailsView, {username: username, apiname: apiname, version: version, resourceId: resourceId, method: method});
