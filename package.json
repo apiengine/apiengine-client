@@ -1,0 +1,14 @@
+{
+    "name": "apiengine-client"
+  , "version": "0.0.1"
+  , "description": "ApiEngine is going to kick ass"
+  , "keywords": ["api", "rest"]
+  , "author": "Thomas Davis <thomasalwyndavis@gmail.com>"
+  , "main": "index"
+  , "scripts": {
+    "test": "make test"
+  }
+  , "devDependencies": {
+    "mocha": "0.3.x"
+  }
+}
