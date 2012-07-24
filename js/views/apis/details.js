@@ -45,7 +45,7 @@ define([
         username: this.options.username,
         version: this.options.version,
         api: this.options.apiname,
-        resourceId: 1
+        resourceId: this.options.resourceId
       });
       methodModel.save(methodData, {
         success: function () {

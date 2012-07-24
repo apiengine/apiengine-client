@@ -18,7 +18,7 @@ define([
       var that = this;
       var methodModel = new MethodModel();
       methodModel.set({
-        method: this.options.method,
+        id: this.options.method,
         version: this.options.version,
         api: this.options.api,
         username: this.options.username,
