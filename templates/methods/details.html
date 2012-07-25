@@ -1,10 +1,10 @@
   <div class="span12">
-    <h2>Users - Update a user</h2>
+    <h2><%= method.get('label') %></h2>
     <code class="xml" style="display: block; width: 100%; margin-top: 10px; margin-bottom: 20px;">
       <%= method.get('method') %> -  /user/{user}
     </code>
   
-    <p>Google Compute Engine offers scalable and flexible virtual machine computing capabilities in the cloud. With Google Compute Engine, you can solve large scale processing and analytic problems on Google’s computing, storage, and networking infrastructure.<p>
+    <p><%= method.get('description') === '' ? 'No description set' : method.get('description') %><p>
 <hr>
 <style>
 .matchpre td { 

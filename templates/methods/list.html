@@ -8,7 +8,7 @@
 	    Methods
 		  </li>	
 			 <% _.each(resource.get('methods'), function (method) { %>
- <li>
+ 				<li class="<%= selectedMethod === method.method ? 'active' : '' %>">
 
 
 			    <a class="js-method-link" href="#/<%= resource.get('username')%>/<%= resource.get('api')%>/version/<%= resource.get('version') %>/resource/<%= resource.id%>/<%= method.method %>">

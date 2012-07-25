@@ -1,22 +1,18 @@
 <ul class="nav nav-list">
-					<li>
-
+	<li>
 		<button class="btn js-new-resource">New Resource</button>
-
 	</li>
-		 <li class="nav-header">
-	    Resources
-		  </li>	
-			 <% _.each(resources.models, function (resource) { %>
- <li>
-
-
-			    <a href="#/<%= resources.username%>/<%= resources.api%>/version/<%= resources.version %>/resource/<%= resource.id%>">
-			     <%= resource.get('label') %>
-			    </a>
-			  </li> 
-			 <% }); %>
-			 <!--
+  <li class="nav-header">
+    Resources
+  </li>	
+	<% _.each(resources.models, function (resource) { %>
+	<li class="<%= selectedResource*1 === resource.id ? 'active' : '' %>">
+    <a href="#/<%= resources.username%>/<%= resources.api%>/version/<%= resources.version %>/resource/<%= resource.id%>">
+			<%= resource.get('label') %>
+	  </a>
+	</li>
+  <% }); %>
+	<!--
 			  <li class="active">
 	<a href="#">
 			     /resources/some

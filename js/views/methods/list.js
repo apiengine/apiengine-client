@@ -45,7 +45,7 @@ define([
         resource.fetch({
           success: function (model) {
             console.log(model);
-            that.$el.html(_.template(resourceListTemplate, {_:_, is_public: that.options.is_public, resource: model, username: Session.get('login'), location: that.options.location}));
+            that.$el.html(_.template(resourceListTemplate, {_:_, is_public: that.options.is_public, resource: model, username: Session.get('login'), selectedMethod: that.options.method, location: that.options.location}));
             $('.js-api-filter').button();
           }
         });

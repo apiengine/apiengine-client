@@ -23,7 +23,8 @@ define([
       that.$el.attr('data-api-id', that.options.api);
       resources.fetch({
         success: function (collection) {
-          that.$el.html(_.template(resourceListTemplate, {_:_, is_public: that.options.is_public, resources: collection, username: Session.get('login'), location: that.options.location}));
+          console.log(that.options.resourceId);
+          that.$el.html(_.template(resourceListTemplate, {_:_, selectedResource: that.options.resourceId, is_public: that.options.is_public, resources: collection, username: Session.get('login'), location: that.options.location}));
           $('.js-api-filter').button();
         }
       });

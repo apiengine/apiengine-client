@@ -27,7 +27,6 @@ define([
       methodModel.fetch({
         success: function(model) {
           that.$el.html(_.template(methodTemplate, {method: model}));
-
         }
       })
     }

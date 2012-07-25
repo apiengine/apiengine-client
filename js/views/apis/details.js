@@ -39,6 +39,7 @@ define([
       return false;
     },
     saveMethod: function (ev) {
+      var that = this;
       var methodData = $(ev.currentTarget).serializeObject();
       console.log(methodData);
       var methodModel = new MethodModel({
@@ -49,7 +50,8 @@ define([
       });
       methodModel.save(methodData, {
         success: function () {
-          console.log('oooo', arguments);
+          $('#js-new-method-modal').modal('hide');
+          that.showMethodList();
         }
       });
       return false;
@@ -69,21 +71,24 @@ define([
       });
       return false;
     },
+    showMethodList: function () {
+      var that = this;
+      var methodListView = new MethodsListView({username: that.options.username, api: that.options.apiname, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
+      methodListView.render();    
+    },
     showDetails: function () {
       var that = this;
       if($('.resource-list-container').attr('data-api-id') !== that.options.apiname) {
-        var resourceListView = Vm.create(that, 'resourceListView', ResourceListView, {username: that.options.username, api: that.options.apiname, version: that.options.version});
+        var resourceListView = Vm.create(that, 'resourceListView', ResourceListView, {username: that.options.username, api: that.options.apiname, version: that.options.version, resourceId: that.options.resourceId});
         resourceListView.render();
       };
       if(typeof that.options.resourceId !== 'undefined' && $('.method-list-container').attr('data-resource-id') !== that.options.resourceId) {
-        console.log('render methods list');
-        var methodListView = new MethodsListView({username: that.options.username, api: that.options.apiname, version: that.options.version, resourceId: that.options.resourceId});
-        methodListView.render();              
+        that.showMethodList();           
       }
       if(typeof that.options.method !== 'undefined') {
         var methodView = new MethodView({username: that.options.username, api: that.options.apiname, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
         methodView.render();              
-      }   
+      }
     },
     render: function () { 
       var that = this;
