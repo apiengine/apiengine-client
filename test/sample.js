@@ -1,8 +1,8 @@
 var assert = require('assert');
-var wc3js = require('wc3js');
+var w3cjs = require('w3cjs');
 describe('html validation', function(){
   it('index page should have no html errors', function(done){
-  	wc3js.validate({
+  	w3cjs.validate({
   		file: 'index.html',
   		callback: function (res) {
   				console.log(res);
