@@ -9,6 +9,7 @@
     "test": "make test"
   }
   , "devDependencies": {
-    "mocha": "1.3.0"
+    "mocha": "1.3.0",
+    "wc3js": "0.1.4"
   }
 }

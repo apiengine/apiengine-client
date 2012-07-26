@@ -1,9 +1,16 @@
-var assert = require("assert")
-describe('Array', function(){
-  describe('#indexOf()', function(){
-    it('should return -1 when the value is not present', function(){
-      assert.equal(-1, [1,2,3].indexOf(5));
-      assert.equal(-1, [1,2,3].indexOf(0));
-    })
+var assert = require('assert');
+var wc3js = require('wc3js');
+describe('html validation', function(){
+  it('index page should have no html errors', function(done){
+  	wc3js.validate({
+  		file: 'index.html',
+  		callback: function (res) {
+  				console.log(res);
+  			if (res.messages.length > 0 ) {
+  				throw {error: 'html errors have been found', results: res};
+  			};
+  			done();
+  		}
+  	})
   })
 })
