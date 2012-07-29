@@ -1,0 +1,51 @@
+  <% console.log('yolo', resource); %>
+  <div class="modal hide" id="js-new-resource-modal" style="display: none;">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">×</button>
+      <h3>
+                 <%= resource.get('label') %></h3>
+    </div>
+
+
+  <div class="method-edit-container well">
+    <form class="form-horizontal edit-api js-new-resource-form">
+    <fieldset>
+      <legend>Create a new resource</legend>
+      <div class="control-group">
+        <label class="control-label" for="input02">Resource Label</label>
+        <div class="controls">
+            <input name="label" value="<%= resource.get('label') %>" type="text" required autofocus />
+        </div>
+        </div>
+        <div class="control-group">
+        <label class="control-label" for="input02">Resource Endpoint</label>
+        <div class="controls">
+                 
+            <input name="resource" value="<%= resource.get('resource') %>" type="text" required  />
+        </div>
+        </div>
+        <div class="control-group">
+        <label class="control-label" for="input02">Resource Group</label>
+        <div class="controls">
+                 
+            <input name="tag" type="text" value="<%= resource.get('tag') %>" required  />
+        </div>
+        </div>
+
+    <div class="form-actions">
+            <% if(typeof resource.get('id') !== 'undefined') { %>
+
+      <input name="id" type="hidden" value="<%= resource.get('id') %>" required  />
+<% }; %>
+      <button id="submit" type="submit" class="btn btn-primary"><%= resource.get('id') !== '' ? 'Update' : 'Create' %> resource</button>
+      <a class="btn" href="#/">Cancel</a>
+    </div>
+
+
+      </div>
+    </fieldset>
+
+  </form>
+
+  </div>
+  </div>
