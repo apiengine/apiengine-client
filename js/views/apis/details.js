@@ -16,8 +16,9 @@ define([
   'models/resource',
   'models/method',
   'libs/highlight/highlight',
-  'views/methods/details'
-], function($, _, Backbone, Bootstrap, Router, Vm, Session, apiDetailsTemplate, ApiModel, MethodsCollection, MethodsListView, ResourceListView, MethodDetailView, ApiModel, ResourceModel, MethodModel, hljs, MethodView){
+  'views/methods/details',
+  'views/forms/resource'
+], function($, _, Backbone, Bootstrap, Router, Vm, Session, apiDetailsTemplate, ApiModel, MethodsCollection, MethodsListView, ResourceListView, MethodDetailView, ApiModel, ResourceModel, MethodModel, hljs, MethodView, ResourceForm){
   var NewApiPage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
@@ -26,11 +27,16 @@ define([
     },  
     events: {
       'click .js-new-resource': 'newResource',
-      'click .js-new-method': 'newMethod',
-      'submit .js-new-method-form': 'saveMethod'
+      'click .js-new-method': 'newMethod'
     },
     newResource: function () {
-      $('#js-new-resource-modal').modal('show');
+      var resourceForm = Vm.create(this, 'resourceform', ResourceForm, {
+        username: this.options.username,
+        version: this.options.version,
+        api: this.options.apiname
+      });
+      resourceForm.render();
+
       return false;
     },
     newMethod: function () {
@@ -40,7 +46,6 @@ define([
     saveMethod: function (ev) {
       var that = this;
       var methodData = $(ev.currentTarget).serializeObject();
-      console.log('hoot', methodData);
       var methodModel = new MethodModel({
         username: this.options.username,
         version: this.options.version,

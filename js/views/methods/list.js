@@ -7,9 +7,10 @@ define([
   'models/session',
   'text!templates/methods/list.html',
   'views/forms/resource',
+  'views/forms/method',
   'collections/methods',
   'models/method'
-  ], function($, _, Backbone, bootstrap, Vm, Session, resourceListTemplate, ResourceForm, ResourcesCollection, MethodModel){
+  ], function($, _, Backbone, bootstrap, Vm, Session, resourceListTemplate, ResourceForm, MethodForm, ResourcesCollection, MethodModel){
   var ApisPage = Backbone.View.extend({
     el: '.method-list-container',
     initialize: function () {
@@ -17,7 +18,18 @@ define([
       
     },
     events: {
-      'click .js-edit-resource': 'editResource'
+      'click .js-edit-resource': 'editResource',
+      'click .js-new-method': 'newMethod'
+    },
+    newMethod: function () {
+      var methodForm = Vm.create(this, 'methodform', MethodForm, {
+        username: this.options.username,
+        version: this.options.version,
+        api: this.options.api,
+        resourceId: this.options.resourceId
+      });
+      methodForm.render();
+      return false;
     },
     editResource: function () {
       var resourceForm = Vm.create(this, 'resourceform', ResourceForm, {

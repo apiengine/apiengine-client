@@ -14,10 +14,11 @@
               <label class="control-label" for="select01">Method Type</label>
               <div class="controls">
                 <select name="method" id="select01">
-                  <option value="GET">GET</option>
-                  <option value="POST">POST</option>
-                  <option value="PUT">PUT</option>
-                  <option value="DELETE">DELETE</option>
+                  <% _.each(methodTypes, function (type) { %>
+                  <option value="<%= type %>" <%= type === method.get('method') ? 'selected' : ''%>><%= type %></option>
+
+
+                  <% }); %>
                 </select>
               </div>
             </div>
@@ -25,22 +26,24 @@
         <label class="control-label" for="input02">Method Label</label>
         <div class="controls">
                  
-            <input name="label" type="text" required autofocus />
+            <input name="label" value="<%= method.get('label') %>" type="text" required autofocus />
         </div>
         </div>
       <div class="control-group">
       <label class="control-label" for="input01">Description</label>
       <div class="controls">
-        <textarea type="text" class="input-xlarge" name="description" id="input01" required autofocus />
+        <textarea type="text" class="input-xlarge"  name="description" id="input01" required><%= method.get('description') %></textarea>
         <p class="help-block">e.g. /users, /users/:id</p>
       </div>
       </div>
 
             <div class="form-actions">
-              <button id="submit" type="submit" class="btn btn-primary">Create API</button>
+              <button id="submit" type="submit" class="btn btn-primary">Create Method</button>
               <a class="btn" href="#/">Cancel</a>
             </div>
-
+            <% if(typeof method.get('id') !== 'undefined') { %>
+      <input name="id" type="hidden" value="<%= method.get('id') %>" required  />
+      <% }; %>
 
       </div>
     </fieldset>
