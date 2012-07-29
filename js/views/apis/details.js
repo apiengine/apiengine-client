@@ -86,13 +86,13 @@ define([
         var resourceListView = Vm.create(that, 'resourceListView', ResourceListView, {username: that.options.username, api: that.options.apiname, version: that.options.version, resourceId: that.options.resourceId});
         resourceListView.render();
       };
-      if(typeof that.options.resourceId !== 'undefined' && $('.method-list-container').attr('data-resource-id') !== that.options.resourceId) {
-        that.showMethodList();           
-      }
-      if(typeof that.options.method !== 'undefined') {
-        var methodView = new MethodView({username: that.options.username, api: that.options.apiname, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
-        methodView.render();              
-      }
+     // if(typeof that.options.resourceId !== 'undefined' && $('.method-list-container').attr('data-resource-id') !== that.options.resourceId) {
+     //   that.showMethodList();           
+      //}
+    //  if(typeof that.options.method !== 'undefined') {
+    //    var methodView = new MethodView({username: that.options.username, api: that.options.apiname, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
+   //     methodView.render();              
+    //  }
     },
     render: function () { 
       var that = this;

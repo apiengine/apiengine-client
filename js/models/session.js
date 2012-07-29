@@ -12,12 +12,12 @@ define([
       // The server must allow this through response headers
       $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
         options.xhrFields = {
-          withCredentials: true
+        //  withCredentials: true
         };
         // If we have a csrf token send it through with the next request
         if(typeof that.get('csrf') !== 'undefined') {
           console.log(that.get('csrf'));
-          jqXHR.setRequestHeader('X-CSRF-Token', that.get('csrf'));
+         // jqXHR.setRequestHeader('X-CSRF-Token', that.get('csrf'));
         }
       });
     },

@@ -30,11 +30,22 @@ define([
           return o;
       };
     
-    
+
+
       $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
         // Your server goes below
         //options.url = 'http://localhost:8000' + options.url;
-        options.url = 'http://192.168.111.193:4000' + options.url;
+       // console.log('network request', Session.get('auth'), options);
+        if(Session.get('auth') || options.url.indexOf('session') !== -1) {
+      //  options.url = 'http://apidocco.com:3000' + options.url;
+          options.url = 'http://192.168.111.193:4000' + options.url;
+        } else {
+          options.url = 'http://d2i1j8bdf3iqn6.cloudfront.net' + options.url;
+        //options.url = 'http://apidocco.com:3000' + options.url;
+         
+
+        };
+        //options.url = 'http://192.168.111.193:4000' + options.url;
         //options.url = 'http://apidocco.com:3000' + options.url;
 
       });
