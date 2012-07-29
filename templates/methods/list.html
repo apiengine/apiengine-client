@@ -4,7 +4,12 @@
 		<button class="btn js-new-method">New Method</button>
 
 	</li>
-		 <li class="nav-header">
+		<button data-resource-id="<%= resource.id %>" class="btn js-edit-resource">Edit Resource</button>
+		 
+	    <%= resource.get('label') %>
+		  <br />
+	    <%= resource.get('resource') %>
+	    		 <li class="nav-header">
 	    Methods
 		  </li>	
 			 <% _.each(resource.get('methods'), function (method) { %>

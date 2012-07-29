@@ -3,22 +3,36 @@ define([
   'underscore',
   'backbone',
   'bootstrap',
+  'vm',
   'models/session',
   'text!templates/methods/list.html',
+  'views/forms/resource',
   'collections/methods',
   'models/method'
-  ], function($, _, Backbone, bootstrap, Session, resourceListTemplate, ResourcesCollection, MethodModel){
+  ], function($, _, Backbone, bootstrap, Vm, Session, resourceListTemplate, ResourceForm, ResourcesCollection, MethodModel){
   var ApisPage = Backbone.View.extend({
     el: '.method-list-container',
     initialize: function () {
       var that = this;
       
     },
+    events: {
+      'click .js-edit-resource': 'editResource'
+    },
+    editResource: function () {
+      var resourceForm = Vm.create(this, 'resourceform', ResourceForm, {
+        username: this.options.username,
+        version: this.options.version,
+        api: this.options.api,
+        resource: this.resource
+      });
+      resourceForm.render();
+
+      return false;
+    },
     render: function () {
-      console.log('render methods');
       var that = this;
-      var resources = new ResourcesCollection();
-      var resource = new MethodModel();
+      this.resource = new MethodModel();
       /*
       resources.username = that.options.username;
       resources.api = that.options.api;
@@ -34,7 +48,7 @@ define([
       */
       that.$el.attr('data-resource-id', that.options.resourceId);
 
-      resource.set({
+      this.resource.set({
         username: that.options.username,
         api: that.options.api,
         version: that.options.version,
@@ -42,7 +56,7 @@ define([
       });
       if($('.method-list-container').length !== 0) {
 
-        resource.fetch({
+        this.resource.fetch({
           success: function (model) {
             console.log(model);
             that.$el.html(_.template(resourceListTemplate, {_:_, is_public: that.options.is_public, resource: model, username: Session.get('login'), selectedMethod: that.options.method, location: that.options.location}));

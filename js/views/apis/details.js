@@ -27,7 +27,6 @@ define([
     events: {
       'click .js-new-resource': 'newResource',
       'click .js-new-method': 'newMethod',
-      'submit .js-new-resource-form': 'saveResource',
       'submit .js-new-method-form': 'saveMethod'
     },
     newResource: function () {
@@ -41,7 +40,7 @@ define([
     saveMethod: function (ev) {
       var that = this;
       var methodData = $(ev.currentTarget).serializeObject();
-      console.log(methodData);
+      console.log('hoot', methodData);
       var methodModel = new MethodModel({
         username: this.options.username,
         version: this.options.version,

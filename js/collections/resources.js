@@ -10,6 +10,9 @@ define([
     },
     initialize: function () {
     	console.log(this);
+    },
+    comparator: function (resource) {
+      return resource.get('tag');
     }
   });
 

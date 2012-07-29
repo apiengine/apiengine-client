@@ -34,8 +34,8 @@ define([
       $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
         // Your server goes below
         //options.url = 'http://localhost:8000' + options.url;
-        //options.url = 'http://50.116.42.155:8000' + options.url;
-        options.url = 'http://apidocco.com:3000' + options.url;
+        options.url = 'http://192.168.111.193:4000' + options.url;
+        //options.url = 'http://apidocco.com:3000' + options.url;
 
       });
     

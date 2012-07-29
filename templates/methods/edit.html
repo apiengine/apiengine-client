@@ -1,26 +1,33 @@
 
-<div class="method-edit-container well">
-  <form class="form-horizontal edit-method">
-  <fieldset>
-    <legend>Edit Method</legend>
+  <div class="modal hide" id="js-new-method-modal">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">×</button>
+      <h3>Method</h3>
+    </div>
+
+
+  <div class="method-edit-container well">
+    <form class="form-horizontal edit-api js-new-method-form">
+    <fieldset>
+      <legend>Create a new method</legend>
     <div class="control-group">
-      <label class="control-label" for="input02">Method Type</label>
-      <div class="controls">
-                <select class="btn" name="type">
-          <option value="PUT">PUT</option>
-          <option value="DELETE">DELETE</option>
-          <option value="POST">POST</option>
-          <option value="GET">GET</option>
-        </select>
-      </div>
-      </div>
-      <div class="control-group">
-      <label class="control-label" for="input01">Resource URL</label>
-      <div class="controls">
-        <input type="text" class="input-xlarge" name="resource" id="input01" required autofocus />
-        <p class="help-block">e.g. /users, /users/:id</p>
-      </div>
-      </div>
+              <label class="control-label" for="select01">Method Type</label>
+              <div class="controls">
+                <select name="method" id="select01">
+                  <option value="GET">GET</option>
+                  <option value="POST">POST</option>
+                  <option value="PUT">PUT</option>
+                  <option value="DELETE">DELETE</option>
+                </select>
+              </div>
+            </div>
+   <div class="control-group">
+        <label class="control-label" for="input02">Method Label</label>
+        <div class="controls">
+                 
+            <input name="label" type="text" required autofocus />
+        </div>
+        </div>
       <div class="control-group">
       <label class="control-label" for="input01">Description</label>
       <div class="controls">
@@ -28,15 +35,17 @@
         <p class="help-block">e.g. /users, /users/:id</p>
       </div>
       </div>
-<div class="form-actions">
-            <button id="submit" type="submit" class="btn btn-primary">Create method</button>
-            <button class="btn">Cancel</button>
-          </div>
+
+            <div class="form-actions">
+              <button id="submit" type="submit" class="btn btn-primary">Create API</button>
+              <a class="btn" href="#/">Cancel</a>
+            </div>
 
 
-    </div>
-  </fieldset>
-      <% _.each(errors, function (error) { %>
-    <p class="error"><%= error %></p>
-    <% }); %>
-</form>
+      </div>
+    </fieldset>
+
+  </form>
+
+  </div>
+  </div>
