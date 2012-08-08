@@ -6,8 +6,9 @@ define([
   'models/session',
   'text!templates/resource/list.html',
   'collections/resources',
+  'views/methods/list',
   'models/resource'
-], function($, _, Backbone, bootstrap, Session, resourceListTemplate, ResourcesCollection, ResourceModel){
+], function($, _, Backbone, bootstrap, Session, resourceListTemplate, ResourcesCollection, MethodsListView, ResourceModel){
   var ApisPage = Backbone.View.extend({
     el: '.resource-list-container',
     initialize: function () {
@@ -30,6 +31,8 @@ define([
           //if(typeof that.options.resourceId !== 'undefined' && $('.method-list-container').attr('data-resource-id') !== that.options.resourceId) {
          //   that.showMethodList();           
           //}
+          var methodListView = new MethodsListView({username: that.options.username, api: that.options.api, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
+          methodListView.render();    
         }
       });
 

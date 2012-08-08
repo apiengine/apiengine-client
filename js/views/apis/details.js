@@ -9,16 +9,14 @@ define([
   'text!templates/apis/details.html',
   'models/api',
   'collections/methods',
-  'views/methods/list',
   'views/resource/list',
   'views/methods/details',
   'models/api',
   'models/resource',
   'models/method',
   'libs/highlight/highlight',
-  'views/methods/details',
   'views/forms/resource'
-], function($, _, Backbone, Bootstrap, Router, Vm, Session, apiDetailsTemplate, ApiModel, MethodsCollection, MethodsListView, ResourceListView, MethodDetailView, ApiModel, ResourceModel, MethodModel, hljs, MethodView, ResourceForm){
+], function($, _, Backbone, Bootstrap, Router, Vm, Session, apiDetailsTemplate, ApiModel, MethodsCollection, ResourceListView, MethodDetailView, ApiModel, ResourceModel, MethodModel, hljs, ResourceForm){
   var NewApiPage = Backbone.View.extend({
     el: '.page',
     initialize: function () {

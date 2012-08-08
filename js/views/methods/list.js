@@ -8,9 +8,10 @@ define([
   'text!templates/methods/list.html',
   'views/forms/resource',
   'views/forms/method',
+  'views/methods/details',
   'collections/methods',
   'models/method'
-  ], function($, _, Backbone, bootstrap, Vm, Session, resourceListTemplate, ResourceForm, MethodForm, ResourcesCollection, MethodModel){
+  ], function($, _, Backbone, bootstrap, Vm, Session, resourceListTemplate, ResourceForm, MethodForm, MethodView, ResourcesCollection, MethodModel){
   var ApisPage = Backbone.View.extend({
     el: '.method-list-container',
     initialize: function () {
@@ -73,6 +74,8 @@ define([
             console.log(model);
             that.$el.html(_.template(resourceListTemplate, {_:_, is_public: that.options.is_public, resource: model, username: Session.get('login'), selectedMethod: that.options.method, location: that.options.location}));
             $('.js-api-filter').button();
+            var methodView = new MethodView({username: that.options.username, api: that.options.api, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
+            methodView.render();  
           }
         });
       };
