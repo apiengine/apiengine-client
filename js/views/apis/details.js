@@ -80,9 +80,11 @@ define([
     },
     showDetails: function () {
       var that = this;
+      console.log('show details');
       if($('.resource-list-container').attr('data-api-id') !== that.options.apiname) {
-        var resourceListView = Vm.create(that, 'resourceListView', ResourceListView, {username: that.options.username, api: that.options.apiname, version: that.options.version, resourceId: that.options.resourceId});
+        var resourceListView = Vm.create(that, 'resourceListView', ResourceListView, {username: that.options.username, api: that.options.apiname, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
         resourceListView.render();
+        console.log('show list container');
       };
      // if(typeof that.options.resourceId !== 'undefined' && $('.method-list-container').attr('data-resource-id') !== that.options.resourceId) {
      //   that.showMethodList();           
@@ -94,7 +96,7 @@ define([
     },
     render: function () { 
       var that = this;
-
+      console.log('re-render');
       if($('.api-container').length === 0) {
         this.$el.html('Loading API');
       

@@ -43,7 +43,21 @@ define([
 
       return false;
     },
+    events: {
+      'click [data-method-id]': 'showMethodView'
+    },
+    showMethodView: function (ev) {
+      var that = this;
+      if(ev) {
+        console.log('ooo')
+        that.options.method = $(ev.currentTarget).attr('data-method-id');
+      }
+      var methodView = new MethodView({username: that.options.username, api: that.options.api, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
+      methodView.render();  
+    },
     render: function () {
+      $('[data-resource-id].active').removeClass('active');
+      $('[data-resource-id='+ this.options.resourceId +']').addClass('active');
       var that = this;
       this.resource = new MethodModel();
       /*
@@ -74,8 +88,10 @@ define([
             console.log(model);
             that.$el.html(_.template(resourceListTemplate, {_:_, is_public: that.options.is_public, resource: model, username: Session.get('login'), selectedMethod: that.options.method, location: that.options.location}));
             $('.js-api-filter').button();
-            var methodView = new MethodView({username: that.options.username, api: that.options.api, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
-            methodView.render();  
+            console.log(that.options.method);
+            if(typeof that.options.method !== 'undefined') {
+              that.showMethodView();
+            }
           }
         });
       };

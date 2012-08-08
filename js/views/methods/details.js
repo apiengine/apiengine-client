@@ -31,6 +31,9 @@ define([
     },
     render: function () {
       var that = this;
+      $('[data-method-id].active').removeClass('active');
+      $('[data-method-id='+ this.options.method +']').addClass('active');
+
       this.method = new MethodModel();
       this.method.set({
         id: this.options.method,

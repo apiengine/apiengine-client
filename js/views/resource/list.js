@@ -15,6 +15,17 @@ define([
       var that = this;
       
     },
+    events: {
+      'click [data-resource-id]': 'showMethodList'
+    },
+    showMethodList: function (ev) {
+      var that = this;
+      if(ev) {
+        this.options.resourceId = $(ev.currentTarget).attr('data-resource-id');
+      }
+      var methodListView = new MethodsListView({username: that.options.username, api: that.options.api, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
+      methodListView.render();  
+    },
     render: function () {
       var that = this;
       var resources = new ResourcesCollection();
@@ -31,8 +42,7 @@ define([
           //if(typeof that.options.resourceId !== 'undefined' && $('.method-list-container').attr('data-resource-id') !== that.options.resourceId) {
          //   that.showMethodList();           
           //}
-          var methodListView = new MethodsListView({username: that.options.username, api: that.options.api, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
-          methodListView.render();    
+          that.showMethodList();  
         }
       });
 
