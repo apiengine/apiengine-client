@@ -15,6 +15,7 @@ define([
       'apis/:id/method/:method_id': 'showApi',
       'apis/:id/methods/edit': 'editMethod',
       'login': 'login',
+      'forgot_password': 'forgot_password',
       'register': 'register',
       '': 'home',
       ':username/:apiname/version/:version/resource/:resource/:method': 'apiPage',
@@ -47,7 +48,13 @@ define([
         loginView.render();
       });
     });
-  
+ 
+    router.on('route:forgot_password', function (apiId) {
+      require(['views/home/forgot_password'], function (ForgotView) {
+        var forgotView = Vm.create(appView, 'ForgotView', ForgotView, {});
+        forgotView.render();
+      });
+    }); 
     router.on('route:register', function (apiId) {
       require(['views/home/register'], function (RegisterView) {
         var registerView = Vm.create(appView, 'RegisterView', RegisterView, {});
