@@ -3,8 +3,9 @@ define([
   'underscore',
   'backbone',
   'models/session',
-  'text!templates/home/forgot_password.html',
-], function($, _, Backbone, Session, loginTemplate){
+  'text!templates/home/password_reset.html',
+  'text!templates/home/forgot_password.html'
+], function($, _, Backbone, Session, passwordResetTemplate, loginTemplate){
   var ForgotPage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
@@ -13,13 +14,21 @@ define([
       // make our view act recordingly when auth changes
     
     },
-    render: function () {
+    render: function (options) {
+      console.log(this.options);
+      if(typeof this.options.token !== 'undefined') {
+        this.$el.html(_.template(passwordResetTemplate, {errors: Session.get('errors'), _: _})); 
+
+      } else {
         this.$el.html(_.template(loginTemplate, {errors: Session.get('errors'), _: _})); 
+
+      }
 
     },
     events: {
 
       'submit form.forgot': 'forgotPassword', // On form submission
+      'submit form.reset_password': 'resetPassword' // On form submission
     },
     forgotPassword: function (ev) {
       // Disable the button
@@ -35,6 +44,24 @@ define([
           console.log(arguments);
         }
       });
+      return false;
+    },
+    resetPassword: function (ev) {
+      // Disable the button
+      $('[type=submit]', ev.currentTarget).val('Logging in').attr('disabled', 'disabled');
+      // Serialize the form into an object using a jQuery plgin
+      var ForgotToken = Backbone.Model.extend({
+        urlRoot: '/passwordreset/' + this.options.token
+      });
+      var creds = $(ev.currentTarget).serializeObject();
+
+      var forgotToken = new ForgotToken();
+      forgotToken.save(creds, {
+        success: function () {
+          console.log(arguments);
+        }
+      });
+      
       return false;
     }
   });

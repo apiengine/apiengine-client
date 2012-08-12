@@ -15,6 +15,7 @@ define([
       'apis/:id/method/:method_id': 'showApi',
       'apis/:id/methods/edit': 'editMethod',
       'login': 'login',
+      'forgot_password/*token': 'forgot_password',
       'forgot_password': 'forgot_password',
       'register': 'register',
       '': 'home',
@@ -49,9 +50,9 @@ define([
       });
     });
  
-    router.on('route:forgot_password', function (apiId) {
+    router.on('route:forgot_password', function (token) {
       require(['views/home/forgot_password'], function (ForgotView) {
-        var forgotView = Vm.create(appView, 'ForgotView', ForgotView, {});
+        var forgotView = Vm.create(appView, 'ForgotView', ForgotView, {token: token});
         forgotView.render();
       });
     }); 

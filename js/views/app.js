@@ -34,31 +34,30 @@ define([
 
       $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
         // Your server goes below
-        //options.url = 'http://localhost:8000' + options.url;
-       // console.log('network request', Session.get('auth'), options);
       //  if(Session.get('auth') || options.url.indexOf('session') !== -1) {
         options.url = 'http://z.apiengine.io' + options.url;
-      //    options.url = 'http://192.168.111.193:4000' + options.url;
       //  } else {
-      //    options.url = 'http://d2i1j8bdf3iqn6.cloudfront.net' + options.url;
-        //options.url = 'http://apidocco.com:3000' + options.url;
+      //  options.url = 'http://d3gscmgl75g1oq.cloudfront.net' + options.url;
          
 
        // };
-        //options.url = 'http://192.168.111.193:4000' + options.url;
-        //options.url = 'http://apidocco.com:3000' + options.url;
 
       });
     
     },
     render: function () {
+
 			var that = this;
       $(this.el).html(layoutTemplate);      
       var headerView = new HeaderView();
       headerView.render();
       Session.getAuth(function () {
         Backbone.history.start();
-      });
+      });      
+
+//$.ajax('http://d3gscmgl75g1oq.cloudfront.net/user/thomasdavis/api/ApiEngine/1/resource/8', {
+  //success: function () {console.log(arguments);}
+//});
 		} 
 	});
   return AppView;
