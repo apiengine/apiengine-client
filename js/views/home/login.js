@@ -4,7 +4,9 @@ define([
   'backbone',
   'models/session',
   'text!templates/home/login.html',
-], function($, _, Backbone, Session, loginTemplate){
+  'mustache'
+], function($, _, Backbone, Session, loginTemplate, Mustache){
+  console.log(Mustache);
   var ExamplePage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
@@ -23,7 +25,7 @@ define([
       if(Session.get('auth')){
         window.location = '#/' + Session.get('login');;
       } else {
-        this.$el.html(_.template(loginTemplate, {errors: Session.get('errors'), _: _})); 
+        this.$el.html(Mustache.render(loginTemplate, {errors: Session.get('errors'), _: _})); 
       }
 
     },

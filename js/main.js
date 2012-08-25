@@ -9,6 +9,7 @@ require.config({
     jsoneditor: 'libs/jsoneditor/jsoneditor-min',
     prettyprint: 'libs/prettyprint/prettyprint',
     bootstrap: 'libs/bootstrap/bootstrap.min',
+    mustache: 'libs/mustache/mustache',
 
     // Require.js plugins
     text: 'libs/require/text',
