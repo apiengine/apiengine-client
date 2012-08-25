@@ -54,6 +54,7 @@ define([
       headerView.render();
       Session.getAuth(function () {
         $('a').click(function (e) {
+          clicky.log($(this).attr('href'), $(this).attr('href'), 'pageview')
           Backbone.router.navigate($(this).attr('href'), true);
           return false;
         });
