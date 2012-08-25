@@ -35,6 +35,7 @@ define([
       $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
         // Your server goes below
       //  if(Session.get('auth') || options.url.indexOf('session') !== -1) {
+        console.log(options.url);
         options.url = 'http://z.apiengine.io' + options.url;
       //  } else {
       //  options.url = 'http://d3gscmgl75g1oq.cloudfront.net' + options.url;
@@ -52,7 +53,15 @@ define([
       var headerView = new HeaderView();
       headerView.render();
       Session.getAuth(function () {
-        Backbone.history.start();
+        $('a').click(function (e) {
+          Backbone.router.navigate($(this).attr('href'), true);
+          return false;
+        });
+        var root = '/';
+        if(window.location.hostname === 'localhost') {
+          root = '/repos/apiengine-client/';
+        }
+        Backbone.history.start({pushState: true, root: root});
       });      
 
 //$.ajax('http://d3gscmgl75g1oq.cloudfront.net/user/thomasdavis/api/ApiEngine/1/resource/8', {

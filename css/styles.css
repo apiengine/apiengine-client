@@ -2,9 +2,10 @@
 # Budder style guide
 */
 
-/* Third party helper libraries */
+/* Third party helper libraries 
 @import url("bootstrap.css");
-
+*/
+@import url("normalize.css");
 
 @import url("theme.css");
 @import url("highlight/styles/github.css");

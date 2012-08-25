@@ -57,6 +57,7 @@ define([
       });
     }); 
     router.on('route:register', function (apiId) {
+      console.log('register')
       require(['views/home/register'], function (RegisterView) {
         var registerView = Vm.create(appView, 'RegisterView', RegisterView, {});
         registerView.render();

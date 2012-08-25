@@ -8,9 +8,10 @@ define([
   'text!templates/profile/page.html',
   'models/api',
   'views/apis/list',
-  'models/user'
+  'models/user',
+  'text!templates/404.html'
 
-], function($, _, Backbone, bootstrap, Router, Session, newApiTemplate, ApiModel, ApisList, UserModel){
+], function($, _, Backbone, bootstrap, Router, Session, newApiTemplate, ApiModel, ApisList, UserModel, MissingPage){
   var NewApiPage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
@@ -66,6 +67,9 @@ define([
       this.userModel.fetch({
         success: function (user) {
           
+        },
+        error: function () {
+          that.$el.html(MissingPage);
         }
       });
     },

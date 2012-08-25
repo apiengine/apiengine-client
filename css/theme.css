@@ -1,5 +1,14 @@
+/*
+  All styles come in here then are parsed out into appropiate sub files
+*/
+@font-face
+{
+font-family: AllerLight;
+src: url('Aller_Std_Rg.ttf');
+}
 html {
     overflow-y: scroll;
+    font-family: AllerLight;
 }
 .autoresize {
 	 width: 400px; 
@@ -17,9 +26,52 @@ html {
     overflow-y: auto;
 }
 
-.logo {
-    width: 257px;
-    height: 257px;
+.top-bar-container .logo {
+    width: 151px;
+    height: 29px;
     background-size: 257px;
-    background: url('../img/logo.jpg') no-repeat;
+    float: left;
+    background: url('../img/api-engine-logo.png') no-repeat;
+    margin-top: 18px;
+}
+
+.centered-container {
+    width: 960px;
+    margin: auto;
+}
+
+.top-bar-container {
+    background: #444 url('../img/titlebar-bg-grad.png');
+    height: 73px;
+    position: relative;
+}
+.top-bar-menu {
+    list-style: none;
+    float: left;
+    height: 70px;
+    line-height: 70px;
+    padding: 0;
+    margin: 0;
+    margin-left: 20px;
+}
+.top-bar-menu li {
+    float: left;
+    margin-left: 10px;
+}
+.top-bar-menu li a {
+    text-decoration: none;
+    color: #fff;
+    margin-left: 20px;
+    text-transform: uppercase;
+}
+.scallop-border-top {
+background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAACCAYAAACKVvbTAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NzM4Q0I4MkNFRTY0MTFFMUFCNDhEMDU5ODUwRUMxQUUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NzM4Q0I4MkRFRTY0MTFFMUFCNDhEMDU5ODUwRUMxQUUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo3MzhDQjgyQUVFNjQxMUUxQUI0OEQwNTk4NTBFQzFBRSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo3MzhDQjgyQkVFNjQxMUUxQUI0OEQwNTk4NTBFQzFBRSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PkMWJ/kAAAA2SURBVHjaYnz27BkbAwNDOxCnATEXEB8E4kRJScmHDFDACFS0D0g7MqCCF0CcAcS7gVgIIMAABdELzkMvFn4AAAAASUVORK5CYII=);
+    height: 2px;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+.scallop-border-bottom {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAACCAYAAACKVvbTAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OEU2MjlFODRFRTY0MTFFMTk2RTVBMDZGQTBENDhGMTkiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OEU2MjlFODVFRTY0MTFFMTk2RTVBMDZGQTBENDhGMTkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4RTYyOUU4MkVFNjQxMUUxOTZFNUEwNkZBMEQ0OEYxOSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4RTYyOUU4M0VFNjQxMUUxOTZFNUEwNkZBMEQ0OEYxOSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PuE6bHoAAAA3SURBVHjaYnz27Nk+BgYGRwZU8AKIM4B4NxALsQAJDyBuB+I0IOYC4oNAnCgpKfkQquEbQIABAKqICldaZ4KFAAAAAElFTkSuQmCC);
+    height: 2px;
 }

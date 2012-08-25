@@ -22,7 +22,7 @@ define([
       // Simply choose which template to choose depending on
       // our Session models auth attribute
       if(Session.get('auth')){
-        window.location = '#/' + Session.get('login');;
+        Backbone.router.navigate(Session.get('login'), true);
       } else {
         this.$el.html(_.template(loginTemplate, {errors: Session.get('errors'), _: _})); 
       }

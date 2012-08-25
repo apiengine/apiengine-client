@@ -29,6 +29,7 @@ define([
       'click .logout': 'logout'
     },
     logout: function (ev) {
+      console.log('logged out');
       // Disable the button
       $(ev.currentTarget).text('Logging out').attr('disabled', 'disabled');
       Session.logout();
