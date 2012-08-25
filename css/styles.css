@@ -6,6 +6,7 @@
 @import url("bootstrap.css");
 */
 @import url("normalize.css");
+@import url("fallr.css");
 
 @import url("theme.css");
 @import url("highlight/styles/github.css");

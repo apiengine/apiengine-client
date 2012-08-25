@@ -1,0 +1,397 @@
+ /*
+ * Fallr v1.3.2 - jQuery Plugin
+ * Simple & elegant modal box jQuery plugin
+ *
+ * Copyright 2011-2012 amatyr4n
+ * http://codecanyon.net/user/amatyr4n?ref=amatyr4n
+ *
+ * licensed under Envato licenses
+ * http://wiki.envato.com/support/legal-terms/licensing-terms/
+ */
+
+#fallr-overlay {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: #333;
+    height: 100%;
+    width: 100%;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+}
+
+#fallr-wrapper,
+#fallr-wrapper * {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-family: Helvetica, Ubuntu, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 19px;
+    color: #555;
+    text-shadow: 1px 1px 1px #fff;
+    vertical-align: baseline;
+    -webkit-font-smoothing: antialiased;
+}
+
+#fallr-wrapper {
+    position: fixed;
+    overflow: hidden;
+    background: #f0f0f0;
+    border: 1px solid #fff;
+    box-shadow: 0 1px 10px #333;
+    -moz-box-shadow: 0 1px 10px #333;
+    -webkit-box-shadow: 0 1px 10px #333;
+    box-shadow: 0 1px 10px rgba(32, 32, 32, 0.5);
+    -moz-box-shadow: 0 1px 10px rgba(32, 32, 32, 0.5);
+    -webkit-box-shadow: 0 1px 10px rgba(32, 32, 32, 0.5);
+}
+
+#fallr-icon {
+    position: absolute;
+    top: 35px;
+    left: 20px;
+    height: 64px;
+    width: 64px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+
+#fallr {
+    position: relative;
+    padding: 40px 20px 20px 72px;
+}
+
+#fallr-buttons {
+    position: relative;
+    bottom: 0;
+    right: 0;
+    margin: 0 15px 15px 15px;
+    clear: both;
+    display: block;
+    text-align: right;
+}
+
+/*  Github button style
+    http://nicolasgallagher.com/lab/css3-github-buttons/ 
+*/
+
+#fallr-wrapper .fallr-button,
+#fallr button,
+#fallr input[type="submit"] {
+    position: relative; 
+    overflow: visible; 
+    display: inline-block; 
+    padding: 4px 15px; 
+    border: 1px solid #d4d4d4; 
+    margin-left: 10px;
+    margin-top: 10px;
+    text-decoration: none; 
+    text-shadow: 1px 1px 0 #fff;
+    white-space: nowrap; 
+    cursor: pointer;
+    background-color: #ececec;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f4f4f4), to(#ececec));
+    background-image: -moz-linear-gradient(#f4f4f4, #ececec);
+    background-image: -o-linear-gradient(#f4f4f4, #ececec);
+    background-image: linear-gradient(#f4f4f4, #ececec);
+    -webkit-background-clip: padding;
+    -moz-background-clip: padding;
+    -o-background-clip: padding-box; 
+    border: 1px solid rgba(0, 0, 0, .25);
+    -webkit-border-radius: 3px; 
+    -moz-border-radius: 3px; 
+    border-radius: 3px;
+    box-shadow: 0 0 0 transparent;
+    -moz-box-shadow: 0 0 0 transparent;
+    -webkit-box-shadow: 0 0 0 transparent;
+    transition: box-shadow .3s linear;
+    -moz-transition: box-shadow .3s linear;
+    -webkit-transition: box-shadow .3s linear;
+}
+
+#fallr-wrapper .fallr-button:hover,
+#fallr-wrapper .fallr-button:focus,
+#fallr button:hover,
+#fallr button:focus,
+#fallr input[type="submit"]:hover,
+#fallr input[type="submit"]:focus {
+    border-color: #3072b3;
+    border-bottom-color: #2a65a0;
+    text-decoration: none; 
+    text-shadow: -1px -1px 0 rgba(0,0,0,0.3); 
+    color: #fff; 
+    cursor: default;
+    background-color: #3C8DDE;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#599bdc), to(#3072b3));
+    background-image: -moz-linear-gradient(#599bdc, #3072b3);
+    background-image: -o-linear-gradient(#599bdc, #3072b3);
+    background-image: linear-gradient(#599bdc, #3072b3);
+    box-shadow: 0 0 3px rgba(50, 50, 50, 0.3);
+    -moz-box-shadow: 0 0 3px rgba(50, 50, 50, 0.3);
+    -webkit-box-shadow: 0 0 3px rgba(50, 50, 50, 0.3);
+    transition: box-shadow .3s linear;
+    -moz-transition: box-shadow .3s linear;
+    -webkit-transition: box-shadow .3s linear;
+}
+
+#fallr-wrapper .fallr-button.fallr-button-danger {
+    color: #900;
+}
+
+#fallr-wrapper .fallr-button.fallr-button-danger:hover,
+#fallr-wrapper .fallr-button.fallr-button-danger:focus {     
+    border-color: #b53f3a;
+    border-bottom-color: #a0302a;
+    color: #fff; 
+    background-color: #dc5f59;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#dc5f59), to(#b33630));
+    background-image: -moz-linear-gradient(#dc5f59, #b33630);
+    background-image: -o-linear-gradient(#dc5f59, #b33630);
+    background-image: linear-gradient(#dc5f59, #b33630);
+}
+
+#fallr abbr {
+    border-bottom: 1px dotted #333;
+}
+
+#fallr h1, 
+#fallr h2,
+#fallr h3,
+#fallr h4,
+#fallr h5,
+#fallr h6,
+#fallr p,
+#fallr form,
+#fallr input,
+#fallr label {
+    margin-bottom: 10px;
+}
+
+#fallr h3 {
+    font-size: 30px;
+    line-height: 45px;
+}
+
+#fallr h4 {
+    font-size: 25px;
+    line-height: 37px;
+}
+
+#fallr h5 {
+    font-size: 20px;
+    line-height: 30px;
+}
+
+#fallr input[type="text"],
+#fallr input[type="password"], 
+#fallr textarea {
+    background: #fff;
+    border: solid 1px #999;
+    color: #777;
+    padding: 5px;
+    width: 97%;
+    box-shadow: inset #bbb 0px 0px 5px;
+    -moz-box-shadow: inset #bbb 0px 0px 5px;
+    -webkit-box-shadow: inset #bbb 0px 0px 5px;
+    transition: all .3s linear;
+    -moz-transition: all .3s linear;
+    -webkit-transition: all .3s linear;
+}
+
+#fallr input[type="text"]:focus,
+#fallr input[type="password"]:focus, 
+#fallr textarea:focus {
+    box-shadow: inset #7bbdfe 0px 0px 7px;
+    -moz-box-shadow: inset #7bbdfe 0px 0px 7px;
+    -webkit-box-shadow: inset #7bbdfe 0px 0px 7px;
+    transition: all .3s linear;
+    -moz-transition: all .3s linear;
+    -webkit-transition: all .3s linear;
+}
+
+#fallr ol li, 
+#fallr ul li,
+#fallr blockquote, 
+#fallr q {
+    margin-left: 20px;
+}
+
+#fallr table {
+    border: 1px solid #ddd;
+	border-collapse:collapse;
+	border-spacing: 0;
+	line-height: 1.35em;
+	width: 100%;
+}
+
+#fallr th, 
+#fallr td {
+    padding: 10px;
+}
+
+#fallr th {
+    background-color: #cecece;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ececec), to(#cecece));
+    background-image: -moz-linear-gradient(#ececec, #cecece);
+    background-image: -o-linear-gradient(#ececec, #cecece);
+    background-image: linear-gradient(#ececec, #cecece);
+}
+
+/* custom icons */
+
+.icon-calendar {
+    background: url('img/calendar.png');
+}
+
+.icon-chat {
+    background: url('img/chat.png');
+}
+
+.icon-check {
+    background: url('img/check.png');
+}
+
+.icon-config {
+    background: url('img/wrench.png');
+}
+
+.icon-error {
+    background: url('img/error.png');
+}
+
+.icon-pen {
+    background: url('img/pen.png');
+}
+
+.icon-help {
+    background: url('img/help.png');
+}
+
+.icon-info {
+    background: url('img/info.png');
+}
+
+.icon-lamp {
+    background: url('img/lamp.png');
+}
+
+.icon-mail {
+    background: url('img/mail.png');
+}
+
+.icon-photo {
+    background: url('img/camera.png');
+}
+
+.icon-secure {
+    background: url('img/unlock.png');
+}
+
+.icon-trash {
+    background: url('img/trash.png');
+}
+
+.icon-user {
+    background: url('img/user.png');
+}
+
+.icon-up {
+    background: url('img/up.png');
+}
+
+.icon-down {
+    background: url('img/down.png');
+}
+
+.icon-left {
+    background: url('img/left.png');
+}
+
+.icon-right {
+    background: url('img/right.png');
+}
+
+.icon-at {
+    background: url('img/at.png');
+}
+
+.icon-bar {
+    background: url('img/bars.png');
+}
+
+.icon-book {
+    background: url('img/book.png');
+}
+
+.icon-chart {
+    background: url('img/chart.png');
+}
+
+.icon-clock {
+    background: url('img/clock.png');
+}
+
+.icon-gear {
+    background: url('img/cog.png');
+}
+
+.icon-document {
+    background: url('img/document.png');
+}
+
+.icon-folder {
+    background: url('img/folder.png');
+}
+
+.icon-heart {
+    background: url('img/heart.png');
+}
+
+.icon-home {
+    background: url('img/home.png');
+}
+
+.icon-key {
+    background: url('img/key.png');
+}
+
+.icon-magnifier {
+    background: url('img/magnifier.png');
+}
+
+.icon-pin {
+    background: url('img/pin.png');
+}
+
+.icon-minus {
+    background: url('img/minus.png');
+}
+
+.icon-window {
+    background: url('img/window.png');
+}
+
+.icon-plus {
+    background: url('img/plus.png');
+}
+
+.icon-reload {
+    background: url('img/reload.png');
+}
+
+.icon-quote {
+    background: url('img/quote.png');
+}
+
+.icon-star {
+    background: url('img/star.png');
+}
+
+.icon-tag {
+    background: url('img/tag.png');
+}

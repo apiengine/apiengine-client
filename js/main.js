@@ -10,6 +10,7 @@ require.config({
     prettyprint: 'libs/prettyprint/prettyprint',
     bootstrap: 'libs/bootstrap/bootstrap.min',
     mustache: 'libs/mustache/mustache',
+    fallr: 'libs/fallr/fallr',
 
     // Require.js plugins
     text: 'libs/require/text',

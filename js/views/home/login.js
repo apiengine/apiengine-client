@@ -8,13 +8,14 @@ define([
 ], function($, _, Backbone, Session, loginTemplate, Mustache){
   console.log(Mustache);
   var ExamplePage = Backbone.View.extend({
-    el: '.page',
+    el: 'body',
     initialize: function () {
       var that = this;
       // Bind to the Session auth attribute so we
       // make our view act recordingly when auth changes
       Session.on('change:auth', function (session) {
-          that.render();
+        //  that.render();
+        $.fallr('hide', function(){ console.log('message box hides'); });
       });
     
     },
@@ -22,12 +23,21 @@ define([
       console.log('a', Session.get('auth'))
       // Simply choose which template to choose depending on
       // our Session models auth attribute
-      if(Session.get('auth')){
-        window.location = '#/' + Session.get('login');;
-      } else {
-        this.$el.html(Mustache.render(loginTemplate, {errors: Session.get('errors'), _: _})); 
-      }
-
+    //  if(Session.get('auth')){
+    //    window.location = '#/' + Session.get('login');;
+    //  } else {
+    //    this.$el.html(Mustache.render(loginTemplate, {errors: Session.get('errors'), _: _})); 
+     // }
+      $.fallr('set', {duration: 0, useOverlay: false,
+        easingDuration: 0,
+        overlayDuration: 50,
+        buttons: {},
+    closeKey        : true,
+    closeOverlay    : true
+      });
+      $.fallr('show', {content: loginTemplate,duration: 0, useOverlay: true,
+        easingDuration: 0, position: 'center',
+        overlayDuration: 50}, function(){ console.log('message box appears'); });
     },
     events: {
 

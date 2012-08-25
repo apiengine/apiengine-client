@@ -2,9 +2,12 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'vm',
   'models/session',
-  'text!templates/header/account-menu.html'
-], function($, _, Backbone, Session, mainMenuTemplate){
+  'text!templates/header/account-menu.html',
+  'views/home/login',
+  'fallr'
+], function($, _, Backbone, Vm, Session, mainMenuTemplate, LoginView, fallr){
   var MainMenuView = Backbone.View.extend({
     el: '.account-menu-container',
     initialize: function () {
@@ -26,13 +29,18 @@ define([
       }
     },
     events: {
-      'click .logout': 'logout'
+      'click .logout': 'logout',
+      'click .login': 'login'
     },
     logout: function (ev) {
       console.log('logged out');
       // Disable the button
       $(ev.currentTarget).text('Logging out').attr('disabled', 'disabled');
       Session.logout();
+    },
+    login: function (ev) {
+      var loginView = Vm.create(this, 'LoginView', LoginView, {});
+      loginView.render();
     }
   });
   return MainMenuView;
