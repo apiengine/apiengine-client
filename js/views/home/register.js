@@ -6,27 +6,37 @@ define([
   'text!templates/home/register.html',
 ], function($, _, Backbone, Session, loginTemplate){
   var ExamplePage = Backbone.View.extend({
-    el: '.page',
+    el: 'body',
     initialize: function () {
       var that = this;
       // Bind to the Session auth attribute so we
       // make our view act recordingly when auth changes
       Session.on('change:auth', function (session) {
-          that.render();
+        $.fallr('hide', function(){ console.log('message box hides'); });
+         // that.render();
       });
       Session.on('change:errors', function (errors) {
-          that.render();
+        //  that.render();
       });
     },
     render: function () {
       // Simply choose which template to choose depending on
       // our Session models auth attribute
-      if(Session.get('auth')){
-        Backbone.router.navigate(Session.get('login'), true);
-      } else {
-        this.$el.html(_.template(loginTemplate, {errors: Session.get('errors'), _: _})); 
-      }
-
+   //   if(Session.get('auth')){
+    //    Backbone.router.navigate(Session.get('login'), true);
+    //  } else {
+    //    this.$el.html(_.template(loginTemplate, {errors: Session.get('errors'), _: _})); 
+     // }
+      $.fallr('set', {duration: 0, useOverlay: false,
+        easingDuration: 0,
+        overlayDuration: 50,
+        buttons: {},
+    closeKey        : true,
+    closeOverlay    : true
+      });
+      $.fallr('show', {content: loginTemplate,duration: 0, useOverlay: true,
+        easingDuration: 0, position: 'center',
+        overlayDuration: 50}, function(){ console.log('message box appears'); });
     },
     events: {
 
@@ -44,8 +54,8 @@ define([
       user.save(creds, {
         success: function (data) {
           if(data.get('errors')) {
-            alert(data.get('errors'));
-            that.render();
+            //alert(data.get('errors'));
+          //  that.render();
           } else {
             Session.getAuth(function () {
               
