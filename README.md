@@ -22,3 +22,19 @@ This is a concept mock up and will be fleshing out the most desired features fro
 ApiDocco's client side is open sourced and can be viewed on github. Currently it is hosted on Github Pages so what you see is what you get.
 
 <img alt="Clicky" width="1" height="1" src="//in.getclicky.com/66606907ns.gif" />
+
+### Setup a server
+
+## Ubuntu 12.04 LTS
+
+Install git, apache2
+
+git clone node and make
+
+git clone client and deploy
+
+run output.js to generate the correct files
+
+fac
+
+git remote add web ssh://ubuntu@client.apiengine.io/repos/apiengine-client
