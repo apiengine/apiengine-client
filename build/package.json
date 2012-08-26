@@ -1,4 +1,6 @@
 {
+  "name": "apiengine-client-builder",
+  "version": "1.0.0",
   "dependencies": {
     "superagent": "~0.8.1",
     "fs-extra": "~0.1.3",
