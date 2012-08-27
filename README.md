@@ -37,4 +37,21 @@ run output.js to generate the correct files
 
 fac
 
-git remote add web ssh://ubuntu@client.apiengine.io/repos/apiengine-client
+git remote add web ubuntu@client.apiengine.io:repos/apiengine-client
+
+http://stackoverflow.com/questions/10228133/ajax-fragment-meta-tag-googlebot-isnt-reading-the-pages-content
+
+http://wiki.apache.org/httpd/RewriteQueryString
+
+$ sudo a2enmod proxy
+$ sudo a2enmod proxy_http
+$ sudo apache2ctl restart
+
+install phantomjs
+
+sudo apt-get install libfontconfig1-dev
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !index
+RewriteRule (.*) index.html [L]
