@@ -1,5 +1,6 @@
 RewriteEngine on
-
+RewriteCond %{QUERY_STRING} ^_escaped_fragment_=(.*)$
+RewriteRule (.*) http://client.apiengine.io:3000/%1? [P]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} !index
