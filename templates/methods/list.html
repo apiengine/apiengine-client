@@ -1,9 +1,9 @@
 <ul class="nav nav-list">
 					<li>
-
+aa
 		<button class="btn js-new-method">New Method</button>
 
-	</li>
+	</li>aaaaaaaa
 		<button data-resource-id="<%= resource.id %>" class="btn js-edit-resource">Edit Resource</button>
 		 
 	    <%= resource.get('label') %>
@@ -17,7 +17,8 @@
 
 
 			    <a class="js-method-link" href="#/<%= resource.get('username')%>/<%= resource.get('api')%>/version/<%= resource.get('version') %>/resource/<%= resource.id%>/<%= method.method %>">
-			     <%= method.method %> - <%= method.label %>
+			    	<% console.log(method); %>
+			     - wwwa<%= method.id %>a <%= method.method %> - <%= method.label %> 
 			    </a>
 			  </li> 
 			 <% }); %>

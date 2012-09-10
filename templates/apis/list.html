@@ -22,14 +22,14 @@
     	%>
 
 <div class="well">
-
-    <a href="#/<%= api.get('user') %>/<%= api.get('name') %>/version/<%= api.get('versions')[0] %>">
+  
+    <a href="<%= api.get('user') %>/<%= api.get('name') %>/version/<%= api.get('versions')[0] %>">
     	<% if(api.get('private') === true) { %>
     		<i class="icon-lock"></i>
     	<% }; %>
     	<%= api.get('name') %>
     </a> /
-     <a href="#/<%= api.get('user') %>">
+     <a href="<%= api.get('user') %>">
  
       <%= api.get('user') %>
     </a> 

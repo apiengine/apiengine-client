@@ -38,7 +38,7 @@ define([
         console.log(options.url);
         options.url = 'http://z.apiengine.io' + options.url;
       //  } else {
-      //  options.url = 'http://d3gscmgl75g1oq.cloudfront.net' + options.url;
+        //options.url = 'http://d3gscmgl75g1oq.cloudfront.net' + options.url;
          
 
        // };
@@ -53,8 +53,9 @@ define([
       var headerView = new HeaderView();
       headerView.render();
       Session.getAuth(function () {
-        $('a').click(function (e) {
+        $('body').on('click', 'a', function (e) {
           clicky.log($(this).attr('href'), $(this).attr('href'), 'pageview')
+          console.log('yooo', $(this).attr('href'), $(this).attr('href'), 'pageview')
           Backbone.router.navigate($(this).attr('href'), true);
           return false;
         });

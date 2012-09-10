@@ -86,12 +86,12 @@ define([
         resourceListView.render();
         console.log('show list container');
       };
-     // if(typeof that.options.resourceId !== 'undefined' && $('.method-list-container').attr('data-resource-id') !== that.options.resourceId) {
-     //   that.showMethodList();           
-      //}
+    // if(typeof that.options.resourceId !== 'undefined' && $('.method-list-container').attr('data-resource-id') !== that.options.resourceId) {
+    //   that.showMethodList();           
+    //}
     //  if(typeof that.options.method !== 'undefined') {
     //    var methodView = new MethodView({username: that.options.username, api: that.options.apiname, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
-   //     methodView.render();              
+    //     methodView.render();              
     //  }
     },
     render: function () { 
