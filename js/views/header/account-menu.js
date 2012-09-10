@@ -39,6 +39,8 @@ define([
       // Disable the button
       $(ev.currentTarget).text('Logging out').attr('disabled', 'disabled');
       Session.logout();
+      Backbone.router.navigate('', true);
+
     },
     login: function (ev) {
       var loginView = Vm.create(this, 'LoginView', LoginView, {});

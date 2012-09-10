@@ -9,7 +9,7 @@ define([
   'views/header/header'
 ], function($, _, Backbone, Vm, Events, Session, layoutTemplate, HeaderView){
   var AppView = Backbone.View.extend({
-    el: '.container',
+    el: 'body',
     initialize: function () {
       
       // This snipper should usually be loaded elsewhere

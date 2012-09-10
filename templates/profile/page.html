@@ -1,29 +1,36 @@
-<div class="container" style="width: 960px;">
-	<div class="row-fluid">
-		<div class="">
-				<div class="well">
-			
-					<div style="float: left; width: 80px; height:  80px; background: #ccc"><img src="http://www.gravatar.com/avatar/<%= user.get('gravatar') %>.jpg" /></div>		
-					<div style="float: left; width: 500px; margin-left: 20px;">
-							<h1><%= user.get('login') %> (Thomas Davis)</h1>
-							<h2><%= user.get('url') %></h2>
-							<h2><%= user.get('email') %></h2>
-							<p>ApiDocco is a web app built as a tool to significantly aid your applications RESTful API development.</p>
-							<% if(currentUser) { %>
-		          <button class="btn btn-success dropdown-toggle js-edit-profile" data-toggle="dropdown">Edit </button>
-		          <% }; %>
+<div class="profile-info-container">
+  <div class="container">
+		<div style="float: left; width: 80px; height:  80px; background: #ccc"><img src="http://www.gravatar.com/avatar/<%= user.get('gravatar') %>.jpg" /></div>		
+		<div style="float: left; width: 500px; margin-left: 20px;">
+				<h1><%= user.get('login') %> (Thomas Davis)</h1>
+				<h2><%= user.get('url') %></h2>
+				<h2><%= user.get('email') %></h2>
+				<p>ApiDocco is a web app built as a tool to significantly aid your applications RESTful API development.</p>
+				<% if(currentUser) { %>
+        <button class="btn btn-success dropdown-toggle js-edit-profile" data-toggle="dropdown">Edit </button>
+        <% }; %>
 
-							<div style="clear: both;"></div>
-					</div>
-					<div style="clear: both;"></div>
-				</div>
-			</div>
-		<div class="">
-		<div class="private-container ">
-			Loading
+				<div style="clear: both;"></div>
 		</div>
-	</div>
-
+	 <div style="clear: both;"></div>
+  </div>
+</div>
+<div class="">
+  <div class="container">
+    <ul class="profile-tabs">
+      <li><a href="">YOUR APIS</a></li>
+      <li><a href="">INBOX</a></li>
+      <li><a href="">ACTIVITY</a></li>
+      <li><a href="">ACCOUNT</a></li>
+    </ul>
+    <div style="clear: both;"></div>
+  </div>
+</div>
+<div class="profile-api-container">
+  <div class="container private-container ">
+  Loading
+  </div>
+</div>
 <!--
 
 	<div class="span4">
@@ -36,8 +43,7 @@
 
 <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
 -->
-</div>
-<div class="modal hide" id="js-edit-profile-form">
+<div class="modal hide" id="js-edit-profile-form" style="display: none;">
 	<div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">×</button>
     <h3>Edit profile</h3>

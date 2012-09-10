@@ -15,7 +15,11 @@ define([
       // make our view act recordingly when auth changes
       Session.on('change:auth', function (session) {
         //  that.render();
-        $.fallr('hide', function(){ console.log('message box hides'); });
+        if(session.get('auth')) {
+          $.fallr('hide', function(){ console.log('message box hides'); });
+          Backbone.router.navigate(session.get('login'), true);
+
+        }
       });
     
     },

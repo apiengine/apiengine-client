@@ -10,6 +10,10 @@ html {
     overflow-y: scroll;
     font-family: AllerLight;
 }
+.container {
+    width: 960px;
+    margin: auto;
+}
 .autoresize {
 	 width: 400px; 
     min-height: 120px; 
@@ -74,4 +78,40 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAACCAYA
 .scallop-border-bottom {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAACCAYAAACKVvbTAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OEU2MjlFODRFRTY0MTFFMTk2RTVBMDZGQTBENDhGMTkiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OEU2MjlFODVFRTY0MTFFMTk2RTVBMDZGQTBENDhGMTkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4RTYyOUU4MkVFNjQxMUUxOTZFNUEwNkZBMEQ0OEYxOSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4RTYyOUU4M0VFNjQxMUUxOTZFNUEwNkZBMEQ0OEYxOSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PuE6bHoAAAA3SURBVHjaYnz27Nk+BgYGRwZU8AKIM4B4NxALsQAJDyBuB+I0IOYC4oNAnCgpKfkQquEbQIABAKqICldaZ4KFAAAAAElFTkSuQmCC);
     height: 2px;
+}
+.account-menu-container {
+    list-style: none;
+    float: right;
+    width: 200px;
+    height: 73px;
+    line-height: 73px;
+}
+.account-menu-container li {
+    float: left;
+    margin-left: 10px;
+}   
+.profile-info-container {
+    background: #e6e6e6;
+}
+.profile-api-container {
+    background: #f9f9f9;
+    padding: 20px;
+}
+.profile-tabs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 15px;
+}
+.profile-tabs li {
+    float: left;
+    margin-left: 20px;
+    background: #555;
+    color: #ebebeb;
+}
+.profile-tabs li  a {
+    color: #ebebeb;
+    padding: 20px;
+    display: inline-block;
+    text-decoration: none;
 }
