@@ -27,8 +27,12 @@ require.config({
 require([
   'views/app',
   'vm',
-  'router'
-], function(AppView, Vm, Router){
+  'router',
+  'clicky'
+], function(AppView, Vm, Router, norefclicky){
+  // Some hackery to include clicky in our app
+  try{ clicky.init(66632578); }catch(e){}
+  console.log(clicky);
   var appView = Vm.create({}, 'AppView', AppView);
   Router.initialize({appView: appView});
   appView.render(); // render() calls Backbone.history when its ready to start
