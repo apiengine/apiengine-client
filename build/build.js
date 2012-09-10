@@ -35,12 +35,14 @@ fs.writeFileSync('output/index.html', index);
     out: outputFolder + '/css/styles.css'
 });
 	fs.copy(rootPath + '/googleaa49fe030680ef6c.html', 'output/googleaa49fe030680ef6c.html', function (){
+	fs.copy(rootPath + '/.htaccess', 'output/.htaccess', function (){
  	fs.copy(rootPath + '/favicon.ico', 'output/favicon.ico', function (){
 	 	fs.copy(rootPath + '/img', outputFolder +'/img', function () {
 			fs.copy(rootPath + '/css/Aller_Std_Rg.ttf', outputFolder +'/css/Aller_Std_Rg.ttf', function () {
 				var endTime = (Date.now() - startTime) / 1000;
 
 	 		});
+		});
 		});
  	});
 	});
