@@ -15,6 +15,8 @@ define([
       'apis/:id/method/:method_id': 'showApi',
       'apis/:id/methods/edit': 'editMethod',
       'login': 'login',
+      'browse': 'browse',
+      'members': 'members',
       'forgot_password/*token': 'forgot_password',
       'forgot_password': 'forgot_password',
       'register': 'register',
@@ -49,7 +51,18 @@ define([
         loginView.render();
       });
     });
- 
+    router.on('route:browse', function () {
+      require(['views/browse/page'], function (BrowseView) {
+        var browseView = Vm.create(appView, 'BrowseView', BrowseView, {});
+        browseView.render();
+      });
+    });
+    router.on('route:members', function () {
+      require(['views/members/page'], function (MembersView) {
+        var membersView = Vm.create(appView, 'MembersView', MembersView, {});
+        membersView.render();
+      });
+    }); 
     router.on('route:forgot_password', function (token) {
       require(['views/home/forgot_password'], function (ForgotView) {
         var forgotView = Vm.create(appView, 'ForgotView', ForgotView, {token: token});
