@@ -1,0 +1,5 @@
+<ul style="list-style: none;">
+  <% _.each(users, function(user) { %>
+    <li><img src="http://www.gravatar.com/avatar/<%= user.get('gravatar') %>.jpg" /> - <%= user.get('login') %></li>
+  <% }); %>
+</ul>
