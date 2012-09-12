@@ -18,7 +18,7 @@
   lastTag = resource.get('tag');
   %>
 	<li class="<%= selectedResource*1 === resource.id ? 'active' : '' %>" data-resource-id="<%= resource.id %>">
-    <a href="#/<%= resources.username%>/<%= resources.api%>/version/<%= resources.version %>/resource/<%= resource.id%>">
+    <a href="<%= resources.username%>/<%= resources.api%>/version/<%= resources.version %>/resource/<%= resource.id%>">
 			<%= resource.get('label') %>
 	  </a>
 	</li>

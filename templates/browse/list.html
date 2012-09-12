@@ -1,5 +1,5 @@
 <ul>
   <% _.each(apis, function(api) { %>
-  <li><%= api.get('name') %> By <a href="<%= api.get('user') %>"><%= api.get('user') %></a></li>
+  <li><a href="<%= api.get('user') %>/<%= api.get('name') %>/version/1"><%= api.get('name') %></a> By <a href="<%= api.get('user') %>"><%= api.get('user') %></a></li>
   <% }); %>
 </ul>
