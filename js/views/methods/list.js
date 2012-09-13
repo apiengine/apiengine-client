@@ -11,7 +11,7 @@ define([
   'views/methods/details',
   'collections/methods',
   'models/method'
-  ], function($, _, Backbone, bootstrap, Vm, Session, resourceListTemplate, ResourceForm, MethodForm, MethodView, ResourcesCollection, MethodModel){
+  ], function($, _, Backbone, bootstrap, Vm, Session, resourceListTemplate, ResourceForm, MethodForm, MethodView, Methods, MethodModel){
   var ApisPage = Backbone.View.extend({
     el: '.method-list-container',
     initialize: function () {
@@ -48,6 +48,7 @@ define([
     },
     showMethodView: function (ev) {
       var that = this;
+      console.log('THIS SHOULD BE FUCKING RUNNING');
       if(ev) {
         console.log('ooo')
         that.options.method = $(ev.currentTarget).attr('data-method-id');
@@ -56,9 +57,12 @@ define([
       methodView.render();  
     },
     render: function () {
+      console.log(this.options.method, 'WHY IS THERE NO DAMN METHOD');
+      console.log(this.el, 'BLAH BLAH BLAH');
       $('[data-resource-id].active').removeClass('active');
       $('[data-resource-id='+ this.options.resourceId +']').addClass('active');
       var that = this;
+      this.methods = new Methods();
       this.resource = new MethodModel();
       /*
       resources.username = that.options.username;
@@ -74,6 +78,7 @@ define([
       });
       */
       that.$el.attr('data-resource-id', that.options.resourceId);
+            console.log(that.$el, 'what the fuck is going on');
 
       this.resource.set({
         username: that.options.username,
@@ -81,12 +86,16 @@ define([
         version: that.options.version,
         resourceId: that.options.resourceId
       });
-      if($('.method-list-container').length !== 0) {
+      this.resource.fetch();
+      this.methods.username = that.options.username;
+      this.methods.api = that.options.api;
+      this.methods.version = that.options.version;
+      this.methods.resourceId = that.options.resourceId;
+            console.log(that.$el, 'what the fuck is going on');
 
-        this.resource.fetch({
-          success: function (model) {
-            console.log(model);
-            that.$el.html(_.template(resourceListTemplate, {_:_, is_public: that.options.is_public, resource: model, username: Session.get('login'), selectedMethod: that.options.method, location: that.options.location}));
+        this.methods.fetch({
+          success: function (methods) {
+            that.$el.html(_.template(resourceListTemplate, {_:_, is_public: that.options.is_public, methods: methods, username: Session.get('login'), selectedMethod: that.options.method, location: that.options.location}));
             $('.js-api-filter').button();
             console.log(that.options.method);
             if(typeof that.options.method !== 'undefined') {
@@ -94,7 +103,6 @@ define([
             }
           }
         });
-      };
 
       
     }

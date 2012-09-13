@@ -1,8 +1,66 @@
-<ul class="nav nav-list">
-	<li>
-		<button class="btn js-new-resource">New Resource</button>
-	</li>
+<style>
+  .resource-list { 
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .resource-list > li {
+    padding: 10px;
+    border-bottom: 1px solid #ebebeb;
+    border-left: 1px solid #ebebeb;
+    border-bottom: 1px solid #ebebeb;
+  }
+  .resource-list > li > a {
+    text-decoration: none;
+    color: #444;
+  }
+  .method-list { 
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .method-list li {
+    padding: 10px;
+  }
+  .method-list li a {
+    text-decoration: none;
+    color: #444;
+  }
+  .method {
+    font-size: 10px;
+    padding: 4px;
+    border-radius: 4px;
+    width: 35px;
+  }
+  .method-POST {
+    background: #e3ecd7;
+  }
+  .method-DELETE {
+    background: #ffc7d0;
+  }
+  .method-PUT {
+    background: #ffe9ca;
+  }
+  .method-GET {
+    background: #d2e3fd;
+  }
+</style>
 
+<ul class="resource-list">
+  <% 
+  _.each(resources.models, function (resource) { 
+    
+
+  %> 
+  <li class="<%= selectedResource*1 === resource.id ? 'active' : '' %>" data-resource-id="<%= resource.id %>">
+    <span class="expand">+</span> <a data-resource-id="<%= resource.id %>" href="<%= resources.username%>/<%= resources.api%>/version/<%= resources.version %>/resource/<%= resource.id%>">
+       <%= resource.get('label') %>
+    </a>
+    <div class="method-sublist-container"></div> 
+  </li>
+  <% }); %>
+
+<!--
 	<% 
 	var lastTag = '';
 	_.each(resources.models, function (resource) { 
@@ -10,73 +68,18 @@
 
 		if(lastTag !== resource.get('tag')) {
 		%>
-	  <li class="nav-header">
+	  <li class="nav-header" style="margin-top: 10px;">
     <%= resource.get('tag') %>
   </li>	
   <%
   };
   lastTag = resource.get('tag');
-  %>
+  %> 
 	<li class="<%= selectedResource*1 === resource.id ? 'active' : '' %>" data-resource-id="<%= resource.id %>">
     <a href="<%= resources.username%>/<%= resources.api%>/version/<%= resources.version %>/resource/<%= resource.id%>">
 			<%= resource.get('label') %>
 	  </a>
 	</li>
   <% }); %>
-	<!--
-			  <li class="active">
-	<a href="#">
-			     /resources/some
-			    </a>
-			  </li> 
-			  	 <li class="nav-header">
-	    Resources
-		  </li>	  <li class="nav-header">
-			     /resources/some
-			  	<ul class="nav nav-list">
-				<li>
-	
-				</li>	 
-			  <li>
-			    <a href="#">
-			      <span class="badge badge-method-type badge-PUT">PUT</span>
-			      <span class="method-name">
-			      	Update a user
-			      </span><span class="badge badge-info notification-total">2</span>
-			    </a>
-			  </li>
-			  <li>
-			    <a href="#">
-			      <span class="badge badge-method-type badge-POST">POST</span>
-			      <span class="method-name">Create a blank user</span>
-			    </a>
-			  </li>
-			  			  <li>
-			    <a href="#">
-			      <span class="badge badge-method-type badge-GET">GET</span>
-			      <span class="method-name">Get a list of users</span><span class="badge badge-info notification-total">6</span>
-			    </a>
-			  </li>
-			  			  <li>
-			    <a href="#">
-			      <span class="badge badge-method-type badge-DELETE">DELETE</span>
-			      <span class="method-name">Delete a user</span>
-			    </a>
-			  </li>
-			</ul>
-			  </li> 
-			   	 <li class="nav-header">
-	    Comments
-		  </li>	  <li class="">
-	<a href="#">
-			     /comments/
-			    </a>
-			  </li> 
-			  
-			  <li class="">
-			    <a href="#">
-			     /resources/some
-			    </a>
-			  </li> 
-			-->
+-->
 			</ul>

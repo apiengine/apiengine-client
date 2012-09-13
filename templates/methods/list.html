@@ -1,81 +1,17 @@
-<ul class="nav nav-list">
-					<li>
-aa
-		<button class="btn js-new-method">New Method</button>
 
-	</li>aaaaaaaa
-		<button data-resource-id="<%= resource.id %>" class="btn js-edit-resource">Edit Resource</button>
-		 
-	    <%= resource.get('label') %>
-		  <br />
-	    <%= resource.get('resource') %>
-	    		 <li class="nav-header">
-	    Methods
-		  </li>	
-			 <% _.each(resource.get('methods'), function (method) { %>
+
+
+<ul class="method-list" style="">
+
+			 <% _.each(methods.models, function (method) { %>
  				<li data-method-id="<%= method.method %>" class="<%= selectedMethod === method.method ? 'active' : '' %>">
 
-
-			    <a class="js-method-link" href="#/<%= resource.get('username')%>/<%= resource.get('api')%>/version/<%= resource.get('version') %>/resource/<%= resource.id%>/<%= method.method %>">
-			    	<% console.log(method); %>
-			     - wwwa<%= method.id %>a <%= method.method %> - <%= method.label %> 
-			    </a>
+<span class="method method-<%= method.get('method') %>"><%= method.get('method') %></span> - 
+<a style="text-decoration: none; color: #444;" data-method-id="<%= method.get('method') %>" href="<%= methods.username%>/<%= methods.api%>/version/<%= methods.version %>/resource/<%= methods.resourceId%>/<%= method.get('method') %>">
+<%= method.get('label') %> 
+</a>
 			  </li> 
 			 <% }); %>
-			 <!--
-			  <li class="active">
-	<a href="#">
-			     /resources/some
-			    </a>
-			  </li> 
-			  	 <li class="nav-header">
-	    Resources
-		  </li>	  <li class="nav-header">
-			     /resources/some
-			  	<ul class="nav nav-list">
-				<li>
-	
-				</li>	 
-			  <li>
-			    <a href="#">
-			      <span class="badge badge-method-type badge-PUT">PUT</span>
-			      <span class="method-name">
-			      	Update a user
-			      </span><span class="badge badge-info notification-total">2</span>
-			    </a>
-			  </li>
-			  <li>
-			    <a href="#">
-			      <span class="badge badge-method-type badge-POST">POST</span>
-			      <span class="method-name">Create a blank user</span>
-			    </a>
-			  </li>
-			  			  <li>
-			    <a href="#">
-			      <span class="badge badge-method-type badge-GET">GET</span>
-			      <span class="method-name">Get a list of users</span><span class="badge badge-info notification-total">6</span>
-			    </a>
-			  </li>
-			  			  <li>
-			    <a href="#">
-			      <span class="badge badge-method-type badge-DELETE">DELETE</span>
-			      <span class="method-name">Delete a user</span>
-			    </a>
-			  </li>
-			</ul>
-			  </li> 
-			   	 <li class="nav-header">
-	    Comments
-		  </li>	  <li class="">
-	<a href="#">
-			     /comments/
-			    </a>
-			  </li> 
-			  
-			  <li class="">
-			    <a href="#">
-			     /resources/some
-			    </a>
-			  </li> 
-			-->
-			</ul>
+
+
+</ul>     

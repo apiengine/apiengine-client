@@ -1,4 +1,4 @@
-  <div class="span12" style="font-size: 11px;">
+  <div class="span12">
     <h2><%= method.get('label') %></h2>
     <code class="xml" style="display: block; width: 100%; margin-top: 10px; margin-bottom: 20px;">
       <%= method.get('method') %> -  /user/{user}
@@ -7,10 +7,14 @@
     <p><%= method.get('description') === '' ? 'No description set' : method.get('description') %><p>
 <hr>
 <style>
-td { 
+.matchpre td { 
 border: 1px solid #000;
 }
+.table td {
+  border-bottom: none;
+}
 </style>
+    <button data-resource-id="<%= method.id %>" class="btn js-edit-method">Edit Method</button>
 <h3>Request</h3>
 <h4>Headers</h4>
 <div class="request-headers-build-container">
@@ -39,6 +43,13 @@ Request builder goes here
         <td>For security reasons this request header must be set</td>
         <td class="action-column"><div class="btn-group">
           <button class="btn btn-primary">Action</button>
+          <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#" data-bitly-type="bitly_hover_card">Edit</a></li>
+            <li><a href="#" data-bitly-type="bitly_hover_card">Add a field</a></li>
+            <li class="divider"></li>
+            <li><a href="#" data-bitly-type="bitly_hover_card">Delete</a></li>
+          </ul>
         </div></td>
       </tr>
       </tbody>
@@ -64,6 +75,13 @@ Request builder goes here
         <td>
           <div class="btn-group">
           <button class="btn btn-primary">Action</button>
+          <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#" data-bitly-type="bitly_hover_card">Edit</a></li>
+            <li><a href="#" data-bitly-type="bitly_hover_card">Add a field</a></li>
+            <li class="divider"></li>
+            <li><a href="#" data-bitly-type="bitly_hover_card">Delete</a></li>
+          </ul>
         </div>
       </td>
       </tr>

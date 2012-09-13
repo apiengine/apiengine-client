@@ -6,7 +6,7 @@ define([
 ], function($, _, Backbone, Session){
   var Methods = Backbone.Collection.extend({
     url: function () {
-        return '/user/' + this.username + '/api/' + this.api + '/' + this.version + '/resource/' + this.resourceId;
+        return '/user/' + this.username + '/api/' + this.api + '/' + this.version + '/resource/' + this.resourceId + '/method';
     },
     initialize: function () {
     	console.log(this);
