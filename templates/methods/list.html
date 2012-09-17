@@ -8,7 +8,7 @@
 
 <span class="method method-<%= method.get('method') %>"><%= method.get('method') %></span> - 
 <a style="text-decoration: none; color: #444;" data-method-id="<%= method.get('method') %>" href="<%= methods.username%>/<%= methods.api%>/version/<%= methods.version %>/resource/<%= methods.resourceId%>/<%= method.get('method') %>">
-<%= method.get('label') %> 
+<%= method.get('label') %> -  <%= method.get('status') %>
 </a>
 			  </li> 
 			 <% }); %>

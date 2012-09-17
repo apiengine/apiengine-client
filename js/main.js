@@ -9,6 +9,7 @@ require.config({
     jsoneditor: 'libs/jsoneditor/jsoneditor-min',
     prettyprint: 'libs/prettyprint/prettyprint',
     bootstrap: 'libs/bootstrap/bootstrap.min',
+    qtip: 'libs/qtip2/jquery.qtip.min',
     mustache: 'libs/mustache/mustache',
     fallr: 'libs/fallr/fallr',
 

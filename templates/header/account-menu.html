@@ -1,9 +1,11 @@
 
     <% if (username !== null) { %>
-    <li><a href="<%= username %>" style="text-decoration: none; color: #ebebeb;">My profile</a></li>
-    <li><button class="logout" >Logout</button></li>
+    
+    <li><a href="" class="btn btn-blue">New API</a></li>
+    <li><a href="<%= username %>" class="btn btn-grey">My profile</a></li>
+    <li><button class="logout btn btn-grey" >Logout</button></li>
     <% } else { %>
-    <li><button  class="signup" >Signup</button></li>
-    <li><button  class="login" >Login</button></li>
+    <li><button  class="signup btn btn-green" >Signup</button></li>
+    <li><button  class="login btn btn-blue" >Login</button></li>
 
     <% }; %>

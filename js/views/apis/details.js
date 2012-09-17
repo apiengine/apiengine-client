@@ -5,6 +5,7 @@ define([
   'bootstrap',
   'router',
   'vm',
+  'qtip',
   'models/session',
   'text!templates/apis/details.html',
   'models/api',
@@ -16,7 +17,7 @@ define([
   'models/method',
   'libs/highlight/highlight',
   'views/forms/resource'
-], function($, _, Backbone, Bootstrap, Router, Vm, Session, apiDetailsTemplate, ApiModel, MethodsCollection, ResourceListView, MethodDetailView, ApiModel, ResourceModel, MethodModel, hljs, ResourceForm){
+], function($, _, Backbone, Bootstrap, Router, Vm,  Qtip, Session, apiDetailsTemplate, ApiModel, MethodsCollection, ResourceListView, MethodDetailView, ApiModel, ResourceModel, MethodModel, hljs, ResourceForm){
   var NewApiPage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
@@ -107,7 +108,15 @@ define([
             console.log('hljf' , hljs)
             if($('.api-container').length === 0) {
               that.$el.html(_.template(apiDetailsTemplate, {api: api, errors: []}));
-                
+                 $('li').qtip({
+        id: 'myTooltip',
+        content: {
+          text: 'My ID is #ui-tooltip-myTooltip'
+        },
+  style: {
+    classes: 'ui-tooltip-dark ui-tooltip-shadow'
+  }
+      });
               $('code').each(function(i, e) {hljs.highlightBlock(e); });
                 $('.js-api-pages a').click(function (e) {
                 e.preventDefault();
@@ -135,7 +144,7 @@ define([
          that.showDetails();
 
       }
-
+     
     }
   });
   return NewApiPage;
