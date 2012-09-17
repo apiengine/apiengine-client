@@ -64,15 +64,59 @@
   .action-column {
   	width: 100px;
   }
+  .tabs-container {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+
+  }
+  .tabs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .tabs li {
+    float: left;
+    margin-bottom: -1px;
+    margin-left: 20px;
+  }
+  .tabs li a {
+    padding: 15px;
+    display: inline-block;
+    text-decoration: none;
+    color: #444;
+  }
+  .tabs li.active {
+    border: 1px solid #ccc;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom: none;
+    border-bottom: 1px solid #fff;
+
+  }
   </style>
 
 
 
-  <div style="position: relative;">
-  <h1 style="margin-left: 20px;"><%= api.get('api') %> / <%= api.get('user') %></h1>
-  <p style="margin-left: 20px;">What goes down and out must fly in and outwards.</p>
+  <div style="position: relative; margin-top: 30px;">
+    <div style="border: 1px solid #ebebeb; width: 150px; height: 150px; float: left"></div>
+    <div style="float: left; margin-left: 15px;">
+    <h1 style="margin-left: 20px;"><%= api.get('api') %> / <%= api.get('user') %></h1>
+    <p style="margin-left: 20px;">What goes down and out must fly in and outwards.</p>
+  </div>
+    <div style="clear: both;"></div>
 
-  <hr>
+  <div class="tabs-container">
+    <ul class="tabs">
+      <li class="active"><a href="">API v1.7</a></li>
+      <li><a href="">Global activity</a></li>
+      <li><a href="">4 Collaborators</a></li>
+      <li><a href="">Deprecated versions</a></li>
+    </ul>
+    <div style="clear: both;"></div>
+  </div>
+    <div style="clear: both;"></div>
+
   <div class="row-fluid">
 
 
