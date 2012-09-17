@@ -21,6 +21,10 @@ define([
       this.$el.html(_.template(headerLayoutTemplate, {username: Session.get('login')}));
       var mainMenu = new MainMenuView();
       mainMenu.render();
+      var value = 0
+
+
+
     }
   });
   return HeaderView;

@@ -25,7 +25,13 @@ define([
         
         this.$el.html(_.template(mainMenuTemplate, {username: null}));
       }
+      var value = 0
 
+      $(".logo").on('hover', function (){
+        value +=180;
+        $('.logo-cog').rotate({ duration:2000, animateTo:value});
+
+      });
       var accountMenu = new AccountMenuView();
       accountMenu.render();
     },

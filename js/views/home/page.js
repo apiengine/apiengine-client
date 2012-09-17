@@ -18,7 +18,9 @@ define([
     },
     render: function () {
       // Simply choose which template to choose depending on
-      // our Session models auth attribute
+      // our Session models auth attribute      
+      $('.top-bar-menu li a.active').removeClass('active');
+      $('.top-bar-menu li a.home-button').addClass('active');
       if(Session.get('auth')){
         this.$el.html(_.template(homeTemplate, {username: Session.get('login')}));
         var apisList = new ApisList({is_public: false, el: '.private-container'});

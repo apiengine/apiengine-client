@@ -13,6 +13,9 @@ define([
 
     },
     render: function () {
+      
+      $('.top-bar-menu li a.active').removeClass('active');
+      $('.top-bar-menu li a[href=members]').addClass('active');
       this.$el.html(_.template(membersTemplate, {}));
       var users = new Users();
       users.fetch({
