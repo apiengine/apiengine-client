@@ -10,36 +10,50 @@
   line-height: 30px;
   padding: 0 10px 0 10px;
   cursor: pointer;
+  -webkit-transition:background 0.5s ease-in; 
+  -webkit-transition:color 0.1s ease-in; 
   font-size: 14px;
 }
 .btn-blue {
-  background: #28ACE2;
   border: 1px solid #406173;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#69c5eb), color-stop(4%,#69c5eb), color-stop(4%,#28ACE2));
   text-shadow: 0 1px 0 #3891b7;
 
 }
 .btn-green {
-  background: #8AAb16;
   border: 1px solid #457340;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#adc45c), color-stop(4%,#adc45c), color-stop(4%,#8AAb16));
   text-shadow: 0 1px 0 #799032;
 }
 .btn-red {
-  background: #fc1b35;
   border: 1px solid #bd0016;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fd6072), color-stop(4%,#fd6072), color-stop(4%,#fc1b35));
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fd7686), color-stop(4%,#fd7686), color-stop(4%,#fc1b35));
   text-shadow: 0 1px 0 #c53442;
 }
 .btn-orange {
-  background: #f6a844;
   border: 1px solid #ad6e00;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9c27c), color-stop(4%,#f9c27c), color-stop(4%,#f6a844));
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9c27c), color-stop(4%,#f9c27c), color-stop(4%,#e89830));
   text-shadow: 0 1px 0 #c58e4b;
 }
 .btn-grey {
-  background: #28ACE2;
   border: 1px solid #1b1f22;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#636d73), color-stop(4%,#636d73), color-stop(5%,#48535a), color-stop(51%, #353d42));
   text-shadow: 0 1px 0 #2f3437;
+  color: #959ca1;
+}
+
+.btn-blue:hover {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#69c5eb), color-stop(4%,#69c5eb), color-stop(4%,#25b5f0));
+}
+.btn-green:hover {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#adc45c), color-stop(4%,#adc45c), color-stop(4%,#91b612));
+}
+.btn-red:hover {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fd7686), color-stop(4%,#fd7686), color-stop(4%,#ff3048));
+}
+.btn-orange:hover {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9c27c), color-stop(4%,#f9c27c), color-stop(4%,#ef9d32));
+}
+.btn-grey:hover {
+  color: #fff;
 }

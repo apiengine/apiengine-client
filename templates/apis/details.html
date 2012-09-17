@@ -94,15 +94,25 @@
     border-bottom: 1px solid #fff;
 
   }
+  .api-name {
+    font-size: 22px;
+    text-transform: uppercase;
+    font-weight: normal;
+    margin: 2px 0 0 0;
+    padding: 0;
+  }
+  .api-description {
+    font-size: 13px;
+  }
   </style>
 
 
 
   <div style="position: relative; margin-top: 30px;">
-    <div style="border: 1px solid #ebebeb; width: 150px; height: 150px; float: left"></div>
+    <div class="cog-power" style="border: 1px solid #ccc; width: 150px; height: 150px; float: left"></div>
     <div style="float: left; margin-left: 15px;">
-    <h1 style="margin-left: 20px;"><%= api.get('api') %> / <%= api.get('user') %></h1>
-    <p style="margin-left: 20px;">What goes down and out must fly in and outwards.</p>
+    <h1 class="api-name" style=""><%= api.get('api') %></h1>
+    <p style="" class="api-description">What goes down and out must fly in and outwards.</p>
   </div>
     <div style="clear: both;"></div>
 

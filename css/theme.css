@@ -145,3 +145,9 @@ html {
     display: inline-block;
     text-decoration: none;
 }
+
+.cog-power {
+    background: url('../img/cog-power-146x146.png');
+    width: 146px;
+    height: 146px;
+}
