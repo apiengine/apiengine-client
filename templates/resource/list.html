@@ -5,12 +5,11 @@
     margin: 0;
   }
   .resource-list > li {
-    padding: 10px;
     border-bottom: 1px solid #ebebeb;
     border-left: 1px solid #ebebeb;
     border-bottom: 1px solid #ebebeb;
   }
-  .resource-list > li > a {
+  .resource-list > li > div > a {
     text-decoration: none;
     color: #444;
   }
@@ -20,7 +19,6 @@
     margin: 0;
   }
   .method-list li {
-    padding: 10px;
   }
   .method-list li a {
     text-decoration: none;
@@ -30,19 +28,25 @@
     font-size: 10px;
     padding: 4px;
     border-radius: 4px;
-    width: 35px;
+    width: 40px;
+    display: inline-block;
+    text-align:center;
   }
   .method-POST {
-    background: #e3ecd7;
+    color: #2f5d01;
+    background: #e2ecd7;
   }
   .method-DELETE {
-    background: #ffc7d0;
+    background: #ffc7d1;
+    color: #9e0a25;
   }
   .method-PUT {
-    background: #ffe9ca;
+    color: #985e03;
+    background: #ffeaca;
   }
   .method-GET {
-    background: #d2e3fd;
+    background: #d1e3f1;
+    color: #0d4cab;
   }
 </style>
 
@@ -53,9 +57,11 @@
 
   %> 
   <li class="<%= selectedResource*1 === resource.id ? 'active' : '' %>" data-resource-id="<%= resource.id %>">
+    <div style="padding: 10px;">
     <span class="expand">+</span> <a data-resource-id="<%= resource.id %>" href="<%= resources.username%>/<%= resources.api%>/version/<%= resources.version %>/resource/<%= resource.id%>">
        <%= resource.get('label') %>
     </a>
+  </div>
     <div class="method-sublist-container"></div> 
   </li>
   <% }); %>

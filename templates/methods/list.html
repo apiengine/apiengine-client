@@ -1,14 +1,24 @@
 
+<style>
+  .method-label {
+    color: #4a92fd;
+    font-size: 14px;
+  }
+  .method-list li {
+    border-top: 1px solid #ebebeb;
+    padding: 10px;
 
+  }
 
+</style>
 <ul class="method-list" style="">
 
 			 <% _.each(methods.models, function (method) { %>
  				<li data-method-id="<%= method.method %>" class="<%= selectedMethod === method.method ? 'active' : '' %>">
 
-<span class="method method-<%= method.get('method') %>"><%= method.get('method') %></span> - 
+<span class="method method-<%= method.get('method') %>"><%= method.get('method') %></span>
 <a style="text-decoration: none; color: #444;" data-method-id="<%= method.get('method') %>" href="<%= methods.username%>/<%= methods.api%>/version/<%= methods.version %>/resource/<%= methods.resourceId%>/<%= method.get('method') %>">
-<%= method.get('label') %> -  <%= method.get('status') %>
+ <span class="method-label"><%= method.get('label') %></span>  <span style="font-size: 8px; color: #fff"><%= method.get('status') %></span>
 </a>
 			  </li> 
 			 <% }); %>
