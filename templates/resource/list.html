@@ -22,7 +22,7 @@
     display: block;
     height: 48px;
     float: left;
-    width: 223px;
+    width: 203px;
     line-height: 48px;
   }
   .method-list { 
@@ -37,18 +37,21 @@
     text-decoration: none;
     color: #444;
   }
+  .method-list .method {
+    margin-left: 25px;
+    margin-right: 5px;
+  }
   .method {
     font-size: 10px;
     padding: 4px;
     border-radius: 4px;
-    width: 40px;
+    width: 34px;
     display: inline-block;
-  font-family: "AllerLight";
+    font-family: "AllerLight";
     text-align:center;
-    margin-left: 25px;
     color: #fff;
     font-weight: bold;
-    margin-right: 5px;
+    margin-right: 7px;
   }
   .method-POST {
     background: #449122;
@@ -70,11 +73,14 @@
     float: left;
     line-height: 48px;
     cursor: pointer;
+    font-size: 14px;
+    color: #ccc !important;
   }
   .expand:hover {
     background: #eee;
 
   }
+
 </style>
 
 <ul class="resource-list">
@@ -85,13 +91,17 @@
   %> 
   <li class="<%= selectedResource*1 === resource.id ? 'active' : '' %>" data-resource-id="<%= resource.id %>">
     <div style="">
-    <div class="expand">+</div> 
+    <div class="expand icon">/</div> 
     <a data-resource-id="<%= resource.id %>" href="<%= resources.username%>/<%= resources.api%>/version/<%= resources.version %>/resource/<%= resource.id%>">
        <span class="icon">K</span> <%= resource.get('label') %>
     </a>
     <div style="clear: both;"></div>
     </div>
-    <div class="method-sublist-container"></div> 
+  </li>
+  <li style="display: none; border-top: none;">
+    <div class="method-sublist-container">
+      <div style="line-height: 48px;margin-left: 35px;"><div class="ajax-cog" style="margin-top: 14px;float: left; margin-right: 5px;"></div> <span style="color: #ccc;">Loading</span></div>
+    </div> 
   </li>
   <% }); %>
 

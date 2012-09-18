@@ -44,8 +44,8 @@ console.log('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     },
     expandMethods: function (ele) {   
       this.options.resourceId = $(ele).attr('data-resource-id');
-      var el =  $('.method-sublist-container', $(ele));
-      console.log(el);
+      var el =  $(ele).next('li');
+      console.log('ITS NOT UNUSUAL', el);
       var methodListView = new MethodsListView({username: this.options.username, api: this.options.api, version: this.options.version, resourceId: this.options.resourceId, method: this.options.method, el: el});
       methodListView.setElement(el);
       methodListView.render();    

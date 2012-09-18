@@ -1,28 +1,56 @@
-  <div class="span12" style="font-size: 11px;">
-    <h2><%= method.get('label') %></h2>
-    <code class="xml" style="display: block; width: 100%; margin-top: 10px; margin-bottom: 20px;">
-      <%= method.get('method') %> -  /user/{user}
-    </code>
-  
-    <p><%= method.get('description') === '' ? 'No description set' : method.get('description') %><p>
-<hr>
 <style>
-td { 
-border: 1px solid #000;
-}
+  .method-title {
+    height: 50px;
+    line-height: 50px;
+    font-size: 26px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-family: 'BebasNeueRegular';
+    color: #454a52;
+  }
+  .request-table {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 100%;
+  }
+  .request-table td {
+    height: 40px;
+    line-height: 40px;
+    padding: 5px;
+    vertical-align: middle;
+    line-height: 12px;
+  }
+    .request-table td:hover {
+      background: #eee;
+  }
 </style>
+
+    
+<div style="padding:0 0 0 40px; ">
+  <div class="span12" style="">
+    <h2 style="margin: 0;" class="method-title"><%= method.get('label') %></h2>
+    <div style="margin: 0; padding: 0; border-top: 1px solid #eee; margin-bottom: 30px;" />
+   
+<span class="method method-<%= method.get('method') %>"><%= method.get('method') %></span>
+        /user/{user}
+   
+  
+    <p><%= method.get('description') === '' ? 'No description set' : method.get('description') %> Fusce ac risus tellus. Praesent fermentum aliquam lectus sit amet tristique. In eget magna diam, non tristique neque. Sed fermentum, risus at posuere accumsan, velit sem hendrerit dolor, et sodales neque turpis id quam. In est turpis, feugiat ac tempor in, ultrices sit amet justo. Nullam risus quam, accumsan at dignissim et, mollis interdum urna.<p>
+
+<style>
+  td { 
+    border: 1px solid #eee;
+  }
+</style>
+<!--
 <h3>Request</h3>
-<h4>Headers</h4>
-<div class="request-headers-build-container">
-Request builder goes here
-</div>
 <table class="table request-table">
       <thead>
         <tr>
           <th>Property Name</th>
           <th>Value</th>
           <th>Description</th>
-          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -31,19 +59,27 @@ Request builder goes here
         <td><code>Accept</code></td>
         <td><code class="apitype">application/json, text/javascript</code></td>
         <td>Some description about this request header</td>
-        <td></td>
       </tr>
       <tr id="nextPageToken">
         <td><code>X-Requested-With</code></td>
         <td><code class="apitype">XMLHttpRequest</code></td>
-        <td>For security reasons this request header must be set</td>
-        <td class="action-column"><div class="btn-group">
-          <button class="btn btn-primary">Action</button>
-        </div></td>
+        <td>For security reasons this request header must be set, sometimes we might write really long descriptions. <br /><br />These could go on for a long time and I have no idea what they might say. They might also contain headings. Who knows how long a description column could be maybe we could throw. Constraints on it and keep users in the dark for this and that.
+
+          Restrict information returned for simplicity and optimization.
+
+          <br><br>Acceptable values are:
+          <ul>
+            <li>"<code>BASIC</code>" - Includes only the basic metadata fields (as of Drive API v1, this includes all fields).
+            </li>
+            <li>"<code>FULL</code>" - Includes all metadata fields.
+            </li>
+          </ul>
+        </td>
       </tr>
       </tbody>
     </table>
-
+-->
+<div style="padding: 0 0 0 30px;">
 <h4>Body</h4>
 
 
@@ -52,56 +88,38 @@ Request builder goes here
         <tr>
           <th>Property Name</th>
           <th>Value</th>
-          <th>Description</th>
-          <th class="action-column">Actions</th>
         </tr>
       </thead>
       <tbody>
       <tr id="kind">
         <td><code>somearrays[]</code></td>
         <td><code class="apitype">array</code></td>
-        <td>Type of resource. Always <code>compute#diskList</code>.</td>
-        <td>
-          <div class="btn-group">
-          <button class="btn btn-primary">Action</button>
-        </div>
-      </td>
+  
       </tr>
       <tr id="id">
         <td><code style="margin-left: 20px;">id</code></td>
         <td><code class="apitype">string</code></td>
-        <td>Unique identifier for the resource; defined by the server (output only).</td>
-        <td></td>
+        
       </tr>
       <tr id="id">
         <td><code style="margin-left: 20px;">someobject{}</code></td>
         <td><code class="apitype">object</code></td>
-        <td>Unique identifier for the resource; defined by the server (output only).</td>
-        <td></td>
       </tr>
       <tr id="selfLink">
         <td><code style="margin-left: 40px;">selfLink</code></td>
         <td><code class="apitype">string</code></td>
-        <td>Server-defined URL for this resource (output only).</td>
-        <td></td>
       </tr>      
       <tr id="id">
         <td><code style="margin-left: 20px;">somestring</code></td>
         <td><code class="apitype">object</code></td>
-        <td>Unique identifier for the resource; defined by the server (output only).</td>
-        <td></td>
       </tr>
       <tr id="items">
         <td><code>items[]</code></td>
         <td><code class="apitype">list</code></td>
-        <td>The persistent disk resources.</td>
-        <td></td>
       </tr>
       <tr id="nextPageToken">
         <td><code>nextPageToken</code></td>
         <td><code class="apitype">string</code></td>
-        <td>A token used to continue a truncated list request.</td>
-        <td></td>
       </tr>
       </tbody>
     </table>
@@ -204,4 +222,5 @@ curl  url -i -H "Accept: application/json" http://192.168.0.165/persons/person/1
   </div>
 
 
-  
+  </div>
+  </div>

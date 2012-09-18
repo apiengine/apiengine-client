@@ -173,6 +173,12 @@
     line-height: 50px;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
+        font-size: 26px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-family: 'BebasNeueRegular';
+    color: #454a52;
   }
   .main-menu-list {
     list-style: none;
@@ -182,6 +188,7 @@
   .main-menu-list li {
     padding: 15px;
     border: 1px solid #eee;
+    border-top: none;
   }
   .main-menu-list li a {
     text-decoration: none;
@@ -193,7 +200,18 @@
     display: inline-block;
     width: 20px;
   }
-
+  .resource-list li:hover {
+    background: #eee;
+  }
+  .resource-list li:hover li {
+    background: #fff;
+  }
+  .main-menu-list li:hover {
+    background: #eee;
+  }
+  .main-menu-list li:hover a{
+    background: #eee;
+  }
   </style>
 
 
@@ -233,7 +251,7 @@
 
   <div class="row-fluid">
 
-  	<div class="span2" style="width: 260px; float: left;">
+  	<div class="span2" style="width: 300px; float: left;">
       <div class="api-main-menu">
         <div class="menu-title">
           RESOURCES
@@ -248,7 +266,7 @@
   			Loading resources
   		</div>
   	</div>
-  	<div class="" style="float: left; width: 700px;">
+  	<div class="" style="float: left; width: 660px;">
   		<div class="method-container">
   		</div>
   	</div>

@@ -79,6 +79,7 @@ define([
       */
       that.$el.attr('data-resource-id', that.options.resourceId);
             console.log(that.$el, 'what the fuck is going on');
+      that.$el.fadeIn(200);
 
       this.resource.set({
         username: that.options.username,
@@ -95,6 +96,7 @@ define([
 
         this.methods.fetch({
           success: function (methods) {
+            //that.$el.fadeIn(200);
             that.$el.html(_.template(resourceListTemplate, {_:_, is_public: that.options.is_public, methods: methods, username: Session.get('login'), selectedMethod: that.options.method, location: that.options.location}));
             $('.js-api-filter').button();
             console.log(that.options.method);

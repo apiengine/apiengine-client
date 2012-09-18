@@ -1,8 +1,7 @@
 /*
   All styles come in here then are parsed out into appropiate sub files
 */
-@font-face
-{
+@font-face {
 font-family: AllerLight;
 src: url('Aller_Std_Rg.ttf');
 }
@@ -12,7 +11,24 @@ src: url('Aller_Std_Rg.ttf');
     font-weight: normal;
     font-style: normal;
 }
+.ajax-cog {
 
+}
+
+  @-webkit-keyframes spin {
+  from { -webkit-transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); }
+}
+
+.ajax-cog {
+    width: 18px;
+    height: 18px;
+    background: url('../img/ajax-cog.png');
+     -webkit-animation-name: spin; 
+  -webkit-animation-duration: 2000ms; /* 40 seconds */
+  -webkit-animation-iteration-count: infinite; 
+  -webkit-animation-timing-function: linear;
+}
 @font-face {
     font-family: 'BebasNeueRegular';
     src: url('BebasNeue-webfont.ttf') format('truetype');
@@ -20,6 +36,7 @@ src: url('Aller_Std_Rg.ttf');
     font-style: normal;
 }
 p, ul, li , div, span, a {
+   # outline: 1px solid #000;
 }
 html {
     overflow-y: scroll;
