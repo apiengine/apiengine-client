@@ -8,6 +8,9 @@
     border-bottom: 1px solid #ebebeb;
     border-left: 1px solid #ebebeb;
     border-bottom: 1px solid #ebebeb;
+    min-height: 48px;
+    padding: 0;
+    margin: 0;
   }
   .resource-list .icon {
     color: #454a52;
@@ -15,7 +18,12 @@
   }
   .resource-list > li > div > a {
     text-decoration: none;
-    color: #444;
+    color: #4a92fd;
+    display: block;
+    height: 48px;
+    float: left;
+    width: 223px;
+    line-height: 48px;
   }
   .method-list { 
     list-style: none;
@@ -37,7 +45,7 @@
     display: inline-block;
   font-family: "AllerLight";
     text-align:center;
-    margin-left: 15px;
+    margin-left: 25px;
     color: #fff;
     font-weight: bold;
     margin-right: 5px;
@@ -57,7 +65,15 @@
   .expand {
     width: 25px;
     text-align: center;
-    display: inline-block;
+    margin-left: 10px;
+    height: 48px;
+    float: left;
+    line-height: 48px;
+    cursor: pointer;
+  }
+  .expand:hover {
+    background: #eee;
+
   }
 </style>
 
@@ -68,11 +84,13 @@
 
   %> 
   <li class="<%= selectedResource*1 === resource.id ? 'active' : '' %>" data-resource-id="<%= resource.id %>">
-    <div style="padding: 10px;">
-    <span class="expand">+</span> <a data-resource-id="<%= resource.id %>" href="<%= resources.username%>/<%= resources.api%>/version/<%= resources.version %>/resource/<%= resource.id%>">
+    <div style="">
+    <div class="expand">+</div> 
+    <a data-resource-id="<%= resource.id %>" href="<%= resources.username%>/<%= resources.api%>/version/<%= resources.version %>/resource/<%= resource.id%>">
        <span class="icon">K</span> <%= resource.get('label') %>
     </a>
-  </div>
+    <div style="clear: both;"></div>
+    </div>
     <div class="method-sublist-container"></div> 
   </li>
   <% }); %>

@@ -38,12 +38,12 @@ define([
       resourcePageView.render();  
     },
     expandMethodsHandler: function (ev) {
-        var ele = $(ev.currentTarget).parents('[data-resource-id]').attr('data-resource-id');
+        var ele = $(ev.currentTarget).parents('[data-resource-id]');
         this.expandMethods(ele);
     },
     expandMethods: function (ele) {   
-        this.options.resourceId = $(ele).parents('[data-resource-id]').attr('data-resource-id');
-      var el =  $('.method-sublist-container', $(ele).parents('[data-resource-id]'));
+      this.options.resourceId = $(ele).attr('data-resource-id');
+      var el =  $('.method-sublist-container', $(ele));
       console.log(el);
       var methodListView = new MethodsListView({username: this.options.username, api: this.options.api, version: this.options.version, resourceId: this.options.resourceId, method: this.options.method, el: el});
       methodListView.setElement(el);

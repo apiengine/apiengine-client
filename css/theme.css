@@ -19,8 +19,7 @@ src: url('Aller_Std_Rg.ttf');
     font-weight: normal;
     font-style: normal;
 }
-p, ul, li , div, span {
-   /* outline: 1px solid #000; */
+p, ul, li , div, span, a {
 }
 html {
     overflow-y: scroll;
