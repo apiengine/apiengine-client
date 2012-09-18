@@ -28,9 +28,9 @@ define([
       } else {
        var el = $('[data-resource-id=' + this.options.resourceId + ']');
     }
-
-      if(el.length > 0) {
-      this.expandMethods(el);
+console.log('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX', el)
+      if(el.length > 0) { 
+        this.expandMethods($(el).parents('li[data-resource-id]'));
       }
       //var methodListView = new MethodsListView({username: that.options.username, api: that.options.api, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
       //methodListView.render();        
@@ -38,7 +38,8 @@ define([
       resourcePageView.render();  
     },
     expandMethodsHandler: function (ev) {
-        var ele = $(ev.currentTarget).parents('[data-resource-id]');
+        $(ev.currentTarget).text('-');
+        var ele = $(ev.currentTarget).parents('li[data-resource-id]');
         this.expandMethods(ele);
     },
     expandMethods: function (ele) {   
