@@ -6,9 +6,26 @@
 font-family: AllerLight;
 src: url('Aller_Std_Rg.ttf');
 }
+@font-face {
+    font-family: 'AftaserifRegular';
+    src: url('AftaSerifThin-Regular.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BebasNeueRegular';
+    src: url('BebasNeue-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+p, ul, li , div, span {
+   /* outline: 1px solid #000; */
+}
 html {
     overflow-y: scroll;
-    font-family: AllerLight;
+    font-family: AftaserifRegular;
+    font-size: 14px;
 }
 .container {
     width: 960px;
@@ -92,6 +109,7 @@ html {
     font-size: 14px;
     text-transform: uppercase;
      -webkit-transition:color 0.25s ease-in; 
+    font-family: "AllerLight";
     cursor: pointer;
     padding: 1px 11px 1px 11px
 }

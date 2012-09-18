@@ -36,7 +36,7 @@ define([
         // Your server goes below
       //  if(Session.get('auth') || options.url.indexOf('session') !== -1) {
         console.log(options.url);
-        options.url = 'http://z.apiengine.io' + options.url;
+        options.url = 'http://altz.apiengine.io' + options.url;
       //  } else {
         //options.url = 'http://d3gscmgl75g1oq.cloudfront.net' + options.url;
          

@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'ModernPics';
+    src: url('modernpics.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon {
+  font-family: "ModernPics";
+  font-size: 24px !important;
+  color: #ccc;
+}
+
+
+.icon:hover {
+  font-size: 30px;
+};
