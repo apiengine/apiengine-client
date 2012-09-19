@@ -3,15 +3,17 @@ define([
   'backbone',
   'models/session'
 ], function(_, Backbone, Session) {
-  var ResourceModel = Backbone.Model.extend({
+  var CommentModel = Backbone.Model.extend({
     urlRoot: function () {
-      if (typeof this.get('api') !== 'undefined') {
-        return '/user/' +this.get('username')+ '/api/' +this.get('api')+ '/' + this.get('version') + '/resource/' + this.get('resourceId');
+
+
+      if (typeof this.options.methodId !== 'undefined') {
+        return '/user/' +this.options.username+ '/api/' +this.options.api+ '/' + this.options.version + '/resource/' + this.options.resourceId + '/method/' + this.options.methodId + '/comment';
       } else {
-        return '/user/' +this.get('username')+ '/api';
+        return '/comment';
       }
     }
   });
-  return ResourceModel;
+  return CommentModel;
 
 });

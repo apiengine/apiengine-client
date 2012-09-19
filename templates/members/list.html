@@ -1,5 +1,7 @@
 <ul style="list-style: none; margin: 0; padding: 0;">
   <% _.each(users, function(user) { %>
-    <li><img src="http://www.gravatar.com/avatar/<%= user.get('gravatar') %>.jpg" /> - <a href="<%= user.get('login') %>"><%= user.get('login') %></a></li>
+    <li><img src="http://www.gravatar.com/avatar/<%= user.get('gravatar') %>?d=wavatar" /> - <a href="<%= user.get('login') %>"><%= user.get('login') %></a></li>
   <% }); %>
 </ul>
+
+<canvas id="example-canvas"></canvas>

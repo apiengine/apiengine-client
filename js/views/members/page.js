@@ -22,7 +22,10 @@ define([
         success: function (users) {
           console.log(users);
           $('.members-list').html(_.template(membersListTemplate, {users: users.models, _:_}));
+         
+
         }
+        
       })
     }
   });

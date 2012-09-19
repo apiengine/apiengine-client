@@ -47,11 +47,11 @@ define([
         success: function(model) {
           that.$el.html(_.template(methodTemplate, {method: model}));
           var commentsView = new CommentsView({
-            methodId: this.options.method,
-            version: this.options.version,
-            api: this.options.api,
-            username: this.options.username,
-            resourceId: this.options.resourceId
+            methodId: that.options.method,
+            version: that.options.version,
+            api: that.options.api,
+            username: that.options.username,
+            resourceId: that.options.resourceId
           });
           commentsView.render();
         }

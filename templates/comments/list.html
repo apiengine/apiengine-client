@@ -1,0 +1,45 @@
+<style>
+  .comments {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .comments li {
+    padding: 30px 20px 30px 20px;
+    border-top: 1px solid #eee;
+
+  }
+  .comment-content {
+    margin-left: 15px;
+    float: left;
+    width: 450px;
+  }
+  .comment-profile {
+    float: left;
+    width: 60px;
+  }
+</style>
+
+
+<ul class="comments">
+<% _.each(notifications, function(notification) { %>
+  <li>
+    <img class="comment-profile" src="http://www.gravatar.com/avatar/<%= notification.get('user').gravatar %>?d=wavatar" />
+    <div class="comment-content">
+      <a href=""><%= notification.get('user').login %></a>
+      <p><%= notification.get('message') %></p>
+    </div>
+    <div style="clear: both;"></div>
+
+
+
+
+<!--
+  {"user":{"epoch":"2012-07-29T01:34:04.337Z","login":"thomasdavis","publicize":false,"email":"thomasalwyndavis@gmail.com","gravatar":"cff733cf90823edd218a834980379c61"},"message":"asdasd","target":{"payload":{"status":411,"user":"thomasdavis","api":"ApiEngine","data":{"request":{"headers":[]},"response":[]},"version":1,"method":"PUT","label":"Update an Api","description":"Updates the specified Api with new details","resource":9},"type":"method"},"type":"comment","created_at":"2012-09-19T04:26:50.181Z"}
+
+-->
+
+
+  </li>
+
+<% }); %>

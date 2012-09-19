@@ -1,5 +1,30 @@
-<ul>
+<ul style="list-style: none; padding: 0; margin: 0;">
   <% _.each(apis, function(api) { %>
-  <li><a href="<%= api.get('user') %>/<%= api.get('name') %>/version/1"><%= api.get('name') %></a> By <a href="<%= api.get('user') %>"><%= api.get('user') %></a></li>
+  <li style="margin-bottom: 60px;">
+
+  <div style="position: relative; margin-top: 30px;">
+    <div class="api-icon-col">
+     <a href="<%= api.get('user') %>/<%= api.get('name') %>/version/1" style="text-decoration: none;"> <div class="cog-power" style="border: 1px solid #ccc; width: 150px; height: 150px; float: left"></div></a>
+    </div>
+    <div class="api-desc-col">
+      <div style="padding-left: 15px;">
+        <h1 class="api-name" style=""><%= api.get('name') %></h1>
+        <ul class="quicklinks">
+          <li><span class="icon">f</span><a href="#"><%= api.get('user') %></a></li>
+          <li><span class="icon">J</span><a href="#">Photography</a></li>
+        </ul>
+        <div style="clear: both;"></div>
+        <p style="" class="api-description">Mauris ut purus quam, ut vulputate risus. Fusce ac risus tellus. Praesent fermentum aliquam lectus sit amet tristique. In eget magna diam, non tristique neque. Sed fermentum, risus at posuere accumsan, velit sem hendrerit dolor, et sodales neque turpis id quam. In est turpis, feugiat ac tempor in, ultrices sit amet justo. Nullam risus quam, accumsan at dignissim et, mollis interdum urna.</p>
+ 
+      </div>
+  </div>
+  <div class="api-actions-col">
+    <ul class="actions-menu">
+      <li><a class="btn btn-green">Following</a></li>
+    </ul>
+  </div>
+  <div style="clear: both;"></div>
+   </li>
   <% }); %>
 </ul>
+
