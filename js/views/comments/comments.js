@@ -47,6 +47,7 @@ define([
       notification.fetch({
         success: function (notifications) {
           $('.comments-list-container').html(_.template(listTemplate, {_:_, notifications: notifications.models}));
+          $('.timeago').timeago();
         }
       })
     }
