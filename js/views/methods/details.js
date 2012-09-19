@@ -7,8 +7,9 @@ define([
   'models/session',
   'text!templates/methods/details.html',
   'models/method',
-  'views/forms/method'
-], function($, _, Backbone, Vm, Router, Session, methodTemplate, MethodModel, MethodForm){
+  'views/forms/method',
+  'views/comments/comments'
+], function($, _, Backbone, Vm, Router, Session, methodTemplate, MethodModel, MethodForm, CommentsView){
   var MethodDetailsView = Backbone.View.extend({
     el: '.method-container',
     initialize: function () {
@@ -45,6 +46,14 @@ define([
       this.method.fetch({
         success: function(model) {
           that.$el.html(_.template(methodTemplate, {method: model}));
+          var commentsView = new CommentsView({
+            methodId: this.options.method,
+            version: this.options.version,
+            api: this.options.api,
+            username: this.options.username,
+            resourceId: this.options.resourceId
+          });
+          commentsView.render();
         }
       })
     }
