@@ -97,12 +97,16 @@ define([
         this.methods.fetch({
           success: function (methods) {
             //that.$el.fadeIn(200);
+            setTimeout(function(){
+
+
             that.$el.html(_.template(resourceListTemplate, {_:_, is_public: that.options.is_public, methods: methods, username: Session.get('login'), selectedMethod: that.options.method, location: that.options.location}));
             $('.js-api-filter').button();
             console.log(that.options.method);
             if(typeof that.options.method !== 'undefined') {
               that.showMethodView();
             }
+               },700);
           }
         });
 

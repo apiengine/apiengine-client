@@ -28,7 +28,6 @@ define([
       } else {
        var el = $('[data-resource-id=' + this.options.resourceId + ']');
     }
-console.log('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX', el)
       if(el.length > 0) { 
         this.expandMethods($(el).parents('li[data-resource-id]'));
       }

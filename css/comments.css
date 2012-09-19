@@ -1,0 +1,23 @@
+.comment-box {
+  padding: 40px 20px 40px 20px;
+}
+.comment-profile {
+  float: left;
+  width: 60px;
+}
+.comment-text {
+  width: 400px;
+  float: left;
+  margin-left: 20px;
+}
+.comment-input {
+  border: 1px solid #eee;
+  padding: 10px;
+  vertical-align: top;
+  height: 40px;
+  width: 480px;
+  margin-bottom: 20px;
+}
+.add-comment {
+  float: right;
+}
