@@ -6,8 +6,9 @@ define([
   'vm',
   'models/session',
   'models/resource',
-  'text!templates/resource/page.html'
-  ], function($, _, Backbone, bootstrap, Vm, Session, ResourceModel, resourcePageTemplate){
+  'text!templates/resource/page.html',
+  'views/comments/comments'
+  ], function($, _, Backbone, bootstrap, Vm, Session, ResourceModel, resourcePageTemplate, CommentsView){
   var ResourcesPage = Backbone.View.extend({
     el: '.method-container',
     initialize: function () {
@@ -29,6 +30,16 @@ define([
         success: function (resource) {
           console.log('we can now render the resouce page using', resource);
           that.$el.html(_.template(resourcePageTemplate, {_:_, resource: resource}));
+          var commentsView = new CommentsView({
+            version: that.options.version,
+            api: that.options.api,
+            username: that.options.username,
+            resourceId: that.options.resourceId
+          });
+          commentsView.render();
+
+
+
         }
       });
         console.log('render resource page');

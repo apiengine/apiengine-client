@@ -1,9 +1,11 @@
 .comment-box {
-  padding: 40px 20px 40px 20px;
+  padding: 30px 15px 30px 15px;
 }
 .comment-profile {
   float: left;
   width: 60px;
+  padding: 1px;
+  border: 1px solid #ccc;
 }
 .comment-text {
   width: 400px;
@@ -11,13 +13,55 @@
   margin-left: 20px;
 }
 .comment-input {
-  border: 1px solid #eee;
+  border: 1px solid #ccc;
   padding: 10px;
   vertical-align: top;
   height: 40px;
-  width: 480px;
-  margin-bottom: 20px;
+  width: 545px;
+      font-family: AftaserifRegular;
+    font-size: 14px;
 }
 .add-comment {
-  float: right;
+  float: left;
+  margin-left: 85px;
+}
+.comment-username {
+  color: #4a92fd;
+  text-decoration: none;
+}
+.comment-username:hover {
+  text-decoration: underline;
+}
+.comment-input:focus {
+}
+  .comments {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .comments li {
+    padding: 30px 15px 30px 15px;
+    border-top: 1px solid #ccc;
+
+  }
+  .comment-content {
+    margin-left: 15px;
+    float: left;
+    width: 505px;
+  }
+
+  .comment-message {
+    line-height: 22px;
+    letter-spacing: 0px;
+  }
+  .timeago {
+    color: #6b6d70;
+    font-size: 12px;
+    margin-bottom: 0;
+  }
+
+  ::-webkit-input-placeholder {
+    font-family: AftaserifRegular;
+    font-size: 14px;
+    font-style: italic;
 }

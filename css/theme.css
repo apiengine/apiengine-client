@@ -44,7 +44,7 @@ html {
     font-size: 14px;
 }
 .container {
-    width: 960px;
+    width: 1024px;
     margin: auto;
 }
 .autoresize {
@@ -276,12 +276,12 @@ html {
 
   }
   .tabs li.active a {
-    color: #454a52;
+    color: #161717;
 
   }
 
   .tabs li.active a .icon {
-    color: #454a52;
+    color: #161717;
 
   }
   .tabs li a {
@@ -300,11 +300,11 @@ html {
     font-family: 'BebasNeueRegular';
     height: 21px;
     line-height: 26px;
-    color: #454a52;
+    color: #161717;
   }
   .api-description {
-    font-size: 12px;
-    color: #454a52;
+    font-size: 14px;
+    color: #161717;
     line-height: 18px;
   }
   .quicklinks {
@@ -356,7 +356,7 @@ html {
     text-transform: uppercase;
     font-weight: normal;
     font-family: 'BebasNeueRegular';
-    color: #454a52;
+    color: #161717;
   }
   .main-menu-list {
     list-style: none;
@@ -370,10 +370,10 @@ html {
   }
   .main-menu-list li a {
     text-decoration: none;
-    color: #454a52;
+    color: #161717;
   }
   .main-menu-list li a .icon {
-    color: #454a52;
+    color: #161717;
     margin-right: 5px;
     display: inline-block;
     width: 20px;
@@ -389,4 +389,41 @@ html {
   }
   .main-menu-list li:hover a{
     background: #eee;
+  }
+
+  body h2 {
+    color: #161717;
+        height: 50px;
+    line-height: 50px;
+    font-size: 26px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-family: 'BebasNeueRegular';
+  }
+    .method-title {
+    height: 50px;
+    line-height: 50px;
+    font-size: 26px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-family: 'BebasNeueRegular';
+    color: #161717;
+  }
+  .request-table {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 100%;
+  }
+  .request-table td {
+    height: 40px;
+    line-height: 40px;
+    padding: 5px;
+    vertical-align: middle;
+    line-height: 12px;
+  }
+    .request-table td:hover {
+      background: #eee;
+
   }

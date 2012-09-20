@@ -10,7 +10,8 @@ define([
       if (typeof this.options.methodId !== 'undefined') {
         return '/user/' +this.options.username+ '/api/' +this.options.api+ '/' + this.options.version + '/resource/' + this.options.resourceId + '/method/' + this.options.methodId + '/comment';
       } else {
-        return '/comment';
+        return '/user/' +this.options.username+ '/api/' +this.options.api+ '/' + this.options.version + '/resource/' + this.options.resourceId + '/comment';
+        
       }
     }
   });

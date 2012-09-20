@@ -1,23 +1,5 @@
 <style>
-  .comments {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  .comments li {
-    padding: 30px 20px 30px 20px;
-    border-top: 1px solid #eee;
 
-  }
-  .comment-content {
-    margin-left: 15px;
-    float: left;
-    width: 450px;
-  }
-  .comment-profile {
-    float: left;
-    width: 60px;
-  }
 </style>
 
 
@@ -26,8 +8,8 @@
   <li>
     <img class="comment-profile" src="http://www.gravatar.com/avatar/<%= notification.get('user').gravatar %>?d=wavatar" />
     <div class="comment-content">
-      <a href=""><%= notification.get('user').login %></a>
-      <p><%= notification.get('message') %></p>
+      <a href="<%= notification.get('user').login %>" class="comment-username"><%= notification.get('user').login %></a>
+      <p class='comment-message'><%= notification.get('message') %></p>
       <p class="timeago" title="<%= notification.get('created_at') %>"></p>
     </div>
     <div style="clear: both;"></div>

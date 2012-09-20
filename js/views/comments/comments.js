@@ -18,7 +18,27 @@ define([
       this.commentModel.options = options;
     },  
     events: {
-      'click .add-comment': 'postComment'
+      'click .add-comment': 'postComment',
+      'focus .comment-input': 'prepareComment',
+      'blur .comment-input': 'unprepareComment'
+    },
+    prepareComment: function (ev) {
+      $('.comment-input').animate({
+        height: '80px',
+        "margin-bottom": '20px'
+      }, 250, function () {
+        $('.add-comment').fadeIn(450);
+
+      })
+    },
+    unprepareComment: function (ev) {
+        $('.add-comment').fadeOut(250, function () {
+          $('.comment-input').animate({
+            height: '40px',
+            "margin-bottom": '0px'
+          }, 250);
+        });
+
     },
     postComment: function (ev) {
       var that = this;
@@ -29,8 +49,9 @@ define([
        
       this.commentModel.save({}, {
         success: function () {
+        $('.comment-input').val('');
           console.log("rofl");
-          that.render();
+          //that.render();
         }
       }, this.options)
       return false;
