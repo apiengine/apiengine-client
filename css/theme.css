@@ -427,3 +427,10 @@ html {
       background: #eee;
 
   }
+  .notification {
+    padding: 5px;
+    background: #fcd143;
+    color: #444;
+    padding: 4px;
+    float: right;
+  };

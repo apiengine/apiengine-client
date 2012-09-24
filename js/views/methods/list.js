@@ -10,8 +10,9 @@ define([
   'views/forms/method',
   'views/methods/details',
   'collections/methods',
-  'models/method'
-  ], function($, _, Backbone, bootstrap, Vm, Session, resourceListTemplate, ResourceForm, MethodForm, MethodView, Methods, MethodModel){
+  'models/method',
+  'models/notificationtotal'
+  ], function($, _, Backbone, bootstrap, Vm, Session, resourceListTemplate, ResourceForm, MethodForm, MethodView, Methods, MethodModel, NTotals){
   var ApisPage = Backbone.View.extend({
     el: '.method-list-container',
     initialize: function () {
@@ -97,8 +98,14 @@ define([
         this.methods.fetch({
           success: function (methods) {
             //that.$el.fadeIn(200);
-            setTimeout(function(){
 
+            var notificationTotals = new NTotals();
+            notificationTotals.options = that.options;
+            notificationTotals.fetch({
+              success: function () {
+                console.log(arguments);
+              }
+            });
 
             that.$el.html(_.template(resourceListTemplate, {_:_, is_public: that.options.is_public, methods: methods, username: Session.get('login'), selectedMethod: that.options.method, location: that.options.location}));
             $('.js-api-filter').button();
@@ -106,7 +113,6 @@ define([
             if(typeof that.options.method !== 'undefined') {
               that.showMethodView();
             }
-               },700);
           }
         });
 

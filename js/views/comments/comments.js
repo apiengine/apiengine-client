@@ -13,7 +13,6 @@ define([
     el: '.comments-container',
     initialize: function (options) {
       var that = this;
-      console.log('XXXXXXXXXXXXXXXXX', options)
       this.commentModel = new CommentsModel();
       this.commentModel.options = options;
     },  
@@ -51,7 +50,7 @@ define([
         success: function () {
         $('.comment-input').val('');
           console.log("rofl");
-          //that.render();
+          that.render();
         }
       }, this.options)
       return false;
