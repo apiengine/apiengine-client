@@ -95,14 +95,17 @@
     <div class="expand icon">/</div> 
     <a data-resource-id="<%= resource.id %>" href="<%= resources.username%>/<%= resources.api%>/version/<%= resources.version %>/resource/<%= resource.id%>">
        <span class="icon">K</span> <%= resource.get('label') %> 
+
+
     </a>
+    <span data-resource-id="<%= resource.id %>" class="resource_notification notification" style="display: none; margin-right: 10px; margin-top: 15px;"></span>
     <div style="clear: both;"></div>
     </div>
   </li>
   <li style="display: none; border-top: none;">
     <div class="resource-submenu">
     <ul class="main-menu-list">
-        <li><a class="overview-link" data-resource-id="<%= resource.id %>" style="margin-left: 20px;" href="<%= resources.username%>/<%= resources.api%>/version/<%= resources.version %>/resource/<%= resource.id%>"><span class="icon">E</span>Overview</a> <span data-resource-id="<%= resource.id %>" class="notification" style="display: none;"></span></li>
+        <li><a class="overview-link" data-resource-id="<%= resource.id %>" style="margin-left: 20px;" href="<%= resources.username%>/<%= resources.api%>/version/<%= resources.version %>/resource/<%= resource.id%>"><span class="icon">E</span>Overview</a> <span data-resource-id="<%= resource.id %>" class="method_notification notification" style="display: none;"></span></li>
       </ul>
     <div class="method-sublist-container">
 

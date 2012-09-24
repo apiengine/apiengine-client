@@ -9,8 +9,9 @@ define([
   'collections/resources',
   'views/methods/list',
   'models/resource',
-  'views/resource/page'
-], function($, _, Backbone, Vm, bootstrap, Session, resourceListTemplate, ResourcesCollection, MethodsListView, ResourceModel, ResourcePageView){
+  'views/resource/page',
+  'models/notificationtotal'
+], function($, _, Backbone, Vm, bootstrap, Session, resourceListTemplate, ResourcesCollection, MethodsListView, ResourceModel, ResourcePageView, NTotals){
   var ApisPage = Backbone.View.extend({
     el: '.resource-list-container',
     initialize: function () {
@@ -49,7 +50,6 @@ define([
     expandMethods: function (ele) {   
       var resourceId = $(ele).attr('data-resource-id');
       var el =  $(ele).next('li');
-      console.log('ITS NOT UNUSUAL', el);
       var methodListView = Vm.create(this, 'methodlist'+this.options.resourceId, MethodsListView, {username: this.options.username, api: this.options.api, version: this.options.version, resourceId: resourceId, method: this.options.method, el: el});
       methodListView.setElement(el);
       methodListView.render();    
@@ -73,6 +73,29 @@ define([
          //   that.showMethodList();           
           //}
           that.showMethodList();  
+
+          var notificationTotals = new NTotals();
+          notificationTotals.options = {
+            api: that.options.api,
+            version: that.options.version,
+            username: that.options.username
+          };
+          notificationTotals.fetch({
+            success: function (model) {
+              console.log('I dont know what to do', model);
+              //var notifEl = $('.notification[data-resource-id='+model.options.resourceId+']');
+             // notifEl.text(model.get('resource')).show();
+              _.each(model.get('resources'), function(method){
+                var anotifEl = $('.resource_notification[data-resource-id='+method.key+']');
+                anotifEl.text(method.count).show();
+
+              });
+            }
+          });
+
+
+
+
         }
       });
 

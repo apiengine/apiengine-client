@@ -98,10 +98,12 @@ define([
             notificationTotals.options = that.options;
             notificationTotals.fetch({
               success: function (model) {
-                var notifEl = $('.notification[data-resource-id='+model.options.resourceId+']');
+                var notifEl = $('.method_notification[data-resource-id='+model.options.resourceId+']');
+                if(model.get('resource') !== 0){                  
                 notifEl.text(model.get('resource')).show();
+                }
                 _.each(model.get('methods'), function(method){
-                  var anotifEl = $('.notification[data-method-id='+method.key+']');
+                  var anotifEl = $('.method_notification[data-method-id='+method.key+']');
                   anotifEl.text(method.count).show();
 
                 });

@@ -60,13 +60,13 @@ define([
     },
     render: function () {
       var that = this;
-      this.$el.html(_.template(commentsTemplate, {errors: []}));
+      this.$el.html(_.template(commentsTemplate, {user: Session.get('user'), errors: []}));
       var notification = new NotificationCollection();
       notification.options = that.options;
-      $('.comments-list-container').html('aaaa');
+      $('.comments-list-container').html('');
       notification.fetch({
         success: function (notifications) {
-          $('.comments-list-container').html(_.template(listTemplate, {_:_, notifications: notifications.models}));
+          $('.comments-list-container').html(_.template(listTemplate, {user: Session.get('user'), _:_, notifications: notifications.models}));
           $('.timeago').timeago();
         }
       })
