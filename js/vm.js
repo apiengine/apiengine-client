@@ -31,4 +31,5 @@ define([
   return {
   	create: create
   };
-});
+})
+;

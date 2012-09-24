@@ -33,7 +33,7 @@ define([
       if(el.length > 0) { 
         this.expandMethods($(el).parents('li[data-resource-id]'));
       }
-
+      console.log("WHY IS THERE A VA ALUE", this.options.methodId);
       //var methodListView = new MethodsListView({username: that.options.username, api: that.options.api, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
       //methodListView.render();        
       var resourcePageView = Vm.create(this, 'resourcepageview', ResourcePageView, {username: that.options.username, api: that.options.api, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
@@ -45,10 +45,10 @@ define([
         this.expandMethods(ele);
     },
     expandMethods: function (ele) {   
-      this.options.resourceId = $(ele).attr('data-resource-id');
+      var resourceId = $(ele).attr('data-resource-id');
       var el =  $(ele).next('li');
       console.log('ITS NOT UNUSUAL', el);
-      var methodListView = Vm.create(this, 'methodlist'+this.options.resourceId, MethodsListView, {username: this.options.username, api: this.options.api, version: this.options.version, resourceId: this.options.resourceId, method: this.options.method, el: el});
+      var methodListView = Vm.create(this, 'methodlist'+this.options.resourceId, MethodsListView, {username: this.options.username, api: this.options.api, version: this.options.version, resourceId: resourceId, method: this.options.method, el: el});
       methodListView.setElement(el);
       methodListView.render();    
     },
