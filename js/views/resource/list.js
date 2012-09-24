@@ -2,6 +2,7 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'vm',
   'bootstrap',
   'models/session',
   'text!templates/resource/list.html',
@@ -9,7 +10,7 @@ define([
   'views/methods/list',
   'models/resource',
   'views/resource/page'
-], function($, _, Backbone, bootstrap, Session, resourceListTemplate, ResourcesCollection, MethodsListView, ResourceModel, ResourcePageView){
+], function($, _, Backbone, Vm, bootstrap, Session, resourceListTemplate, ResourcesCollection, MethodsListView, ResourceModel, ResourcePageView){
   var ApisPage = Backbone.View.extend({
     el: '.resource-list-container',
     initialize: function () {
@@ -25,15 +26,17 @@ define([
       if(ev){
         var el = $(ev.currentTarget);
         this.options.resourceId = $(el).attr('data-resource-id');
+        this.options.methodId = null;
       } else {
        var el = $('[data-resource-id=' + this.options.resourceId + ']');
-    }
+      }
       if(el.length > 0) { 
         this.expandMethods($(el).parents('li[data-resource-id]'));
       }
+
       //var methodListView = new MethodsListView({username: that.options.username, api: that.options.api, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
       //methodListView.render();        
-      var resourcePageView = new ResourcePageView({username: that.options.username, api: that.options.api, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
+      var resourcePageView = Vm.create(this, 'resourcepageview', ResourcePageView, {username: that.options.username, api: that.options.api, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
       resourcePageView.render();  
     },
     expandMethodsHandler: function (ev) {
@@ -45,7 +48,7 @@ define([
       this.options.resourceId = $(ele).attr('data-resource-id');
       var el =  $(ele).next('li');
       console.log('ITS NOT UNUSUAL', el);
-      var methodListView = new MethodsListView({username: this.options.username, api: this.options.api, version: this.options.version, resourceId: this.options.resourceId, method: this.options.method, el: el});
+      var methodListView = Vm.create(this, 'methodlist'+this.options.resourceId, MethodsListView, {username: this.options.username, api: this.options.api, version: this.options.version, resourceId: this.options.resourceId, method: this.options.method, el: el});
       methodListView.setElement(el);
       methodListView.render();    
     },

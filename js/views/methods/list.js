@@ -21,6 +21,7 @@ define([
     },
     events: {
       'click .js-edit-resource': 'editResource',
+      'click [data-method-id]': 'showMethodView',
       'click .js-new-method': 'newMethod'
     },
     newMethod: function () {
@@ -44,24 +45,18 @@ define([
 
       return false;
     },
-    events: {
-      'click [data-method-id]': 'showMethodView'
-    },
     showMethodView: function (ev) {
       var that = this;
-      console.log('THIS SHOULD BE FUCKING RUNNING');
       if(ev) {
         console.log('ooo')
         that.options.method = $(ev.currentTarget).attr('data-method-id');
       }
-      var methodView = new MethodView({username: that.options.username, api: that.options.api, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
+      var methodView = Vm.create(this, 'methodpageview', MethodView, {username: that.options.username, api: that.options.api, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
       methodView.render();  
     },
     render: function () {
       console.log(this.options.method, 'WHY IS THERE NO DAMN METHOD');
       console.log(this.el, 'BLAH BLAH BLAH');
-      $('[data-resource-id].active').removeClass('active');
-      $('[data-resource-id='+ this.options.resourceId +']').addClass('active');
       var that = this;
       this.methods = new Methods();
       this.resource = new MethodModel();

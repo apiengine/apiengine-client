@@ -31,9 +31,10 @@ define([
       return false;
     },
     render: function () {
+      console.log('why no rerender view');
       var that = this;
-      $('[data-method-id].active').removeClass('active');
-      $('[data-method-id='+ this.options.method +']').addClass('active');
+      $('.active').removeClass('active');
+      $('[data-method-id='+ this.options.method +']', $('[data-resource-id='+this.options.resourceId+']')).addClass('active');
 
       this.method = new MethodModel();
       this.method.set({

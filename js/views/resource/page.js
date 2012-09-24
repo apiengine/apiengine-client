@@ -18,6 +18,9 @@ define([
     events: {
     },
     render: function () {
+      console.log('HELLOOOOOO', this.options.resourceId);
+       $('.active').removeClass('active');
+      $('.overview-link', $('[data-resource-id='+this.options.resourceId+']')).addClass('active');
       var that = this;
       var resource = new ResourceModel();
       resource.set({
