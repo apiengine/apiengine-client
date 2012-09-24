@@ -36,8 +36,8 @@ define([
         // Your server goes below
       //  if(Session.get('auth') || options.url.indexOf('session') !== -1) {
         console.log(options.url);
-        //options.url = 'http://altz.apiengine.io' + options.url;
-        options.url = 'http://192.168.2.111:3000' + options.url;
+        options.url = 'http://altz.apiengine.io' + options.url;
+        //options.url = 'http://192.168.2.111:3000' + options.url;
       //  } else {
         //options.url = 'http://d3gscmgl75g1oq.cloudfront.net' + options.url;
          
@@ -66,7 +66,7 @@ define([
         }
         Backbone.history.start({pushState: true, root: root});
       });    
-        
+
 
 //$.ajax('http://d3gscmgl75g1oq.cloudfront.net/user/thomasdavis/api/ApiEngine/1/resource/8', {
   //success: function () {console.log(arguments);}
