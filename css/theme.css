@@ -429,11 +429,17 @@ html {
 
   }
   .notification {
-    padding: 5px;
+    padding: 5px 5px 4px 5px;
     background: #fcd143;
     color: #444;
-    padding: 4px;
+    border-radius: 4px;
     float: right;
+    font-size: 11px;
+    line-height: 11px;
+    height: 11px;
+    width: 10px;
+    display: inline-block;
+    text-align: center;
   }
 [data-method-id].active, 
 .overview-link.active {

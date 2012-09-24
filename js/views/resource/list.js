@@ -19,7 +19,8 @@ define([
     },
     events: {
       'click a[data-resource-id]': 'showMethodList',
-      'click .expand': 'expandMethodsHandler'
+      'click .expand': 'expandMethodsHandler',
+      'click .expanded': 'contractMethods'
     },
     showMethodList: function (ev) {
       var that = this;
@@ -41,6 +42,7 @@ define([
     },
     expandMethodsHandler: function (ev) {
         $(ev.currentTarget).text('-');
+        $(ev).addClass('expanded');
         var ele = $(ev.currentTarget).parents('li[data-resource-id]');
         this.expandMethods(ele);
     },
@@ -51,6 +53,10 @@ define([
       var methodListView = Vm.create(this, 'methodlist'+this.options.resourceId, MethodsListView, {username: this.options.username, api: this.options.api, version: this.options.version, resourceId: resourceId, method: this.options.method, el: el});
       methodListView.setElement(el);
       methodListView.render();    
+    },
+    contractMethods: function (ev) {
+      $(ev.currentTarget).removeClass('expanded');
+      $('.resource-submenu').fadeOut(200);
     },
     render: function () {
       var that = this;

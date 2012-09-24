@@ -97,8 +97,14 @@ define([
             var notificationTotals = new NTotals();
             notificationTotals.options = that.options;
             notificationTotals.fetch({
-              success: function () {
-                console.log(arguments);
+              success: function (model) {
+                var notifEl = $('.notification[data-resource-id='+model.options.resourceId+']');
+                notifEl.text(model.get('resource')).show();
+                _.each(model.get('methods'), function(method){
+                  var anotifEl = $('.notification[data-method-id='+method.key+']');
+                  anotifEl.text(method.count).show();
+
+                });
               }
             });
 
