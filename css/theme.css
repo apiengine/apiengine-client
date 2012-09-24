@@ -364,12 +364,13 @@ html {
     margin: 0;
   }
   .main-menu-list li {
-    padding: 15px;
+    padding: 10px;
     border: 1px solid #eee;
     border-top: none;
   }
   .main-menu-list li a {
     text-decoration: none;
+    margin-left: 5px;
     color: #161717;
   }
   .main-menu-list li a .icon {

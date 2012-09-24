@@ -84,6 +84,7 @@
 </style>
 
 <ul class="resource-list">
+  
   <% 
   _.each(resources.models, function (resource) { 
     
@@ -99,8 +100,14 @@
     </div>
   </li>
   <li style="display: none; border-top: none;">
+    <div class="resource-submenu">
+    <ul class="main-menu-list">
+        <li><a  data-resource-id="<%= resource.id %>" style="margin-left: 20px;" href="<%= resources.username%>/<%= resources.api%>/version/<%= resources.version %>/resource/<%= resource.id%>"><span class="icon">E</span>Overview</a> <span class="notification">4</span></li>
+      </ul>
     <div class="method-sublist-container">
+
       <div style="line-height: 48px;margin-left: 35px;"><div class="ajax-cog" style="margin-top: 14px;float: left; margin-right: 5px;"></div> <span style="color: #ccc;">Loading</span></div>
+    </div>
     </div> 
   </li>
   <% }); %>
