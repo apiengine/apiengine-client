@@ -5,6 +5,16 @@ define(['jquery'], function ($) {
   var modal = function (options) {
     var options = $.extend(defaultOptions, options);
 
+    
+    this.overlay = $('<div>');
+    this.overlay.addClass('overlay-engine')
+    $('body').append(this.overlay);
+
+    this.el = $('<div>');
+    this.el.html(options.content);
+    this.el.addClass('modal-engine')
+    $('body').append(this.el);
+
 
 
   };
@@ -17,10 +27,11 @@ define(['jquery'], function ($) {
     this.addClass('hidden')
   };
 
-  var create = function () {
-    var Modal = new modal();
+  var create = function (options) {
+    var Modal = new modal(options);
     return Modal;
   };
+
 
   return {
     create: create
@@ -28,5 +39,4 @@ define(['jquery'], function ($) {
 
 });
 
-// var somemodal = modal.create({content: template});
-// somemodal.show();
+// GAVE UP
