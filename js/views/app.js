@@ -6,8 +6,9 @@ define([
 	'events',
   'models/session',
   'text!templates/layout.html',
+  'views/header/account-menu',
   'views/header/header'
-], function($, _, Backbone, Vm, Events, Session, layoutTemplate, HeaderView){
+], function($, _, Backbone, Vm, Events, Session, layoutTemplate, AccountMenu, HeaderView){
   var AppView = Backbone.View.extend({
     el: 'body',
     initialize: function () {
@@ -51,8 +52,6 @@ define([
 
 			var that = this;
       $(this.el).html(layoutTemplate);      
-      var headerView = new HeaderView();
-      headerView.render();
       Session.getAuth(function () {
         $('body').on('click', 'a', function (e) {
           clicky.log($(this).attr('href'), $(this).attr('href'), 'pageview')
@@ -60,6 +59,9 @@ define([
           Backbone.router.navigate($(this).attr('href'), true);
           return false;
         });
+    
+      var headerView = new HeaderView();
+      headerView.render();
         var root = '/';
         if(window.location.hostname === 'localhost') {
           root = '/repos/apiengine-client/';

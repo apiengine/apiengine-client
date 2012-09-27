@@ -15,18 +15,22 @@ define([
       var that = this;
       Session.on('change:auth', function (session) {
         that.render();
+
       });
       Session.on('change:errors', function (errors) {
         that.render();
       });
     },
     render: function () {
-      if(Session.get('auth')){
-        
-        this.$el.html(_.template(mainMenuTemplate, {username: Session.get('login')}));
-      } else {
-        
-        this.$el.html(_.template(mainMenuTemplate, {username: null}));
+      if(typeof Session.get('auth') !== 'undefined') {
+        if(Session.get('auth')){
+          
+          this.$el.html(_.template(mainMenuTemplate, {username: Session.get('login')}));
+        } else {
+          
+          this.$el.html(_.template(mainMenuTemplate, {username: null}));
+        }
+        this.$el.fadeIn(200);
       }
     },
     events: {

@@ -12,6 +12,7 @@ define([
       var that = this;
       Session.on('change:auth', function (session) {
         that.render();
+
       });
       Session.on('change:errors', function (errors) {
         that.render();
