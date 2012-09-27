@@ -3,18 +3,17 @@
 		<div style="float: left; width: 80px; height:  80px; background: #ccc"><img src="http://www.gravatar.com/avatar/<%= user.get('gravatar') %>.jpg" /></div>		
 		<div style="float: left; width: 500px; margin-left: 20px;">
 				<h1><%= user.get('login') %> (Thomas Davis)</h1>
-				<h2><%= user.get('url') %></h2>
-				<h2><%= user.get('email') %></h2>
+				<span class="profile-email"><%= user.get('email') %></span>
 				<p>ApiDocco is a web app built as a tool to significantly aid your applications RESTful API development.</p>
 				<% if(currentUser) { %>
-        <button class="btn btn-success dropdown-toggle js-edit-profile" data-toggle="dropdown">Edit </button>
+        <!--<button class="btn btn-success dropdown-toggle js-edit-profile" data-toggle="dropdown">Edit </button>-->
         <% }; %>
-
 				<div style="clear: both;"></div>
 		</div>
 	 <div style="clear: both;"></div>
   </div>
 </div>
+<!--
 <div class="">
   <div class="container">
     <ul class="profile-tabs">
@@ -26,6 +25,7 @@
     <div style="clear: both;"></div>
   </div>
 </div>
+-->
 <div class="profile-api-container">
   <div class="container private-container ">
   Loading

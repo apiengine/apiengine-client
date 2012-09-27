@@ -1,16 +1,7 @@
 /*
   All styles come in here then are parsed out into appropiate sub files
 */
-@font-face {
-font-family: AllerLight;
-src: url('Aller_Std_Rg.ttf');
-}
-@font-face {
-    font-family: 'AftaserifRegular';
-    src: url('AftaSerifThin-Regular.otf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
+
 .ajax-cog {
 
 }
@@ -29,18 +20,13 @@ src: url('Aller_Std_Rg.ttf');
   -webkit-animation-iteration-count: infinite; 
   -webkit-animation-timing-function: linear;
 }
-@font-face {
-    font-family: 'BebasNeueRegular';
-    src: url('BebasNeue-webfont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
+
 p, ul, li , div, span, a {
    # outline: 1px solid #000;
 }
 html {
     overflow-y: scroll;
-    font-family: AftaserifRegular;
+    font-family: Arial;
     font-size: 14px;
 }
 .container {
@@ -125,7 +111,6 @@ html {
     font-size: 14px;
     text-transform: uppercase;
      -webkit-transition:color 0.25s ease-in; 
-    font-family: "AllerLight";
     cursor: pointer;
     padding: 1px 11px 1px 11px
 }
@@ -144,6 +129,12 @@ html {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAACCAYAAACKVvbTAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OEU2MjlFODRFRTY0MTFFMTk2RTVBMDZGQTBENDhGMTkiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OEU2MjlFODVFRTY0MTFFMTk2RTVBMDZGQTBENDhGMTkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4RTYyOUU4MkVFNjQxMUUxOTZFNUEwNkZBMEQ0OEYxOSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4RTYyOUU4M0VFNjQxMUUxOTZFNUEwNkZBMEQ0OEYxOSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PuE6bHoAAAA3SURBVHjaYnz27Nk+BgYGRwZU8AKIM4B4NxALsQAJDyBuB+I0IOYC4oNAnCgpKfkQquEbQIABAKqICldaZ4KFAAAAAElFTkSuQmCC);
     height: 2px;
 }
+.profile-info-container {
+  margin-top: 50px;
+}
+.profile-info-container h1 {
+  margin-top: 0;
+}
 .account-menu-container {
     list-style: none;
     float: right;
@@ -154,11 +145,7 @@ html {
     float: left;
     margin-left: 10px;
 }   
-.profile-info-container {
-    background: #e6e6e6;
-}
 .profile-api-container {
-    background: #f9f9f9;
     padding: 20px;
 }
 .profile-tabs {
@@ -297,7 +284,6 @@ html {
     font-weight: normal;
     margin: 2px 0 10px 0;
     padding: 0;
-    font-family: 'BebasNeueRegular';
     height: 21px;
     line-height: 26px;
     color: #161717;
@@ -344,7 +330,6 @@ html {
   }
   .menu-title {
     background: #eee;
-    font-family: "AllerLight";
     height: 50px;
     padding-left: 15px;
     font-size: 24px;
@@ -355,7 +340,6 @@ html {
     letter-spacing: 2px;
     text-transform: uppercase;
     font-weight: normal;
-    font-family: 'BebasNeueRegular';
     color: #161717;
   }
   .main-menu-list {
@@ -400,7 +384,6 @@ html {
     letter-spacing: 2px;
     text-transform: uppercase;
     font-weight: normal;
-    font-family: 'BebasNeueRegular';
   }
     .method-title {
     height: 50px;
@@ -409,7 +392,6 @@ html {
     letter-spacing: 2px;
     text-transform: uppercase;
     font-weight: normal;
-    font-family: 'BebasNeueRegular';
     color: #161717;
   }
   .request-table {

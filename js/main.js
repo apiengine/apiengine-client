@@ -12,6 +12,7 @@ require.config({
     qtip: 'libs/qtip2/jquery.qtip.min',
     mustache: 'libs/mustache/mustache',
     fallr: 'libs/fallr/fallr',
+    modal: 'libs/modal/modal',
 
     // Require.js plugins
     text: 'libs/require/text',
