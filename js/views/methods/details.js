@@ -51,11 +51,11 @@ define([
           var clearNModel = new ClearNModel({id: that.options.method});
           clearNModel.options = that.options;
           console.log('YOOOOOOOOOOOOOo', clearNModel);
-          clearNModel.destroy({
-            success: function (arguments) {
-              console.log('YOLO', arguments);
-            }
-          })
+         // clearNModel.destroy({
+         //   success: function (arguments) {
+         //     console.log('YOLO', arguments);
+         //   }
+         // })
           var commentsView = new CommentsView({
             methodId: that.options.method,
             version: that.options.version,
