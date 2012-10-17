@@ -14,7 +14,7 @@
 .ajax-cog {
     width: 18px;
     height: 18px;
-    background: url('../img/ajax-cog.png');
+    background: url('../img/ajax-cog.png?embed');
      -webkit-animation-name: spin; 
   -webkit-animation-duration: 2000ms; /* 40 seconds */
   -webkit-animation-iteration-count: infinite; 
@@ -168,7 +168,7 @@ html {
 }
 
 .cog-power {
-    background: url('../img/cog-power-146x146.png');
+    background: url('../img/cog-power-146x146.png?embed');
     width: 146px;
     height: 146px;
 }
