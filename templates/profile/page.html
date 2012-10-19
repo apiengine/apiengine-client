@@ -1,8 +1,9 @@
 <div class="profile-info-container">
   <div class="container">
-		<div style="float: left; width: 80px; height:  80px; background: #ccc"><img src="http://www.gravatar.com/avatar/<%= user.get('gravatar') %>.jpg" /></div>		
+
+		<div style="float: left; width: 150px; padding: 2px; border: 1px solid #ccc; height:  150px;"><img style="width: 150px; height: 150px;" src="http://www.gravatar.com/avatar/<%= user.get('gravatar') %>.jpg" /></div>		
 		<div style="float: left; width: 500px; margin-left: 20px;">
-				<h1><%= user.get('login') %> (Thomas Davis)</h1>
+				<h1><%= user.get('login') %></h1>
 				<span class="profile-email"><%= user.get('email') %></span>
 				<p>ApiDocco is a web app built as a tool to significantly aid your applications RESTful API development.</p>
 				<% if(currentUser) { %>
