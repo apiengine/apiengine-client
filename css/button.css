@@ -1,3 +1,18 @@
+/*
+
+# Buttons
+
+```
+<a href="" class="btn btn-blue">Follow</a>
+<a href="" class="btn btn-green">Follow</a>
+<a href="" class="btn btn-red">Follow</a>
+<a href="" class="btn btn-orange">Follow</a>
+<a href="" class="btn btn-regular">Follow</a>
+<a href="" class="btn btn-grey">Follow</a>
+```
+
+*/
+
 
 .btn {
   display: inline-block;
@@ -13,7 +28,6 @@
   -webkit-transition:background 0.5s ease-in; 
   -webkit-transition:color 0.1s ease-in; 
   font-size: 14px;
-  font-family: "AllerLight";
 ;}
 .btn-blue {
   border: 1px solid #406173;
@@ -67,6 +81,12 @@
 
 .btn-regular:hover {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff), color-stop(50%,#f3f3f3));
-
-
 }
+
+/*
+
+## Disabled state 
+
+We need to have disabled state I think ?
+
+*/

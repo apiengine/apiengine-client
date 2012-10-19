@@ -1,22 +1,31 @@
 /*  
 # ApiEngine style guide
-*/
 
-/* Third party helper libraries 
+
+
+Third party helper libraries 
+
 @import url("bootstrap.css");
+
 ## Styles
+
+
 */
-@import url("normalize.css");
-@import url("fallr.css");
+
 @import url("theme.css");
-@import url("highlight/styles/github.css");
+@import url("backgrounds.css");
 @import url("comments.css");
-@import url("jsoneditor.css");
-@import url("icons.css");
-@import url("jquery.qtip.min.css");
 @import url("button.css");
-@import url("modal.css");
+@import url("icons.css");
+
+/* 
+###  Third Party 
+*/
+
+@import url("jquery.qtip.min.css");
+
+@import url("normalize.css");
 
 
 
-
+@import url("fallr.css");
