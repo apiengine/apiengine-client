@@ -29,6 +29,9 @@ html {
     font-family: Arial;
     font-size: 14px;
 }
+html, body {
+  height: 100%;
+}
 .container {
     width: 1024px;
     margin: auto;

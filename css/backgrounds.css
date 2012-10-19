@@ -2,20 +2,22 @@
 # Backgrounds
 
 ```
-  <div class="titlebar"></div>
+<div class="wrapper">
+  <div class="titlebar">
+    <br /><br />
+  </div>
   <div class="head-space">
     <div class="titlebar-scollop"></div>
-  <br /><br />
-
-
+    <br /><br />
   </div>
   <div class="graph-paper">
     <div class="head-space-scollop"></div>
     <br /><br />
   </div>
   <div class="graph-paper-scollop"></div>
-  <div class="features"></div>
-  </div>
+  <br /><br />
+</div>
+
 ```
 
 */
@@ -24,18 +26,9 @@
 
     .titlebar {
       background: url('../img/backgrounds/titlebar-bg.png');
-      height: 73px;
       overflow:auto;
     }
 
-    .logo{
-      background: url('../img/api-engine-logo.png');
-      background-repeat:no-repeat;
-      width:151px;
-      height:30px;
-      margin:auto;
-      margin-top:21px;
-    }
 
     .titlebar-scollop{
       position:absolute;
@@ -49,7 +42,6 @@
       position:relative;
       overflow-y:auto;
       overflow-x:hidden;
-      height:465px;
     }
 
     .head-space-scollop{
@@ -69,7 +61,6 @@
       background: url('../img/backgrounds/graph-paper-bg.png');
       position:relative;
       overflow: auto;
-      height:73px;
     } 
 
 
@@ -78,11 +69,8 @@
       height:2px;
     }
 
-        .features {
-      width: 888px;
-      height: 586px;
-      background: url('../img/features.png');
-      margin: auto;
-      margin-top: 50px;
-      margin-bottom: 50px;
+        .wrapper {
+      background: url('../img/backgrounds/features-bg.png');
+      overflow:auto;
+      height: 50px;
     }
