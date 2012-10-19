@@ -1,13 +1,67 @@
-.overlay-engine {
-  position: absolute;
+.overlay {
+  position: fixed;
   width: 100%;
-  height: 400px;
-  background: #ccc;
-    display: -webkit-box;
+  height: 100%;
+  background: #444;
+  display: -webkit-box;
   -webkit-box-orient: horizontal;
   -webkit-box-align: stretch;
   -webkit-box-pack: center;
+  top: 0;
+  left: 0;
+  opacity: 0.6;
 }
-.modal-engine {
+.modal {
+  position: fixed;
+  top: 200px;
+  background: #fff;
+  left: 50%;
+  margin-left: -150px;
+  border: 1px solid #ebebeb;
+}
 
+.modal-header {
+  padding: 10px;
+}
+.modal-close-icon {
+  color: #444;
+  float: right;
+  font-size: 10px;
+}
+
+.modal-content {
+  padding: 10px 30px;
+}
+
+.modal-title {
+  text-transform: uppercase;
+  font-size: 26px;
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Aller';
+  margin-bottom: 20px;
+  font-weight: normal;
+}
+
+.modal input {
+  outline: 0;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.modal-footer {
+  background: #ebebeb;
+}
+
+.modal-buttons {
+  padding: 10px 30px;
+}
+
+.modal-link {
+  text-decoration: none; 
+  color: #4A92FD;
+  font-size: 12px; 
+  float: right;
+  line-height: 30px;
+}
 }

@@ -5,7 +5,12 @@
 .ajax-cog {
 
 }
-
+@font-face {
+    font-family: 'Aller';
+    src: url('Aller_Std_Rg.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
   @-webkit-keyframes spin {
   from { -webkit-transform: rotate(0deg); }
   to { -webkit-transform: rotate(360deg); }

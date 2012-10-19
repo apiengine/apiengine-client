@@ -7,8 +7,10 @@ define([
   'views/user/auth',
   'views/apis/list',
   'text!templates/example/login.html',
-  'text!templates/example/logout.html'
-], function($, _, Backbone, Session, homeTemplate, AuthView, ApisList, exampleLoginTemplate, exampleLogoutTemplate, Modal){
+  'text!templates/example/logout.html',
+  'modal',
+  'text!templates/modals/login.html'
+], function($, _, Backbone, Session, homeTemplate, AuthView, ApisList, exampleLoginTemplate, exampleLogoutTemplate, Modal, logint){
   var ExamplePage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
@@ -33,9 +35,9 @@ define([
 
         var apisList = new ApisList({is_public: true, el: '.public-container'});
         apisList.render();
-     // var modal = Modal.create({
-     //   content: 'Hi'
-     // })
+        var modal = Modal.create({
+          content: logint
+        });
     }
   });
   return ExamplePage;

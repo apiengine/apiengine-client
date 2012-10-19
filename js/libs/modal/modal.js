@@ -7,15 +7,13 @@ define(['jquery'], function ($) {
 
     
     this.overlay = $('<div>');
-    this.overlay.addClass('overlay-engine')
+    this.overlay.addClass('overlay')
     $('body').append(this.overlay);
 
     this.el = $('<div>');
     this.el.html(options.content);
-    this.el.addClass('modal-engine')
+    this.el.addClass('modal')
     $('body').append(this.el);
-
-
 
   };
 
