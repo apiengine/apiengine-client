@@ -35,9 +35,7 @@ define([
 
         var apisList = new ApisList({is_public: true, el: '.public-container'});
         apisList.render();
-        var modal = Modal.create({
-          content: logint
-        });
+
     }
   });
   return ExamplePage;

@@ -87,6 +87,36 @@
 
 ## Disabled state 
 
+
 We need to have disabled state I think ?
 
+```
+<button href="" class="btn btn-blue" disabled="disabled">Follow</button>
+<button href="" class="btn btn-green" disabled="disabled">Follow</button>
+<button href="" class="btn btn-red" disabled="disabled">Follow</button>
+<button href="" class="btn btn-orange" disabled="disabled">Follow</button>
+<button href="" class="btn btn-regular" disabled="disabled">Follow</button>
+<button href="" class="btn btn-grey" disabled="disabled">Follow</button>
+```
+
 */
+
+.btn-blue:disabled {
+  opacity: 0.5;
+
+}
+.btn-green:disabled {
+  opacity: 0.5;
+}
+.btn-red:disabled {
+  opacity: 0.5;
+}
+.btn-orange:disabled {
+  opacity: 0.5;
+}
+.btn-grey:disabled {
+  opacity: 0.5;
+}
+.btn-regular:disabled {
+  opacity: 0.5;
+}

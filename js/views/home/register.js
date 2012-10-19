@@ -4,7 +4,9 @@ define([
   'backbone',
   'models/session',
   'text!templates/home/register.html',
-], function($, _, Backbone, Session, loginTemplate){
+  'modal',
+  'text!templates/modals/register.html'
+], function($, _, Backbone, Session, loginTemplate, Modal, registert){
   var ExamplePage = Backbone.View.extend({
     el: 'body',
     initialize: function () {
@@ -12,31 +14,28 @@ define([
       // Bind to the Session auth attribute so we
       // make our view act recordingly when auth changes
       Session.on('change:auth', function (session) {
-        $.fallr('hide', function(){ console.log('message box hides'); });
-         // that.render();
+        if(session.get('auth')) {
+          that.modal.hide();
+          Backbone.router.navigate(session.get('login'), true);
+
+        } else {
+        $('[type=submit]', that.modal.el).removeAttr('disabled');
+          $('.modal-form-errors', that.modal.el).html('')
+
+          _.each(session.get('errors'), function(error){
+          $('.modal-form-errors', that.modal.el).append($('<li>').text(error));
+
+          });
+        }
       });
       Session.on('change:errors', function (errors) {
         //  that.render();
       });
     },
     render: function () {
-      // Simply choose which template to choose depending on
-      // our Session models auth attribute
-   //   if(Session.get('auth')){
-    //    Backbone.router.navigate(Session.get('login'), true);
-    //  } else {
-    //    this.$el.html(_.template(loginTemplate, {errors: Session.get('errors'), _: _})); 
-     // }
-      $.fallr('set', {duration: 0, useOverlay: false,
-        easingDuration: 0,
-        overlayDuration: 50,
-        buttons: {},
-    closeKey        : true,
-    closeOverlay    : true
+      this.modal = Modal.create({
+        content: registert
       });
-      $.fallr('show', {content: loginTemplate,duration: 0, useOverlay: true,
-        easingDuration: 0, position: 'center',
-        overlayDuration: 50}, function(){ console.log('message box appears'); });
     },
     events: {
 
@@ -53,14 +52,23 @@ define([
       var creds = $(ev.currentTarget).serializeObject();
       user.save(creds, {
         success: function (data) {
-          if(data.get('errors')) {
+          if(data.get('errors').length > 0) {
             //alert(data.get('errors'));
           //  that.render();
           } else {
+            Session.set({auth: null}, {silent: true});
+
             Session.getAuth(function () {
               
             });
           }
+        },
+        error: function (model, res) {
+          var res = JSON.parse(res.responseText);
+          console.log(arguments);
+          $('.modal-form-errors', that.modal.el).append($('<li>').text(res.error));
+        $('[type=submit]', that.modal.el).removeAttr('disabled');
+
         }
       });
       return false;     

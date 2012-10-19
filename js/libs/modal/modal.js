@@ -15,6 +15,7 @@ define(['jquery'], function ($) {
     this.el.addClass('modal')
     $('body').append(this.el);
 
+
   };
 
   modal.prototype.show = function () {
@@ -22,11 +23,17 @@ define(['jquery'], function ($) {
   };
   
   modal.prototype.hide = function () {
-    this.addClass('hidden')
+    this.el.remove();
+    this.overlay.remove();
+    delete this;
   };
+
 
   var create = function (options) {
     var Modal = new modal(options);
+    $('.js-close-modal', Modal.el).on('click', function (){
+      Modal.hide();
+    })
     return Modal;
   };
 
