@@ -59,12 +59,14 @@ function cssIncImages(cssFile) {
  	fs.copy(rootPath + '/favicon.ico', 'output/favicon.ico', function (){
     fs.copy(rootPath + '/css/img', outputFolder +'/css/img', function () {
 	 	fs.copy(rootPath + '/img', outputFolder +'/img', function () {
-			fs.copy(rootPath + '/css/Aller_Std_Rg.ttf', outputFolder +'/css/Aller_Std_Rg.ttf', function () {
+      fs.copy(rootPath + '/css/Aller_Std_Rg.ttf', outputFolder +'/css/Aller_Std_Rg.ttf', function () {
+			fs.copy(rootPath + '/css/modernpics.otf', outputFolder +'/css/Aller_Std_Rg.ttf', function () {
 				
 cssIncImages(outputFolder + '/css/styles.css');
 
         var endTime = (Date.now() - startTime) / 1000;
 
+      });
       });
 	 		});
 		});
