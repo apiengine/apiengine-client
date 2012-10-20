@@ -1,6 +1,6 @@
 /*
   All styles come in here then are parsed out into appropiate sub files
-*/
+
 
 @font-face {
     font-family: 'Aller';
@@ -8,6 +8,7 @@
     font-weight: normal;
     font-style: normal;
 }
+*/
   @-webkit-keyframes spin {
   from { -webkit-transform: rotate(0deg); }
   to { -webkit-transform: rotate(360deg); }
