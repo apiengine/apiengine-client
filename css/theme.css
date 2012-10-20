@@ -297,6 +297,7 @@ html, body {
     font-size: 14px;
     color: #161717;
     line-height: 18px;
+    height: 50px;
   }
   .quicklinks {
     list-style: none;

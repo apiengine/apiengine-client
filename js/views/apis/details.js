@@ -17,8 +17,9 @@ define([
   'models/method',
   'libs/highlight/highlight',
   'views/forms/resource',
-  'modal'
-], function($, _, Backbone, Bootstrap, Router, Vm,  Qtip, Session, apiDetailsTemplate, ApiModel, MethodsCollection, ResourceListView, MethodDetailView, ApiModel, ResourceModel, MethodModel, hljs, ResourceForm, Modal){
+  'modal',
+  'text!templates/modals/editdescription.html'
+], function($, _, Backbone, Bootstrap, Router, Vm,  Qtip, Session, apiDetailsTemplate, ApiModel, MethodsCollection, ResourceListView, MethodDetailView, ApiModel, ResourceModel, MethodModel, hljs, ResourceForm, Modal, edt){
   var NewApiPage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
@@ -32,7 +33,7 @@ define([
     },
     editDescription: function(ev) {
       var modal = Modal.create({
-        content: 'adasadadasd<h1>asdasd</h1>d<textarea class="xx">asd</textarea><button class="btn">asdasd</button><h1>asdasd</h1>',
+        content: edt,
         inline: {
           from: $(ev.currentTarget),
           to: '.xx'

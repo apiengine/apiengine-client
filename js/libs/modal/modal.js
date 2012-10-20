@@ -23,8 +23,7 @@ define(['jquery'], function ($) {
       var fromLeft = $(from).offset().left;
       $(to).css({
         width: from.width(),
-        height: from.height(),
-        outline: '1px solid #000'
+        height: from.height()
       });
       var toTop = $(this.el).offset().top - $(to).offset().top;
       var toLeft = $(this.el).offset().left - $(to).offset().left;
