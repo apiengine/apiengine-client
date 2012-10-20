@@ -16,8 +16,9 @@ define([
   'models/resource',
   'models/method',
   'libs/highlight/highlight',
-  'views/forms/resource'
-], function($, _, Backbone, Bootstrap, Router, Vm,  Qtip, Session, apiDetailsTemplate, ApiModel, MethodsCollection, ResourceListView, MethodDetailView, ApiModel, ResourceModel, MethodModel, hljs, ResourceForm){
+  'views/forms/resource',
+  'modal'
+], function($, _, Backbone, Bootstrap, Router, Vm,  Qtip, Session, apiDetailsTemplate, ApiModel, MethodsCollection, ResourceListView, MethodDetailView, ApiModel, ResourceModel, MethodModel, hljs, ResourceForm, Modal){
   var NewApiPage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
@@ -26,7 +27,17 @@ define([
     },  
     events: {
       'click .js-new-resource': 'newResource',
-      'click .js-new-method': 'newMethod'
+      'click .js-new-method': 'newMethod',
+      'click .api-description': 'editDescription'
+    },
+    editDescription: function(ev) {
+      var modal = Modal.create({
+        content: 'adasadadasd<h1>asdasd</h1>d<div class="xx">asd</div><button class="btn">asdasd</button><h1>asdasd</h1>',
+        inline: {
+          from: $(ev.currentTarget),
+          to: '.xx'
+        }
+      });
     },
     newResource: function () {
       var resourceForm = Vm.create(this, 'resourceform', ResourceForm, {

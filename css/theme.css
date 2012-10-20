@@ -432,3 +432,8 @@ html, body {
 .overview-link.active {
     text-decoration: underline;
   }
+
+.api-description:hover {
+  outline: 1px solid #ccc;
+  background: #ebebeb;
+}
