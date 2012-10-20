@@ -7,12 +7,20 @@ define([
   'text!templates/header/account-menu.html',
   'views/home/login',
   'views/home/register',
-  'fallr'
-], function($, _, Backbone, Vm, Session, mainMenuTemplate, LoginView, RegisterView, fallr){
+  'fallr',
+  'qtip',
+  'text!templates/header/account-menu-dropdown.html'
+], function($, _, Backbone, Vm, Session, mainMenuTemplate, LoginView, RegisterView, fallr, qtip, accountDropdown){
   var MainMenuView = Backbone.View.extend({
     el: '.account-menu-container',
     initialize: function () {
       var that = this;
+
+      $('body').on('click', '.js-logout', function () {
+        console.log('hooooo');
+        that.logout();
+      });
+
       Session.on('change:auth', function (session) {
         that.render();
 
@@ -36,12 +44,37 @@ define([
     events: {
       'click .signup': 'signup',
       'click .logout': 'logout',
-      'click .login': 'login'
+      'click .login': 'login',
+      'click .js-account-menu': 'dropdownMenu'
+    },
+    dropdownMenu: function (ev) {
+      $(ev.currentTarget).qtip({
+        content: {
+          text: accountDropdown
+        },
+        show: {
+          event: false, // Don't specify a show event...
+          ready: true // ... but show the tooltip when ready
+        },
+      hide: {
+        delay: 100,
+        event: 'unfocus mouseleave',
+        fixed: true // Make sure we can interact with the qTip by setting it as fixed
+      },
+      position: {
+        my: "top right",
+        at: "bottom center"
+      },
+        style: {
+    classes: 'ui-tooltip-dark ui-tooltip-shadow'
+  }
+      });
+
+
     },
     logout: function (ev) {
       console.log('logged out');
       // Disable the button
-      $(ev.currentTarget).text('Logging out').attr('disabled', 'disabled');
       Session.logout();
       Backbone.router.navigate('', true);
 
