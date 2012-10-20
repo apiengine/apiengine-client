@@ -2,9 +2,6 @@
   All styles come in here then are parsed out into appropiate sub files
 */
 
-.ajax-cog {
-
-}
 @font-face {
     font-family: 'Aller';
     src: url('Aller_Std_Rg.ttf') format('truetype');
@@ -434,7 +431,4 @@ html, body {
 [data-method-id].active, 
 .overview-link.active {
     text-decoration: underline;
-  }
-
-  .overview-link {
   }

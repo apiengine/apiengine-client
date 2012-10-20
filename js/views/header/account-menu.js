@@ -25,10 +25,10 @@ define([
       if(typeof Session.get('auth') !== 'undefined') {
         if(Session.get('auth')){
           
-          this.$el.html(_.template(mainMenuTemplate, {username: Session.get('login')}));
+          this.$el.html(_.template(mainMenuTemplate, {user: Session}));
         } else {
           
-          this.$el.html(_.template(mainMenuTemplate, {username: null}));
+          this.$el.html(_.template(mainMenuTemplate, {user: null}));
         }
         this.$el.fadeIn(200);
       }

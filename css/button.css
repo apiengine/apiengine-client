@@ -120,3 +120,22 @@ We need to have disabled state I think ?
 .btn-regular:disabled {
   opacity: 0.5;
 }
+
+/*
+
+## Avatar button
+
+```
+<a href="thomasdavis" class="btn btn-grey"><img style="width: 30px;" src="http://www.gravatar.com/avatar/cff733cf90823edd218a834980379c61" />thomasdavis</a>
+```
+
+*/
+
+.btn-avatar {
+  padding-left: 0;
+}
+.btn-avatar img {
+  float: left;
+  margin-right: 5px;
+  border-right: 1px solid #444;
+}
