@@ -28,7 +28,10 @@
   -webkit-transition:background 0.5s ease-in; 
   -webkit-transition:color 0.1s ease-in; 
   font-size: 14px;
-;}
+}
+a.btn {
+  height: 28px;
+}
 .btn-blue {
   border: 1px solid #406173;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#69c5eb), color-stop(4%,#69c5eb), color-stop(4%,#28ACE2));
@@ -127,7 +130,7 @@ We need to have disabled state I think ?
 
 ```
 <a href="<%= user.get('login') %>" class="btn btn-right-join btn-grey btn-avatar">
-  <img style="width: 30px;" src="http://www.gravatar.com/avatar/cff733cf90823edd218a834980379c61" />
+  <img style="width: 28px;" src="http://www.gravatar.com/avatar/cff733cf90823edd218a834980379c61" />
   thomasdavis
 </a>
 <button class="btn btn-grey btn-left-join "><span class="icon">&#47;</span></button>
@@ -145,13 +148,15 @@ We need to have disabled state I think ?
 }
 
 .btn-right-join {
-  border-right: none;
+  border-right: 1px solid #444;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+  float: left;
 }
 
 .btn-left-join {
-  border-left: none;
+  border-left: 1px solid #636e72;
+  float: left;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
