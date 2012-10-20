@@ -32,12 +32,13 @@ define([
     },
     editDescription: function(ev) {
       var modal = Modal.create({
-        content: 'adasadadasd<h1>asdasd</h1>d<div class="xx">asd</div><button class="btn">asdasd</button><h1>asdasd</h1>',
+        content: 'adasadadasd<h1>asdasd</h1>d<textarea class="xx">asd</textarea><button class="btn">asdasd</button><h1>asdasd</h1>',
         inline: {
           from: $(ev.currentTarget),
           to: '.xx'
         }
       });
+      window.modal = modal;
     },
     newResource: function () {
       var resourceForm = Vm.create(this, 'resourceform', ResourceForm, {
