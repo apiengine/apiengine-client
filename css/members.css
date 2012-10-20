@@ -1,0 +1,30 @@
+.members ul li.member {
+  float: left;
+  margin-left: 20px;
+}
+.members-avatar {
+  padding: 2px;
+  border: 1px solid #ccc;
+  height: 80px;
+  width: 80px;
+}
+.members ul li.title {
+  clear: both;
+  font-size: 28px;
+  border-bottom: 1px solid #ebebeb;
+padding-top: 30px;
+margin-bottom: 20px;
+}
+.members ul li.title h3 {
+  padding: 0;
+  margin: 0;
+}
+.member-link {
+  text-decoration: none;
+  color: #444;
+  display: inline-block;
+  margin-top: 5px;
+}
+.member-link:hover {
+  text-decoration: underline;
+};

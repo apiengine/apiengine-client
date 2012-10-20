@@ -1,8 +1,21 @@
-<div class="gridster">
+<div class="members">
 <ul style="list-style: none; margin: 0; padding: 0;">
-  <% _.each(users, function(user) { %>
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1"><a href="<%= user.get('login') %>"><img src="http://www.gravatar.com/avatar/<%= user.get('gravatar') %>?d=identicon" /> <!--- <a href="<%= user.get('login') %>"><%= user.get('login') %></a>--></a></li>
-  <% }); %>
+  <%
+  var firstLetter = '';
+   _.each(users, function(user) { 
+    if(user.get('login').substr(0,1) !== firstLetter) {
+        firstLetter =  user.get('login').substr(0,1);
+
+    %>
+    <li class="title"><h3><%= firstLetter.toUpperCase() %></h3></li>
+    <%
+
+    }
+    %>
+    <li class="member" ><a href="<%= user.get('login') %>"><div class="members-avatar"><img  src="http://www.gravatar.com/avatar/<%= user.get('gravatar') %>?d=identicon" /></div></a><a class="member-link" href="<%= user.get('login') %>"><%= user.get('login') %></a></li>
+  <%
+
+   }); %>
 </ul>
 </div>
 <!--

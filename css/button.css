@@ -126,7 +126,11 @@ We need to have disabled state I think ?
 ## Avatar button
 
 ```
-<a href="thomasdavis" class="btn btn-grey"><img style="width: 30px;" src="http://www.gravatar.com/avatar/cff733cf90823edd218a834980379c61" />thomasdavis</a>
+<a href="<%= user.get('login') %>" class="btn btn-right-join btn-grey btn-avatar">
+  <img style="width: 30px;" src="http://www.gravatar.com/avatar/cff733cf90823edd218a834980379c61" />
+  thomasdavis
+</a>
+<button class="btn btn-grey btn-left-join "><span class="icon">&#47;</span></button>
 ```
 
 */
@@ -138,4 +142,16 @@ We need to have disabled state I think ?
   float: left;
   margin-right: 5px;
   border-right: 1px solid #444;
+}
+
+.btn-right-join {
+  border-right: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.btn-left-join {
+  border-left: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }

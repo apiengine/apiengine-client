@@ -20,13 +20,9 @@ define([
       var users = new Users();
       users.fetch({
         success: function (users) {
-          console.log(users);
-          $('.members-list').html(_.template(membersListTemplate, {users: users.models, _:_}));
+          users = _.sortBy(users.models, function(user){ return user.get('login') });
+          $('.members-list').html(_.template(membersListTemplate, {users: users, _:_}));
 
-          $(".gridster ul").gridster({
-              widget_margins: [10, 10],
-              widget_base_dimensions: [140, 140]
-          });
 
 
         }
