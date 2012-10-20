@@ -35,7 +35,6 @@ define([
       if(el.length > 0) { 
         this.expandMethods($(el).parents('li[data-resource-id]'));
       }
-      console.log("WHY IS THERE A VA ALUE", this.options.methodId);
       //var methodListView = new MethodsListView({username: that.options.username, api: that.options.api, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
       //methodListView.render();        
       var resourcePageView = Vm.create(this, 'resourcepageview', ResourcePageView, {username: that.options.username, api: that.options.api, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
@@ -69,10 +68,10 @@ define([
         success: function (collection) {
           that.$el.html(_.template(resourceListTemplate, {_:_, selectedResource: that.options.resourceId, is_public: that.options.is_public, resources: collection, username: Session.get('login'), location: that.options.location}));
           $('.js-api-filter').button();
-          //if(typeof that.options.resourceId !== 'undefined' && $('.method-list-container').attr('data-resource-id') !== that.options.resourceId) {
-         //   that.showMethodList();           
-          //}
-          that.showMethodList();  
+          if(typeof that.options.resourceId !== 'undefined') { //&& $('.method-list-container').attr('data-resource-id') !== that.options.resourceId) {
+             that.showMethodList();           
+          }
+          //that.showMethodList();  
 
           var notificationTotals = new NTotals();
           notificationTotals.options = {
