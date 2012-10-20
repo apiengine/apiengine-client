@@ -7,10 +7,11 @@ define([
   'text!templates/header/account-menu.html',
   'views/home/login',
   'views/home/register',
+  'views/header/newapi',
   'fallr',
   'qtip',
   'text!templates/header/account-menu-dropdown.html'
-], function($, _, Backbone, Vm, Session, mainMenuTemplate, LoginView, RegisterView, fallr, qtip, accountDropdown){
+], function($, _, Backbone, Vm, Session, mainMenuTemplate, LoginView, RegisterView, NewApiView, fallr, qtip, accountDropdown){
   var MainMenuView = Backbone.View.extend({
     el: '.account-menu-container',
     initialize: function () {
@@ -43,6 +44,7 @@ define([
     },
     events: {
       'click .signup': 'signup',
+      'click .js-newapi': 'newapi',
       'click .logout': 'logout',
       'click .login': 'login',
       'click .js-account-menu': 'dropdownMenu'
@@ -86,6 +88,11 @@ define([
     signup: function (ev) {
       var registerView = Vm.create(this, 'RegisterView', RegisterView, {});
       registerView.render();
+    }
+    ,
+    newapi: function (ev) {
+      var newApiView = Vm.create(this, 'NewApiView', NewApiView, {});
+      newApiView.render();
     }
   });
   return MainMenuView;
