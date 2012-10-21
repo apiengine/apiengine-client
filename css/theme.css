@@ -234,54 +234,7 @@ html, body {
   .action-column {
     width: 100px;
   }
-  .tabs-container {
-    margin-top: 42px;
-    margin-bottom: 40px;
-    border-bottom: 1px solid #ccc;
-
-  }
-  .tabs {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .tabs li {
-    float: left;
-    margin-bottom: -1px;
-    margin-right: 30px;
-  }
-  .tabs li:first-child {
-    margin-left: 15px;
-  }
-  .tabs li a {
-    padding: 10px 20px 10px 20px;
-    display: inline-block;
-    text-decoration: none;
-    color: #444;
-  }
-  .tabs li.active {
-    border: 1px solid #ccc;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    border-bottom: none;
-    border-bottom: 1px solid #fff;
-
-  }
-  .tabs li.active a {
-    color: #161717;
-
-  }
-
-  .tabs li.active a .icon {
-    color: #161717;
-
-  }
-  .tabs li a {
-    color: #4a92fd;
-  }
-  .tabs li a .icon {
-    margin-right: 7px;
-  }
+ 
   .api-name {
     font-size: 26px;
     letter-spacing: 2px;
@@ -335,7 +288,6 @@ html, body {
     text-align: right;
   }
   .menu-title {
-    background: #eee;
     height: 50px;
     padding-left: 15px;
     font-size: 24px;
@@ -344,7 +296,6 @@ html, body {
     border-top-right-radius: 3px;
         font-size: 26px;
     letter-spacing: 2px;
-    text-transform: uppercase;
     font-weight: normal;
     color: #161717;
   }

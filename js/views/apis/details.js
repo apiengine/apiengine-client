@@ -137,15 +137,6 @@ define([
             console.log('hljf' , hljs)
             if($('.api-container').length === 0) {
               that.$el.html(_.template(apiDetailsTemplate, {api: api, errors: []}));
-                 $('li').qtip({
-        id: 'myTooltip',
-        content: {
-          text: 'My ID is #ui-tooltip-myTooltip'
-        },
-  style: {
-    classes: 'ui-tooltip-dark ui-tooltip-shadow'
-  }
-      });
               $('code').each(function(i, e) {hljs.highlightBlock(e); });
                 $('.js-api-pages a').click(function (e) {
                 e.preventDefault();
