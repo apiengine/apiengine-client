@@ -3,7 +3,7 @@ define(['jquery'], function ($) {
 
   };
   var modal = function (options) {
-    var options = $.extend(defaultOptions, options);
+    var options = $.extend({}, defaultOptions, options);
 
     
     this.overlay = $('<div>');
@@ -14,10 +14,10 @@ define(['jquery'], function ($) {
     this.el.html(options.content);
     this.el.addClass('modal')
     this.el.css({visibility: 'hidden'});
+
     $('body').append(this.el);
-    $(this.el).css({
-      'margin-left': -($(this.el).width() / 2) + 'px'
-    });
+
+
     if(options.inline) {
       var from = options.inline.from;
       var to = $(options.inline.to, this.el);
@@ -29,13 +29,16 @@ define(['jquery'], function ($) {
       });
       var toTop = $(this.el).offset().top - $(to).offset().top;
       var toLeft = $(this.el).offset().left - $(to).offset().left;
-      console.log($(this.el).offset().top, $(to).offset().top);
       $(this.el).css({
         top: fromTop + toTop,
         left: fromLeft + toLeft,
         position: 'absolute'
       })
-    };
+    } else {
+      $(this.el).css({
+        'margin-left': -($(this.el).width() / 2) + 'px'
+      });
+    }
 
     this.el.css({visibility: 'visible'});
 
@@ -69,4 +72,3 @@ define(['jquery'], function ($) {
 
 });
 
-// GAVE UP
