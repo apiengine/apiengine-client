@@ -39,6 +39,22 @@ define([
           to: '.xx'
         }
       });
+      $('.editdescription').on('submit', function(ev) {
+        console.log('asd');
+        var api = new ApiModel({
+          username: 'thomasdavis',
+          apiname: 'ApiEngine',
+          version: 1
+        });
+        var apiDetails = $(ev.currentTarget).serializeObject();
+        apiDetails.name = 'ApiEngine';
+        api.save(apiDetails, {
+          success: function (model) {
+
+          }
+        })
+        return false;
+      });
       window.modal = modal;
     },
     newResource: function () {

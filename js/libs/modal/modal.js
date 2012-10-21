@@ -15,7 +15,9 @@ define(['jquery'], function ($) {
     this.el.addClass('modal')
     this.el.css({visibility: 'hidden'});
     $('body').append(this.el);
-
+    $(this.el).css({
+      'margin-left': -($(this.el).width() / 2) + 'px'
+    });
     if(options.inline) {
       var from = options.inline.from;
       var to = $(options.inline.to, this.el);
