@@ -1,0 +1,64 @@
+/*  
+# Profile 
+
+```
+<div class="tempbox">
+  <div class="tempbox-container">
+    <div class="box">
+      <span class="icon">&#119;</span>
+      <p class="temptext">Public API's are an SEO, cost effective method of distribution your APIs to the most people.</p>
+      <button class="btn btn-blue">CREATE A PUBLIC API</button>
+    </div>
+    <div class="box box-last"></div>
+  </div>
+</div>
+
+```
+
+*/
+
+.tempbox {
+  min-height: 200px;
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 2px #444;
+  background: #fff;
+  display: inline-block;
+}
+.tempbox-container {
+  padding: 20px;
+}
+.box {
+  width: 274px;
+  float: left;
+  margin-right: 44px;
+  border: 1px solid #ebebeb;
+  background: #fff;
+  min-height: 200px;
+  text-align: center;
+}
+.box .icon {
+  font-size: 70px;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  color: #28ACE2;
+}
+.temptext {
+  font-size: 12px;
+  text-align: center;
+}
+.box.last {
+  margin-right: 0;
+}
+.box1 { 
+
+}
+
+.box2 {
+
+
+}
+
+.box3 {
+
+}
