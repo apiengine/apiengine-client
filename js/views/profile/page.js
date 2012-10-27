@@ -11,9 +11,9 @@ define([
   'views/apis/list',
   'models/user',
   'text!templates/404.html',
-  'views/header/newapi'
-
-], function($, _, Backbone, bootstrap, Router, Vm, Session, newApiTemplate, ApiModel, ApisList, UserModel, MissingPage, NewApiView){
+  'views/header/newapi',
+  'views/settings/page'
+], function($, _, Backbone, bootstrap, Router, Vm, Session, newApiTemplate, ApiModel, ApisList, UserModel, MissingPage, NewApiView, SettingsPage){
   var NewApiPage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
@@ -85,8 +85,14 @@ define([
         currentUser = true;
       }
       that.$el.html(_.template(newApiTemplate, {user: that.userModel}));
-      var apisList = new ApisList({currentUser: currentUser, username: that.options.username, el: '.private-container'});
-      apisList.render();
+      if(typeof this.options.tab === 'undefined') {
+        var apisList = new ApisList({currentUser: currentUser, username: that.options.username, el: '.private-container'});
+        apisList.render();
+      }
+      if(this.options.tab === 'settings') {
+        var settingsPage = Vm.create(this, 'SettingsPage', SettingsPage, {});
+        settingsPage.render();
+      }
     },
     newapi: function () {
       var newApiView = Vm.create(this, 'NewApiView', NewApiView, {});

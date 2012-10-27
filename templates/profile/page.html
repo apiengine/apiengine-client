@@ -80,13 +80,13 @@
 
   <div class="tabs-container">
     <ul class="tabs">
-      <li class="active"><a href="">API's</a></li>
+      <li class="active"><a href="<%= user.get('login') %>">API's</a></li>
       <li><a href="">Activity</a></li>
-      <li><a href="">Settings & Account</a></li>
+      <li class="settings"><a href="<%= user.get('login') %>/settings">Settings</a></li>
     </ul>
     <div style="clear: both;"></div>
   </div>
-
+  <div class="tab-container private-container"></div>
 </div>
 <!--
 <div class="">
@@ -101,11 +101,6 @@
   </div>
 </div>
 -->
-<div class="profile-api-container">
-  <div class="container private-container ">
-  Loading
-  </div>
-</div>
 <!--
 
 	<div class="span4">
