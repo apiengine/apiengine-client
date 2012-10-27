@@ -1,15 +1,74 @@
 /*  
 # Profile 
 
+## Profile heading
+
+```
+<div class="profile-box">
+  <img class="profile-box-pic" src="http://www.gravatar.com/avatar/cff733cf90823edd218a834980379c61.jpg?s=150" />
+  <div class="profile-box-info">
+    <h3 class="fixie"></h3>
+    <span class="extra fixie"></span>
+    <p class="fixie"></p>
+  </div>
+  <div class="profile-box-buttons">
+    <button class="btn btn-regular">EDIT PROFILE</button>
+  </div>
+  <div style="clear: both;"></div>
+</div>
+
+```
+
+*/
+
+.profile-box {
+  border: 1px solid #ccc;
+  background: #fff;
+  padding: 15px;
+  margin: 40px 0 40px 0;
+}
+.profile-box-pic {
+  width: 150px;
+  height: 150px;
+  padding: 2px;
+  border: 1px solid #ccc;
+  float: left;
+}
+
+.profile-box-info {
+  float: left;
+  margin-left: 15px;
+  width: 400px;
+}
+.profile-box-info h3 {
+  font-weight: normal;
+  margin: 0 0 5px 0 ;
+}
+.profile-box-info .extra {
+  font-size: 10px;
+}
+.profile-box-info p {
+  font-size: 12px;
+}
+.profile-box-buttons {
+  float: right;
+}
+/*
+## Getting started box
+
 ```
 <div class="tempbox">
+  <span class="icon tempbox-close-icon js-close-modal">&#88;</span>
   <div class="tempbox-container">
+    <span class="tempbox-title">Getting started</span>
+    <div style="clear: both;"></div>
     <div class="box">
       <span class="icon">&#119;</span>
       <p class="temptext">Public API's are an SEO, cost effective method of distribution your APIs to the most people.</p>
       <button class="btn btn-blue">CREATE A PUBLIC API</button>
     </div>
     <div class="box box-last"></div>
+    <div style="clear: both;"></div>
   </div>
 </div>
 
@@ -20,32 +79,54 @@
 .tempbox {
   min-height: 200px;
   border: 1px solid #ccc;
-  box-shadow: 0px 0px 2px #444;
+  box-shadow: 0px 0px 10px #ccc;
   background: #fff;
   display: inline-block;
+}
+.tempbox-close-icon {
+  color: #444;
+  float: right;
+  margin-right: 5px;
+}
+.tempbox-title {
+  text-transform: uppercase;
+  font-size: 26px;
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Aller';
+  margin-bottom: 20px;
+  font-weight: normal;
+  display: inline-block;
+  margin-bottom: 15px;
+
 }
 .tempbox-container {
   padding: 20px;
 }
 .box {
-  width: 274px;
+  width: 254px;
   float: left;
   margin-right: 44px;
   border: 1px solid #ebebeb;
   background: #fff;
-  min-height: 200px;
   text-align: center;
+  padding: 10px;
 }
 .box .icon {
-  font-size: 70px;
+  font-size: 96px;
   display: inline-block;
   width: 100%;
   text-align: center;
   color: #28ACE2;
 }
+
+
+
 .temptext {
   font-size: 12px;
   text-align: center;
+  margin: 0;
+  margin-bottom: 20px;
 }
 .box.last {
   margin-right: 0;

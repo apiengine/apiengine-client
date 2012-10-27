@@ -1,0 +1,67 @@
+/*
+
+# API's
+
+Some styles for API's
+
+## API List
+
+```
+<ul class="api-list">
+  <li>
+    <img class="api-list-pic" src="http://www.gravatar.com/avatar/31ee0210738731b5751582f23244a19b?d=identicon" />
+    <div class="api-list-info">
+      <h4 class="api-list-title fixie"></h4>
+      <p class="api-list-desc fixie"></p>
+    </div>
+    <div class="api-list-buttons">
+      <button class="btn btn-regular">FOLLOWERS</button>
+    </div>
+    <div style="clear: both;"></div>
+  </li>
+  <li>
+    <img class="api-list-pic" src="http://www.gravatar.com/avatar/31ee0210738731b5751582f23244a19b?d=identicon" />
+    <div class="api-list-info">
+      <h4 class="api-list-title fixie"></h4>
+      <p class="api-list-desc fixie"></p>
+    </div>
+    <div class="api-list-buttons">
+      <button class="btn btn-regular">FOLLOWERS</button>
+    </div>
+    <div style="clear: both;"></div>
+  </li>
+</ul>
+```
+
+*/
+
+.api-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.api-list li {
+  padding: 40px 15px 40px 15px;
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+}
+.api-list-pic {
+  padding: 2px;
+  border: 1px solid #ccc;
+  float: left;
+}
+.api-list-info {
+  float: left;
+  width: 400px;
+  margin-left: 15px;
+}
+.api-list-title {
+  margin: 0 0 5px 0;
+  font-weight: normal;
+}
+.api-list-desc {
+  font-size: 12px;
+}
+.api-list-buttons {
+  float: right;
+}

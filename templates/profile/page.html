@@ -1,4 +1,4 @@
-<div class="profile-info-container">
+<!--<div class="profile-info-container">
   <div class="container">
 
 		<div style="float: left; width: 75px; padding: 2px; border: 1px solid #ccc; height:  75px;"><img style="width: 75px; height: 75px;" src="http://www.gravatar.com/avatar/<%= user.get('gravatar') %>.jpg" /></div>		
@@ -7,12 +7,77 @@
 				<span class="profile-email"><%= user.get('email') %></span>
 				<p>ApiDocco is a web app built as a tool to significantly aid your applications RESTful API development.</p>
 				<% if(currentUser) { %>
-        <!--<button class="btn btn-success dropdown-toggle js-edit-profile" data-toggle="dropdown">Edit </button>-->
+
         <% }; %>
 				<div style="clear: both;"></div>
 		</div>
 	 <div style="clear: both;"></div>
   </div>
+</div>
+
+
+
+-->
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+
+
+<div class="profile-box">
+  <img class="profile-box-pic" src="http://www.gravatar.com/avatar/cff733cf90823edd218a834980379c61.jpg?s=150" />
+  <div class="profile-box-info">
+    <h3 class="fixie"><%= user.get('login') %></h3>
+    <span class="extra fixie">Member for 1 year, 3months and following 17 API's/</span>
+    <p class="fixie">piDocco is a web app built as a tool to significantly aid your applications RESTful API development.</p>
+  </div>
+  <div class="profile-box-buttons">
+    <button class="btn btn-regular">EDIT PROFILE</button>
+  </div>
+  <div style="clear: both;"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="tempbox">
+    <span class="icon tempbox-close-icon js-close-modal">&#88;</span>
+    <div class="tempbox-container">
+      <span class="tempbox-title">Getting started</span>
+      <div style="clear: both;"></div>
+      <div class="box">
+        <span class="icon">&#119;</span>
+        <p class="temptext">Public API's are an SEO, cost effective method of distribution your APIs to the most people.</p>
+        <button class="btn btn-blue">CREATE A PUBLIC API</button>
+      </div>
+      <div class="box box-last"></div>
+      <div style="clear: both;"></div>
+    </div>
+  </div>
+
+  <div class="tabs-container">
+    <ul class="tabs">
+      <li class="active"><a href="">API's</a></li>
+      <li><a href="">Activity</a></li>
+      <li><a href="">Settings & Account</a></li>
+    </ul>
+    <div style="clear: both;"></div>
+  </div>
+
 </div>
 <!--
 <div class="">

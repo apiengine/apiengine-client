@@ -18,12 +18,28 @@
    <% if(!is_public) { %>
 
   <% }; %>
+
+
+<ul class="api-list">
+
+
+
       <% if(apis.length > 0) { 
       	_.each(apis, function(api){ 
 
       	%>
-
-  <div class="well">
+  <li>
+    <img class="api-list-pic" src="http://www.gravatar.com/avatar/<%= api.get('name') %>?d=identicon" />
+    <div class="api-list-info">
+      <h4 class="api-list-title fixie"><%= api.get('name') %></h4>
+      <p class="api-list-desc fixie">Google Compute Engine offers scalable and flexible virtual machine computing capabilities in the cloud. With Google Compute Engine, you can solve large scale processing and analytic problems on Google’s computing, storage, and networking infrastructure.</p>
+    </div>
+    <div class="api-list-buttons">
+      <button class="btn btn-regular">FOLLOWERS</button>
+    </div>
+    <div style="clear: both;"></div>
+  </li>
+ <!-- <div class="well">
 
       <a href="<%= api.get('user') %>/<%= api.get('name') %>/version/<%= api.get('versions')[0] %>">
       	<% if(api.get('private') === true) { %>
@@ -40,7 +56,7 @@
         <%= api.get('versions')[0] %>
       </p>
       </p>
-  </div>
+  </div>-->
     <% }) } else { %>
     <div class="alert alert-block">
     <a class="close" data-dismiss="alert" href="#">×</a>
@@ -48,7 +64,11 @@
       This user has no API's
   </div>
     <% }; %>
-  </ul>
+
+
+
+
+</ul>
 
 
 
