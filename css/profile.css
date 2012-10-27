@@ -82,6 +82,7 @@
   box-shadow: 0px 0px 10px #ccc;
   background: #fff;
   display: inline-block;
+  width: 100%;
 }
 .tempbox-close-icon {
   color: #444;
@@ -111,6 +112,9 @@
   background: #fff;
   text-align: center;
   padding: 10px;
+}
+.box.first {
+  margin-left: 30px;
 }
 .box .icon {
   font-size: 96px;

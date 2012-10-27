@@ -4,14 +4,16 @@ define([
   'backbone',
   'bootstrap',
   'router',
+  'vm',
   'models/session',
   'text!templates/profile/page.html',
   'models/api',
   'views/apis/list',
   'models/user',
-  'text!templates/404.html'
+  'text!templates/404.html',
+  'views/header/newapi'
 
-], function($, _, Backbone, bootstrap, Router, Session, newApiTemplate, ApiModel, ApisList, UserModel, MissingPage){
+], function($, _, Backbone, bootstrap, Router, Vm, Session, newApiTemplate, ApiModel, ApisList, UserModel, MissingPage, NewApiView){
   var NewApiPage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
@@ -39,6 +41,7 @@ define([
       return false;
     },
     events: {
+      'click .js-newapi': 'newapi',
       'click .js-edit-profile': 'editProfile',
       'submit .js-save-profile-form': 'saveProfile'
     },
@@ -84,6 +87,10 @@ define([
       that.$el.html(_.template(newApiTemplate, {user: that.userModel}));
       var apisList = new ApisList({currentUser: currentUser, username: that.options.username, el: '.private-container'});
       apisList.render();
+    },
+    newapi: function () {
+      var newApiView = Vm.create(this, 'NewApiView', NewApiView, {});
+      newApiView.render();
     }
   });
   return NewApiPage;
