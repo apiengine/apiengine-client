@@ -22,12 +22,20 @@
   border-right: 1px solid #ebebeb;
 }
 .settings-menu li {
-  padding: 15px 10px 15px 10px;
   border-bottom: 1px solid #ebebeb;
 }
 .settings-menu li a {
+  padding: 15px 10px 15px 10px;
+  display: block;
   color:#4A92FD;
   text-decoration: none;
+}
+.settings-menu li a.active {
+  background: #444;
+  color: #ebebeb;
+}
+.settings-menu li a:hover {
+  background: #ebebeb;
 }
 .title-button {
   float: right;
@@ -36,28 +44,21 @@
   padding: 40px 0 40px 40px;
 }
 </style>
-
 <div class="settings-menu-container">
   <div class="settings-title-container">
     <span class="settings-title">Settings</span>
   </div>
   <div class="settings-menu-contents">
     <ul class="settings-menu">
-      <li><a href="">Profile settings</a></li>
-      <li><a href="">Account settings</a></li>
-      <li><a href="">Notifications</a></li>
-      <li><a href="">Billing information</a></li>
-      <li><a href="">Transaction history</a></li>
+      <li><a href="<%= user.login %>/settings/profile" class="profile">Profile settings</a></li>
+      <li><a href="<%= user.login %>/settings/account" class="account">Account settings</a></li>
+      <li><a href="<%= user.login %>/settings/notifications" class="notifications">Notifications</a></li>
+      <li><a href="<%= user.login %>/settings/billing" class="billing">Billing information</a></li>
+      <li><a href="<%= user.login %>/settings/history" class="history">Transaction history</a></li>
     </ul>
   </div>
 </div>
 <div class="settings-page-container">
-  <div class="settings-title-container">
-    <span class="settings-title">Profile settings</span>
-    <button class="btn btn-blue title-button">UPDATE</button>
-  </div>
-  <div class="settings-page-contents">
-    FORM GOES HERE
-  </div>
+  
 </div>
 <div style="clear: both;"></div>

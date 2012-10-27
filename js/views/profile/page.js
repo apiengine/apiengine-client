@@ -67,14 +67,18 @@ define([
     },
     render: function () {
       var that = this;
-      this.userModel.fetch({
-        success: function (user) {
-          
-        },
-        error: function () {
-          that.$el.html(MissingPage);
-        }
-      });
+      if($('.profile-box').length > 0 ) {
+        this.renderSettings();
+      } else {
+        this.userModel.fetch({
+          success: function (user) {
+            
+          },
+          error: function () {
+            that.$el.html(MissingPage);
+          }
+        });
+      }
     },
     renderProfile: function () {
       $('#js-edit-profile-form').modal('hide');
@@ -85,13 +89,16 @@ define([
         currentUser = true;
       }
       that.$el.html(_.template(newApiTemplate, {user: that.userModel}));
+      this.renderSettings();
+    },
+    renderSettings: function () {
       if(typeof this.options.tab === 'undefined') {
         var apisList = new ApisList({currentUser: currentUser, username: that.options.username, el: '.private-container'});
         apisList.render();
       }
       if(this.options.tab === 'settings') {
         var settingsPage = Vm.create(this, 'SettingsPage', SettingsPage, {});
-        settingsPage.render();
+        settingsPage.render({setting: this.options.setting});
       }
     },
     newapi: function () {

@@ -1,0 +1,29 @@
+/*
+# Forms
+
+```
+<form class="form">
+  <label>Username</label> 
+  <input type="text" value="thomasdavis" />
+  <label>Description</label>
+  <textarea class="fixie"></textarea>
+  <label>Company</label>
+  <input type="text" value="Api Engine" />
+</form>
+```
+*/
+
+.form label {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 17px;
+}
+.form input, .form textarea {
+  display: block;
+  margin-bottom: 30px;
+  outline: 0;
+  width: 527px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  color: #444;
+}

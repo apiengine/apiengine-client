@@ -24,7 +24,7 @@ define([
       ':username/:apiname/version/:version/resource/:resource/:method': 'apiPage',
       ':username/:apiname/version/:version/resource/:resource': 'apiPage',
       ':username/:apiname/version/:version': 'apiPage',
-      ':username/settings': 'settingsTab',
+      ':username/settings/:page': 'settingsTab',
       ':username': 'defaultAction' // All urls will trigger this route
     }
   });
@@ -112,9 +112,9 @@ define([
       });
 		});
 
-    router.on('route:settingsTab', function (username) {
+    router.on('route:settingsTab', function (username, page) {
       require(['views/profile/page'], function (ProfilePage) {
-        var profilePage = Vm.create(appView, 'ProfilePage', ProfilePage, {username: username, tab: 'settings'});
+        var profilePage = Vm.create(appView, 'ProfilePage', ProfilePage, {username: username, tab: 'settings', setting: page});
         profilePage.render();
       });
     });
