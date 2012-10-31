@@ -160,3 +160,25 @@ We need to have disabled state I think ?
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
+
+/*
+
+## Homepage buttons 
+
+*/
+
+.slider-buttons {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.slider-buttons button {
+  float: left;
+  margin-left: 5px;
+  border-radius: 5px;
+  background: #444;
+  height: 10px;
+  width: 5px;
+  border: 1px solid #ccc;
+}
