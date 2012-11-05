@@ -3,10 +3,9 @@
  ```
   <div class="tabs-container">
     <ul class="tabs">
-      <li class="active"><a href="">API Version 1.7</a></li>
-      <li><a href="">Global activity</a></li>
+      <li class="active"><a href="">APIs</a></li>
+      <li><a href="">Activity</a></li>
       <li><a href="">Collaborators</a></li>
-      <li><a href="">Manage API</a></li>
     </ul>
     <div style="clear: both;"></div>
   </div>
@@ -18,6 +17,7 @@
     margin-top: 50px;
     margin-bottom: 0px;
     border-bottom: 1px solid #ccc;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff),  color-stop(100%,#f7f7f7));
 
   }
   .tabs {
@@ -37,7 +37,7 @@
     padding: 10px 20px 10px 20px;
     display: inline-block;
     text-decoration: none;
-    color: #444;
+    color: #171717;
   }
   .tabs li.active {
     border: 1px solid #ccc;
@@ -45,6 +45,7 @@
     border-top-right-radius: 3px;
     border-bottom: none;
     border-bottom: 1px solid #fff;
+    background: #fff;
 
   }
   .tabs li.active a {
