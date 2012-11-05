@@ -38,6 +38,7 @@
     display: inline-block;
     text-decoration: none;
     color: #171717;
+    font-size: 14px;
   }
   .tabs li.active {
     border: 1px solid #ccc;

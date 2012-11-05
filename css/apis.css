@@ -65,6 +65,9 @@ Some styles for API's
   padding: 0;
   list-style: none;
 }
+.api-list li.api-list-item.single {
+  border-bottom: none;
+}
 .api-list li.api-list-item {
   padding: 30px 15px 30px 15px;
   background: #fff;
@@ -105,4 +108,17 @@ Some styles for API's
   text-align: center;
   padding-top: 15px;
   color: #ccc;
+}
+
+/*
+  ## Featured
+
+```
+  <h2 class="featured-heading">FEATURED API</h2>
+```
+*/
+.featured-heading {
+  font-size: 26px;
+  font-family: 'Nexa';
+  border-bottom: 1px solid #ccc;
 }

@@ -19,7 +19,7 @@ define([
       var apis = new Apis();
       apis.fetch({
         success: function (apis) {
-          $('.api-list').html(_.template(apiListTemplate, {apis: apis.models, _:_}));
+          $('.api-list-container').html(_.template(apiListTemplate, {apis: apis.models, _:_}));
         }
       })
     }
