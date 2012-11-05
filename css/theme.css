@@ -3,8 +3,8 @@
 */
 
 @font-face {
-    font-family: 'Aller';
-    src: url('Aller_Std_Rg.ttf') format('truetype');
+    font-family: 'Nexa';
+    src: url('Nexa Light.otf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -28,7 +28,7 @@ p, ul, li , div, span, a {
 }
 html {
     overflow-y: scroll;
-    font-family: Arial;
+    font-family: Arial, Helvetica, San-Serif;
     font-size: 14px;
 }
 html, body {
@@ -112,7 +112,9 @@ html, body {
     color: #959ca1;
     display: inline-block;
     height: 73px;
-    font-size: 14px;
+    font-size: 12px;
+    text-transform: uppercase;
+
      -webkit-transition:color 0.25s ease-in; 
     cursor: pointer;
     padding: 1px 11px 1px 11px

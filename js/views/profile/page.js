@@ -92,6 +92,7 @@ define([
       this.renderSettings();
     },
     renderSettings: function () {
+      var that = this;
       if(typeof this.options.tab === 'undefined') {
         var apisList = new ApisList({currentUser: currentUser, username: that.options.username, el: '.private-container'});
         apisList.render();

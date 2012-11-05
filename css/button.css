@@ -8,7 +8,7 @@
 <a href="" class="btn btn-red">Follow</a>
 <a href="" class="btn btn-orange">Follow</a>
 <a href="" class="btn btn-regular">Follow</a>
-<a href="" class="btn btn-grey">Follow</a>
+<a href="" class="btn btn-grey ">Follow</a>
 ```
 
 */
@@ -19,7 +19,7 @@
   border: 1px solid #444;
   border-radius: 3px;
   text-decoration: none;
-  color: #ebebeb;
+  color: #fff;
   text-transform: uppercase;
   height: 30px;
   line-height: 30px;
@@ -34,7 +34,7 @@ a.btn {
 }
 .btn-blue {
   border: 1px solid #406173;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#69c5eb), color-stop(4%,#69c5eb), color-stop(4%,#28ACE2));
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#69c5eb), color-stop(4%,#69c5eb), color-stop(4%,#009ff3));
   text-shadow: 0 1px 0 #3891b7;
 
 }
@@ -202,4 +202,133 @@ We need to have disabled state I think ?
   height: 10px;
   width: 5px;
   border: 1px solid #ccc;
+}
+
+/*
+## Speech bubble Arrows
+
+```
+<button class="btn triangle-border right">19</button>
+      <button class="btn btn-regular">FOLLOWERS</button>
+```
+*/
+
+.triangle-border {
+  position:relative;
+  border:1px solid #ccc;
+  color:#333;
+  background:#fff;
+  /* css3 */
+  -webkit-border-radius:4px;
+  -moz-border-radius:4px;
+  border-radius:4px;
+}
+
+/* Variant : for left positioned triangle
+------------------------------------------ */
+
+.triangle-border.left {
+  margin-left:30px;
+}
+
+/* Variant : for right positioned triangle
+------------------------------------------ */
+
+.triangle-border.right {
+  margin-right: 5px;
+}
+
+/* THE TRIANGLE
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.triangle-border:before {
+  content:"";
+  position:absolute;
+  bottom:-20px; /* value = - border-top-width - border-bottom-width */
+  left:40px; /* controls horizontal position */
+    border-width:20px 20px 0;
+  border-style:solid;
+    border-color:#5a8f00 transparent;
+    /* reduce the damage in FF3.0 */
+    display:block; 
+    width:0;
+}
+
+/* creates the smaller  triangle */
+.triangle-border:after {
+  content:"";
+  position:absolute;
+  bottom:-13px; /* value = - border-top-width - border-bottom-width */
+  left:47px; /* value = (:before left) + (:before border-left) - (:after border-left) */
+  border-width:13px 13px 0;
+  border-style:solid;
+  border-color:#fff transparent;
+    /* reduce the damage in FF3.0 */
+    display:block; 
+    width:0;
+}
+
+/* Variant : top
+------------------------------------------ */
+
+/* creates the larger triangle */
+.triangle-border.top:before {
+  top:-20px; /* value = - border-top-width - border-bottom-width */
+  bottom:auto;
+  left:auto;
+  right:40px; /* controls horizontal position */
+    border-width:0 20px 20px;
+}
+
+/* creates the smaller  triangle */
+.triangle-border.top:after {
+  top:-13px; /* value = - border-top-width - border-bottom-width */
+  bottom:auto;
+  left:auto;
+  right:47px; /* value = (:before right) + (:before border-right) - (:after border-right) */
+    border-width:0 13px 13px;
+}
+
+/* Variant : left
+------------------------------------------ */
+
+/* creates the larger triangle */
+.triangle-border.left:before {
+  top:10px; /* controls vertical position */
+  bottom:auto;
+  left:-30px; /* value = - border-left-width - border-right-width */
+  border-width:15px 30px 15px 0;
+  border-color:transparent #5a8f00;
+}
+
+/* creates the smaller  triangle */
+.triangle-border.left:after {
+  top:16px; /* value = (:before top) + (:before border-top) - (:after border-top) */
+  bottom:auto;
+  left:-21px; /* value = - border-left-width - border-right-width */
+  border-width:9px 21px 9px 0;
+  border-color:transparent #fff;
+}
+
+/* Variant : right
+------------------------------------------ */
+
+/* creates the larger triangle */
+.triangle-border.right:before {
+  top:8px; /* controls vertical position */
+  bottom:auto;
+    left:auto;
+  right:-5px; /* value = - border-left-width - border-right-width */
+  border-width:6px 0 6px 5px;
+  border-color:transparent #ccc;
+}
+
+/* creates the smaller  triangle */
+.triangle-border.right:after {
+  top:8px; /* value = (:before top) + (:before border-top) - (:after border-top) */
+  bottom:auto;
+    left:auto;
+  right:-4px; /* value = - border-left-width - border-right-width */
+  border-width:6px 0 6px 5px;
+  border-color:transparent #fff;
 }

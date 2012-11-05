@@ -9,28 +9,43 @@
   <div class="profile-box-info">
     <h3 class="fixie"></h3>
     <span class="extra fixie"></span>
-    <p class="fixie"></p>
+    <p class="">Before hog wayfarers bushwick authentic. Sriracha original dubstep art fin. Party chowder twee farm-to-table brooklyn delectus kale shot. Helvetica delectus the incididunt. Gastropub totally pour-over viral vinyl </p>
+    <div style="clear: both;"></div>
+    <div class="social-networks">
+      <div class="icon">&#119;</div>
+      <img class="icon" src="http://twitter.com/favicon.ico" />
+      <img class="icon" src="http://facebook.com/favicon.ico" />
+      <img class="icon" src="http://linkedin.com/favicon.ico" />
+      <img class="icon" src="http://stackoverflow.com/favicon.ico" />
+      <img class="icon" src="http://apiengine.io/favicon.ico" />
+    </div> 
   </div>
   <div class="profile-box-buttons">
     <button class="btn btn-regular">EDIT PROFILE</button>
   </div>
+
   <div style="clear: both;"></div>
 </div>
 
 ```
 
 */
-
+.social-networks .icon {
+  float: left;
+  margin-right: 15px;
+  font-size: 22px;
+  line-height: 16px;
+}
 .profile-box {
   border: 1px solid #ccc;
   background: #fff;
   padding: 15px;
-  margin: 40px 0 40px 0;
+  margin: 50px 0 50px 0;
 }
 .profile-box-pic {
   width: 150px;
   height: 150px;
-  padding: 2px;
+  padding: 5px;
   border: 1px solid #ccc;
   float: left;
 }
@@ -42,13 +57,19 @@
 }
 .profile-box-info h3 {
   font-weight: normal;
+  color: #171717;
   margin: 0 0 5px 0 ;
+  font-size: 20px;
 }
 .profile-box-info .extra {
-  font-size: 10px;
+  font-size: 14px;
+  color: #6c6d6f;
 }
 .profile-box-info p {
+  color: #6c6d6f;
   font-size: 12px;
+  margin-top: 10px;
+  line-height: 18px;
 }
 .profile-box-buttons {
   float: right;
@@ -63,9 +84,13 @@
     <span class="tempbox-title">Getting started</span>
     <div style="clear: both;"></div>
     <div class="box">
-      <span class="icon">&#119;</span>
-      <p class="temptext">Public API's are an SEO, cost effective method of distribution your APIs to the most people.</p>
-      <button class="btn btn-blue">CREATE A PUBLIC API</button>
+      <div class="tempbox-header">
+        <span class="icon">&#119;</span>
+        <p class="temptext">Public API's are an SEO, cost effective method of distribution your APIs to the most people.</p>
+      </div>
+      <div class="tempbox-footer">
+        <button class="btn btn-blue">CREATE A PUBLIC API</button>
+      </div>
     </div>
     <div class="box box-last"></div>
     <div style="clear: both;"></div>
@@ -75,7 +100,9 @@
 ```
 
 */
-
+.tempbox-footer {
+  background: #f7f7f7;
+}
 .tempbox {
   min-height: 200px;
   border: 1px solid #ccc;
@@ -87,14 +114,16 @@
 .tempbox-close-icon {
   color: #444;
   float: right;
-  margin-right: 5px;
+  margin-right: 14px;
+  margin-top: 14px;
+  line-height: 14px;
 }
 .tempbox-title {
   text-transform: uppercase;
   font-size: 26px;
   padding: 0px;
   margin: 0px;
-  font-family: 'Aller';
+  font-family: 'Nexa';
   margin-bottom: 20px;
   font-weight: normal;
   display: inline-block;
@@ -105,13 +134,19 @@
   padding: 20px;
 }
 .box {
-  width: 254px;
+  width: 234px;
   float: left;
   margin-right: 44px;
   border: 1px solid #ebebeb;
   background: #fff;
   text-align: center;
-  padding: 10px;
+}
+.tempbox-header {
+  padding: 10px 20px 10px 20px;
+
+}
+.tempbox-footer {
+  padding: 10px 0 10px 0;
 }
 .box.first {
   margin-left: 30px;
@@ -121,15 +156,18 @@
   display: inline-block;
   width: 100%;
   text-align: center;
-  color: #28ACE2;
+  color: #fcd24c;
 }
 
 
 
 .temptext {
   font-size: 12px;
-  text-align: center;
+  line-height: 18px;
+text-align:justify;
+text-justify:inter-word;
   margin: 0;
+  color: #6c6d6f;
   margin-bottom: 20px;
 }
 .box.last {

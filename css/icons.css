@@ -1,3 +1,8 @@
+/*
+# Icons
+
+*/
+
 @font-face {
     font-family: 'ModernPics';
     src: url('modernpics.otf') format('truetype');
@@ -10,4 +15,20 @@
   font-size: 24px;
   color: #ccc;
   cursor: pointer;
+}
+
+/*
+
+## Fav Icons 
+
+```
+  <img src="http://twitter.com/favicon.ico" />
+  <img src="http://facebook.com/favicon.ico" />
+
+```
+
+*/
+
+.facebook {
+  background: url('http://facebook.com/facivon.ico');
 }

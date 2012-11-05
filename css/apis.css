@@ -8,24 +8,30 @@ Some styles for API's
 
 ```
 <ul class="api-list">
-  <li>
-    <img class="api-list-pic" src="http://www.gravatar.com/avatar/31ee0210738731b5751582f23244a19b?d=identicon" />
+  <li class="api-list-item">
+    <img class="api-list-pic" src="http://www.gravatar.com/avatar/31ee0210738731b5751582f23244a19b?d=identicon&s=92" />
     <div class="api-list-info">
       <h4 class="api-list-title fixie"></h4>
+      <ul class="profile-links">
+        <li><span class="icon">a</span><a href="somewhere">Harry Wilson</a></span></li>
+        <li><span class="icon">c</span><a href="somewhere">4 collaborators</a></span></li>
+      </ul>
+    <div style="clear: both;"></div>
       <p class="api-list-desc fixie"></p>
     </div>
-    <div class="api-list-buttons">
+    <div class="api-list-buttons"><button class="btn triangle-border right">19</button>
       <button class="btn btn-regular">FOLLOWERS</button>
     </div>
     <div style="clear: both;"></div>
   </li>
-  <li>
-    <img class="api-list-pic" src="http://www.gravatar.com/avatar/31ee0210738731b5751582f23244a19b?d=identicon" />
+  <li class="api-list-item">
+    <img class="api-list-pic" src="http://www.gravatar.com/avatar/31ee0210738731b5751582f23244a19b?d=identicon&s=92" />
     <div class="api-list-info">
       <h4 class="api-list-title fixie"></h4>
       <p class="api-list-desc fixie"></p>
     </div>
     <div class="api-list-buttons">
+      <button class="btn triangle-border right">19</button>
       <button class="btn btn-regular">FOLLOWERS</button>
     </div>
     <div style="clear: both;"></div>
@@ -34,33 +40,59 @@ Some styles for API's
 ```
 
 */
-
+.profile-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-top: 5px;
+  height: 20px;
+}
+.profile-links li { 
+  float: left;
+  margin-right: 15px;
+}
+.profile-links .icon {
+  font-size: 18px;
+}
+.profile-links a {
+  font-size: 12px;
+  text-decoration: none;
+  color: #39f;
+  margin-left: 5px;
+}
 .api-list {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-.api-list li {
+.api-list li.api-list-item {
   padding: 40px 15px 40px 15px;
   background: #fff;
   border-bottom: 1px solid #ccc;
 }
 .api-list-pic {
-  padding: 2px;
+  padding: 3px;
   border: 1px solid #ccc;
   float: left;
 }
 .api-list-info {
   float: left;
-  width: 400px;
+  width: 620px;
   margin-left: 15px;
+  color: #6c6d6f;
 }
 .api-list-title {
-  margin: 0 0 5px 0;
+  margin: 4px 0 5px 0;
+  font-size: 20px;
+  line-height: 18px;
+  color: #171717;
   font-weight: normal;
 }
 .api-list-desc {
   font-size: 12px;
+  margin: 0;
+  margin-top: 5px;
+  line-height: 18px;
 }
 .api-list-buttons {
   float: right;
