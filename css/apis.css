@@ -66,7 +66,7 @@ Some styles for API's
   list-style: none;
 }
 .api-list li.api-list-item {
-  padding: 40px 15px 40px 15px;
+  padding: 30px 15px 30px 15px;
   background: #fff;
   border-bottom: 1px solid #ccc;
 }
@@ -96,4 +96,13 @@ Some styles for API's
 }
 .api-list-buttons {
   float: right;
+}
+.api-list-buttons .btn-share {
+  float: right;
+  margin-top: 15px;
+}
+.no-more {
+  text-align: center;
+  padding-top: 15px;
+  color: #ccc;
 }

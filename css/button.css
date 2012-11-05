@@ -177,7 +177,7 @@ We need to have disabled state I think ?
 
 /*
 
-## Homepage buttons 
+## Misc
 
 ```
 <ul class="slider-buttons home-slider">
@@ -185,9 +185,14 @@ We need to have disabled state I think ?
   <li><button></button>
   <li><button></button>
 </ul>
+<div style="clear: both;"></div>
+      <button class="btn btn-regular btn-share"><span class="icon">&#89;</span></button>
+
 ```
 */
-
+.btn-share .icon {
+  color: #171717;
+}
 .slider-buttons {
   list-style: none;
   margin: 0;

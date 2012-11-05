@@ -1,7 +1,10 @@
 /*
   All styles come in here then are parsed out into appropiate sub files
 */
-
+a {
+  color: #39f;
+  text-decoration: none;
+}
 @font-face {
     font-family: 'Nexa';
     src: url('Nexa Light.otf') format('truetype');

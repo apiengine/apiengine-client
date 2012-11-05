@@ -42,6 +42,8 @@
     <div class="api-list-buttons">
      <button class="btn triangle-border right">19</button>
       <button class="btn btn-regular">FOLLOWERS</button>
+      <div style="clear: both;"></div>
+      <button class="btn btn-regular btn-share"><span class="icon">&#106;</span></button>
     </div>
     <div style="clear: both;"></div>
   </li>
@@ -63,10 +65,10 @@
       </p>
       </p>
   </div>-->
-    <% }) } else { %>
-    <div class="alert alert-block">
-    <a class="close" data-dismiss="alert" href="#">×</a>
-    <h4 class="alert-heading">Oh my goodness!</h4>
+    <% }); %>
+      <li class="no-more">No more APIs</li>
+    <% } else { %>
+    <div class="no-more">
       This user has no API's
   </div>
     <% }; %>

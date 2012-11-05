@@ -36,7 +36,7 @@
   font-size: 26px;
   padding: 0px;
   margin: 0px;
-  font-family: 'Aller';
+  font-family: 'Nexa';
   margin-bottom: 20px;
   font-weight: normal;
 }
@@ -48,7 +48,7 @@
 }
 
 .modal-footer {
-  background: #ebebeb;
+  background: #f7f7f7;
 }
 
 .modal-buttons {
