@@ -112,15 +112,14 @@ html, body {
     color: #959ca1;
     display: inline-block;
     height: 73px;
-    margin-left: 10px;
     font-size: 14px;
-    text-transform: uppercase;
      -webkit-transition:color 0.25s ease-in; 
     cursor: pointer;
     padding: 1px 11px 1px 11px
 }
 .top-bar-menu li a:hover {
     color: #fff;
+    background: #0075b3;
 }
 .top-bar-menu li a.active {
      -webkit-transition:background 1s ease-in; 

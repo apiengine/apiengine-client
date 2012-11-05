@@ -20,6 +20,8 @@ define([
       'forgot_password/*token': 'forgot_password',
       'forgot_password': 'forgot_password',
       'register': 'register',
+      'features': 'features',
+      'pricing': 'pricing',
       '': 'home',
       ':username/:apiname/version/:version/resource/:resource/:method': 'apiPage',
       ':username/:apiname/version/:version/resource/:resource': 'apiPage',
@@ -103,7 +105,18 @@ define([
         homeView.render();
       });
     });
-        
+    router.on('route:features', function () {
+      require(['views/home/features'], function (Features) {
+        var features = Vm.create(appView, 'Features', Features, {});
+        features.render();
+      });
+    });
+    router.on('route:pricing', function () {
+      require(['views/home/pricing'], function (Pricing) {
+        var pricing = Vm.create(appView, 'Pricing', Pricing, {});
+        pricing.render();
+      });
+    });        
 		router.on('route:defaultAction', function (username) {
       console.log(username, 'errrr');
 			require(['views/profile/page'], function (ProfilePage) {

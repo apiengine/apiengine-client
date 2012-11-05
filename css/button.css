@@ -124,6 +124,32 @@ We need to have disabled state I think ?
   opacity: 0.5;
 }
 
+
+
+/*
+
+## Joined buttons
+
+```
+<button type="button" class="btn btn-right-join btn-green">Yes</button>
+<button type="button" class="btn btn-left-join btn-regular">No</button>
+```
+
+*/
+
+.btn-right-join {
+  border-right: 1px solid #444;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  float: left;
+}
+
+.btn-left-join {
+  border-left: 1px solid #636e72;
+  float: left;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
 /*
 
 ## Avatar button
@@ -147,24 +173,19 @@ We need to have disabled state I think ?
   border-right: 1px solid #444;
 }
 
-.btn-right-join {
-  border-right: 1px solid #444;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  float: left;
-}
 
-.btn-left-join {
-  border-left: 1px solid #636e72;
-  float: left;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
 
 /*
 
 ## Homepage buttons 
 
+```
+<ul class="slider-buttons home-slider">
+  <li><button></button>
+  <li><button></button>
+  <li><button></button>
+</ul>
+```
 */
 
 .slider-buttons {
