@@ -6,9 +6,11 @@
       <div style="height: 20px;display:inline-block;">
       <a href="<%= user.get('login') %>" class="btn btn-right-join btn-grey btn-avatar">
         <img style="width: 28px;" src="http://www.gravatar.com/avatar/<%= user.get('user').gravatar %>" />
+        <span>
         <%= user.get('login') %>
+      </span>
       </a>
-      <button class="btn btn-left-join btn-grey js-account-menu"><span style="font-size: 20px;" class="icon">&#47;</span></button>
+      <button class="btn btn-left-join btn-grey active js-account-menu"><span style="font-size: 20px;" class="icon">&#47;</span></button>
 
 <div style="clear: both;"></div>
 </div>

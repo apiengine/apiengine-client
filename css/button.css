@@ -29,7 +29,7 @@
   font-size: 14px;
 }
 a.btn {
-  height: 30px;
+  height: 28px;
 }
 .btn-blue {
   border: 1px solid #0078bd;
@@ -147,17 +147,23 @@ We need to have disabled state I think ?
 */
 
 .btn-right-join {
-  border-right: 1px solid #444;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+  border-right-width: 0;
   float: left;
 }
 
 .btn-left-join {
-  border-left: 1px solid #636e72;
   float: left;
   border-top-left-radius: 0;
+  border-left-width: 0;
   border-bottom-left-radius: 0;
+}
+.btn-right-join.active {
+  border-right-width: 1px;
+}
+.btn-left-join.active {
+  border-left-width: 1px;
 }
 /*
 
@@ -179,11 +185,17 @@ We need to have disabled state I think ?
 .btn-avatar img {
   float: left;
   margin-right: 5px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
   border-right: 1px solid #444;
 }
+.btn-avatar span {
+  float: right;
+}
 
-
-
+.js-account-menu {
+  line-height: 20px;
+}
 /*
 
 ## Misc

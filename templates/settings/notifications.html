@@ -1,12 +1,56 @@
+<style>
+.notification-setting{
+  height: 70px;
+  line-height: 70px;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+  text-align: right;
+}
+.notification-setting label{
+  float: left;
+  color: #6b6d70;
+  margin-bottom: 0;
+}
+.notification-title {
+  border-bottom: 1px solid #ccc;
+  display: block;
+  padding-bottom: 5px;
+
+}
+.notification-setting .button-group {
+  display: inline-block;
+   vertical-align: middle;
+}
+</style>
 <div class="settings-title-container">
     <span class="settings-title">Notifications settings</span>
     <button class="btn btn-blue title-button">UPDATE</button>
   </div>
   <div class="settings-page-contents">
     <form class="form">
-      <strong>APIS</strong>
-      <label>Send me an email when somebody starts following one of my API's</label>
-      <button type="button" class="btn btn-right-join btn-green">Yes</button>
-      <button type="button" class="btn btn-left-join btn-regular">No</button>
+      <span class="notification-title">APIS</span>
+      <div class="notification-setting">
+        <label>Send me an email when somebody starts following one of my API's</label>
+        <div class="button-group">
+          <button type="button" class="btn btn-right-join btn-green active">Yes</button>
+          <button type="button" class="btn btn-left-join btn-regular">No</button>
+        </div>
+        <div style="clear: both;"></div>
+      </div>
+      <div class="notification-setting">
+        <label>Send me an email when somebody starts following one of my API's</label>
+        <div class="button-group">
+          <button type="button" class="btn btn-right-join btn-green active">Yes</button>
+          <button type="button" class="btn btn-left-join btn-regular">No</button>
+        </div>
+        <div style="clear: both;"></div>
+      </div>
+      <div class="notification-setting">
+        <label>Send me an email when somebody starts following one of my API's</label>
+        <div class="button-group">
+          <button type="button" class="btn btn-right-join btn-green active">Yes</button>
+          <button type="button" class="btn btn-left-join btn-regular">No</button>
+        </div>
+      </div>
     </form>
   </div>

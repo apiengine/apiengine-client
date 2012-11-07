@@ -23,7 +23,7 @@
   display: block;
   margin-bottom: 30px;
   outline: 0;
-  width: 527px;
+  width: 550px;
   padding: 10px;
   border: 1px solid #ccc;
   color: #6b6d70;
@@ -33,4 +33,17 @@
 .form .favicon {
   margin-right: 5px;
   width: 16px;
+}
+
+
+
+.profile-pic-input {
+  float: right;
+}
+
+.form-description {
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  margin-bottom: 15px;
 }
