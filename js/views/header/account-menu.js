@@ -64,11 +64,18 @@ define([
         fixed: true // Make sure we can interact with the qTip by setting it as fixed
       },
       position: {
-        my: "top right",
+        my: "top center",
         at: "bottom center"
       },
         style: {
-    classes: 'ui-tooltip-dark ui-tooltip-shadow'
+          def: false,
+        tip: {
+          corner: true,
+          offset: 35,
+          height: 5 ,
+          width: 8 
+                  },
+    classes: 'ui-tooltip-light '
   }
       });
 

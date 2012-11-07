@@ -181,13 +181,14 @@ We need to have disabled state I think ?
 
 .btn-avatar {
   padding-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+
 }
 .btn-avatar img {
   float: left;
   margin-right: 5px;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-  border-right: 1px solid #444;
+  border-right: 1px solid #171717;
 }
 .btn-avatar span {
   float: right;
