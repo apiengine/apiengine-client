@@ -19,7 +19,11 @@ a {
   from { -webkit-transform: rotate(0deg); }
   to { -webkit-transform: rotate(360deg); }
 }
-
+.cards {
+  width: 199px;
+  height: 20px;
+  background: url('../img/cards.png');
+}
 .ajax-cog {
     width: 18px;
     height: 18px;

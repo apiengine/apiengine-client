@@ -17,13 +17,16 @@
   padding-bottom: 5px;
 
 }
+.notification-title.inline {
+  margin-top: 50px;
+}
 .notification-setting .button-group {
   display: inline-block;
    vertical-align: middle;
 }
 </style>
 <div class="settings-title-container">
-    <span class="settings-title">Notifications settings</span>
+    <span class="settings-title"><span class="arrows">»</span> Notifications settings</span>
     <button class="btn btn-blue title-button">UPDATE</button>
   </div>
   <div class="settings-page-contents">
@@ -38,7 +41,7 @@
         <div style="clear: both;"></div>
       </div>
       <div class="notification-setting">
-        <label>Send me an email when somebody starts following one of my API's</label>
+        <label>Send me an email when someone comments on one of my APIs</label>
         <div class="button-group">
           <button type="button" class="btn btn-right-join btn-green active">Yes</button>
           <button type="button" class="btn btn-left-join btn-regular">No</button>
@@ -46,11 +49,21 @@
         <div style="clear: both;"></div>
       </div>
       <div class="notification-setting">
-        <label>Send me an email when somebody starts following one of my API's</label>
+        <label>Send me an email when someone shares on one of my APIs</label>
+        <div class="button-group">
+          <button type="button" class="btn btn-right-join btn-regular">Yes</button>
+          <button type="button" class="btn btn-left-join btn-green active">No</button>
+        </div>
+      </div>
+    <span class="notification-title inline">Other</span>
+      <div class="notification-setting">
+        <label>Send me API Engine update emails</label>
         <div class="button-group">
           <button type="button" class="btn btn-right-join btn-green active">Yes</button>
           <button type="button" class="btn btn-left-join btn-regular">No</button>
         </div>
+        <div style="clear: both;"></div>
       </div>
+
     </form>
   </div>
