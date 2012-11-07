@@ -16,7 +16,8 @@
 .form label {
   display: block;
   margin-bottom: 15px;
-  font-size: 17px;
+  font-size: 14px;
+  color: #171717;
 }
 .form input, .form textarea {
   display: block;
@@ -25,5 +26,11 @@
   width: 527px;
   padding: 10px;
   border: 1px solid #ccc;
-  color: #444;
+  color: #6b6d70;
+  font-size: 12px;
+}
+
+.form .favicon {
+  margin-right: 5px;
+  width: 16px;
 }

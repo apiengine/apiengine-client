@@ -5,6 +5,10 @@ a {
   color: #39f;
   text-decoration: none;
 }
+/*a:hover {
+  color: #39f;
+  text-decoration: underline;
+}*/
 @font-face {
     font-family: 'Nexa';
     src: url('NexaLight.otf') format('truetype');
