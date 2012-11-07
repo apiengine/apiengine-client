@@ -1,4 +1,7 @@
 <style>
+.settings-container {
+  margin-top: 30px;
+}
 .settings-menu-container {
   float: left;
   width: 230px;
@@ -11,8 +14,10 @@
   padding-bottom: 10px;
   height: 30px;
   line-height: 30px;
-  width: 100%;
   border-bottom: 1px solid #ccc;
+}
+.settings-page-container .settings-title-container {
+  padding-left: 40px;
 }
 .settings-menu {
   border-left: 1px solid #ebebeb;
@@ -24,16 +29,57 @@
 .settings-menu li {
   border-bottom: 1px solid #ebebeb;
 }
+.settings-title {
+  font-size: 20px;
+  color: #171717;
+}
+.settings-menu-container .settings-title {
+  margin-left: 15px;
+}
 .settings-menu li a {
   padding: 15px 10px 15px 10px;
   display: block;
   color:#4A92FD;
+  font-size: 14px;
   text-decoration: none;
 }
 .settings-menu li a.active {
-  background: #444;
-  color: #ebebeb;
+  background: #171717;
+  color: #fff;
+
+  position:relative;
+
 }
+
+
+
+/* creates the smaller  triangle */
+.settings-menu li a.active:after {
+  content:"";
+  position:absolute;
+  bottom:-13px; /* value = - border-top-width - border-bottom-width */
+  right:0; /* value = (:before left) + (:before border-left) - (:after border-left) */
+  border-width:13px 13px 0;
+  border-style:solid;
+  border-color:#fff transparent;
+    /* reduce the damage in FF3.0 */
+    display:block; 
+    width:0;
+}
+
+
+
+/* creates the smaller  triangle */
+.settings-menu li a.active:after {
+  top:17px; /* value = (:before top) + (:before border-top) - (:after border-top) */
+  bottom:auto;
+  right:-1px; /* value = - border-left-width - border-right-width */
+   border-width:6px 5px 6px 0px;
+  border-color:transparent #fff;
+}
+
+
+
 .settings-menu li a:hover {
   background: #ebebeb;
 }
@@ -44,21 +90,23 @@
   padding: 40px 0 40px 40px;
 }
 </style>
-<div class="settings-menu-container">
-  <div class="settings-title-container">
-    <span class="settings-title">Settings</span>
+<div class="settings-container">
+  <div class="settings-menu-container">
+    <div class="settings-title-container">
+      <span class="settings-title">Settings</span>
+    </div>
+    <div class="settings-menu-contents">
+      <ul class="settings-menu">
+        <li><a href="<%= user.login %>/settings/profile" class="profile ">Profile settings</a></li>
+        <li><a href="<%= user.login %>/settings/account" class="account">Account settings</a></li>
+        <li><a href="<%= user.login %>/settings/notifications" class="notifications">Notifications</a></li>
+        <li><a href="<%= user.login %>/settings/billing" class="billing">Billing information</a></li>
+        <li><a href="<%= user.login %>/settings/history" class="history">Transaction history</a></li>
+      </ul>
+    </div>
   </div>
-  <div class="settings-menu-contents">
-    <ul class="settings-menu">
-      <li><a href="<%= user.login %>/settings/profile" class="profile">Profile settings</a></li>
-      <li><a href="<%= user.login %>/settings/account" class="account">Account settings</a></li>
-      <li><a href="<%= user.login %>/settings/notifications" class="notifications">Notifications</a></li>
-      <li><a href="<%= user.login %>/settings/billing" class="billing">Billing information</a></li>
-      <li><a href="<%= user.login %>/settings/history" class="history">Transaction history</a></li>
-    </ul>
+  <div class="settings-page-container">
+    
   </div>
+  <div style="clear: both;"></div>
 </div>
-<div class="settings-page-container">
-  
-</div>
-<div style="clear: both;"></div>
