@@ -8,9 +8,9 @@
 
         %>
   <li class="api-list-item">
-    <img class="api-list-pic" src="http://www.gravatar.com/avatar/<%= api.get('name') %>?d=identicon" />
+    <a href="<%= api.get('user') %>/<%= api.get('name') %>/version/1"><img class="api-list-pic" src="http://www.gravatar.com/avatar/<%= api.get('name') %>?d=identicon" /></a>
     <div class="api-list-info">
-      <h4 class="api-list-title fixie"><%= api.get('name') %></h4>
+      <h4 class="api-list-title fixie"><a href="<%= api.get('user') %>/<%= api.get('name') %>/version/1"><%= api.get('name') %></a></h4>
             <ul class="profile-links">
         <li><span class="icon">a</span><a href="<%= api.get('user') %>"><%= api.get('user') %></a></span></li>
         <li><span class="icon">c</span><a href="somewhere">4 collaborators</a></span></li>

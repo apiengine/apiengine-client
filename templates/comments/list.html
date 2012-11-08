@@ -6,7 +6,7 @@
 <ul class="comments">
 <% _.each(notifications, function(notification) { %>
   <li>
-    <img class="comment-profile" src="http://www.gravatar.com/avatar/<%= notification.get('user').gravatar %>?d=wavatar" />
+    <a href="<%= notification.get('user').login %>"><img class="comment-profile" src="http://www.gravatar.com/avatar/<%= notification.get('user').gravatar %>?d=wavatar" /></a>
     <div class="comment-content">
       <a href="<%= notification.get('user').login %>" class="comment-username"><%= notification.get('user').login %></a>
       <p class='comment-message'><%= notification.get('message') %></p>

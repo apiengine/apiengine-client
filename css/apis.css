@@ -88,8 +88,11 @@ Some styles for API's
   margin: 4px 0 5px 0;
   font-size: 20px;
   line-height: 18px;
-  color: #171717;
   font-weight: normal;
+}
+.api-list-title a {
+  color: #171717;
+  text-decoration: none;
 }
 .api-list-desc {
   font-size: 12px;
