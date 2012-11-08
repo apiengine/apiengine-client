@@ -51,12 +51,15 @@
 .modal input {
   outline: 0;
   border: 0;
-  min-width: 250px;
   border-bottom: 1px solid #ccc;
   font-size: 14px;
    padding-left: 10px;
   line-height: 24px;
   color: #171717;
+}
+.model input[type=text] {
+  min-width: 250px;
+  
 }
 .modal input:hover {
   background: #f7f7f7;
