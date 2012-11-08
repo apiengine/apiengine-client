@@ -5,8 +5,9 @@ define([
   'models/session',
   'text!templates/home/register.html',
   'modal',
-  'text!templates/modals/register.html'
-], function($, _, Backbone, Session, loginTemplate, Modal, registert){
+  'text!templates/modals/register.html',
+  'text!templates/common/error-box.html'
+], function($, _, Backbone, Session, loginTemplate, Modal, registert, errorT){
   var ExamplePage = Backbone.View.extend({
     el: 'body',
     initialize: function () {
@@ -23,7 +24,7 @@ define([
           $('.modal-form-errors', that.modal.el).html('')
 
           _.each(session.get('errors'), function(error){
-          $('.modal-form-errors', that.modal.el).append($('<li>').text(error));
+          $('.modal-form-errors', that.modal.el).append($('<li>').html('<span class="icon error">!</span>' + error));
 
           });
         }
@@ -36,6 +37,7 @@ define([
       this.modal = Modal.create({
         content: registert
       });
+      $('.modal input')[0].focus();
     },
     events: {
 
@@ -65,8 +67,9 @@ define([
         },
         error: function (model, res) {
           var res = JSON.parse(res.responseText);
+          $('.modal-form-errors', that.modal.el).html('')
           console.log(arguments);
-          $('.modal-form-errors', that.modal.el).append($('<li>').text(res.error));
+          $('.modal-form-errors', that.modal.el).append($('<li>').html(_.template(errorT, {message: res.error}) ));
         $('[type=submit]', that.modal.el).removeAttr('disabled');
 
         }

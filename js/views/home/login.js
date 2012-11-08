@@ -6,8 +6,9 @@ define([
   'text!templates/home/login.html',
   'mustache',
   'modal',
-  'text!templates/modals/login.html'
-], function($, _, Backbone, Session, loginTemplate, Mustache, Modal, logint){
+  'text!templates/modals/login.html',
+  'text!templates/common/error-box.html'
+], function($, _, Backbone, Session, loginTemplate, Mustache, Modal, logint, errorT){
   console.log(Mustache);
   var ExamplePage = Backbone.View.extend({
     el: 'body',
@@ -27,7 +28,7 @@ define([
           $('.modal-form-errors', that.modal.el).html('')
 
           _.each(session.get('errors'), function(error){
-          $('.modal-form-errors', that.modal.el).append($('<li>').text(error));
+          $('.modal-form-errors', that.modal.el).append($('<li>').html(_.template(errorT, {message: error})));
 
           });
         }
