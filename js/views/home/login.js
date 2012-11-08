@@ -39,6 +39,7 @@ define([
       this.modal = Modal.create({
         content: logint
       });
+      $('.modal input')[0].focus();
     },
     events: {
 
