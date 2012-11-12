@@ -61,12 +61,14 @@ function cssIncImages(cssFile) {
     fs.copy(rootPath + '/css/img', outputFolder +'/css/img', function () {
 	 	fs.copy(rootPath + '/img', outputFolder +'/img', function () {
       fs.copy(rootPath + '/css/NexaLight.otf', outputFolder +'/css/NexaLight.otf', function () {
+      fs.copy(rootPath + '/css/NexaBold.otf', outputFolder +'/css/NexaBold.otf', function () {
 			fs.copy(rootPath + '/css/modernpics.otf', outputFolder +'/css/modernpics.otf', function () {
 				
 cssIncImages(outputFolder + '/css/styles.css');
 
         var endTime = (Date.now() - startTime) / 1000;
 
+      });
       });
       });
 	 		});
