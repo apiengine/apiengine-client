@@ -1,3 +1,41 @@
+/*
+## Home page styles
+
+
+Main tagline
+
+```
+<div class="slide">
+<span class="heading">GREAT APPS START WITH GREAT APIs</span>
+</div>
+```
+Tagline description
+
+```
+<div class="slide">
+<span class="tag">Turbo-charge your APIs with our secure & collaborative API document builder and distribution platform</span>
+</div>
+```
+
+
+*/
+
+.slide .heading {
+	font-family: 'Nexa Bold';
+	font-size: 30px;
+	background: #ea2452;
+	display: inline-block;
+	color: #fff;
+	padding: 10px;
+	line-height: 25px;
+}
+.slide .tag {
+	color: #333332;
+	font-family:  'Nexa';
+	font-size: 30px;
+	display: inline-block;
+}
+
 .tagline {
   display: block;
   text-align: center;

@@ -12,6 +12,39 @@
     padding: 0;
     margin: 0;
   }
+  .resource-list > li.active {
+    background: #2d2d2d;
+  }
+
+
+/* creates the smaller  triangle */
+.resource-list > li.active:after {
+  content:"";
+  position:absolute;
+  bottom:-13px; /* value = - border-top-width - border-bottom-width */
+  right:0; /* value = (:before left) + (:before border-left) - (:after border-left) */
+  border-width:13px 13px 0;
+  border-style:solid;
+  border-color:#fff transparent;
+    /* reduce the damage in FF3.0 */
+    display:block; 
+    width:0;
+}
+
+
+
+/* creates the smaller  triangle */
+.resource-list > li.active:after {
+  top:17px; /* value = (:before top) + (:before border-top) - (:after border-top) */
+  bottom:auto;
+  right:-1px; /* value = - border-left-width - border-right-width */
+   border-width:6px 5px 6px 0px;
+  border-color:transparent #fff;
+}
+
+
+
+
   .resource-list .icon {
     color: #161717;
 
@@ -92,7 +125,6 @@
   %> 
   <li class="<%= selectedResource*1 === resource.id ? 'active' : '' %>" data-resource-id="<%= resource.id %>">
     <div style="">
-    <div class="expand icon">/</div> 
     <a data-resource-id="<%= resource.id %>" href="<%= resources.username%>/<%= resources.api%>/version/<%= resources.version %>/resource/<%= resource.id%>">
        <span class="icon">K</span> <%= resource.get('label') %> 
 

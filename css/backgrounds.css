@@ -38,7 +38,7 @@
     }
 
     .head-space{
-      background: url('../img/backgrounds/head-space-bg.png');
+      background: #fed563;
       position:relative;
       overflow-y:auto;
       overflow-x:hidden;

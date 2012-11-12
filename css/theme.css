@@ -50,6 +50,10 @@ a {
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'Nexa Bold';
+    src: url('NexaBold.otf') format('truetype');
+}
   @-webkit-keyframes spin {
   from { -webkit-transform: rotate(0deg); }
   to { -webkit-transform: rotate(360deg); }
