@@ -48,7 +48,7 @@ a.btn {
 }
 .btn-red {
   border: 1px solid #83000f;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff3048), color-stop(4%,#ff3048), color-stop(4%,#d43c4e));
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ea2452), color-stop(4%,#ea2452), color-stop(4%,#d43c4e));
   text-shadow: 0 1px 0 #b03241;
   color: #fff;
   text-transform: uppercase;
@@ -133,8 +133,39 @@ We need to have disabled state I think ?
   opacity: 0.5;
 }
 
+/*
 
+## Homepage buttons
 
+```
+<a href="" class="sbtn green">SIGN UP</a>
+<a href="" class="sbtn grey">EXPLORE</a>
+<a href="" class="sbtn yellow">FEATURES</a>
+```
+
+*/
+.sbtn {
+  color: #fff;
+  padding: 10px 10px 6px 10px;
+  font-family: 'Nexa Bold';
+}
+.sbtn:after {
+  content:'>';
+  margin-left: 5px;
+  font-size: 24px;
+  font-family: "ModernPics";
+}
+.sbtn.grey {
+  background: #eeeeee;
+  color: #485259;
+}
+.sbtn.green {
+  background: #65b04b;
+}
+.sbtn.yellow {
+  background: #fed563;
+  color: #485259;
+}
 /*
 
 ## Joined buttons
