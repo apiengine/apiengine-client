@@ -65,3 +65,20 @@ Tagline description
   color: #fff;
   font-size: 24px;
 }
+.feature-box {
+  float: left;
+  width: 250px;
+  margin-right: 60px;
+  color: #fed563;
+font-size: 20px;
+  text-align: center;
+}
+p.feature-description {
+line-height: 24px;
+color: white;
+font-size: 20px;
+font-family: 'Nexa';
+width: 80%;
+margin: auto;
+padding-bottom: 80px;
+}
