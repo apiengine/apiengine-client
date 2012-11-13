@@ -146,7 +146,7 @@ We need to have disabled state I think ?
 */
 .sbtn {
   color: #fff;
-  padding: 10px 10px 6px 10px;
+  padding: 10px 15px 6px 15px;
   font-family: 'Nexa Bold';
 }
 .sbtn:after {

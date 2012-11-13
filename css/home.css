@@ -50,4 +50,18 @@ Tagline description
   margin: auto;
   padding-top: 15px;
   padding-bottom: 15px;
+
+}
+.signup-bar span {
+  color: #fff;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.home-heading {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  margin: 0;
+  text-align: center;
+  color: #fff;
+  font-size: 24px;
 }
