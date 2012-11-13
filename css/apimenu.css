@@ -3,89 +3,61 @@
 
 ```
 <div class="api-menu-container">
-    
-      
-      <ul class="api-menu-list">
-        <li><a href="">Overview</a></li>
-        <li><a href="" class="active">Example</a></li>
-      </ul>
-      <div class="resource-list-container" data-api-id="ApiEngine">
+  <ul class="api-menu-list">
+    <li><a href="">Overview</a></li>
+    <li><a href="" class="active">Example</a></li>
+  </ul>
+  <div class="resource-list-container" data-api-id="ApiEngine">
 
-<ul class="api-menu-list resource-list">
-  
-   
-   
-  <li class="expanded" data-resource-id="9">
-    <a data-resource-id="9" href="thomasdavis/ApiEngine/version/1/resource/9">
-      <span class="resource-label">Single Api</span> 
-
-    <span data-resource-id="9" class="resource_notification notification" >5</span>
-
-    </a>
-  </li>
-  <li data-resource-id="9">
+  <ul class="api-menu-list resource-list">
+    <li class="expanded" data-resource-id="9">
+      <a data-resource-id="9" href="thomasdavis/ApiEngine/version/1/resource/9">
+        <span class="resource-label">Single Api</span> 
+        <span data-resource-id="9" class="resource_notification notification" >5</span>
+      </a>
+    </li>
+    <li data-resource-id="9">
     <div class="resource-submenu">
-    <div class="method-sublist-container">
-
-<ul class="api-menu-list method-list">
-
-       
-        <li data-method-id="DELETE" class="">
-
-<a data-method-id="DELETE" href="thomasdavis/ApiEngine/version/1/resource/9/DELETE">
-<span class="method method-DELETE">DELETE</span>
- <span class="method-label">Delete an Api</span>
-  <span class="method_notification notification" data-method-id="DELETE">2</span>
-
-</a>
-        </li> 
-       
-        <li data-method-id="PUT" class="">
-
-<a  data-method-id="PUT" href="thomasdavis/ApiEngine/version/1/resource/9/PUT">
-<span class="method method-PUT">PUT</span>
-<span class="method-label">Update an Api</span>
-<span class="method_notification notification" data-method-id="PUT">2</span>
-
-</a>
-        </li> 
-       
-        <li data-method-id="GET" class="">
-
-<a  data-method-id="GET" href="thomasdavis/ApiEngine/version/1/resource/9/GET">
-<span class="method method-GET">GET</span>
- <span class="method-label">Get Api details</span><span class="method_notification notification" data-method-id="GET">1</span>
-
-</a>
-        </li> 
-       
-
-
-</ul>     </div>
+      <div class="method-sublist-container">
+        <ul class="api-menu-list method-list">
+          <li data-method-id="DELETE" class="">
+            <a data-method-id="DELETE" class="active" href="thomasdavis/ApiEngine/version/1/resource/9/DELETE">
+              <span class="method method-DELETE">DEL</span>
+              <span class="method-label">Delete an Api</span>
+              <span class="method_notification notification" data-method-id="DELETE">2</span>
+            </a>
+          </li> 
+          <li data-method-id="PUT" class="">
+            <a data-method-id="PUT" href="thomasdavis/ApiEngine/version/1/resource/9/PUT">
+              <span class="method method-PUT">PUT</span>
+              <span class="method-label">Update an Api</span>
+              <span class="method_notification notification" data-method-id="PUT">2</span>
+            </a>
+          </li> 
+          <li data-method-id="GET" class="">
+            <a  data-method-id="GET" href="thomasdavis/ApiEngine/version/1/resource/9/GET">
+              <span class="method method-GET">GET</span>
+              <span class="method-label">Get Api details</span><span class="method_notification notification" data-method-id="GET">1</span></a>
+          </li> 
+        </ul></div>
     </div> 
   </li>
    
   <li class="" data-resource-id="8">
-    <div>
     <a data-resource-id="8" href="thomasdavis/ApiEngine/version/1/resource/8">
        <span class="resource-label">Api Version's</span>
-    <span data-resource-id="8" class="resource_notification notification" >3</span>
-
-
+      <span data-resource-id="8" class="resource_notification notification" >3</span>
     </a>
-    <div style="clear: both;"></div>
-    </div>
   </li>
   <li >
     <div class="resource-submenu">
-    <div class="method-sublist-container">
-
-      <div class="api-list-ajax"><div class="ajax-cog" ></div> <span >Loading</span></div>
-    </div>
+      <div class="method-sublist-container">
+        <div class="api-list-ajax"><div class="ajax-cog" ></div> <span class="loading">Loading</span></div>
+      </div>
     </div> 
   </li>
-   
-      </ul></div>
+</ul>
+</div>
     </div>
     ```
   */
@@ -112,7 +84,7 @@
   -webkit-animation-iteration-count: infinite; 
   -webkit-animation-timing-function: linear;
   float: left;
-  margin-right: 5px;
+  margin-right: 10px;
 }
   .api-menu-list li {
     border-bottom: 1px solid #ebebeb;
@@ -124,6 +96,9 @@
   .api-menu-list li a {
     display: block;
     padding: 15px 10px 15px 10px;
+  }
+  .api-list-ajax .loading {
+    color: #ccc;
   }
   .api-menu-list li a.active,
   .api-menu-list li a:hover {
@@ -170,19 +145,19 @@
     line-height: 11px;
     height: 11px;
     width: 10px;
-    display: inline-block;
     text-align: center;
+    display: none;
   }
-.expanded .resource-label:before {
+.resource-label:before {
   content: '/';
     margin-right: 5px;
-    font-size: 16px;
+    font-size: 18px;
     font-family: "ModernPics";
 }
-  .resource-label:before {
+.expanded   .resource-label:before {
     content: '-';
     margin-right: 5px;
-    font-size: 16px;
+    font-size: 18px;
     font-family: "ModernPics";
   }
 /*
@@ -267,7 +242,7 @@
     border-radius: 4px;
     width: 34px;
     display: inline-block;
-    font-family: "AllerLight";
+    font-family: "Nexa";
     text-align:center;
     color: #fff;
     font-weight: bold;
@@ -303,6 +278,5 @@
 
 
     .method-label {
-    color: #4a92fd;
     font-size: 14px;
   }

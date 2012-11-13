@@ -85,6 +85,7 @@ define([
               //var notifEl = $('.notification[data-resource-id='+model.options.resourceId+']');
              // notifEl.text(model.get('resource')).show();
               _.each(model.get('resources'), function(method){
+                console.log(method);
                 var anotifEl = $('.resource_notification[data-resource-id='+method.key+']');
                 anotifEl.text(method.count).show();
 

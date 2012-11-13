@@ -2,32 +2,38 @@
 
 </style>
 
-<ul class="resource-list">
+<ul class="api-menu-list resource-list">
   
   <% 
   _.each(resources.models, function (resource) { 
     
 
   %> 
+
   <li class="<%= selectedResource*1 === resource.id ? 'active' : '' %>" data-resource-id="<%= resource.id %>">
     <div style="">
     <a data-resource-id="<%= resource.id %>" href="<%= resources.username%>/<%= resources.api%>/version/<%= resources.version %>/resource/<%= resource.id%>">
-      <%= resource.get('label') %> 
+      <span  class="resource-label"><%= resource.get('label') %> </span>
 
+    <span data-resource-id="<%= resource.id %>" class="resource_notification notification"></span>
 
     </a>
-    <span data-resource-id="<%= resource.id %>" class="resource_notification notification" style="display: none; margin-right: 10px; margin-top: 15px;"></span>
     <div style="clear: both;"></div>
     </div>
   </li>
   <li style="display: none; border-top: none;">
     <div class="resource-submenu">
-    <ul class="main-menu-list">
-        <li><a class="overview-link" data-resource-id="<%= resource.id %>" style="margin-left: 20px;" href="<%= resources.username%>/<%= resources.api%>/version/<%= resources.version %>/resource/<%= resource.id%>">Overview</a> <span data-resource-id="<%= resource.id %>" class="method_notification notification" style="display: none;"></span></li>
+    <ul class="api-menu-list">
+
+      <!--
+        <li><a class="overview-link" data-resource-id="<%= resource.id %>" href="<%= resources.username%>/<%= resources.api%>/version/<%= resources.version %>/resource/<%= resource.id%>">Overview
+
+ <span data-resource-id="<%= resource.id %>" class="method_notification notification"></span>
+        </a></li>-->
       </ul>
     <div class="method-sublist-container">
-
-      <div style="line-height: 48px;margin-left: 35px;"><div class="ajax-cog" style="margin-top: 14px;float: left; margin-right: 5px;"></div> <span style="color: #ccc;">Loading</span></div>
+ <div class="api-list-ajax"><div class="ajax-cog" ></div> <span class="loading">Loading</span></div>
+      
     </div>
     </div> 
   </li>
