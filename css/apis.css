@@ -70,7 +70,6 @@ Some styles for API's
 }
 .api-list li.api-list-item {
   padding: 30px 15px 30px 15px;
-  background: #fff;
   border-bottom: 1px solid #ccc;
 }
 .api-list-pic {
@@ -124,4 +123,6 @@ Some styles for API's
   font-size: 26px;
   font-family: 'Nexa';
   border-bottom: 1px solid #ccc;
+  margin: 0;
+  padding: 20px 0;
 }

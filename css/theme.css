@@ -134,7 +134,7 @@ html, body {
 .top-bar-container {
     background: #444 url('../img/titlebar-bg-grad.png');
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#252f33), color-stop(100%,#1f2020));
-    height: 75px;
+    height: 73px;
     position: relative;
 }
 .scallop-light-top {
@@ -162,12 +162,13 @@ html, body {
     color: #959ca1;
     display: inline-block;
     height: 72px;
-    font-size: 12px;
+    font-size: 13px;
     text-transform: uppercase;
 
      -webkit-transition:color 0.25s ease-in; 
     cursor: pointer;
-    padding: 1px 11px 1px 11px
+    padding: 1px 11px 1px 11px;
+    font-family: 'Nexa';
 }
 .top-bar-menu li a:hover {
     color: #fff;

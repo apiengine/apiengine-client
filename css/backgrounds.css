@@ -24,6 +24,7 @@ Here is just a random test
   <div class="background yellow"></div>
   <div class="background dark-grey"></div>
   <div class="background yellow"></div>
+  <div class="background white"></div>
   <div class="background blue"></div>
   <div class="background red"></div>
   <div class="background yellow"></div>
@@ -52,11 +53,18 @@ body.grey {
 }
 .background:before {
   content: '';
-  height: 2px;
+  height: 3px;
   width: 100%;
   position: absolute;
   top: -2px;
   z-index: 2;
+}
+
+.background.white {
+  background: #fff;
+}
+.background.white:before {
+  background: url('../img/backgrounds/scollop-white.png');
 }
 .background.dark-grey {
   background: url('../img/backgrounds/titlebar-bg.png');
@@ -81,6 +89,12 @@ body.grey {
 }
 .background.grey:before {
   background: url('../img/backgrounds/scollop-grey.png');
+}
+.background.light-grey {
+  background: #f7f7f7;
+}
+.background.light-grey:before {
+  background: url('../img/backgrounds/scollop-light-grey.png');
 }
 .background.red {
   background: #ea2452;
