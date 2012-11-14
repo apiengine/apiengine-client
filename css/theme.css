@@ -46,11 +46,11 @@ a {
 }*/
 @font-face {
     font-family: 'Nexa';
-    src: url('nexalight-webfont.eot');
-    src: url('nexalight-webfont.eot?#iefix') format('embedded-opentype'),
-         url('nexalight-webfont.woff') format('woff'),
-         url('nexalight-webfont.ttf') format('truetype'),
-         url('nexalight-webfont.svg#nexa_lightregular') format('svg');
+    src: url('fonts/nexalight-webfont.eot');
+    src: url('fonts/nexalight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/nexalight-webfont.woff') format('woff'),
+         url('fonts/nexalight-webfont.ttf') format('truetype'),
+         url('fonts/nexalight-webfont.svg#nexa_lightregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -63,7 +63,7 @@ a {
 
 @font-face {
     font-family: 'Nexa Bold';
-    src: url('NexaBold.otf') format('truetype');
+    src: url('fonts/NexaBold.otf') format('truetype');
 }
   @-webkit-keyframes spin {
   from { -webkit-transform: rotate(0deg); }
@@ -139,13 +139,6 @@ html, body {
     height: 73px;
     position: relative;
 }
-.scallop-light-top {
-    height: 2px;
-    background: url('../img/scallop-light-top.png');
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
 .top-bar-menu {
     list-style: none;
     float: left;
@@ -184,10 +177,6 @@ html, body {
     border: 1px solid #20272a;
 }
 
-.scallop-border-bottom {
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAACCAYAAACKVvbTAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OEU2MjlFODRFRTY0MTFFMTk2RTVBMDZGQTBENDhGMTkiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OEU2MjlFODVFRTY0MTFFMTk2RTVBMDZGQTBENDhGMTkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4RTYyOUU4MkVFNjQxMUUxOTZFNUEwNkZBMEQ0OEYxOSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4RTYyOUU4M0VFNjQxMUUxOTZFNUEwNkZBMEQ0OEYxOSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PuE6bHoAAAA3SURBVHjaYnz27Nk+BgYGRwZU8AKIM4B4NxALsQAJDyBuB+I0IOYC4oNAnCgpKfkQquEbQIABAKqICldaZ4KFAAAAAElFTkSuQmCC);
-    height: 2px;
-}
 .profile-info-container {
   margin-top: 50px;
 }
@@ -227,7 +216,7 @@ html, body {
 }
 
 .cog-power {
-    background: url('../img/cog-power-146x146.png?embed');
+    background: url('../img/cog-power-146x146.png');
     width: 146px;
     height: 146px;
 }

@@ -12,7 +12,6 @@ Third party helper libraries
 
 */
 @import url("home.css");
-
 @import url("bodybuilder.css");
 @import url("apimenu.css");
 @import url("theme.css");
@@ -34,7 +33,6 @@ Third party helper libraries
 
 
 @import url("normalize.css");
-@import url("jquery.gridster.min.css");
 @import url("jquery.qtip.min.css");
 
 

@@ -18,13 +18,17 @@ fs.mkdirSync('output/version');
 fs.mkdirSync(outputFolder);
 var rootPath = '..';
 	rjs.optimize({
-    name: 'almond',
-    include: ['main'],
-    out: outputFolder + '/js/main.js',
-    findNestedDependencies: true,
+    dir: outputFolder + '/js',
     mainConfigFile: rootPath + '/js/main.js',
     wrap: true,
-    optimize: 'none'
+    removeCombined: true,
+    findNestedDependencies: false,
+    modules: [
+      {
+        name: 'main',
+        include: rootPath + '/js/main'
+      }
+    ]
 });
 var index = fs.readFileSync(rootPath + '/index.html', 'ascii');
 index = index.replace('js/libs/require/require.js', '/version/' + version + '/js/main.js');
@@ -40,7 +44,7 @@ fs.writeFileSync('output/index.html', index);
 var path = require('path');
 
 function cssIncImages(cssFile) {
-  var imgRegex = /url\s?\(['"]?(.*?)(?=['"]?\))/gi;
+  var imgRegex = /url\s?\(['"]?(\.\.\/img.*?)(?=['"]?\))/gi;
   var css = fs.readFileSync(cssFile, 'utf-8');
   while (match = imgRegex.exec(css)) {
     var imgPath = path.join(path.dirname(cssFile), match[1]);
@@ -61,9 +65,7 @@ function cssIncImages(cssFile) {
  	fs.copy(rootPath + '/favicon.ico', 'output/favicon.ico', function (){
     fs.copy(rootPath + '/css/img', outputFolder +'/css/img', function () {
 	 	fs.copy(rootPath + '/img', outputFolder +'/img', function () {
-      fs.copy(rootPath + '/css/NexaLight.otf', outputFolder +'/css/NexaLight.otf', function () {
-      fs.copy(rootPath + '/css/NexaBold.otf', outputFolder +'/css/NexaBold.otf', function () {
-			fs.copy(rootPath + '/css/modernpics.otf', outputFolder +'/css/modernpics.otf', function () {
+      fs.copy(rootPath + '/css/fonts', outputFolder +'/css/fonts', function () {
 				
 cssIncImages(outputFolder + '/css/styles.css');
 
@@ -71,8 +73,6 @@ cssIncImages(outputFolder + '/css/styles.css');
 
       });
       });
-      });
-	 		});
 		});
 		});
  	});

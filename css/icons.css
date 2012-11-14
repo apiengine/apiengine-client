@@ -5,7 +5,7 @@
 
 @font-face {
     font-family: 'ModernPics';
-    src: url('modernpics.otf') format('truetype');
+    src: url('fonts/modernpics.otf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -27,12 +27,6 @@
 
 ```
 
-*/
-
-.facebook {
-  background: url('http://facebook.com/facivon.ico');
-}
-/*
 
 ## Social network Icons 
 
