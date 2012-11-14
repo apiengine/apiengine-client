@@ -305,7 +305,7 @@ jQuery.easing.def = "easeInBounce";
             that.currentSlide = that.currentSlide + 1;
           }
           that.changeSlide(oldIndex, that.currentSlide)
-        }, 7000);
+        }, 8000);
       };
       Slider.prototype.changeSlide = function (lastSlideIndex, newSlideIndex) {
         var lastSlide = slides[lastSlideIndex];

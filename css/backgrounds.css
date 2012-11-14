@@ -58,7 +58,7 @@
     }
 
     .graph-paper{
-      background: url('../img/backgrounds/graph-paper-bg.png');
+      background: #485259;
       position:relative;
       overflow: auto;
     } 
@@ -70,6 +70,6 @@
     }
 
         .wrapper {
-      background: url('../img/backgrounds/features-bg.png');
+      background: #019ff3;
       overflow:auto;
     }

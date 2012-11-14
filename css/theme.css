@@ -176,7 +176,7 @@ html, body {
 .top-bar-menu li a.active {
      -webkit-transition:background 1s ease-in; 
     color: #fff;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#40484c), color-stop(1%,#40484c), color-stop(2%,#313a3f), color-stop(100%, #212425));
+    background: #019ff3;
     padding: 0 10px 0 10px;
     border: 1px solid #20272a;
 }
