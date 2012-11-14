@@ -26,7 +26,8 @@ var rootPath = '..';
     modules: [
       {
         removeCombined: true,
-        name: 'main'
+        name: 'main',
+        include: ['libs/require/require']
 //        insertRequire: ['main']
       },
       {
@@ -36,7 +37,7 @@ var rootPath = '..';
     ]
 });
 var index = fs.readFileSync(rootPath + '/index.html', 'ascii');
-//index = index.replace('js/libs/require/require.js', '/version/' + version + '/js/main.js');
+index = index.replace('js/libs/require/require.js', '/version/' + version + '/js/main.js');
 index = index.replace('css/styles.css', '/version/' + version + '/css/styles.css');
 index = index.replace('<base href="/repos/apiengine-client/" />', '');
 index = index.replace(' data-main="js/main"', '');
