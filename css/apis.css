@@ -130,11 +130,28 @@ Some styles for API's
 .menu-title {
     font-size: 34px;
     border-bottom: 1px solid #ccc;
-    width: 300px; 
+    width: 302px; 
+    padding-bottom: 15px;
 }
 .method-container .menu-title {
   padding-left: 40px;
   width: auto;
+}
+/*
+## Overview page
+
+```
+<div class="overview-page">
+  <h4>End point</h4>
+  <p>asdasd</p>
+</div>
+```
+*/
+.overview-page {
+  padding: 20px 0 20px 60px;
+}
+.overview-page p {
+  font-size: 14px;
 }
 .side-menu {
   float: left;
