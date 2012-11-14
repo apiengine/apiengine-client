@@ -49,10 +49,10 @@ define([
 
 
 jQuery.easing.def = "easeInBounce";
-
+    var stage, stage2, stage3; 
       var firstslide = {
         onEnter: function (complete) {
-                var stage = new swiffy.Stage(document.getElementById('swiffycontainer'),
+            stage = new swiffy.Stage(document.getElementById('swiffycontainer'),
                                    amobile);
                 stage.start();
 
@@ -109,8 +109,7 @@ jQuery.easing.def = "easeInBounce";
                 duration: 0,
                 easing: 'easeOutQuad',
                 complete: function (){
-               $('#swiffycontainer').empty();
-
+            stage.destroy();
                 }
               });
 
@@ -140,7 +139,7 @@ jQuery.easing.def = "easeInBounce";
       }
       var secondslide = {
       onEnter: function (complete) {
-               var stage1 = new swiffy.Stage(document.getElementById('swiffycontainer2'),
+               stage1 = new swiffy.Stage(document.getElementById('swiffycontainer2'),
                                    aprivate);
                stage1.start();
                     $('#swiffycontainer2').css({
@@ -194,7 +193,7 @@ jQuery.easing.def = "easeInBounce";
                 duration: 0,
                 easing: 'easeOutQuad',
                 complete: function (){
-               $('#swiffycontainer2').empty();
+               stage1.destroy();
 
                 }
               });
@@ -222,7 +221,7 @@ jQuery.easing.def = "easeInBounce";
       }
       var thirdslide = {
  onEnter: function (complete) {
-               var stage3 = new swiffy.Stage(document.getElementById('swiffycontainer3'),
+              stage3 = new swiffy.Stage(document.getElementById('swiffycontainer3'),
                                    apublic);
                stage3.start();
         $('#swiffycontainer3').css({
@@ -276,7 +275,7 @@ jQuery.easing.def = "easeInBounce";
                 duration: 0,
                 easing: 'easeOutQuad',
                 complete: function (){
-               $('#swiffycontainer3').empty();
+               stage3.destroy();
 
                 }
               });
