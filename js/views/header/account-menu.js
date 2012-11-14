@@ -21,7 +21,10 @@ define([
         console.log('hooooo');
         that.logout();
       });
-
+      $('body').on('click', '.js-signup', function () {
+        console.log('hooooo');
+        that.signup();
+      });
       Session.on('change:auth', function (session) {
         that.render();
 

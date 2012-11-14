@@ -23,7 +23,8 @@ var rootPath = '..';
     out: outputFolder + '/js/main.js',
     findNestedDependencies: true,
     mainConfigFile: rootPath + '/js/main.js',
-    wrap: true
+    wrap: true,
+    optimize: 'none'
 });
 var index = fs.readFileSync(rootPath + '/index.html', 'ascii');
 index = index.replace('js/libs/require/require.js', '/version/' + version + '/js/main.js');
