@@ -137,7 +137,7 @@
 .tempbox-container {
   padding: 20px 20px 30px 20px;
 }
-.box {
+.tempbox-container .box {
   width: 290px;
   float: left;
   margin-right: 44px;
@@ -152,10 +152,10 @@
 .tempbox-footer {
   padding: 10px 0 10px 0;
 }
-.box.first {
+.tempbox-container .box.first {
   margin-left: 10px;
 }
-.box .icon {
+.tempbox-container .box .icon {
   font-size: 108px;
   display: inline-block;
   width: 100%;
@@ -177,18 +177,6 @@ text-justify:inter-word;
   color: #6c6d6f;
   margin-bottom: 20px;
 }
-.box.last {
+.tempbox-container .box.last {
   margin-right: 0;
-}
-.box1 { 
-
-}
-
-.box2 {
-
-
-}
-
-.box3 {
-
 }

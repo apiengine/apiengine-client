@@ -67,7 +67,7 @@ body.grey {
   background: url('../img/backgrounds/scollop-white.png');
 }
 .background.dark-grey {
-  background: url('../img/backgrounds/titlebar-bg.png');
+  background: #171717;
 }
 .background.dark-grey:before {
   background: url('../img/backgrounds/scollop-dark-grey.png');
