@@ -348,7 +348,7 @@ jQuery.easing.def = "easeInBounce";
       stage5.start();
       stage6.start();
       var stage7 = new swiffy.Stage(document.getElementById('cogs'),acogs);
-      
+      window.blah = stage7;
       stage7.start();
 
 
