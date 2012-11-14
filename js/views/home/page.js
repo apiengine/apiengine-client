@@ -9,8 +9,15 @@ define([
   'text!templates/example/login.html',
   'text!templates/example/logout.html',
   'modal',
-  'text!templates/modals/login.html'
-], function($, _, Backbone, Session, homeTemplate, AuthView, ApisList, exampleLoginTemplate, exampleLogoutTemplate, Modal, logint){
+  'text!templates/modals/login.html',
+  'animations/cogs',
+  'animations/collaboration',
+  'animations/framework',
+  'animations/mobile',
+  'animations/private',
+  'animations/public',
+  'animations/stylish'
+], function($, _, Backbone, Session, homeTemplate, AuthView, ApisList, exampleLoginTemplate, exampleLogoutTemplate, Modal, logint, acogs, acollaboration, aframework,amobile,aprivate,apublic,astylish){
   var ExamplePage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
@@ -46,7 +53,7 @@ jQuery.easing.def = "easeInBounce";
       var firstslide = {
         onEnter: function (complete) {
                 var stage = new swiffy.Stage(document.getElementById('swiffycontainer'),
-                                   swiffyobject);
+                                   amobile);
                 stage.start();
 
             $('#swiffycontainer').css({
@@ -134,7 +141,7 @@ jQuery.easing.def = "easeInBounce";
       var secondslide = {
       onEnter: function (complete) {
                var stage1 = new swiffy.Stage(document.getElementById('swiffycontainer2'),
-                                   swiffyobject2);
+                                   aprivate);
                stage1.start();
                     $('#swiffycontainer2').css({
               right: "-100px",
@@ -216,7 +223,7 @@ jQuery.easing.def = "easeInBounce";
       var thirdslide = {
  onEnter: function (complete) {
                var stage3 = new swiffy.Stage(document.getElementById('swiffycontainer3'),
-                                   swiffyobject3);
+                                   apublic);
                stage3.start();
         $('#swiffycontainer3').css({
               right: "-100px",
@@ -331,6 +338,18 @@ jQuery.easing.def = "easeInBounce";
       var slider = new Slider();
       slider.slides = slides;
       slider.start();
+
+
+          var stage4 = new swiffy.Stage(document.getElementById('collaboration'),acollaboration);
+      var stage5 = new swiffy.Stage(document.getElementById('stylish'),astylish);
+      var stage6 = new swiffy.Stage(document.getElementById('framework'),aframework);
+      
+      stage4.start();
+      stage5.start();
+      stage6.start();
+      var stage7 = new swiffy.Stage(document.getElementById('cogs'),acogs);
+      
+      stage7.start();
 
 
         var apisList = new ApisList({is_public: true, el: '.public-container'});
