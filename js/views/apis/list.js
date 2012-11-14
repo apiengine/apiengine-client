@@ -2,12 +2,11 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'bootstrap',
   'models/session',
   'text!templates/apis/list.html',
   'collections/apis',
   'models/api'
-], function($, _, Backbone, bootstrap, Session, apisListTemplate, ApisCollection, ApiModel){
+], function($, _, Backbone, Session, apisListTemplate, ApisCollection, ApiModel){
   var ApisPage = Backbone.View.extend({
     el: '.private-container',
     initialize: function () {

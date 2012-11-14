@@ -2,7 +2,6 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'bootstrap',
   'vm',
   'models/session',
   'text!templates/methods/list.html',
@@ -12,7 +11,7 @@ define([
   'collections/methods',
   'models/method',
   'models/notificationtotal'
-  ], function($, _, Backbone, bootstrap, Vm, Session, resourceListTemplate, ResourceForm, MethodForm, MethodView, Methods, MethodModel, NTotals){
+  ], function($, _, Backbone, Vm, Session, resourceListTemplate, ResourceForm, MethodForm, MethodView, Methods, MethodModel, NTotals){
   var ApisPage = Backbone.View.extend({
     el: '.method-list-container',
     initialize: function () {

@@ -6,12 +6,10 @@ require.config({
     jquery: 'libs/jquery/jquery-min',
     underscore: 'libs/underscore/underscore-min', // https://github.com/amdjs
     backbone: 'libs/backbone/backbone-min', // https://github.com/amdjs
-    jsoneditor: 'libs/jsoneditor/jsoneditor-min',
     prettyprint: 'libs/prettyprint/prettyprint',
     bootstrap: 'libs/bootstrap/bootstrap.min',
     qtip: 'libs/qtip2/jquery.qtip.min',
     mustache: 'libs/mustache/mustache',
-    fallr: 'libs/fallr/fallr',
     modal: 'libs/modal/modal',
     // Require.js plugins
     text: 'libs/require/text',

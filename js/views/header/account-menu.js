@@ -8,10 +8,9 @@ define([
   'views/home/login',
   'views/home/register',
   'views/header/newapi',
-  'fallr',
   'qtip',
   'text!templates/header/account-menu-dropdown.html'
-], function($, _, Backbone, Vm, Session, mainMenuTemplate, LoginView, RegisterView, NewApiView, fallr, qtip, accountDropdown){
+], function($, _, Backbone, Vm, Session, mainMenuTemplate, LoginView, RegisterView, NewApiView, qtip, accountDropdown){
   var MainMenuView = Backbone.View.extend({
     el: '.account-menu-container',
     initialize: function () {

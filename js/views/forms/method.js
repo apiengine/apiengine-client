@@ -2,12 +2,11 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'bootstrap',
   'vm',
   'models/session',
   'text!templates/methods/edit.html',
   'models/method'
-  ], function($, _, Backbone, Vm, bootstrap, Session, methodEditTemplate, MethodModel){
+  ], function($, _, Backbone, Vm, Session, methodEditTemplate, MethodModel){
   var ResourceForm = Backbone.View.extend({
     el: 'body',
     initialize: function () {

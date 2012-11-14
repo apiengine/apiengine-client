@@ -21,12 +21,12 @@ var rootPath = '..';
     dir: outputFolder + '/js',
     mainConfigFile: rootPath + '/js/main.js',
     wrap: true,
-    removeCombined: true,
+        removeCombined: true,
     findNestedDependencies: false,
     modules: [
       {
-        name: 'main',
-        include: rootPath + '/js/main'
+        removeCombined: true,
+        name: 'main'
       }
     ]
 });

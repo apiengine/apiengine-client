@@ -3,7 +3,6 @@ define([
   'underscore',
   'backbone',
   'vm',
-  'bootstrap',
   'models/session',
   'text!templates/resource/list.html',
   'collections/resources',
@@ -11,7 +10,7 @@ define([
   'models/resource',
   'views/resource/page',
   'models/notificationtotal'
-], function($, _, Backbone, Vm, bootstrap, Session, resourceListTemplate, ResourcesCollection, MethodsListView, ResourceModel, ResourcePageView, NTotals){
+], function($, _, Backbone, Vm, Session, resourceListTemplate, ResourcesCollection, MethodsListView, ResourceModel, ResourcePageView, NTotals){
   var ApisPage = Backbone.View.extend({
     el: '.resource-list-container',
     initialize: function () {

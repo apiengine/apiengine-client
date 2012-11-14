@@ -2,7 +2,6 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'bootstrap',
   'router',
   'vm',
   'models/session',
@@ -13,7 +12,7 @@ define([
   'text!templates/404.html',
   'views/header/newapi',
   'views/settings/page'
-], function($, _, Backbone, bootstrap, Router, Vm, Session, newApiTemplate, ApiModel, ApisList, UserModel, MissingPage, NewApiView, SettingsPage){
+], function($, _, Backbone, Router, Vm, Session, newApiTemplate, ApiModel, ApisList, UserModel, MissingPage, NewApiView, SettingsPage){
   var NewApiPage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
