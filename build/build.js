@@ -26,7 +26,13 @@ var rootPath = '..';
     modules: [
       {
         removeCombined: true,
-        name: 'main'
+        name: 'main',
+        include: 'almond',
+        insertRequire: ['main']
+      },
+      {
+        removeCombined: true,
+        name: 'views/home/page'
       }
     ]
 });
