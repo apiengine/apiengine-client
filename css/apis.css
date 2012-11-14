@@ -126,3 +126,20 @@ Some styles for API's
   margin: 0;
   padding: 20px 0;
 }
+
+.menu-title {
+    font-size: 34px;
+    border-bottom: 1px solid #ccc;
+    width: 300px; 
+}
+.method-container .menu-title {
+  padding-left: 40px;
+  width: auto;
+}
+.side-menu {
+  float: left;
+  width: 302px;
+}
+.api-details-container {
+  padding-top: 50px;
+}
