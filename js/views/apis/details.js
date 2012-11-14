@@ -18,8 +18,9 @@ define([
   'libs/highlight/highlight',
   'views/forms/resource',
   'modal',
-  'text!templates/modals/editdescription.html'
-], function($, _, Backbone, Bootstrap, Router, Vm,  Qtip, Session, apiDetailsTemplate, ApiModel, MethodsCollection, ResourceListView, MethodDetailView, ApiModel, ResourceModel, MethodModel, hljs, ResourceForm, Modal, edt){
+  'text!templates/modals/editdescription.html',
+  'views/apis/overview'
+], function($, _, Backbone, Bootstrap, Router, Vm,  Qtip, Session, apiDetailsTemplate, ApiModel, MethodsCollection, ResourceListView, MethodDetailView, ApiModel, ResourceModel, MethodModel, hljs, ResourceForm, Modal, edt, OverView){
   var NewApiPage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
@@ -124,6 +125,9 @@ define([
     //     methodView.render();              
     //  }
     },
+    renderOverview: function () {
+
+    },
     render: function () { 
       var that = this;
       console.log('re-render');
@@ -137,6 +141,10 @@ define([
             console.log('hljf' , hljs)
             if($('.api-container').length === 0) {
               that.$el.html(_.template(apiDetailsTemplate, {api: api, errors: []}));
+              if(typeof that.options.resource === 'undefined') {
+                var overview = Vm.create(that, 'overviewPage', OverView, that.options);
+                overview.render();
+              }
               $('code').each(function(i, e) {hljs.highlightBlock(e); });
                 $('.js-api-pages a').click(function (e) {
                 e.preventDefault();

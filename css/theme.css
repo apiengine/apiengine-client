@@ -63,15 +63,6 @@ a {
   height: 20px;
   background: url('../img/cards.png');
 }
-.ajax-cog {
-    width: 18px;
-    height: 18px;
-    background: url('../img/ajax-cog.png?embed');
-     -webkit-animation-name: spin; 
-  -webkit-animation-duration: 2000ms; /* 40 seconds */
-  -webkit-animation-iteration-count: infinite; 
-  -webkit-animation-timing-function: linear;
-}
 
 p, ul, li , div, span, a {
    # outline: 1px solid #000;
@@ -134,7 +125,7 @@ html, body {
 .top-bar-container {
     background: #444 url('../img/titlebar-bg-grad.png');
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#252f33), color-stop(100%,#1f2020));
-    height: 75px;
+    height: 73px;
     position: relative;
 }
 .scallop-light-top {
@@ -162,12 +153,13 @@ html, body {
     color: #959ca1;
     display: inline-block;
     height: 72px;
-    font-size: 12px;
+    font-size: 13px;
     text-transform: uppercase;
 
      -webkit-transition:color 0.25s ease-in; 
     cursor: pointer;
-    padding: 1px 11px 1px 11px
+    padding: 1px 11px 1px 11px;
+    font-family: 'Nexa';
 }
 .top-bar-menu li a:hover {
     color: #fff;
@@ -229,26 +221,6 @@ html, body {
     height: 146px;
 }
 
- .method-list-container,
-  .resource-list-container {
-    border-right: 1px solid #eee;
-  }
-  .method-list-container .badge.notification-total,
-  .resource-list-container .badge.notification-total {
-    float: right;
-  }
-  .method-list-container  li a {
-    position: relative;
-  }
-  .method-list-container .method-name {
-    padding-left: 70px;
-  }
-  .method-list-container .badge-method-type {
-    position: absolute;
-  }
-  .method-list-container .nav-list {
-    padding-left: 0;
-  }
   .user-profile-image {
     width: 60px;
     height: 60px;
@@ -338,52 +310,6 @@ html, body {
     margin-bottom: 10px;
     text-align: right;
   }
-  .menu-title {
-    height: 50px;
-    padding-left: 15px;
-    font-size: 24px;
-    line-height: 50px;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-        font-size: 26px;
-    letter-spacing: 2px;
-    font-weight: normal;
-    color: #161717;
-  }
-  .main-menu-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .main-menu-list li {
-    padding: 10px;
-    border: 1px solid #eee;
-    border-top: none;
-  }
-  .main-menu-list li a {
-    text-decoration: none;
-    margin-left: 5px;
-    color: #161717;
-  }
-  .main-menu-list li a .icon {
-    color: #161717;
-    margin-right: 5px;
-    display: inline-block;
-    width: 20px;
-  }
-  .resource-list li:hover {
-    background: #eee;
-  }
-  .resource-list li:hover li {
-    background: #fff;
-  }
-  .main-menu-list li:hover {
-    background: #eee;
-  }
-  .main-menu-list li:hover a{
-    background: #eee;
-  }
-
   body h2 {
     color: #161717;
         height: 50px;
@@ -418,28 +344,9 @@ html, body {
       background: #eee;
 
   }
-  .notification {
-    padding: 5px 5px 4px 5px;
-    background: #fcd143;
-    color: #444;
-    border-radius: 4px;
-    float: right;
-    font-size: 11px;
-    line-height: 11px;
-    height: 11px;
-    width: 10px;
-    display: inline-block;
-    text-align: center;
-  }
-[data-method-id].active, 
-.overview-link.active {
-    text-decoration: underline;
-  }
+
 
 .api-description:hover {
   outline: 1px solid #ccc;
   background: #ebebeb;
-}
-.footer {
-  height: 300px;
 }

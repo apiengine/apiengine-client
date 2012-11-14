@@ -1,147 +1,39 @@
 <style>
-  .resource-list { 
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .resource-list > li {
-    border-bottom: 1px solid #ebebeb;
-    border-left: 1px solid #ebebeb;
-    border-bottom: 1px solid #ebebeb;
-    min-height: 48px;
-    padding: 0;
-    margin: 0;
-  }
-  .resource-list > li.active {
-    background: #2d2d2d;
-  }
-
-
-/* creates the smaller  triangle */
-.resource-list > li.active:after {
-  content:"";
-  position:absolute;
-  bottom:-13px; /* value = - border-top-width - border-bottom-width */
-  right:0; /* value = (:before left) + (:before border-left) - (:after border-left) */
-  border-width:13px 13px 0;
-  border-style:solid;
-  border-color:#fff transparent;
-    /* reduce the damage in FF3.0 */
-    display:block; 
-    width:0;
-}
-
-
-
-/* creates the smaller  triangle */
-.resource-list > li.active:after {
-  top:17px; /* value = (:before top) + (:before border-top) - (:after border-top) */
-  bottom:auto;
-  right:-1px; /* value = - border-left-width - border-right-width */
-   border-width:6px 5px 6px 0px;
-  border-color:transparent #fff;
-}
-
-
-
-
-  .resource-list .icon {
-    color: #161717;
-
-  }
-  .resource-list > li > div > a {
-    text-decoration: none;
-    color: #4a92fd;
-    display: block;
-    height: 48px;
-    float: left;
-    width: 203px;
-    line-height: 48px;
-  }
-  .method-list { 
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .method-list li {
-  }
-  .method-list li a {
-
-    text-decoration: none;
-    color: #444;
-  }
-  .method-list .method {
-    margin-left: 25px;
-    margin-right: 5px;
-  }
-  .method {
-    font-size: 10px;
-    padding: 4px;
-    border-radius: 4px;
-    width: 34px;
-    display: inline-block;
-    font-family: "AllerLight";
-    text-align:center;
-    color: #fff;
-    font-weight: bold;
-    margin-right: 7px;
-  }
-  .method-POST {
-    background: #449122;
-  }
-  .method-DELETE {
-    background: #ce3442;
-  }
-  .method-PUT {
-    background: #e0871e;
-  }
-  .method-GET {
-    background: #2b82c5;
-  }
-  .expand {
-    width: 25px;
-    text-align: center;
-    margin-left: 10px;
-    height: 48px;
-    float: left;
-    line-height: 48px;
-    cursor: pointer;
-    font-size: 14px;
-    color: #ccc !important;
-  }
-  .expand:hover {
-    background: #eee;
-
-  }
 
 </style>
 
-<ul class="resource-list">
+<ul class="api-menu-list resource-list">
   
   <% 
   _.each(resources.models, function (resource) { 
     
 
   %> 
+
   <li class="<%= selectedResource*1 === resource.id ? 'active' : '' %>" data-resource-id="<%= resource.id %>">
     <div style="">
     <a data-resource-id="<%= resource.id %>" href="<%= resources.username%>/<%= resources.api%>/version/<%= resources.version %>/resource/<%= resource.id%>">
-       <span class="icon">K</span> <%= resource.get('label') %> 
+      <span  class="resource-label"><%= resource.get('label') %> </span>
 
+    <span data-resource-id="<%= resource.id %>" class="resource_notification notification"></span>
 
     </a>
-    <span data-resource-id="<%= resource.id %>" class="resource_notification notification" style="display: none; margin-right: 10px; margin-top: 15px;"></span>
     <div style="clear: both;"></div>
     </div>
   </li>
   <li style="display: none; border-top: none;">
     <div class="resource-submenu">
-    <ul class="main-menu-list">
-        <li><a class="overview-link" data-resource-id="<%= resource.id %>" style="margin-left: 20px;" href="<%= resources.username%>/<%= resources.api%>/version/<%= resources.version %>/resource/<%= resource.id%>"><span class="icon">E</span>Overview</a> <span data-resource-id="<%= resource.id %>" class="method_notification notification" style="display: none;"></span></li>
+    <ul class="api-menu-list">
+
+      <!--
+        <li><a class="overview-link" data-resource-id="<%= resource.id %>" href="<%= resources.username%>/<%= resources.api%>/version/<%= resources.version %>/resource/<%= resource.id%>">Overview
+
+ <span data-resource-id="<%= resource.id %>" class="method_notification notification"></span>
+        </a></li>-->
       </ul>
     <div class="method-sublist-container">
-
-      <div style="line-height: 48px;margin-left: 35px;"><div class="ajax-cog" style="margin-top: 14px;float: left; margin-right: 5px;"></div> <span style="color: #ccc;">Loading</span></div>
+ <div class="api-list-ajax"><div class="ajax-cog" ></div> <span class="loading">Loading</span></div>
+      
     </div>
     </div> 
   </li>

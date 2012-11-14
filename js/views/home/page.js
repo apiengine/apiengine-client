@@ -19,6 +19,7 @@ define([
       // make our view act recordingly when auth changes
     },
     render: function () {
+      $('body').addClass('grey');
       // Simply choose which template to choose depending on
       // our Session models auth attribute      
       $('.top-bar-menu li a.active').removeClass('active');

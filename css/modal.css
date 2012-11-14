@@ -9,6 +9,7 @@
   -webkit-box-pack: center;
   top: 0;
   left: 0;
+  z-index: 3;
   opacity: 0.6;
 }
 .modal {
@@ -17,6 +18,7 @@
   background: #fff;
   left: 50%;
   border: 1px solid #ebebeb;
+  z-index: 4;
 }
 
 .modal-header {

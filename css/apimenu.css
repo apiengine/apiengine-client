@@ -1,0 +1,280 @@
+/* 
+# API Resource Menu
+
+```
+<div class="api-menu-container">
+  <ul class="api-menu-list">
+    <li><a href="">Overview</a></li>
+    <li><a href="" class="active">Example</a></li>
+  </ul>
+  <div class="resource-list-container" data-api-id="ApiEngine">
+
+  <ul class="api-menu-list resource-list">
+    <li class="expanded" data-resource-id="9">
+      <a data-resource-id="9" href="thomasdavis/ApiEngine/version/1/resource/9">
+        <span class="resource-label">Single Api</span> 
+        <span data-resource-id="9" class="resource_notification notification" >5</span>
+      </a>
+    </li>
+    <li data-resource-id="9">
+    <div class="resource-submenu">
+      <div class="method-sublist-container">
+        <ul class="api-menu-list method-list">
+          <li data-method-id="DELETE" class="">
+            <a data-method-id="DELETE" class="active" href="thomasdavis/ApiEngine/version/1/resource/9/DELETE">
+              <span class="method method-DELETE">DEL</span>
+              <span class="method-label">Delete an Api</span>
+              <span class="method_notification notification" data-method-id="DELETE">2</span>
+            </a>
+          </li> 
+          <li data-method-id="PUT" class="">
+            <a data-method-id="PUT" href="thomasdavis/ApiEngine/version/1/resource/9/PUT">
+              <span class="method method-PUT">PUT</span>
+              <span class="method-label">Update an Api</span>
+              <span class="method_notification notification" data-method-id="PUT">2</span>
+            </a>
+          </li> 
+          <li data-method-id="GET" class="">
+            <a  data-method-id="GET" href="thomasdavis/ApiEngine/version/1/resource/9/GET">
+              <span class="method method-GET">GET</span>
+              <span class="method-label">Get Api details</span><span class="method_notification notification" data-method-id="GET">1</span></a>
+          </li> 
+        </ul></div>
+    </div> 
+  </li>
+   
+  <li class="" data-resource-id="8">
+    <a data-resource-id="8" href="thomasdavis/ApiEngine/version/1/resource/8">
+       <span class="resource-label">Api Version's</span>
+      <span data-resource-id="8" class="resource_notification notification" >3</span>
+    </a>
+  </li>
+  <li >
+    <div class="resource-submenu">
+      <div class="method-sublist-container">
+        <div class="api-list-ajax"><div class="ajax-cog" ></div> <span class="loading">Loading</span></div>
+      </div>
+    </div> 
+  </li>
+</ul>
+</div>
+    </div>
+    ```
+  */
+
+  .api-menu-container {
+    width: 300px; 
+    background: #fff;
+    border-left: 1px solid #ebebeb;
+    border-right: 1px solid #ebebeb;
+  }
+  .api-menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .ajax-cog {
+    width: 18px;
+    height: 18px;
+    background: url('../img/ajax-cog.png?embed');
+     -webkit-animation-name: spin; 
+  -webkit-animation-duration: 2000ms; /* 40 seconds */
+  -webkit-animation-iteration-count: infinite; 
+  -webkit-animation-timing-function: linear;
+  float: left;
+  margin-right: 10px;
+}
+  .api-menu-list li {
+    border-bottom: 1px solid #ebebeb;
+}
+  .api-menu-list li .api-menu-list li:last-child {
+    border-bottom: none;
+}
+  .api-list-ajax, 
+  .api-menu-list li a {
+    display: block;
+    padding: 15px 10px 15px 10px;
+  }
+  .api-list-ajax .loading {
+    color: #ccc;
+  }
+  .api-menu-list li a.active,
+  .api-menu-list li a:hover {
+    background: #485259;
+    color: #fff;
+    position: relative;
+  }
+
+/* creates the smaller  triangle */
+  .api-menu-list li a.active:after,
+.api-menu-list li a:hover:after {
+  content:"";
+  position:absolute;
+  bottom:-13px; /* value = - border-top-width - border-bottom-width */
+  right:0; /* value = (:before left) + (:before border-left) - (:after border-left) */
+  border-width:13px 13px 0;
+  border-style:solid;
+  border-color:#fff transparent;
+    /* reduce the damage in FF3.0 */
+    display:block; 
+    width:0;
+}
+
+
+
+/* creates the smaller  triangle */
+  .api-menu-list li a.active:after,
+.api-menu-list li a:hover:after {
+  top:17px; /* value = (:before top) + (:before border-top) - (:after border-top) */
+  bottom:auto;
+  right:-1px; /* value = - border-left-width - border-right-width */
+   border-width:6px 5px 6px 0px;
+  border-color:transparent #fff;
+}
+
+
+  .notification {
+    padding: 5px 5px 4px 5px;
+    background: #fcd143;
+    color: #444;
+    border-radius: 4px;
+    float: right;
+    font-size: 11px;
+    line-height: 11px;
+    height: 11px;
+    width: 10px;
+    text-align: center;
+    display: none;
+  }
+.resource-label:before {
+  content: '/';
+    margin-right: 5px;
+    font-size: 18px;
+    font-family: "ModernPics";
+}
+.expanded   .resource-label:before {
+    content: '-';
+    margin-right: 5px;
+    font-size: 18px;
+    font-family: "ModernPics";
+  }
+/*
+
+
+ .method-list-container,
+  .resource-list-container {
+    border-right: 1px solid #eee;
+  }
+  .method-list-container .badge.notification-total,
+  .resource-list-container .badge.notification-total {
+    float: right;
+  }
+  .method-list-container  li a {
+    position: relative;
+  }
+  .method-list-container .method-name {
+    padding-left: 70px;
+  }
+  .method-list-container .badge-method-type {
+    position: absolute;
+  }
+  .method-list-container .nav-list {
+    padding-left: 0;
+  }
+
+  .resource-list { 
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .resource-list > li {
+    border-bottom: 1px solid #ebebeb;
+    border-left: 1px solid #ebebeb;
+    border-bottom: 1px solid #ebebeb;
+    min-height: 48px;
+    padding: 0;
+    margin: 0;
+  }
+  .resource-list > li.active {
+    background: #2d2d2d;
+  }
+
+
+
+
+
+
+  .resource-list .icon {
+    color: #161717;
+
+  }
+  .resource-list > li > div > a {
+    text-decoration: none;
+    color: #4a92fd;
+    display: block;
+    height: 48px;
+    float: left;
+    width: 203px;
+    line-height: 48px;
+  }
+  .method-list { 
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .method-list li {
+  }
+  .method-list li a {
+
+    text-decoration: none;
+    color: #444;
+  }
+  */
+  .method-list .method {
+    margin-left: 25px;
+    margin-right: 5px;
+  }
+  .method {
+    font-size: 10px;
+    padding: 4px;
+    border-radius: 4px;
+    width: 34px;
+    display: inline-block;
+    font-family: "Nexa";
+    text-align:center;
+    color: #fff;
+    font-weight: bold;
+    margin-right: 7px;
+  }
+  .method-POST {
+    background: #449122;
+  }
+  .method-DELETE {
+    background: #ce3442;
+  }
+  .method-PUT {
+    background: #e0871e;
+  }
+  .method-GET {
+    background: #2b82c5;
+  }
+  .expand {
+    width: 25px;
+    text-align: center;
+    margin-left: 10px;
+    height: 48px;
+    float: left;
+    line-height: 48px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #ccc !important;
+  }
+  .expand:hover {
+    background: #eee;
+
+  }
+
+
+    .method-label {
+    font-size: 14px;
+  }

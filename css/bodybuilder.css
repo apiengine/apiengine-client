@@ -1,0 +1,109 @@
+/*
+# Body builder
+
+```
+<table class="bodybuilder PUT">
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>field</td>
+      <td>string</td>
+      <td><p class="fixie"></p></td>
+    </tr>
+    <tr>
+      <td>field</td>
+      <td>string</td>
+      <td><p class="fixie"></p></td>
+    </tr>
+  </tbody>
+</table>
+
+```
+*/
+.bodybuilder {
+  width: 100%;
+}
+.bodybuilder th,
+.bodybuilder td {
+  padding: 15px;
+}
+.bodybuilder th {
+  color: #fff;
+  font-size: 14px;
+  border-right: 1px dotted #fff;
+}
+.bodybuilder td {
+  font-size: 12px;
+  background: #fff;
+}
+.bodybuilder th:last-child {
+  border-right: none;
+}
+
+  .method-POST {
+    background: #449122;
+  }
+  .method-DELETE {
+    background: #ce3442;
+  }
+  .method-PUT {
+    background: #e0871e;
+  }
+  .method-GET {
+    background: #2b82c5;
+  }
+
+.bodybuilder.PUT {
+  border: 1px solid #e0871e;
+}
+.bodybuilder.PUT th {
+  background: #e0871e;
+}
+.bodybuilder.PUT  td{
+  border-right: 1px dotted #e0871e;
+  border-bottom: 1px dotted #e0871e;
+}
+.bodybuilder.DELETE {
+  border: 1px solid #ce3442;
+}
+.bodybuilder.DELETE th {
+  background: #ce3442;
+}
+.bodybuilder.DELETE  td{
+  border-right: 1px dotted #ce3442;
+  border-bottom: 1px dotted #ce3442;
+}
+.bodybuilder.POST {
+  border: 1px solid #449122;
+}
+.bodybuilder.POST th {
+  background: #449122;
+}
+.bodybuilder.POST  td{
+  border-right: 1px dotted #449122;
+  border-bottom: 1px dotted #449122;
+}
+.bodybuilder.GET {
+  border: 1px solid #2b82c5;
+}
+.bodybuilder.GET th {
+  background: #2b82c5;
+}
+.bodybuilder.GET  td{
+  border-right: 1px dotted #2b82c5;
+  border-bottom: 1px dotted #2b82c5;
+}
+
+
+.bodybuilder tr td:last-child{
+  border-right: none;
+}
+.bodybuilder tr:last-child td{
+  border-bottom: none;
+}

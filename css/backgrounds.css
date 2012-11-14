@@ -1,73 +1,125 @@
 /*
 # Backgrounds
 
+## Home page example
+This is how homepage is layered
+
 ```
 <div class="wrapper">
-  <div class="titlebar">
-    <br /><br />
-  </div>
-  <div class="head-space">
-    <div class="titlebar-scollop"></div>
-    <br /><br />
-  </div>
-  <div class="graph-paper">
-    <div class="head-space-scollop"></div>
-    <br /><br />
-  </div>
-  <div class="graph-paper-scollop"></div>
-  <br /><br />
+  <div class="background dark-grey"></div>
+  <div class="background yellow"></div>
+  <div class="background grey"></div>
+  <div class="background blue"></div>
+  <div class="background grey"></div>
+  <div class="background red"></div>
+  <div class="background grey"></div>
+</div>
+
+```
+
+## Random Backgrounds
+Here is just a random test
+```
+<div class="wrapper">
+  <div class="background yellow"></div>
+  <div class="background dark-grey"></div>
+  <div class="background yellow"></div>
+  <div class="background white"></div>
+  <div class="background blue"></div>
+  <div class="background red"></div>
+  <div class="background yellow"></div>
+  <div class="background grey"></div>
+  <div class="background dark-grey"></div>
+  <div class="background blue"></div>
+  <div class="background red"></div>
+  <div class="background grey"></div>
+  <div class="background red"></div>
+  <div class="background grey"></div>
 </div>
 
 ```
 
 */
+body.white {
+  background: #fff;
+}
+body.grey {
+  background: #485259;
+}
+
+.background {
+  min-height: 20px;
+  position: relative;
+}
+.background:before {
+  content: '';
+  height: 3px;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  z-index: 2;
+}
+
+.background.white {
+  background: #fff;
+}
+.background.white:before {
+  background: url('../img/backgrounds/scollop-white.png');
+}
+.background.dark-grey {
+  background: #171717;
+}
+.background.dark-grey:before {
+  background: url('../img/backgrounds/scollop-dark-grey.png');
+}
+.background.yellow {
+  background: #fed563;
+}
+.background.yellow:before {
+  background: url('../img/backgrounds/scollop-yellow.png');
+}
+.background.blue {
+  background: #019ff3;
+}
+.background.blue:before {
+  background: url('../img/backgrounds/scollop-blue.png');
+}
+.background.grey {
+  background: #485259;
+}
+.background.grey:before {
+  background: url('../img/backgrounds/scollop-grey.png');
+}
+.background.light-grey {
+  background: #f7f7f7;
+}
+.background.light-grey:before {
+  background: url('../img/backgrounds/scollop-light-grey.png');
+}
+.background.red {
+  background: #ea2452;
+}
+.background.red:before {
+  background: url('../img/backgrounds/scollop-red.png');
+}
 
 
 
-    .titlebar {
-      background: url('../img/backgrounds/titlebar-bg.png');
-      overflow:auto;
-    }
+.titlebar {
+  background: url('../img/backgrounds/titlebar-bg.png');
+  z-index: 1;
+  position: relative;
+}
 
 
-    .titlebar-scollop{
-      position:absolute;
-      background: url('../img/backgrounds/titlebar-scollop.png');
-      height:2px;
-      width:100%;
-    }
 
-    .head-space{
-      background: #fed563;
-      position:relative;
-      overflow-y:auto;
-      overflow-x:hidden;
-    }
+.titlebar-scollop{
+  position:absolute;
+  background: url('../img/backgrounds/titlebar-scollop.png');
+  height:2px;
+  width:100%;
+}
 
-    .head-space-scollop{
-      background: url('../img/backgrounds/head-space-scollop.png');
-      height:3px;
-      width:100%;
-      position:absolute;
-    }
-    .bottom-scollop-dark{
-      background: url('../img/backgrounds/bottom-scollop-dark.png');
-      height:2px;
-      width:100%;
-      position:absolute;
-    }
-
-    .graph-paper{
-      background: #485259;
-      position:relative;
-      overflow: auto;
-    } 
-
-
-    .graph-paper-scollop{
-      background: url('../img/backgrounds/graph-paper-scollop.png');
-      height:2px;
-    }
 
         .wrapper {
       background: #019ff3;

@@ -13,6 +13,8 @@ define([
 
     },
     render: function () {
+      $('body').removeClass('grey');
+
       $('.top-bar-menu li a.active').removeClass('active');
       $('.top-bar-menu li a[href=browse]').addClass('active');
       this.$el.html(_.template(browseTemplate, {}));
