@@ -145,15 +145,20 @@ We need to have disabled state I think ?
 
 */
 .sbtn {
-  color: #fff;
-  padding: 10px 15px 6px 15px;
-  font-family: 'Nexa Bold';
+color: white;
+padding: 10px 20px 10px 20px;
+font-family: 'Nexa Bold';
+display: inline-block;
+font-size: 14px;
+line-height: 14px;
 }
 .sbtn:after {
-  content:'>';
-  margin-left: 5px;
-  font-size: 24px;
-  font-family: "ModernPics";
+content: '>';
+margin-left: 5px;
+line-height: 4px;
+font-size: 16px;
+font-family: "ModernPics";
+float: right;
 }
 .sbtn.grey {
   background: #eeeeee;

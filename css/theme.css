@@ -46,10 +46,21 @@ a {
 }*/
 @font-face {
     font-family: 'Nexa';
-    src: url('NexaLight.otf') format('truetype');
+    src: url('nexalight-webfont.eot');
+    src: url('nexalight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('nexalight-webfont.woff') format('woff'),
+         url('nexalight-webfont.ttf') format('truetype'),
+         url('nexalight-webfont.svg#nexa_lightregular') format('svg');
     font-weight: normal;
     font-style: normal;
+
 }
+
+@font-face {
+
+}
+
+
 @font-face {
     font-family: 'Nexa Bold';
     src: url('NexaBold.otf') format('truetype');

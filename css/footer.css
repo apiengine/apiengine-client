@@ -30,11 +30,11 @@
     </ul>
     </div>
     <div class="box large last">
-    <span class="box-title">CONTACT</span>
+    <span class="box-title">CONTACT US</span>
     <form>
-      <input type="text" />
-      <input type="text" />
-      <textarea></textarea>
+      <input type="text" placeholder="Your email address..." />
+      <input type="text" placeholder="Subject..." />
+      <textarea placeholder="Your message..."></textarea>
       <button class="btn btn-blue">Submit</button>
 
     </form>
@@ -44,16 +44,16 @@
   </div>
   <div class="footer-terms-container">
     <ul class="footer-terms">
-      <li><a href="">Privacy</a></li>
-      <li><a href="">Privacy</a></li>
-      <li><a href="">Privacy</a></li>
-      <li class="last"><a href="">Privacy</a></li>
+      <li><a href="">DISCLAIMER</a></li>
+      <li><a href="">PRIVACY</a></li>
+      <li><a href="">SECURITY</a></li>
+      <li class="last"><a href="">TERMS OF SERVICE</a></li>
     </ul>
     <div style="clear: both;"></div>
 
   </div>
   <div class="footer-copyright">
-  Api Engine Inc, Copyright 2012
+  API Engine Inc. © 2012
   </div>
 </div>
 ```
@@ -79,6 +79,7 @@
   font-size: 20px;
   font-family: 'Nexa Bold';
   margin-bottom: 25px;
+  letter-spacing: 2px;
   display: inline-block;
 }
 .footer-links {
@@ -91,11 +92,13 @@
   margin-bottom: 25px;
   color: #eee;
   font-size: 14px;
+  line-height: 16px;
 }
 .footer-links li a {
   color: #fed563;
   font-size: 16px;
   font-family: 'Nexa';
+  letter-spacing: 1px;
 }
 .footer-links li {
   margin-bottom: 25px;
@@ -105,14 +108,37 @@
 }
 
 .footer form input {
-  width: 346px;
+  width: 326px;
+  padding: 10px;
   margin-bottom: 16px;
+  border-radius: none;
+  border: 1px solid #060708;
 }
 .footer form textarea {
   margin-bottom: 16px;
-  width: 346px;
+  width: 326px;
   height: 150px;
+  border-radius: none;
+  border: 1px solid #060708;
+  padding: 10px;
 }
+
+
+.footer form textarea::-webkit-input-placeholder,
+.footer form textarea::-moz-placeholder {
+   color: #6b6d70;
+   font-size: 12px;
+}
+
+.footer form input:-webkit-input-placeholder,
+.footer form input:-moz-placeholder {  
+   font-size: 12px;
+   color: #6b6d70;  
+}
+
+
+
+
 .footer-terms-container {
   text-align: center;
   margin-bottom: 50px;
@@ -131,13 +157,15 @@
   margin-right: 0;
 }
 .footer-terms li a {
+  letter-spacing: 1px;
 
   color: #fed563;
-  font-size: 16px;
+  font-size: 14px;
   font-family: 'Nexa';
 }
 
 .footer-copyright {
+  font-size: 14px;
   text-align: center;
   font-family: 'Nexa';
   color: #eee;

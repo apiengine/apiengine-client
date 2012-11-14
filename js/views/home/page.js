@@ -50,20 +50,21 @@ jQuery.easing.def = "easeInBounce";
                 stage.start();
 
             $('#swiffycontainer').css({
-              right: "-500px",
-              opacity: 1
+              right: "-100px",
+              opacity: 0
             })
            $('.slide1 .heading-container').css({
-              opacity: 1,
-              top: "-300px"
+              opacity: 0,
+              top: "-30px"
             })
            $('.slide1 .tag').css({
-              opacity: 1,
-              top: "300px"
+              opacity: 0,
+              top: "290px"
             })
           console.log('First slide enters');
               $('#swiffycontainer').animate({
                 "right": '0',
+              opacity: 1
               }, {
                 duration: 750,
                 easing: 'easeOutQuad',
@@ -73,6 +74,7 @@ jQuery.easing.def = "easeInBounce";
 
               $('.slide1 .heading-container').animate({
                 "top": '70px',
+              opacity: 1
               }, {
                 duration: 750,
                 easing: 'easeOutQuad'
@@ -82,6 +84,7 @@ jQuery.easing.def = "easeInBounce";
 
               $('.slide1 .tag').animate({
                 "top": '190px',
+              opacity: 1
               }, {
                 duration: 750,
                 easing: 'easeOutQuad'
@@ -96,7 +99,7 @@ jQuery.easing.def = "easeInBounce";
            
             opacity: 0,
           }, {
-                duration: 500,
+                duration: 0,
                 easing: 'easeOutQuad',
                 complete: function (){
                $('#swiffycontainer').empty();
@@ -110,7 +113,7 @@ jQuery.easing.def = "easeInBounce";
               
                  opacity: 0,
               }, {
-                duration: 500,
+                duration: 0,
                 easing: 'easeOutQuad'
               });
 
@@ -120,7 +123,7 @@ jQuery.easing.def = "easeInBounce";
                
                  opacity: 0
               }, {
-                duration: 500,
+                duration: 0,
                 easing: 'easeOutQuad'
               });
 
@@ -133,21 +136,22 @@ jQuery.easing.def = "easeInBounce";
                var stage1 = new swiffy.Stage(document.getElementById('swiffycontainer2'),
                                    swiffyobject2);
                stage1.start();
-        $('#swiffycontainer2').css({
-              right: "-500px",
-              opacity: 1
+                    $('#swiffycontainer2').css({
+              right: "-100px",
+              opacity: 0
             })
            $('.slide2 .heading-container').css({
-              opacity: 1,
-              top: "-300px"
+              opacity: 0,
+              top: "-30px"
             })
            $('.slide2 .tag').css({
-              opacity: 1,
-              top: "300px"
+              opacity: 0,
+              top: "290px"
             })
           console.log('First slide enters');
               $('#swiffycontainer2').animate({
                 "right": '0',
+              opacity: 1
               }, {
                 duration: 750,
                 easing: 'easeOutQuad',
@@ -157,6 +161,7 @@ jQuery.easing.def = "easeInBounce";
 
               $('.slide2 .heading-container').animate({
                 "top": '70px',
+              opacity: 1
               }, {
                 duration: 750,
                 easing: 'easeOutQuad'
@@ -166,11 +171,11 @@ jQuery.easing.def = "easeInBounce";
 
               $('.slide2 .tag').animate({
                 "top": '190px',
+              opacity: 1
               }, {
                 duration: 750,
                 easing: 'easeOutQuad'
               });
-
 
         },
         onLeave: function () {
@@ -179,7 +184,7 @@ jQuery.easing.def = "easeInBounce";
          $('#swiffycontainer2').animate({
             opacity: 0,
           }, {
-                duration: 500,
+                duration: 0,
                 easing: 'easeOutQuad',
                 complete: function (){
                $('#swiffycontainer2').empty();
@@ -192,7 +197,7 @@ jQuery.easing.def = "easeInBounce";
          $('.slide2 .heading-container').animate({
                  opacity: 0,
               }, {
-                duration: 500,
+                duration: 0,
                 easing: 'easeOutQuad'
               });
 
@@ -201,7 +206,7 @@ jQuery.easing.def = "easeInBounce";
               $('.slide2 .tag').animate({
                 opacity: 0,
               }, {
-                duration: 500,
+                duration: 0,
                 easing: 'easeOutQuad'
               });
 
@@ -214,20 +219,21 @@ jQuery.easing.def = "easeInBounce";
                                    swiffyobject3);
                stage3.start();
         $('#swiffycontainer3').css({
-              right: "-500px",
-              opacity: 1
+              right: "-100px",
+              opacity: 0
             })
            $('.slide3 .heading-container').css({
-              opacity: 1,
-              top: "-300px"
+              opacity: 0,
+              top: "-30px"
             })
            $('.slide3 .tag').css({
-              opacity: 1,
-              top: "300px"
+              opacity: 0,
+              top: "290px"
             })
           console.log('First slide enters');
               $('#swiffycontainer3').animate({
                 "right": '0',
+              opacity: 1
               }, {
                 duration: 750,
                 easing: 'easeOutQuad',
@@ -237,6 +243,7 @@ jQuery.easing.def = "easeInBounce";
 
               $('.slide3 .heading-container').animate({
                 "top": '70px',
+              opacity: 1
               }, {
                 duration: 750,
                 easing: 'easeOutQuad'
@@ -246,11 +253,11 @@ jQuery.easing.def = "easeInBounce";
 
               $('.slide3 .tag').animate({
                 "top": '190px',
+              opacity: 1
               }, {
                 duration: 750,
                 easing: 'easeOutQuad'
               });
-
 
         },
         onLeave: function () {
@@ -259,7 +266,7 @@ jQuery.easing.def = "easeInBounce";
          $('#swiffycontainer3').animate({
             opacity: 0,
           }, {
-                duration: 500,
+                duration: 0,
                 easing: 'easeOutQuad',
                 complete: function (){
                $('#swiffycontainer3').empty();
@@ -272,7 +279,7 @@ jQuery.easing.def = "easeInBounce";
          $('.slide3 .heading-container').animate({
                  opacity: 0,
               }, {
-                duration: 500,
+                duration: 0,
                 easing: 'easeOutQuad'
               });
 
@@ -281,7 +288,7 @@ jQuery.easing.def = "easeInBounce";
               $('.slide3 .tag').animate({
                 opacity: 0,
               }, {
-                duration: 500,
+                duration: 0,
                 easing: 'easeOutQuad'
               });
 
@@ -306,7 +313,7 @@ jQuery.easing.def = "easeInBounce";
             that.currentSlide = that.currentSlide + 1;
           }
           that.changeSlide(oldIndex, that.currentSlide)
-        }, 8000);
+        }, 7000);
       };
       Slider.prototype.changeSlide = function (lastSlideIndex, newSlideIndex) {
         var lastSlide = slides[lastSlideIndex];

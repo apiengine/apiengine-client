@@ -17,9 +17,77 @@ Tagline description
 </div>
 ```
 
+## Social network bar
+
+```
+<div class="background red"></div>
+<div class="background grey">
+	<div class="social-networks-container">
+		<div class="social-networks">
+			<span>OUR SOCIAL CONNECTIONS</span>
+		  <span class="social-icon facebook"></span>
+		  <span class="social-icon twitter"></span>
+		  <span class="social-icon rss"></span>
+		  <span class="social-icon google"></span>
+		</div>
+	</div>
+</div>
+
+<div class="background dark-grey"></div>
+
+```
 
 */
+.slides-container {
+  width: 1040px;
+  margin: auto;
+  padding-top: 24px;
+  height: 400px;
+  overflow: hidden;
+}
+.slide {
+  position: relative;
+}
+#swiffycontainer, #swiffycontainer2 , #swiffycontainer3{
+  position: absolute;
+  right: -500px;
+}
+.slide .heading-container {
+  position: absolute;
+  margin-left: 40px;
+  top: -150px;
+}
+.slide .heading-container .heading {
+  margin-bottom: 15px;
+}
+.slide .tag {
+  position: absolute;
+  bottom: 600px;
+  width: 540px;
+  margin-left: 40px;
+}
 
+
+.social-networks-container {
+	text-align: center;
+}
+.social-networks {
+	display: inline-block;
+	padding: 15px;
+}
+.social-networks span {
+	color: #EEE;
+	font-family: 'Nexa';
+	font-size: 18px;
+	display: inline-block;
+	height: 48px;
+	float: left;
+	line-height: 52px;
+	margin-right: 30px;
+}
+.social-networks .social-icon {
+	margin-right: 30px;
+}
 .slide .heading {
 	font-family: 'Nexa Bold';
 	font-size: 30px;
@@ -35,7 +103,18 @@ Tagline description
 	font-size: 30px;
 	display: inline-block;
 }
-
+.seo-desc {
+	width: 600px;
+	float: left;
+	color: #eee;
+	font-family:  'Nexa';
+	font-size: 24px;
+	margin-top: 40px;
+	display: inline-block;
+}
+.seo-desc a {
+	color: #FED563;
+}
 .tagline {
   display: block;
   text-align: center;
@@ -45,9 +124,11 @@ Tagline description
   margin: auto;
   width: 60px;
 }
+.signup-bar-container {
+	text-align: center;
+}
 .signup-bar {
-  width: 460px;
-  margin: auto;
+	display: inline-block;
   padding-top: 15px;
   padding-bottom: 15px;
 
@@ -58,27 +139,29 @@ Tagline description
   margin-right: 10px;
 }
 .home-heading {
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 60px;
+  padding-bottom: 60px;
   margin: 0;
   text-align: center;
-  color: #fff;
+  color: #FED563;
   font-size: 24px;
 }
 .feature-box {
   float: left;
-  width: 250px;
-  margin-right: 60px;
+  width: 290px;
+  margin-right: 77px;
   color: #fed563;
 font-size: 20px;
   text-align: center;
 }
+.feature-box.last {
+	margin-right: 0;
+}
 p.feature-description {
 line-height: 24px;
 color: white;
-font-size: 20px;
+font-size: 18px;
 font-family: 'Nexa';
-width: 80%;
 margin: auto;
 padding-bottom: 80px;
 }
