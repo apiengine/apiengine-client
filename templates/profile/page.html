@@ -4,8 +4,10 @@
   <img class="profile-box-pic" src="http://www.gravatar.com/avatar/{{user.attributes.gravatar}}.jpg?s=150" />
   <div class="profile-box-info">
     <h3>{{user.attributes.login}}</h3>
-    <span class="extra fixie">Following <a href="">17</a>  APIs. Signed up <span class="timeago" title="{{user.attributes.epoch}}"></span></span>
-    <p class="fixie">piDocco is a web app built as a tool to significantly aid your applications RESTful API development.</p>
+    <span class="extra">Signed up <span class="timeago" title="{{user.attributes.profile.joindate}}"></span></span><br />
+    <span class="extra">Website: {{user.attributes.profile.website}}</span><br />
+    <span class="extra">Location: {{user.attributes.profile.location}}</span><br />
+    <p class="">{{user.attributes.profile.description}}</p>
     <div style="clear: both;"></div>
     <div class="social-networks">
       <div class="icon">&#119;</div>
