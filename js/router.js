@@ -1,5 +1,6 @@
 // Filename: router.js
 define([
+  'require',
   'jquery',
   'underscore',
   'backbone',
@@ -11,7 +12,7 @@ define([
   'views/apis/edit',
   'views/methods/edit',
   'views/profile/page'
-], function ($, _, Backbone, Vm,ApiDetailsView,BrowseView,ForgotView,ApiDetailsView,EditApiView,EditMethodView,ProfilePage) {
+], function (require, $, _, Backbone, Vm,ApiDetailsView,BrowseView,ForgotView,ApiDetailsView,EditApiView,EditMethodView,ProfilePage) {
   var AppRouter = Backbone.Router.extend({
     routes: {
 
