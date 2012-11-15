@@ -86,6 +86,7 @@ define([
         currentUser = true;
       }
       that.$el.html(Mustache.render(profileTemplate, {user: that.userModel, currentUser: currentUser}));
+          $('.timeago').timeago();
       this.renderSettings();
     },
     renderSettings: function () {
@@ -93,6 +94,9 @@ define([
       if(typeof this.options.tab === 'undefined') {
         var apisList = new ApisList({currentUser: currentUser, username: that.options.username, el: '.private-container'});
         apisList.render();
+
+        $('.tabs-container li').removeClass('active');
+        $('.tabs-container .apilist').addClass('active');
       }
       if(this.options.tab === 'settings') {
         var settingsPage = Vm.create(this, 'SettingsPage', SettingsPage, {});
