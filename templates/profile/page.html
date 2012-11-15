@@ -1,35 +1,5 @@
-<!--<div class="profile-info-container">
-  <div class="container">
-
-		<div style="float: left; width: 75px; padding: 2px; border: 1px solid #ccc; height:  75px;"><img style="width: 75px; height: 75px;" src="http://www.gravatar.com/avatar/<%= user.get('gravatar') %>.jpg" /></div>		
-		<div style="float: left; width: 500px; margin-left: 20px;">
-				<h1><%= user.get('login') %></h1>
-				<span class="profile-email"><%= user.get('email') %></span>
-				<p>ApiDocco is a web app built as a tool to significantly aid your applications RESTful API development.</p>
-				<% if(currentUser) { %>
-
-        <% }; %>
-				<div style="clear: both;"></div>
-		</div>
-	 <div style="clear: both;"></div>
-  </div>
-</div>
-
-
-
--->
-
-
-
-
-
 <div class="background white">
-
-
-
 <div class="container" style="padding-top: 50px;">
-
-
 <div class="profile-box">
   <img class="profile-box-pic" src="http://www.gravatar.com/avatar/<%= user.get('gravatar') %>.jpg?s=150" />
   <div class="profile-box-info">
@@ -47,25 +17,17 @@
     </div> 
   </div>
   <div class="profile-box-buttons">
+    <% if(currentUser) { %>
     <button class="btn btn-regular">EDIT PROFILE</button>
+    <% }; %>
     <div style="clear: both;"></div>
+    <!--
       <button class="btn btn-regular btn-share"><span class="icon">&#106;</span></button>
-
+-->
   </div>
 
   <div style="clear: both;"></div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
   <div class="tempbox">
     <span class="icon tempbox-close-icon js-close-modal">&#88;</span>
     <div class="tempbox-container">
@@ -105,84 +67,12 @@
   <div class="tabs-container">
     <ul class="tabs">
       <li class="active"><a href="<%= user.get('login') %>">APIs</a></li>
+      <% if(currentUser) { %>
       <li class="settings"><a href="<%= user.get('login') %>/settings/profile">Settings</a></li>
+      <% }; %>
     </ul>
     <div style="clear: both;"></div>
   </div>
   <div class="tab-container private-container"></div>
 </div>
-<!--
-<div class="">
-  <div class="container">
-    <ul class="profile-tabs">
-      <li><a href="">YOUR APIS</a></li>
-      <li><a href="">INBOX</a></li>
-      <li><a href="">ACTIVITY</a></li>
-      <li><a href="">ACCOUNT</a></li>
-    </ul>
-    <div style="clear: both;"></div>
-  </div>
-</div>
--->
-<!--
-
-	<div class="span4">
-	<div class="private-container well">
-		Loading
-	</div>
-
-	</div>
-</div>
-
-<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
--->
-<div class="modal hide" id="js-edit-profile-form" style="display: none;">
-	<div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal">×</button>
-    <h3>Edit profile</h3>
-  </div>
-  <div class="modal-body">
-  	<p>Use this form to edit your user profile for now because I am a lazy UI designer.
-   <form class="form-horizontal js-save-profile-form">
-  <fieldset>
-    <legend>Info</legend>
-    <div class="control-group">
-      <label class="control-label" for="input01">Url</label>
-      <div class="controls">
-        <input type="url" class="input-xlarge" name="url" id="input01" value="<%= user.get('url') %>">
-        <p class="help-block">Your homepage!</p>
-      </div>
-    </div>
-		<div class="control-group">
-            <label class="control-label" for="textarea">Description</label>
-            <div class="controls">
-              <textarea class="input-xlarge" id="textarea" rows="3"></textarea>
-            </div>
-    </div>
-
-		<div class="control-group">
-            <label class="control-label">Publicize email</label>
-            <div class="controls">
-              <label class="radio">
-                <input type="radio" name="publicize" value="true" id="optionsRadios1" checked="" <%= user.get('publicize') === true ? 'checked' : '' %>>
-                Make my email address public
-              </label>
-              <label class="radio">
-                <input type="radio" id="optionsRadios2" value="false" name="publicize" <%= user.get('publicize') === false ? 'checked' : '' %>>
-                Keep it private please
-              </label>
-            </div>
-          </div>
-
-  </fieldset>
-  </div>
-  <div class="modal-footer">
-    <a href="#" class="btn" data-dismiss="modal">Close</a>
-    <input type="submit" value="Save changes" class="btn btn-primary js-save-profile">
-  </div>
-</form>
-
-
-	</div>
-	</div>
 </div>

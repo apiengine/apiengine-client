@@ -2,6 +2,7 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'libs/swiffy/swiffy',
   'models/session',
   'text!templates/home/page.html',
   'views/user/auth',
@@ -17,7 +18,7 @@ define([
   'animations/private',
   'animations/public',
   'animations/stylish'
-], function($, _, Backbone, Session, homeTemplate, AuthView, ApisList, exampleLoginTemplate, exampleLogoutTemplate, Modal, logint, acogs, acollaboration, aframework,amobile,aprivate,apublic,astylish){
+], function($, _, Backbone, swiffy, Session, homeTemplate, AuthView, ApisList, exampleLoginTemplate, exampleLogoutTemplate, Modal, logint, acogs, acollaboration, aframework,amobile,aprivate,apublic,astylish){
   var ExamplePage = Backbone.View.extend({
     el: '.page',
     initialize: function () {

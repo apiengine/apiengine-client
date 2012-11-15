@@ -16,34 +16,18 @@
         <li><span class="icon">c</span><a href="somewhere">0 collaborators</a></span></li>
       </ul>
     <div style="clear: both;"></div>
-      <p class="api-list-desc fixie">Google Compute Engine offers scalable and flexible virtual machine computing capabilities in the cloud. With Google Compute Engine, you can solve large scale processing and analytic problems on Google’s computing, storage, and networking infrastructure.</p>
+      <p class="api-list-desc"><%= !api.get('description')  ? 'No description' : api.get('description') %></p>
     </div>
+    <!--
     <div class="api-list-buttons">
      <button class="btn triangle-border right">0</button>
       <button class="btn btn-regular">FOLLOWERS</button>
       <div style="clear: both;"></div>
       <button class="btn btn-regular btn-share"><span class="icon">&#106;</span></button>
     </div>
+  -->
     <div style="clear: both;"></div>
   </li>
- <!-- <div class="well">
-
-      <a href="<%= api.get('user') %>/<%= api.get('name') %>/version/<%= api.get('versions')[0] %>">
-        <% if(api.get('private') === true) { %>
-          <i class="icon-lock"></i>
-        <% }; %>
-        <%= api.get('name') %>
-      </a> /
-       <a href="<%= api.get('user') %>">
-   
-        <%= api.get('user') %>
-      </a> 
-      <p>Google Compute Engine offers scalable and flexible virtual machine computing capabilities in the cloud. With Google Compute Engine, you can solve large scale processing and analytic problems on Google’s computing, storage, and networking infrastructure. </p>
-        <p>Version - 
-        <%= api.get('versions')[0] %>
-      </p>
-      </p>
-  </div>-->
     <% }); %>
       <li class="no-more">No more APIs</li>
     <% } else { %>

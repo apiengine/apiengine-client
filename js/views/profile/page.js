@@ -30,10 +30,8 @@ define([
       // Serialize the form into an object using a jQuery plgin
       var apiData = $(ev.currentTarget).serializeObject();
       var api = new ApiModel;
-      console.log(apiData);
       api.save(apiData, {
         success: function (model) {
-          console.log(model);
           window.location = '#/apis/' + model.id;
         }
       });
@@ -86,7 +84,7 @@ define([
       if(Session.get('login') === that.options.username ) { 
         currentUser = true;
       }
-      that.$el.html(_.template(newApiTemplate, {user: that.userModel}));
+      that.$el.html(_.template(newApiTemplate, {user: that.userModel, currentUser: currentUser}));
       this.renderSettings();
     },
     renderSettings: function () {
