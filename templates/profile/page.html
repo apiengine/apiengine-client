@@ -11,7 +11,10 @@
     <div style="clear: both;"></div>
     <div class="social-networks">
       <div class="icon">&#119;</div>
-      <img class="icon" src="http://twitter.com/favicon.ico" />
+      {{#user.attributes.profile.twitter}}
+      <a href="http://twitter.com/{{#user.attributes.profile.twitter}}"><img class="icon" src="http://twitter.com/favicon.ico" /></a>
+      {{/user.attributes.profile.twitter}}
+
       <img class="icon" src="http://facebook.com/favicon.ico" />
       <img class="icon" src="http://linkedin.com/favicon.ico" />
       <img class="icon" src="http://stackoverflow.com/favicon.ico" />
