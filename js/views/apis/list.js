@@ -58,7 +58,6 @@ define([
       apis.fetch({
         success: function (collection) {
           that.$el.html(_.template(apisListTemplate, {_:_, is_public: that.options.is_public, apis: collection.models, username: Session.get('login'), location: that.options.location}));
-          $('.js-api-filter').button();
         }
       });
 

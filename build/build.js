@@ -17,35 +17,33 @@ fs.mkdirSync('output');
 fs.mkdirSync('output/version');
 fs.mkdirSync(outputFolder);
 var rootPath = '..';
-	rjs.optimize({
-    appDir: '..',
-    baseUrl: 'js',
-    dir: outputFolder,
+  rjs.optimize({
+    dir: outputFolder + '/js',
     mainConfigFile: rootPath + '/js/main.js',
-    wrap: true,
     removeCombined: true,
+    wrap: true,
     findNestedDependencies: false,
+    paths: {
+      'jquery': 'empty:',
+      'mustache': 'empty:',
+      'underscore': 'empty:'
+    },
     modules: [
       {
-        removeCombined: true,
-        name: 'main',
-        include: ['libs/require/require']
-//        insertRequire: ['main']
+        name: 'main'
       },
       {
-        removeCombined: true,
         name: 'views/home/page',
-        baseUrl: '/version/' + version + '/js'
+        exclude: ['main']
       }
     ]
 });
 var index = fs.readFileSync(rootPath + '/index.html', 'ascii');
-index = index.replace('js/libs/require/require.js', '/version/' + version + '/js/main.js');
-index = index.replace('css/styles.css', '/version/' + version + '/css/styles.css');
+index = index.replace('css/styles.css', 'version/' + version + '/css/styles.css');
 index = index.replace('<base href="/repos/apiengine-client/" />', '');
-index = index.replace(' data-main="js/main"', '');
+index = index.replace(' data-main="js/main"', ' data-main="version/' + version + '/js/main"');
 fs.writeFileSync('output/index.html', index);
-	rjs.optimize({
+  rjs.optimize({
     cssIn: rootPath + '/css/styles.css',
     out: outputFolder + '/css/styles.css'
 });
@@ -69,21 +67,21 @@ function cssIncImages(cssFile) {
   return css;
 }
 
-	fs.copy(rootPath + '/googleaa49fe030680ef6c.html', 'output/googleaa49fe030680ef6c.html', function (){
-	fs.copy(rootPath + '/.htaccess', 'output/.htaccess', function (){
- 	fs.copy(rootPath + '/favicon.ico', 'output/favicon.ico', function (){
+  fs.copy(rootPath + '/googleaa49fe030680ef6c.html', 'output/googleaa49fe030680ef6c.html', function (){
+  fs.copy(rootPath + '/.htaccess', 'output/.htaccess', function (){
+  fs.copy(rootPath + '/favicon.ico', 'output/favicon.ico', function (){
     fs.copy(rootPath + '/css/img', outputFolder +'/css/img', function () {
-	 	fs.copy(rootPath + '/img', outputFolder +'/img', function () {
+    fs.copy(rootPath + '/img', outputFolder +'/img', function () {
       fs.copy(rootPath + '/css/fonts', outputFolder +'/css/fonts', function () {
-				
+        
 cssIncImages(outputFolder + '/css/styles.css');
 
         var endTime = (Date.now() - startTime) / 1000;
 
       });
       });
-		});
-		});
- 	});
-	});
+    });
+    });
+  });
+  });
 

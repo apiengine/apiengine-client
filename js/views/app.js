@@ -2,13 +2,14 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'extensions',
   'vm',
 	'events',
   'models/session',
   'text!templates/layout.html',
   'views/header/account-menu',
   'views/header/header'
-], function($, _, Backbone, Vm, Events, Session, layoutTemplate, AccountMenu, HeaderView){
+], function($, _, Backbone, extensions, Vm, Events, Session, layoutTemplate, AccountMenu, HeaderView){
   var AppView = Backbone.View.extend({
     el: 'body',
     initialize: function () {
@@ -64,7 +65,7 @@ define([
       headerView.render();
         var root = '/';
         if(window.location.hostname === 'localhost') {
-          root = '/repos/apiengine-client/';
+          root = '/repos/apiengine-client';
         }
         Backbone.history.start({pushState: true, root: root});
       });    
