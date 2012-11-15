@@ -62,7 +62,7 @@ define([
         },
       hide: {
         delay: 100,
-        event: 'unfocus mouseleave',
+        event: '',//'unfocus mouseleave',
         fixed: true // Make sure we can interact with the qTip by setting it as fixed
       },
       position: {

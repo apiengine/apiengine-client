@@ -31,6 +31,10 @@
 }
 .account-menu-dropdown .menu-item:hover {
   background: #f7f7f7;
+  color: #49545A;
+}
+.account-menu-dropdown .menu-item:hover .icon { 
+  color: #49545A;
 }
 .account-menu-dropdown .menu-item .icon { 
 margin-right: 10px;
