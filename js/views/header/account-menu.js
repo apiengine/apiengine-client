@@ -59,7 +59,7 @@ define([
           ready: true // ... but show the tooltip when ready
         },
       hide: {
-        delay: 0,
+        delay: 100,
         event: 'mouseleave',//'unfocus mouseleave',
         fixed: true // Make sure we can interact with the qTip by setting it as fixed
       },
