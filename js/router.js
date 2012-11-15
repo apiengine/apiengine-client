@@ -54,7 +54,7 @@ define([
     });
 */
     router.on('route:browse', function () {
-        var browseView = Vm.create(appView, 'BrowseView', BrowseView, {});
+        var browseView = Vm.create(appView, 'page', BrowseView, {});
         browseView.render();
     });
     /*
@@ -64,7 +64,7 @@ define([
     });
     */ 
     router.on('route:forgot_password', function (token) {
-        var forgotView = Vm.create(appView, 'ForgotView', ForgotView, {token: token});
+        var forgotView = Vm.create(appView, 'page', ForgotView, {token: token});
         forgotView.render();
     }); 
     /*
@@ -74,44 +74,44 @@ define([
     });
     */      
     router.on('route:showApi', function (apiId, methodId) {
-        var apiDetailsView = Vm.create(appView, 'ApiDetailsView', ApiDetailsView, {apiId: apiId, methodId: methodId});
+        var apiDetailsView = Vm.create(appView, 'page', ApiDetailsView, {apiId: apiId, methodId: methodId});
         apiDetailsView.render();
     });
 
     router.on('route:editApi', function (actions) {
-        var editApiView = Vm.create(appView, 'EditApiView', EditMethodViewitApiView);
+        var editApiView = Vm.create(appView, 'page', EditMethodViewitApiView);
         editApiView.render();
     });
     router.on('route:editMethod', function (apiId) {
-        var editMethodView = Vm.create(appView, 'EditMethodView', EditMethodView, {apiId: apiId});
+        var editMethodView = Vm.create(appView, 'page', EditMethodView, {apiId: apiId});
         editMethodView.render();
     });
     router.on('route:home', function () {
       console.log('home');
       require(['views/home/page'], function (HomeView) {
-        var homeView = Vm.create(appView, 'HomeView', HomeView, {});
+        var homeView = Vm.create(appView, 'page', HomeView, {});
         homeView.render();
       });
     });
     router.on('route:features', function () {
       require(['views/home/features'], function (Features) {
-        var features = Vm.create(appView, 'Features', Features, {});
+        var features = Vm.create(appView, 'page', Features, {});
         features.render();
       });
     });
     router.on('route:pricing', function () {
       require(['views/home/pricing'], function (Pricing) {
-        var pricing = Vm.create(appView, 'Pricing', Pricing, {});
+        var pricing = Vm.create(appView, 'page', Pricing, {});
         pricing.render();
       });
     });        
 		router.on('route:defaultAction', function (username) {
-        var profilePage = Vm.create(appView, 'ProfilePage', ProfilePage, {username: username});
+        var profilePage = Vm.create(appView, 'page', ProfilePage, {username: username});
         profilePage.render();
 		});
 
     router.on('route:settingsTab', function (username, page) {
-        var profilePage = Vm.create(appView, 'ProfilePage', ProfilePage, {username: username, tab: 'settings', setting: page});
+        var profilePage = Vm.create(appView, 'page', ProfilePage, {username: username, tab: 'settings', setting: page});
         profilePage.render();
     });
    
