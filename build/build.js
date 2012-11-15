@@ -18,7 +18,9 @@ fs.mkdirSync('output/version');
 fs.mkdirSync(outputFolder);
 var rootPath = '..';
 	rjs.optimize({
-    dir: outputFolder + '/js',
+    appDir: '..',
+    baseUrl: 'js',
+    dir: outputFolder,
     mainConfigFile: rootPath + '/js/main.js',
     wrap: true,
     removeCombined: true,
