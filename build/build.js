@@ -21,7 +21,6 @@ var rootPath = '..';
     dir: outputFolder + '/js',
     mainConfigFile: rootPath + '/js/main.js',
     removeCombined: true,
-    wrap: true,
     findNestedDependencies: false,
     paths: {
       'jquery': 'empty:',

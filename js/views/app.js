@@ -65,7 +65,7 @@ define([
       headerView.render();
         var root = '/';
         if(window.location.hostname === 'localhost') {
-          root = '/repos/apiengine-client';
+          root = '/repos/apiengine-client/';
         }
         Backbone.history.start({pushState: true, root: root});
       });    

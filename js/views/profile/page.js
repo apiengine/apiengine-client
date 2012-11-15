@@ -80,7 +80,6 @@ define([
       }
     },
     renderProfile: function () {
-      $('#js-edit-profile-form').modal('hide');
 
       var that = this;
       currentUser = false;
