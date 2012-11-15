@@ -16,35 +16,35 @@
       </div>
       -->
       <label>Name</label> 
-      <input type="text" name="name" placeholder="Your full name..." />
+      <input type="text" name="name" value="{{user.attributes.name}}" placeholder="Your full name..." />
       <label>Description</label>
-      <textarea name="description" placeholder="Tell us about yourself..."></textarea>
+      <textarea name="description"  placeholder="Tell us about yourself...">{{user.attributes.description}}</textarea>
       <label>Company</label>
-      <input type="text" name="company" placeholder="Where are you working?" />
+      <input type="text" name="company" value="{{user.attributes.company}}" placeholder="Where are you working?" />
       <label>Website</label>
-      <input type="text" name="website" placeholder="http://" />
+      <input type="text" name="website" value="{{user.attributes.website}}" placeholder="http://" />
       <label>Location</label>
-      <input type="text" name="location" placeholder="Where do you live?" />
+      <input type="text" name="location" value="{{user.attributes.location}}" placeholder="Where do you live?" />
     <span class="settings-title inline"><span class="arrows">»</span> Social settings</span>
       
        <label><img class="favicon" src="http://twitter.com/favicon.ico" />Twitter</label>
-      <input name="twitter" type="text" placeholder="The url to your twitter profile" />
+      <input name="twitter" value="{{user.attributes.twitter}}" type="text" placeholder="The url to your twitter profile" />
 
              <label><img class="favicon" src="http://facebook.com/favicon.ico" />Facebook</label>
-      <input name="facebook"  type="text" placeholder="The url to your facebook profile" />
+      <input name="facebook" value="{{user.attributes.facebook}}"  type="text" placeholder="The url to your facebook profile" />
 
              <label><img class="favicon" src="http://stackoverflow.com/favicon.ico" />Stack Overflow</label>
-      <input name="stackoverflow"  type="text" placeholder="The url to your stack overflow profile" />
+      <input name="stackoverflow" value="{{user.attributes.stackoverflow}}"  type="text" placeholder="The url to your stack overflow profile" />
 
              <label><img class="favicon" src="http://linkedin.com/favicon.ico" />Linkedin</label>
-      <input name="linkedin"  type="text" placeholder="The url to your linkedin profile" />
+      <input name="linkedin" value="{{user.attributes.linkedin}}"  type="text" placeholder="The url to your linkedin profile" />
 
 
              <label><img class="favicon" src="http://github.com/favicon.ico" />Github</label>
-      <input name="github"  type="text" placeholder="The url to your github profile" />
+      <input name="github" value="{{user.attributes.github}}"  type="text" placeholder="The url to your github profile" />
 
              <label><img class="favicon" src="http://plus.google.com/favicon.ico" />Google+</label>
-      <input name="google"  type="text" placeholder="The url to your google profile" />
+      <input name="google" value="{{user.attributes.google}}"  type="text" placeholder="The url to your google profile" />
 
   </div>
 
