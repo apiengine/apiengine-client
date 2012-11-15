@@ -1,10 +1,10 @@
 <div class="background white">
 <div class="container" style="padding-top: 50px;">
 <div class="profile-box">
-  <img class="profile-box-pic" src="http://www.gravatar.com/avatar/<%= user.get('gravatar') %>.jpg?s=150" />
+  <img class="profile-box-pic" src="http://www.gravatar.com/avatar/{{user.attributes.gravatar}}.jpg?s=150" />
   <div class="profile-box-info">
-    <h3 class="fixie"><%= user.get('login') %></h3>
-    <span class="extra fixie">Following <a href="">17</a>  APIs. Member for 1 year, 3months.</span>
+    <h3>{{user.attributes.login}}</h3>
+    <span class="extra fixie">Following <a href="">17</a>  APIs. Member for <span class="timeago">{{user.attributes.epoch}}</span>1 year, 3months.</span>
     <p class="fixie">piDocco is a web app built as a tool to significantly aid your applications RESTful API development.</p>
     <div style="clear: both;"></div>
     <div class="social-networks">
@@ -17,9 +17,10 @@
     </div> 
   </div>
   <div class="profile-box-buttons">
-    <% if(currentUser) { %>
+    {{#currentUser}}
     <button class="btn btn-regular">EDIT PROFILE</button>
-    <% }; %>
+    {{/currentUser}}
+    
     <div style="clear: both;"></div>
     <!--
       <button class="btn btn-regular btn-share"><span class="icon">&#106;</span></button>
@@ -66,10 +67,10 @@
 
   <div class="tabs-container">
     <ul class="tabs">
-      <li class="active"><a href="<%= user.get('login') %>">APIs</a></li>
-      <% if(currentUser) { %>
-      <li class="settings"><a href="<%= user.get('login') %>/settings/profile">Settings</a></li>
-      <% }; %>
+      <li class="active"><a href="{{user.attributes.login}}">APIs</a></li>
+      {{#currentUser}}
+      <li class="settings"><a href="{{user.attributes.login}}/settings/profile">Settings</a></li>
+      {{/currentUser}}
     </ul>
     <div style="clear: both;"></div>
   </div>

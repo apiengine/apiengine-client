@@ -17,11 +17,9 @@ define([
       var that = this;
 
       $('body').on('click', '.js-logout', function () {
-        console.log('hooooo');
         that.logout();
       });
       $('body').on('click', '.js-signup', function () {
-        console.log('hooooo');
         that.signup();
       });
       Session.on('change:auth', function (session) {
@@ -61,8 +59,8 @@ define([
           ready: true // ... but show the tooltip when ready
         },
       hide: {
-        delay: 100,
-        event: '',//'unfocus mouseleave',
+        delay: 0,
+        event: 'mouseleave',//'unfocus mouseleave',
         fixed: true // Make sure we can interact with the qTip by setting it as fixed
       },
       position: {

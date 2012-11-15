@@ -2,6 +2,7 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'mustache',
   'router',
   'vm',
   'models/session',
@@ -12,7 +13,7 @@ define([
   'text!templates/404.html',
   'views/header/newapi',
   'views/settings/page'
-], function($, _, Backbone, Router, Vm, Session, newApiTemplate, ApiModel, ApisList, UserModel, MissingPage, NewApiView, SettingsPage){
+], function($, _, Backbone, Mustache, Router, Vm, Session, profileTemplate, ApiModel, ApisList, UserModel, MissingPage, NewApiView, SettingsPage){
   var NewApiPage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
@@ -84,7 +85,7 @@ define([
       if(Session.get('login') === that.options.username ) { 
         currentUser = true;
       }
-      that.$el.html(_.template(newApiTemplate, {user: that.userModel, currentUser: currentUser}));
+      that.$el.html(Mustache.render(profileTemplate, {user: that.userModel, currentUser: currentUser}));
       this.renderSettings();
     },
     renderSettings: function () {
