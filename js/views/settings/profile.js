@@ -20,6 +20,7 @@ define([
       var profileDetails = $(ev.currentTarget).serializeObject();
       var profileModel = new ProfileModel();
       profileDetails.id = Session.get('user').login;
+      profileDetails.publicize = true;
       profileModel.save(profileDetails, {
         success: function () {
           console.log('profile', arguments);
