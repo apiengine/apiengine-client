@@ -2,11 +2,12 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'mustache',
   'models/session',
   'text!templates/browse/page.html',
   'collections/apis',
   'text!templates/browse/list.html'
-], function($, _, Backbone, Session, browseTemplate, Apis, apiListTemplate){
+], function($, _, Backbone, Mustache, Session, browseTemplate, Apis, apiListTemplate){
   var BrowseView = Backbone.View.extend({
     el: '.page',
     initialize: function () {
@@ -21,7 +22,7 @@ define([
       var apis = new Apis();
       apis.fetch({
         success: function (apis) {
-          $('.api-list-container').html(_.template(apiListTemplate, {apis: apis.models, _:_}));
+          $('.api-list-container').html(Mustache.render(apiListTemplate, {apis: apis.models, _:_}));
         }
       })
     }
