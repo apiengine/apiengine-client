@@ -16,12 +16,17 @@ define([
       'submit .profile-form': 'updateProfile'
     },
     updateProfile: function (ev) {
+      $('[type="submit"]').attr('disabled', 'disabled');
       var profileDetails = $(ev.currentTarget).serializeObject();
       var profileModel = new ProfileModel();
       profileDetails.id = Session.get('user').login;
       profileModel.save(profileDetails, {
         success: function () {
           console.log('profile', arguments);
+          $('[type="submit"]').removeAttr('disabled');
+        },
+        error: function () {
+          $('[type="submit"]').removeAttr('disabled');
         }
       })
       return false;
