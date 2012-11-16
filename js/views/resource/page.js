@@ -2,13 +2,12 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'bootstrap',
   'vm',
   'models/session',
   'models/resource',
   'text!templates/resource/page.html',
   'views/comments/comments'
-  ], function($, _, Backbone, bootstrap, Vm, Session, ResourceModel, resourcePageTemplate, CommentsView){
+  ], function($, _, Backbone, Vm, Session, ResourceModel, resourcePageTemplate, CommentsView){
   var ResourcesPage = Backbone.View.extend({
     el: '.method-container',
     initialize: function () {

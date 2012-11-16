@@ -28,13 +28,19 @@
   border: 1px solid #ccc;
   color: #6b6d70;
   font-size: 12px;
+  line-height: 12px;
 }
-
+textarea::-webkit-input-placeholder,
+textarea:-moz-placeholder,
+input::-webkit-input-placeholder,
+input:-moz-placeholder {
+ color:#f00; 
+ font-family: 'Arial';
+}
 .form .favicon {
   margin-right: 5px;
   width: 16px;
 }
-
 
 
 .profile-pic-input {

@@ -3,8 +3,7 @@ define([
   'underscore',
   'backbone',
   'models/session',
-  'text!templates/layouttest.html',
-  'bootstrap'
+  'text!templates/layouttest.html'
 ], function($, _, Backbone, Session, layoutTemplate){
   var UsersPage = Backbone.View.extend({
     el: '.page',

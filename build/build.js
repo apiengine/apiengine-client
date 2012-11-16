@@ -17,22 +17,32 @@ fs.mkdirSync('output');
 fs.mkdirSync('output/version');
 fs.mkdirSync(outputFolder);
 var rootPath = '..';
-	rjs.optimize({
-    name: 'almond',
-    include: ['main'],
-    out: outputFolder + '/js/main.js',
-    findNestedDependencies: true,
+  rjs.optimize({
+    dir: outputFolder + '/js',
     mainConfigFile: rootPath + '/js/main.js',
-    wrap: true,
-    optimize: 'none'
+    removeCombined: true,
+    findNestedDependencies: false,
+    paths: {
+      'jquery': 'empty:',
+      'mustache': 'empty:',
+      'underscore': 'empty:'
+    },
+    modules: [
+      {
+        name: 'main'
+      },
+      {
+        name: 'views/home/page',
+        exclude: ['main']
+      }
+    ]
 });
 var index = fs.readFileSync(rootPath + '/index.html', 'ascii');
-index = index.replace('js/libs/require/require.js', '/version/' + version + '/js/main.js');
 index = index.replace('css/styles.css', '/version/' + version + '/css/styles.css');
 index = index.replace('<base href="/repos/apiengine-client/" />', '');
-index = index.replace(' data-main="js/main"', '');
+index = index.replace(' data-main="js/main"', ' data-main="/version/' + version + '/js/main"');
 fs.writeFileSync('output/index.html', index);
-	rjs.optimize({
+  rjs.optimize({
     cssIn: rootPath + '/css/styles.css',
     out: outputFolder + '/css/styles.css'
 });
@@ -40,7 +50,7 @@ fs.writeFileSync('output/index.html', index);
 var path = require('path');
 
 function cssIncImages(cssFile) {
-  var imgRegex = /url\s?\(['"]?(.*?)(?=['"]?\))/gi;
+  var imgRegex = /url\s?\(['"]?(\.\.\/img.*?)(?=['"]?\))/gi;
   var css = fs.readFileSync(cssFile, 'utf-8');
   while (match = imgRegex.exec(css)) {
     var imgPath = path.join(path.dirname(cssFile), match[1]);
@@ -56,25 +66,21 @@ function cssIncImages(cssFile) {
   return css;
 }
 
-	fs.copy(rootPath + '/googleaa49fe030680ef6c.html', 'output/googleaa49fe030680ef6c.html', function (){
-	fs.copy(rootPath + '/.htaccess', 'output/.htaccess', function (){
- 	fs.copy(rootPath + '/favicon.ico', 'output/favicon.ico', function (){
+  fs.copy(rootPath + '/googleaa49fe030680ef6c.html', 'output/googleaa49fe030680ef6c.html', function (){
+  fs.copy(rootPath + '/.htaccess', 'output/.htaccess', function (){
+  fs.copy(rootPath + '/favicon.ico', 'output/favicon.ico', function (){
     fs.copy(rootPath + '/css/img', outputFolder +'/css/img', function () {
-	 	fs.copy(rootPath + '/img', outputFolder +'/img', function () {
-      fs.copy(rootPath + '/css/NexaLight.otf', outputFolder +'/css/NexaLight.otf', function () {
-      fs.copy(rootPath + '/css/NexaBold.otf', outputFolder +'/css/NexaBold.otf', function () {
-			fs.copy(rootPath + '/css/modernpics.otf', outputFolder +'/css/modernpics.otf', function () {
-				
+    fs.copy(rootPath + '/img', outputFolder +'/img', function () {
+      fs.copy(rootPath + '/css/fonts', outputFolder +'/css/fonts', function () {
+        
 cssIncImages(outputFolder + '/css/styles.css');
 
         var endTime = (Date.now() - startTime) / 1000;
 
       });
       });
-      });
-	 		});
-		});
-		});
- 	});
-	});
+    });
+    });
+  });
+  });
 

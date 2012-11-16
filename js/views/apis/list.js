@@ -2,12 +2,11 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'bootstrap',
   'models/session',
   'text!templates/apis/list.html',
   'collections/apis',
   'models/api'
-], function($, _, Backbone, bootstrap, Session, apisListTemplate, ApisCollection, ApiModel){
+], function($, _, Backbone, Session, apisListTemplate, ApisCollection, ApiModel){
   var ApisPage = Backbone.View.extend({
     el: '.private-container',
     initialize: function () {
@@ -59,7 +58,6 @@ define([
       apis.fetch({
         success: function (collection) {
           that.$el.html(_.template(apisListTemplate, {_:_, is_public: that.options.is_public, apis: collection.models, username: Session.get('login'), location: that.options.location}));
-          $('.js-api-filter').button();
         }
       });
 

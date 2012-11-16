@@ -1,14 +1,21 @@
 // Filename: router.js
 define([
+  'require',
   'jquery',
   'underscore',
   'backbone',
-	'vm'
-], function ($, _, Backbone, Vm) {
+	'vm',
+  'views/apis/details',
+  'views/browse/page',
+  'views/home/forgot_password',
+  'views/apis/details',
+  'views/apis/edit',
+  'views/methods/edit',
+  'views/profile/page'
+], function (require, $, _, Backbone, Vm,ApiDetailsView,BrowseView,ForgotView,ApiDetailsView,EditApiView,EditMethodView,ProfilePage) {
   var AppRouter = Backbone.Router.extend({
     routes: {
 
-      'layouttest': 'layouttest',
       'apis/edit/:id': 'editApi',
       'apis/edit': 'editApi',
       'apis/:id': 'showApi',
@@ -37,99 +44,75 @@ define([
     var router = new AppRouter(options);
     Backbone.router = router;
     router.on('route:apiPage', function (username, apiname, version, resourceId, method) {
-      require(['views/apis/details'], function (ApiDetailsView) {
         var apiDetailsView = Vm.create(appView, 'ApiDetailsView', ApiDetailsView, {username: username, apiname: apiname, version: version, resourceId: resourceId, method: method});
         apiDetailsView.render();
-      });
     });
-    router.on('route:layouttest', function (apiId, methodId) {
-      require(['views/layouttest'], function (ApiDetailsView) {
-        var apiDetailsView = Vm.create(appView, 'ApiDetailsView', ApiDetailsView, {});
-        apiDetailsView.render();
-      });
-    });
+    /*
     router.on('route:login', function (apiId) {
-      require(['views/home/login'], function (LoginView) {
         var loginView = Vm.create(appView, 'LoginView', LoginView, {});
         loginView.render();
-      });
     });
+*/
     router.on('route:browse', function () {
-      require(['views/browse/page'], function (BrowseView) {
-        var browseView = Vm.create(appView, 'BrowseView', BrowseView, {});
+        var browseView = Vm.create(appView, 'page', BrowseView, {});
         browseView.render();
-      });
     });
+    /*
     router.on('route:members', function () {
-      require(['views/members/page'], function (MembersView) {
         var membersView = Vm.create(appView, 'MembersView', MembersView, {});
         membersView.render();
-      });
-    }); 
+    });
+    */ 
     router.on('route:forgot_password', function (token) {
-      require(['views/home/forgot_password'], function (ForgotView) {
-        var forgotView = Vm.create(appView, 'ForgotView', ForgotView, {token: token});
+        var forgotView = Vm.create(appView, 'page', ForgotView, {token: token});
         forgotView.render();
-      });
     }); 
+    /*
     router.on('route:register', function (apiId) {
-      console.log('register')
-      require(['views/home/register'], function (RegisterView) {
         var registerView = Vm.create(appView, 'RegisterView', RegisterView, {});
         registerView.render();
-      });
-    });      
+    });
+    */      
     router.on('route:showApi', function (apiId, methodId) {
-      require(['views/apis/details'], function (ApiDetailsView) {
-        var apiDetailsView = Vm.create(appView, 'ApiDetailsView', ApiDetailsView, {apiId: apiId, methodId: methodId});
+        var apiDetailsView = Vm.create(appView, 'page', ApiDetailsView, {apiId: apiId, methodId: methodId});
         apiDetailsView.render();
-      });
     });
 
     router.on('route:editApi', function (actions) {
-      require(['views/apis/edit'], function (EditApiView) {
-        var editApiView = Vm.create(appView, 'EditApiView', EditMethodViewitApiView);
+        var editApiView = Vm.create(appView, 'page', EditMethodViewitApiView);
         editApiView.render();
-      });
     });
     router.on('route:editMethod', function (apiId) {
-      require(['views/methods/edit'], function (EditMethodView) {
-        var editMethodView = Vm.create(appView, 'EditMethodView', EditMethodView, {apiId: apiId});
+        var editMethodView = Vm.create(appView, 'page', EditMethodView, {apiId: apiId});
         editMethodView.render();
-      });
     });
     router.on('route:home', function () {
       console.log('home');
       require(['views/home/page'], function (HomeView) {
-        var homeView = Vm.create(appView, 'HomeView', HomeView, {});
+        var homeView = Vm.create(appView, 'page', HomeView, {});
         homeView.render();
       });
     });
     router.on('route:features', function () {
       require(['views/home/features'], function (Features) {
-        var features = Vm.create(appView, 'Features', Features, {});
+        var features = Vm.create(appView, 'page', Features, {});
         features.render();
       });
     });
     router.on('route:pricing', function () {
       require(['views/home/pricing'], function (Pricing) {
-        var pricing = Vm.create(appView, 'Pricing', Pricing, {});
+        var pricing = Vm.create(appView, 'page', Pricing, {});
         pricing.render();
       });
     });        
 		router.on('route:defaultAction', function (username) {
-      console.log(username, 'errrr');
-			require(['views/profile/page'], function (ProfilePage) {
-        var profilePage = Vm.create(appView, 'ProfilePage', ProfilePage, {username: username});
+        var profilePage = Vm.create(appView, 'page', ProfilePage, {username: username});
         profilePage.render();
-      });
 		});
 
     router.on('route:settingsTab', function (username, page) {
-      require(['views/profile/page'], function (ProfilePage) {
-        var profilePage = Vm.create(appView, 'ProfilePage', ProfilePage, {username: username, tab: 'settings', setting: page});
+        var profilePage = Vm.create(appView, 'page', ProfilePage, {username: username, tab: 'settings', setting: page});
         profilePage.render();
-      });
     });
    
   };

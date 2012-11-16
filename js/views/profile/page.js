@@ -2,7 +2,7 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'bootstrap',
+  'mustache',
   'router',
   'vm',
   'models/session',
@@ -13,7 +13,7 @@ define([
   'text!templates/404.html',
   'views/header/newapi',
   'views/settings/page'
-], function($, _, Backbone, bootstrap, Router, Vm, Session, newApiTemplate, ApiModel, ApisList, UserModel, MissingPage, NewApiView, SettingsPage){
+], function($, _, Backbone, Mustache, Router, Vm, Session, profileTemplate, ApiModel, ApisList, UserModel, MissingPage, NewApiView, SettingsPage){
   var NewApiPage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
@@ -31,10 +31,8 @@ define([
       // Serialize the form into an object using a jQuery plgin
       var apiData = $(ev.currentTarget).serializeObject();
       var api = new ApiModel;
-      console.log(apiData);
       api.save(apiData, {
         success: function (model) {
-          console.log(model);
           window.location = '#/apis/' + model.id;
         }
       });
@@ -81,14 +79,14 @@ define([
       }
     },
     renderProfile: function () {
-      $('#js-edit-profile-form').modal('hide');
 
       var that = this;
       currentUser = false;
       if(Session.get('login') === that.options.username ) { 
         currentUser = true;
       }
-      that.$el.html(_.template(newApiTemplate, {user: that.userModel}));
+      that.$el.html(Mustache.render(profileTemplate, {user: that.userModel, currentUser: currentUser}));
+          $('.timeago').timeago();
       this.renderSettings();
     },
     renderSettings: function () {
@@ -96,6 +94,9 @@ define([
       if(typeof this.options.tab === 'undefined') {
         var apisList = new ApisList({currentUser: currentUser, username: that.options.username, el: '.private-container'});
         apisList.render();
+
+        $('.tabs-container li').removeClass('active');
+        $('.tabs-container .apilist').addClass('active');
       }
       if(this.options.tab === 'settings') {
         var settingsPage = Vm.create(this, 'SettingsPage', SettingsPage, {});

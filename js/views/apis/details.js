@@ -2,7 +2,6 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'bootstrap',
   'router',
   'vm',
   'qtip',
@@ -20,7 +19,7 @@ define([
   'modal',
   'text!templates/modals/editdescription.html',
   'views/apis/overview'
-], function($, _, Backbone, Bootstrap, Router, Vm,  Qtip, Session, apiDetailsTemplate, ApiModel, MethodsCollection, ResourceListView, MethodDetailView, ApiModel, ResourceModel, MethodModel, hljs, ResourceForm, Modal, edt, OverView){
+], function($, _, Backbone, Router, Vm,  Qtip, Session, apiDetailsTemplate, ApiModel, MethodsCollection, ResourceListView, MethodDetailView, ApiModel, ResourceModel, MethodModel, hljs, ResourceForm, Modal, edt, OverView){
   var NewApiPage = Backbone.View.extend({
     el: '.page',
     initialize: function () {

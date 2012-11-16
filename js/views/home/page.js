@@ -2,6 +2,7 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'libs/swiffy/swiffy',
   'models/session',
   'text!templates/home/page.html',
   'views/user/auth',
@@ -17,15 +18,17 @@ define([
   'animations/private',
   'animations/public',
   'animations/stylish'
-], function($, _, Backbone, Session, homeTemplate, AuthView, ApisList, exampleLoginTemplate, exampleLogoutTemplate, Modal, logint, acogs, acollaboration, aframework,amobile,aprivate,apublic,astylish){
+], function($, _, Backbone, swiffy, Session, homeTemplate, AuthView, ApisList, exampleLoginTemplate, exampleLogoutTemplate, Modal, logint, acogs, acollaboration, aframework,amobile,aprivate,apublic,astylish){
   var ExamplePage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
       var that = this;
       // Bind to the Session auth attribute so we
       // make our view act recordingly when auth changes
+
     },
     render: function () {
+      var that = this;
       $('body').addClass('grey');
       // Simply choose which template to choose depending on
       // our Session models auth attribute      
@@ -52,9 +55,9 @@ jQuery.easing.def = "easeInBounce";
     var stage, stage2, stage3; 
       var firstslide = {
         onEnter: function (complete) {
-            stage = new swiffy.Stage(document.getElementById('swiffycontainer'),
+            that.stage = new swiffy.Stage(document.getElementById('swiffycontainer'),
                                    amobile);
-                stage.start();
+                that.stage.start();
 
             $('#swiffycontainer').css({
               right: "-100px",
@@ -109,7 +112,7 @@ jQuery.easing.def = "easeInBounce";
                 duration: 0,
                 easing: 'easeOutQuad',
                 complete: function (){
-            stage.destroy();
+            that.stage.destroy();
                 }
               });
 
@@ -139,9 +142,9 @@ jQuery.easing.def = "easeInBounce";
       }
       var secondslide = {
       onEnter: function (complete) {
-               stage1 = new swiffy.Stage(document.getElementById('swiffycontainer2'),
+               that.stage1 = new swiffy.Stage(document.getElementById('swiffycontainer2'),
                                    aprivate);
-               stage1.start();
+               that.stage1.start();
                     $('#swiffycontainer2').css({
               right: "-100px",
               opacity: 0
@@ -193,7 +196,7 @@ jQuery.easing.def = "easeInBounce";
                 duration: 0,
                 easing: 'easeOutQuad',
                 complete: function (){
-               stage1.destroy();
+               that.stage1.destroy();
 
                 }
               });
@@ -221,9 +224,9 @@ jQuery.easing.def = "easeInBounce";
       }
       var thirdslide = {
  onEnter: function (complete) {
-              stage3 = new swiffy.Stage(document.getElementById('swiffycontainer3'),
+              that.stage3 = new swiffy.Stage(document.getElementById('swiffycontainer3'),
                                    apublic);
-               stage3.start();
+               that.stage3.start();
         $('#swiffycontainer3').css({
               right: "-100px",
               opacity: 0
@@ -275,7 +278,7 @@ jQuery.easing.def = "easeInBounce";
                 duration: 0,
                 easing: 'easeOutQuad',
                 complete: function (){
-               stage3.destroy();
+               that.stage3.destroy();
 
                 }
               });
@@ -322,38 +325,56 @@ jQuery.easing.def = "easeInBounce";
         }, 7000);
       };
       Slider.prototype.changeSlide = function (lastSlideIndex, newSlideIndex) {
-        var lastSlide = slides[lastSlideIndex];
-        var newSlide = slides[newSlideIndex];
-        if(lastSlide) {
-          lastSlide.onLeave();
+        if(!this.stopped) {
+          var lastSlide = slides[lastSlideIndex];
+          var newSlide = slides[newSlideIndex];
+          if(lastSlide) {
+            lastSlide.onLeave();
+          }
+          this.currentSlide = newSlideIndex;
+          newSlide.onEnter(this.complete.bind(this));
         }
-        this.currentSlide = newSlideIndex;
-        newSlide.onEnter(this.complete.bind(this));
       };
       Slider.prototype.start = function () {
         this.changeSlide(null, this.currentSlide);
 
       }
-      var slider = new Slider();
-      slider.slides = slides;
-      slider.start();
+
+      Slider.prototype.stop = function () {
+        this.stopped = true;
+
+      }
+      this.slider = new Slider();
+      this.slider.slides = slides;
+      this.slider.start();
 
 
-          var stage4 = new swiffy.Stage(document.getElementById('collaboration'),acollaboration);
-      var stage5 = new swiffy.Stage(document.getElementById('stylish'),astylish);
-      var stage6 = new swiffy.Stage(document.getElementById('framework'),aframework);
+      this.stage4 = new swiffy.Stage(document.getElementById('collaboration'),acollaboration);
+      this.stage5 = new swiffy.Stage(document.getElementById('stylish'),astylish);
+      this.stage6 = new swiffy.Stage(document.getElementById('framework'),aframework);
+      this.stage7 = new swiffy.Stage(document.getElementById('cogs'),acogs);
+
+
       
-      stage4.start();
-      stage5.start();
-      stage6.start();
-      var stage7 = new swiffy.Stage(document.getElementById('cogs'),acogs);
-      window.blah = stage7;
-      stage7.start();
+      this.stage4.start();
+      this.stage5.start();
+      this.stage6.start();
+      this.stage7.start();
 
 
         var apisList = new ApisList({is_public: true, el: '.public-container'});
         apisList.render();
 
+    }, 
+    clean: function () {
+      this.slider.stop();
+      this.stage && this.stage.destroy();
+      this.stage1 && this.stage1.destroy();
+      this.stage3 && this.stage3.destroy();
+      this.stage4 && this.stage4.destroy();
+      this.stage5 && this.stage5.destroy();
+      this.stage6 && this.stage6.destroy();
+      this.stage7 && this.stage7.destroy();
     }
   });
   return ExamplePage;
