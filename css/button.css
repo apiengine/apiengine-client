@@ -11,7 +11,40 @@
 <a href="" class="btn btn-grey ">Follow</a>
 ```
 
+## Vertical Feedback
+
+```
+<div style="height: 500px; position: relative;">
+  <button class="btn btn-side btn-blue">Feedback</btn>
+</div>
+```
+
 */
+.btn-fixed {
+  position: fixed;
+  top: 50%;
+  margin-left: -32px;
+  left: 0;
+  z-index: 5;
+}
+.btn.btn-side {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  /* Safari */
+-webkit-transform: rotate(-90deg);
+
+/* Firefox */
+-moz-transform: rotate(-90deg);
+
+/* IE */
+-ms-transform: rotate(-90deg);
+
+/* Opera */
+-o-transform: rotate(-90deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
 
 
 .btn {
