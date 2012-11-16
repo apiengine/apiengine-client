@@ -2,7 +2,7 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'session',
+  'models/session',
   'modal',
   'text!templates/modals/feedback.html'
 ], function($, _, Backbone, Session, Modal, feedbackTemplate){
