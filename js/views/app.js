@@ -8,8 +8,9 @@ define([
   'models/session',
   'text!templates/layout.html',
   'views/header/account-menu',
-  'views/header/header'
-], function($, _, Backbone, extensions, Vm, Events, Session, layoutTemplate, AccountMenu, HeaderView){
+  'views/header/header',
+  'views/footer/footer'
+], function($, _, Backbone, extensions, Vm, Events, Session, layoutTemplate, AccountMenu, HeaderView, FooterView){
   var AppView = Backbone.View.extend({
     el: 'body',
     initialize: function () {
@@ -52,7 +53,9 @@ define([
     render: function () {
 
 			var that = this;
-      $(this.el).html(layoutTemplate);      
+      $(this.el).html(layoutTemplate);     
+      var footerView = new FooterView();
+      footerView.render(); 
       Session.getAuth(function () {
         $('body').on('click', 'a', function (e) {
           clicky.log($(this).attr('href'), $(this).attr('href'), 'pageview')
