@@ -34,6 +34,14 @@ var rootPath = '..';
       {
         name: 'views/home/page',
         exclude: ['main']
+      },
+      {
+        name: 'views/home/pricing',
+        exclude: ['main']
+      },
+      {
+        name: 'views/home/features',
+        exclude: ['main']
       }
     ]
 });
