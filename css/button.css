@@ -235,10 +235,10 @@ We need to have disabled state I think ?
 */
 .sbtn {
 color: white;
-padding: 10px 20px 10px 20px;
+padding: 10px 20px 8px 20px;
 font-family: 'Nexa Bold';
 display: inline-block;
-font-size: 14px;
+font-size: 18px;
 line-height: 14px;
 }
 .sbtn:after {

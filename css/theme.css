@@ -146,7 +146,7 @@ html, body {
 .top-bar-menu {
     list-style: none;
     float: left;
-    height: 70px;
+    height: 68px;
     line-height: 70px;
     padding: 0;
     margin: 0;
@@ -161,7 +161,7 @@ html, body {
     color: #959ca1;
     display: inline-block;
     height: 72px;
-    font-size: 13px;
+    font-size: 14px;
     text-transform: uppercase;
 
      -webkit-transition:color 0.25s ease-in; 
@@ -178,7 +178,6 @@ html, body {
     color: #fff;
     background: #019ff3;
     padding: 0 10px 0 10px;
-    border: 1px solid #20272a;
 }
 
 .profile-info-container {

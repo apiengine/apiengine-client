@@ -38,6 +38,12 @@ Tagline description
 ```
 
 */
+
+.prompts-copy{
+	font-family: 'Nexa';
+	color: #eee;
+	font-size: 14px;
+}
 .slides-container {
   width: 1040px;
   margin: auto;
@@ -63,7 +69,7 @@ Tagline description
 .slide .tag {
   position: absolute;
   bottom: 600px;
-  width: 540px;
+  width: 515px;
   margin-left: 40px;
 }
 
@@ -100,7 +106,7 @@ Tagline description
 .slide .tag {
 	color: #333332;
 	font-family:  'Nexa';
-	font-size: 30px;
+	font-size: 24px;
 	display: inline-block;
 }
 .seo-desc {
@@ -143,16 +149,20 @@ Tagline description
   padding-bottom: 60px;
   margin: 0;
   text-align: center;
-  color: #FED563;
-  font-size: 24px;
+  color: #FFF;
+  font-size: 30px;
+}
+
+.home-heading, .red-panel{
+	color: #fed563;
 }
 .feature-box {
   float: left;
   width: 290px;
   margin-right: 77px;
   color: #fed563;
-font-size: 20px;
-  text-align: center;
+	font-size: 20px;
+  text-align: left;
 }
 .feature-box.last {
 	margin-right: 0;
@@ -164,4 +174,9 @@ font-size: 18px;
 font-family: 'Nexa';
 margin: auto;
 padding-bottom: 80px;
+}
+
+.blue-panel-feature-headings{
+	margin: 30px 0 15px 0;
+	text-align: center;
 }
