@@ -5,6 +5,7 @@
 <div class="footer background dark-grey">
   <div class="box-container container">
     <div class="box small">
+          <div class="small-container">
     <span class="box-title">API ENGINE</span>
     <ul class="footer-links">
       <li><a href="">HOME</a></li>
@@ -12,7 +13,9 @@
       <li><a href="">FEATURES</a></li>
     </ul>
     </div>
+    </div>
     <div class="box small">
+      <div class="small-container">
     <span class="box-title">OPEN SOURCE</span>
     <p class="footer-desc">The API Engine team are active in the Open Source community.</p>
     <p class="footer-desc">Visit our Open Source home page on Github to find out more about our Open Source projects  .</p>
@@ -20,7 +23,9 @@
       <li><a href="">API ENGINE ON GITHUB</a>
     </ul>
     </div>
+    </div>
     <div class="box small">
+      <div class="small-container">
     <span class="box-title">HELP</span>
     <ul class="footer-links">
       <li><a href="">GETTING STARTED</a></li>
@@ -29,16 +34,15 @@
       <li><a href="">COLLABORATORS</a></li>
     </ul>
     </div>
-    <div class="box large last">
+    </div>
+    <div class="box small last">
+          <div class="last small-container">
     <span class="box-title">CONTACT US</span>
-    <form>
-      <input type="text" placeholder="Your email address..." />
-      <input type="text" placeholder="Subject..." />
-      <textarea placeholder="Your message..."></textarea>
-      <button class="btn btn-blue">Submit</button>
+    <p class="footer-desc">The API Engine team are active in the Open Source community.</p>
 
-    </form>
+      <button class="btn btn-blue">Contact</button>
 
+  </div>
     </div>
     <div style="clear: both;"></div>
   </div>
@@ -62,12 +66,11 @@
 .footer .box-container {
   padding: 50px 0;
 }
-.footer .box-container .box.last {
-  margin-right: 0;
+.small-container.last {
+  padding-right: 0;
 }
 .footer .box {
   float: left;
-  margin-right: 40px;
   min-height: 50px;
 }
 .footer .box.large {
@@ -104,7 +107,11 @@
   margin-bottom: 25px;
 }
 .footer .box.small {
-  width: 184px;
+  width: 25%;
+}
+.small-container {
+  padding-right: 40px;
+
 }
 
 .footer form input {
