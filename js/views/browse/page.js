@@ -17,7 +17,7 @@ define([
       $('body').removeClass('grey');
 
       $('.top-bar-menu li a.active').removeClass('active');
-      $('.top-bar-menu li a[href=browse]').addClass('active');
+      $('.top-bar-menu li a.explore-button').addClass('active');
       this.$el.html(_.template(browseTemplate, {}));
       var apis = new Apis();
       apis.fetch({

@@ -1,39 +1,24 @@
-    <% if(currentUser) { %>
+{{#currentUser}}
     <div class="well">
    <div class="btn-group js-api-filter" data-toggle="buttons-radio" style="width: 400px; display: block; float: left;">
 
-<!--
-    <button class="btn btn-info">My API's</button>
-    <button class="btn btn-info">Watched API's</button>
--->
   </div>
+{{/currentUser}}
 <!--
     <a class="btn btn-primary js-new-api-button" style="float: right;" href="">New API</a>
     
     --><div style="clear: both;"></div>
   </div> 
-    <% } else { %>
-
-    <% }; %>
-   <% if(!is_public) { %>
-
-  <% }; %>
 
 
 <ul class="api-list">
-
-
-
-      <% if(apis.length > 0) { 
-      	_.each(apis, function(api){ 
-
-      	%>
-  <li class="api-list-item">
-    <a href="<%= api.get('user') %>/<%= api.get('name') %>/version/1"><img class="api-list-pic" src="http://www.gravatar.com/avatar/<%= api.get('name') %>?d=identicon" /></a>
+  {{#apis}}
+    <li class="api-list-item">
+    <a href="{{attributes.user}}/{{attributes.name}}/version/1"><img class="api-list-pic" src="http://www.gravatar.com/avatar/{{attributes.name}}?d=identicon" /></a>
     <div class="api-list-info">
-      <h4 class="api-list-title fixie"><a href="<%= api.get('user') %>/<%= api.get('name') %>/version/1"><%= api.get('name') %></a></h4>
+      <h4 class="api-list-title fixie"><a href="{{attributes.user}}/{{attributes.name}}/version/1">{{attributes.name}}</a></h4>
             <ul class="profile-links">
-        <li><span class="icon">a</span><a href="<%= api.get('user') %>"><%= api.get('user') %></a></span></li>
+        <li><span class="icon">a</span><a href="{{attributes.user}}">{{attributes.user}}</a></span></li>
         <li><span class="icon">c</span><a href="somewhere">0 collaborators</a></span></li>
       </ul>
     <div style="clear: both;"></div>
@@ -49,57 +34,56 @@
   -->
     <div style="clear: both;"></div>
   </li>
-    <% }); %>
-      <li class="no-more">No more APIs</li>
-    <% } else { %>
-    <div class="no-more">
-      This user has no API's
-  </div>
-    <% }; %>
-
-
-
-
+  {{/apis}}
+    {{#apis.length}}
+  <li class="no-more">No more APIs</li>
+{{/apis.length}}
 </ul>
 
 
-
-
-  <div style="display:none;" class="modal hide" id="js-new-api-modal">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal">×</button>
-      <h3>Edit profile</h3>
-    </div>
-
-
-  <div class="method-edit-container well">
-    <form class="form-horizontal edit-api js-new-api-form">
-    <fieldset>
-      <legend>Create a new API</legend>
-      <div class="control-group">
-        <label class="control-label" for="input02">API Name</label>
-        <div class="controls">
-                 
-            <input name="name" type="text" required autofocus />
+{{^apis}}
+     <div class="tempbox">
+   <!-- <span class="icon tempbox-close-icon js-close-modal">&#88;</span>-->
+    <div class="tempbox-container">
+      <span class="tempbox-title">Getting started</span>
+      <div style="clear: both;"></div>
+      <div class="box first">
+        <div class="tempbox-header">
+          <span class="icon">&#119;</span>
+          <p class="temptext">Public API's are a search engine optimised,  more text and cost effective method of distributing </p>
         </div>
+        <div class="tempbox-footer">
+          <button class="btn js-newapi btn-blue">CREATE A PUBLIC API</button>
         </div>
-        <div class="control-group">
-        <label class="control-label" for="input01">Resource URL</label>
-        <div class="controls">       <input type="radio" name="private" value="0" checked /> Public<br />
-    <input type="radio" name="private" value="1" /> Private
-        </div>
-        </div>
-
-  <div class="form-actions">
-              <button id="submit" type="submit" class="btn btn-primary">Create API</button>
-              <a class="btn" href="#/">Cancel</a>
-            </div>
-
-
       </div>
-    </fieldset>
-
-  </form>
-
+      <div class="box">
+        <div class="tempbox-header">
+          <span class="icon">&#110;</span>
+          <p class="temptext">Private APIs offer the security of mind that start-ups and companies need to develop their API.</p>
+        </div>
+        <div class="tempbox-footer">
+          <button class="btn btn-blue js-newapi">CREATE A PRIVATE API</button>
+        </div>
+      </div>
+      <div class="box last">
+        <div class="tempbox-header">
+          <span class="icon">&#115;</span>
+          <p class="temptext">Take a look at other companies and developers  API Engine perfect for distributing their API docs.</p>
+        </div>
+        <div class="tempbox-footer">
+          <a href="browse" class="btn btn-blue">EXPLORE APIs</a>
+        </div>
+      </div>
+      <div style="clear: both;"></div>
+    </div>
   </div>
   </div>
+{{/apis}}
+
+
+
+
+
+
+
+
