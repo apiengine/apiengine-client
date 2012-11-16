@@ -59,10 +59,14 @@ define([
       footerView.render(); 
       Session.getAuth(function () {
         $('body').on('click', 'a', function (e) {
-          clicky.log($(this).attr('href'), $(this).attr('href'), 'pageview')
-          console.log('yooo', $(this).attr('href'), $(this).attr('href'), 'pageview')
-          Backbone.router.navigate($(this).attr('href'), true);
-          return false;
+          if($(this).attr('href').substr(0,4) === 'http') {
+
+          } else {
+            clicky.log($(this).attr('href'), $(this).attr('href'), 'pageview')
+            Backbone.router.navigate($(this).attr('href'), true);
+            return false;
+              
+          }
         });
     
       var headerView = new HeaderView();
