@@ -26,10 +26,14 @@ require([
   'views/app',
   'vm',
   'router',
-  'clicky'
-], function(AppView, Vm, Router, norefclicky){
+  'clicky',
+  'libs/proxino/proxino'
+], function(AppView, Vm, Router, norefclicky, norefProxino){
   // Some hackery to include clicky in our app
   try{ clicky.init(66632578); }catch(e){}
+
+  Proxino.key = "QI-BctdhtytsUUJERc5HfA";
+  Proxino.track_errors();
   console.log(clicky);
   var appView = Vm.create({}, 'AppView', AppView);
   Router.initialize({appView: appView});
