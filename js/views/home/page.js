@@ -29,7 +29,8 @@ define([
     },
     render: function () {
       var that = this;
-      $('body').addClass('grey');
+      this.$el.hide().fadeIn(250);
+      
       // Simply choose which template to choose depending on
       // our Session models auth attribute      
       $('.top-bar-menu li a.active').removeClass('active');

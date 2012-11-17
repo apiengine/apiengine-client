@@ -3,12 +3,7 @@
 
 */
 
-@font-face {
-    font-family: 'ModernPics';
-    src: url('fonts/modernpics.otf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
+
 
 .icon {
   font-family: "ModernPics";

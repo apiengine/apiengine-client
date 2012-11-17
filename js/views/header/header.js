@@ -18,6 +18,7 @@ define([
       });
     },
     render: function () {
+      this.$el.hide().fadeIn(250);
       this.$el.html(_.template(headerLayoutTemplate, {username: Session.get('login')}));
       var mainMenu = new MainMenuView();
       mainMenu.render();

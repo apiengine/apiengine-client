@@ -56,6 +56,9 @@ define([
 			var that = this;
       $(this.el).html(layoutTemplate);     
       var footerView = new FooterView();
+      
+      var headerView = new HeaderView();
+      headerView.render();
       footerView.render(); 
       Session.getAuth(function () {
         $('body').on('click', 'a', function (e) {
@@ -69,8 +72,6 @@ define([
           }
         });
     
-      var headerView = new HeaderView();
-      headerView.render();
         var root = '/';
         if(window.location.hostname === 'localhost') {
           root = '/repos/apiengine-client/';

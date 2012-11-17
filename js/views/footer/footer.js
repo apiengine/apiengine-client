@@ -13,7 +13,12 @@ define([
       // make our view act recordingly when auth changes
     },
     render: function () {
-      this.$el.html(footerTemplate);
+      var that = this;
+      setTimeout(function () {
+
+      that.$el.hide().fadeIn(250);
+      that.$el.html(footerTemplate);
+     }, 1000)
     }
   });
   return FooterView;
