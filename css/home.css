@@ -42,7 +42,7 @@ Tagline description
 .prompts-copy{
 	font-family: 'Nexa';
 	color: #eee;
-	font-size: 14px;
+	font-size: 18px;
 }
 .slides-container {
   width: 1040px;
@@ -154,7 +154,7 @@ Tagline description
 }
 
 .home-heading, .red-panel{
-	color: #fed563;
+	color: #fff;
 }
 .feature-box {
   float: left;

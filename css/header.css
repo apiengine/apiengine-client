@@ -5,21 +5,26 @@
     cursor: pointer;
 }
 .top-bar-container .logo-cog {
-    width: 30px;
-    height: 30px;
+    width: 31px;
+    height: 31px;
     background-size: 257px;
     float: left;
     background: url('../img/api-engine-logo.png') no-repeat;
     margin-top: 18px;
 }
 .logo-text {
-    margin-left: 10px;
-        width: 110px;
-    height: 29px;
+    margin-left: 7px;
+    width: 115px;
+    height: 31px;
     background-size: 257px;
     float: left;
     background: url('../img/api-engine.png') no-repeat;
     margin-top: 18px;
+}
+
+.centered-container {
+    width: 1024px;
+    margin: auto;
 }
 
 .top-bar-container {
@@ -64,14 +69,3 @@
     background: #019ff3;
     padding: 0 10px 0 10px;
 }
-
-.account-menu-container {
-    list-style: none;
-    float: right;
-    height: 73px;
-    line-height: 73px;
-}
-.account-menu-container li {
-    float: left;
-    margin-left: 10px;
-}   
