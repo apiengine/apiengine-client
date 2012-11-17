@@ -1,7 +1,7 @@
 /*
+  # Uncategorized styles
   All styles come in here then are parsed out into appropiate sub files
 */
-/*! Light tooltip style */
 .ui-tooltip-light{
  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#80888C), color-stop(1%,#80888C), color-stop(1%,#49545A));
   border: 1px solid #171717;
@@ -11,9 +11,9 @@
 .ui-tooltip .ui-tooltip-tip {
 
 }
-  .ui-tooltip-light .ui-tooltip-titlebar{
-    background-color: #f1f1f1;
-  }
+.ui-tooltip-light .ui-tooltip-titlebar{
+  background-color: #f1f1f1;
+}
 
 .ui-tooltip-light .ui-tooltip-content {
  background: #49545A;
@@ -40,6 +40,8 @@
 margin-right: 10px;
 color: #fff;
 }
+
+
 a {
   color: #39f;
   text-decoration: none;
@@ -61,27 +63,34 @@ a {
 }
 
 @font-face {
+    font-family: 'Nexa Bold';
+    src: url('fonts/nexabold-webfont.eot');
+    src: url('fonts/nexabold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/nexabold-webfont.woff') format('woff'),
+         url('fonts/nexabold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 
 }
-
 
 @font-face {
-    font-family: 'Nexa Bold';
-    src: url('fonts/NexaBold.otf') format('truetype');
+    font-family: 'ModernPics';
+    src: url('fonts/modernpics-webfont.eot');
+    src: url('fonts/modernpics-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/modernpics-webfont.woff') format('woff'),
+         url('fonts/modernpics-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
-  @-webkit-keyframes spin {
+
+
+
+@-webkit-keyframes spin {
   from { -webkit-transform: rotate(0deg); }
   to { -webkit-transform: rotate(360deg); }
 }
-.cards {
-  width: 199px;
-  height: 20px;
-  background: url('../img/cards.png');
-}
 
-p, ul, li , div, span, a {
-   # outline: 1px solid #000;
-}
+
 html {
     overflow-y: scroll;
     font-family: Arial, Helvetica, San-Serif;
@@ -89,6 +98,13 @@ html {
 }
 html, body {
   height: 100%;
+}
+body {
+  background: #171717;
+}
+.page {
+  min-height: 500px;
+  background: #fff;
 }
 .container {
     width: 1024px;
@@ -130,11 +146,6 @@ html, body {
     float: left;
     background: url('../img/api-engine.png') no-repeat;
     margin-top: 18px;
-}
-
-.centered-container {
-    width: 1024px;
-    margin: auto;
 }
 
 .top-bar-container {

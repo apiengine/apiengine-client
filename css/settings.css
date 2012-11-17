@@ -10,7 +10,11 @@
 */
 
 
-
+.cards {
+  width: 199px;
+  height: 20px;
+  background: url('../img/cards.png');
+}
 
 .settings-container {
   margin-top: 30px;
