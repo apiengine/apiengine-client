@@ -18,7 +18,6 @@
   vertical-align: top;
   height: 40px;
   width: 545px;
-      font-family: AftaserifRegular;
     font-size: 14px;
 }
 .add-comment {
@@ -61,7 +60,23 @@
   }
 
   ::-webkit-input-placeholder {
-    font-family: AftaserifRegular;
     font-size: 14px;
     font-style: italic;
 }
+
+
+
+  .comments-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .comments-list > li {
+    margin-bottom: 20px;
+  }
+  .comment {
+    float: left;
+    width: 800px;
+    margin-left: 20px;
+  }

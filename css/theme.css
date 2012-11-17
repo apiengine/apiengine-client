@@ -1,45 +1,8 @@
 /*
+  # Uncategorized styles
   All styles come in here then are parsed out into appropiate sub files
 */
-/*! Light tooltip style */
-.ui-tooltip-light{
- background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#80888C), color-stop(1%,#80888C), color-stop(1%,#49545A));
-  border: 1px solid #171717;
-  color: #454545;
-  border-radius: 2px;
-}
-.ui-tooltip .ui-tooltip-tip {
 
-}
-  .ui-tooltip-light .ui-tooltip-titlebar{
-    background-color: #f1f1f1;
-  }
-
-.ui-tooltip-light .ui-tooltip-content {
- background: #49545A;
-  padding: 0;
-}
-.account-menu-dropdown {
-  margin: 0;
-  padding: 0;
-}
-.account-menu-dropdown .menu-item {
-  padding: 15px;
-  display: block;
-  font-size: 14px;
-  color: #fff;
-}
-.account-menu-dropdown .menu-item:hover {
-  background: #f7f7f7;
-  color: #49545A;
-}
-.account-menu-dropdown .menu-item:hover .icon { 
-  color: #49545A;
-}
-.account-menu-dropdown .menu-item .icon { 
-margin-right: 10px;
-color: #fff;
-}
 a {
   color: #39f;
   text-decoration: none;
@@ -61,27 +24,34 @@ a {
 }
 
 @font-face {
+    font-family: 'Nexa Bold';
+    src: url('fonts/nexabold-webfont.eot');
+    src: url('fonts/nexabold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/nexabold-webfont.woff') format('woff'),
+         url('fonts/nexabold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 
 }
-
 
 @font-face {
-    font-family: 'Nexa Bold';
-    src: url('fonts/NexaBold.otf') format('truetype');
+    font-family: 'ModernPics';
+    src: url('fonts/modernpics-webfont.eot');
+    src: url('fonts/modernpics-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/modernpics-webfont.woff') format('woff'),
+         url('fonts/modernpics-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
-  @-webkit-keyframes spin {
+
+
+
+@-webkit-keyframes spin {
   from { -webkit-transform: rotate(0deg); }
   to { -webkit-transform: rotate(360deg); }
 }
-.cards {
-  width: 199px;
-  height: 20px;
-  background: url('../img/cards.png');
-}
 
-p, ul, li , div, span, a {
-   # outline: 1px solid #000;
-}
+
 html {
     overflow-y: scroll;
     font-family: Arial, Helvetica, San-Serif;
@@ -89,6 +59,12 @@ html {
 }
 html, body {
   height: 100%;
+}
+body {
+}
+.page {
+  min-height: 500px;
+  background: #fff;
 }
 .container {
     width: 1024px;
@@ -108,247 +84,4 @@ html, body {
     word-wrap: break-word;
     overflow-x: hidden;
     overflow-y: auto;
-}
-.logo {
-    float: left;
-    cursor: pointer;
-}
-.top-bar-container .logo-cog {
-    width: 31px;
-    height: 31px;
-    background-size: 257px;
-    float: left;
-    background: url('../img/api-engine-logo.png') no-repeat;
-    margin-top: 18px;
-}
-.logo-text {
-    margin-left: 7px;
-    width: 115px;
-    height: 31px;
-    background-size: 257px;
-    float: left;
-    background: url('../img/api-engine.png') no-repeat;
-    margin-top: 18px;
-}
-
-.centered-container {
-    width: 1024px;
-    margin: auto;
-}
-
-.top-bar-container {
-    background: #444 url('../img/titlebar-bg-grad.png');
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#252f33), color-stop(100%,#1f2020));
-    height: 73px;
-    position: relative;
-}
-.top-bar-menu {
-    list-style: none;
-    float: left;
-    height: 68px;
-    line-height: 70px;
-    padding: 0;
-    margin: 0;
-    margin-left: 20px;
-}
-.top-bar-menu li {
-    float: left;
-    margin-left: 10px;
-}
-.top-bar-menu li a {
-    text-decoration: none;
-    color: #959ca1;
-    display: inline-block;
-    height: 72px;
-    font-size: 14px;
-    text-transform: uppercase;
-
-     -webkit-transition:color 0.25s ease-in; 
-    cursor: pointer;
-    padding: 1px 11px 1px 11px;
-    font-family: 'Nexa';
-}
-.top-bar-menu li a:hover {
-    color: #fff;
-}
-.top-bar-menu li a.active {
-     -webkit-transition:background 1s ease-in; 
-    color: #fff;
-    background: #019ff3;
-    padding: 0 10px 0 10px;
-    font-family: 'Nexa Bold';
-}
-
-.profile-info-container {
-  margin-top: 50px;
-}
-.profile-info-container h1 {
-  margin-top: 0;
-}
-.account-menu-container {
-    list-style: none;
-    float: right;
-    height: 73px;
-    line-height: 73px;
-}
-.account-menu-container li {
-    float: left;
-    margin-left: 10px;
-}   
-.profile-api-container {
-    padding: 20px;
-}
-.profile-tabs {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    margin-top: 15px;
-}
-.profile-tabs li {
-    float: left;
-    margin-left: 20px;
-    background: #555;
-    color: #ebebeb;
-}
-.profile-tabs li  a {
-    color: #ebebeb;
-    padding: 20px;
-    display: inline-block;
-    text-decoration: none;
-}
-
-.cog-power {
-    background: url('../img/cog-power-146x146.png');
-    width: 146px;
-    height: 146px;
-}
-
-  .user-profile-image {
-    width: 60px;
-    height: 60px;
-    background: #ebebeb;
-    float: left;
-  }
-  .comments-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .comments-list > li {
-    margin-bottom: 20px;
-  }
-  .comment {
-    float: left;
-    width: 800px;
-    margin-left: 20px;
-  }
-  th.request-body-header {
-    background: #08C !important;
-    color: #fff !important;
-  }
-  .activity-log {
-    margin-top: 20px;
-    list-style: none;
-    background: #f0f0f0;
-    padding: 10px;
-    border: 1px solid #ccc;
-  }
-  .activity-log > li {
-  }
-  .action-column {
-    width: 100px;
-  }
- 
-  .api-name {
-    font-size: 26px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: normal;
-    margin: 2px 0 10px 0;
-    padding: 0;
-    height: 21px;
-    line-height: 26px;
-    color: #161717;
-  }
-  .api-description {
-    font-size: 14px;
-    color: #161717;
-    line-height: 18px;
-    height: 50px;
-  }
-  .quicklinks {
-    list-style: none;
-
-    padding: 0;
-    margin: 0;
-  }
-  .quicklinks li {
-    float: left;
-    margin-right: 35px;
-  }
-  .quicklinks li a {
-    text-decoration :none;
-    margin-left: 5px;
-    color: #4a92fd;
-  }
-  .api-icon-col {
-    width: 150px;
-    float: left;
-  }
-  .api-desc-col {
-    float: left;
-    width: 643px;
-  }
-  .api-actions-col {
-    width: 230px;
-    float: left;
-    position: relative;
-  }
-  .actions-menu {
-    list-style: none;
-  }
-  .actions-menu li {
-    margin-bottom: 10px;
-    text-align: right;
-  }
-  body h2 {
-    color: #161717;
-        height: 50px;
-    line-height: 50px;
-    font-size: 26px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: normal;
-  }
-    .method-title {
-    height: 50px;
-    line-height: 50px;
-    font-size: 26px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: normal;
-    color: #161717;
-  }
-  .request-table {
-    margin-top: 40px;
-    margin-bottom: 40px;
-    width: 100%;
-  }
-  .request-table td {
-    height: 40px;
-    line-height: 40px;
-    padding: 5px;
-    vertical-align: middle;
-    line-height: 12px;
-  }
-    .request-table td:hover {
-      background: #eee;
-
-  }
-
-
-.api-description:hover {
-  outline: 1px solid #ccc;
-  background: #ebebeb;
 }

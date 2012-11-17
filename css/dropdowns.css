@@ -1,0 +1,39 @@
+
+.ui-tooltip-light{
+ background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#80888C), color-stop(1%,#80888C), color-stop(1%,#49545A));
+  border: 1px solid #171717;
+  color: #454545;
+  border-radius: 2px;
+}
+.ui-tooltip .ui-tooltip-tip {
+
+}
+.ui-tooltip-light .ui-tooltip-titlebar{
+  background-color: #f1f1f1;
+}
+
+.ui-tooltip-light .ui-tooltip-content {
+ background: #49545A;
+  padding: 0;
+}
+.account-menu-dropdown {
+  margin: 0;
+  padding: 0;
+}
+.account-menu-dropdown .menu-item {
+  padding: 15px;
+  display: block;
+  font-size: 14px;
+  color: #fff;
+}
+.account-menu-dropdown .menu-item:hover {
+  background: #f7f7f7;
+  color: #49545A;
+}
+.account-menu-dropdown .menu-item:hover .icon { 
+  color: #49545A;
+}
+.account-menu-dropdown .menu-item .icon { 
+margin-right: 10px;
+color: #fff;
+}

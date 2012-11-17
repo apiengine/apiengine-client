@@ -160,3 +160,101 @@ Some styles for API's
 .api-details-container {
   padding-top: 50px;
 }
+
+
+  th.request-body-header {
+    background: #08C !important;
+    color: #fff !important;
+  }
+
+
+  .api-name {
+    font-size: 26px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: normal;
+    margin: 2px 0 10px 0;
+    padding: 0;
+    height: 21px;
+    line-height: 26px;
+    color: #161717;
+  }
+  .api-description {
+    font-size: 14px;
+    color: #161717;
+    line-height: 18px;
+    height: 50px;
+  }
+  .quicklinks {
+    list-style: none;
+
+    padding: 0;
+    margin: 0;
+  }
+  .quicklinks li {
+    float: left;
+    margin-right: 35px;
+  }
+  .quicklinks li a {
+    text-decoration :none;
+    margin-left: 5px;
+    color: #4a92fd;
+  }
+
+
+  .api-icon-col {
+    width: 150px;
+    float: left;
+  }
+  .api-desc-col {
+    float: left;
+    width: 643px;
+  }
+  .api-actions-col {
+    width: 230px;
+    float: left;
+    position: relative;
+  }
+
+
+  .actions-menu {
+    list-style: none;
+  }
+  .actions-menu li {
+    margin-bottom: 10px;
+    text-align: right;
+  }
+
+  
+
+    .method-title {
+    height: 50px;
+    line-height: 50px;
+    font-size: 26px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: normal;
+    color: #161717;
+  }
+  .request-table {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 100%;
+  }
+  .request-table td {
+    height: 40px;
+    line-height: 40px;
+    padding: 5px;
+    vertical-align: middle;
+    line-height: 12px;
+  }
+    .request-table td:hover {
+      background: #eee;
+
+  }
+
+
+.api-description:hover {
+  outline: 1px solid #ccc;
+  background: #ebebeb;
+}

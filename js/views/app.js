@@ -38,11 +38,10 @@ define([
 
       $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
         // Your server goes below
-      //  if(Session.get('auth') || options.url.indexOf('session') !== -1) {
-        console.log(options.url);
+       if(options.url.indexOf('proxino') === -1) {
         options.url = 'http://altz.apiengine.io' + options.url;
         //options.url = 'http://192.168.2.111:3000' + options.url;
-      //  } else {
+        }// else {
         //options.url = 'http://d3gscmgl75g1oq.cloudfront.net' + options.url;
          
 
@@ -56,6 +55,9 @@ define([
 			var that = this;
       $(this.el).html(layoutTemplate);     
       var footerView = new FooterView();
+
+      var headerView = new HeaderView();
+      headerView.render();
       footerView.render(); 
       Session.getAuth(function () {
         $('body').on('click', 'a', function (e) {
@@ -69,8 +71,6 @@ define([
           }
         });
     
-      var headerView = new HeaderView();
-      headerView.render();
         var root = '/';
         if(window.location.hostname === 'localhost') {
           root = '/repos/apiengine-client/';
