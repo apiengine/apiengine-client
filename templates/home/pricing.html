@@ -1,5 +1,131 @@
+<style>
+*, *:after, *:before { 
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.wrapper { 
+  /* Edit size */
+  width: 250px;
+  height: 250px;
+  /* --------- */
+
+  margin: 40px auto;
+  position: relative;
+  background: white; 
+}
+
+.pie {
+  width: 50%;
+  height: 100%;
+  -webkit-transform-origin: 100% 50%;
+  -moz-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+  position: absolute;
+
+  /* Edit background-color and border */
+  background: #08C;
+  border: 5px solid #232323;
+  /* -------------------------------- */
+}
+
+.spinner {
+  border-radius: 100% 0 0 100% / 50% 0 0 50%;
+  z-index: 200;
+  border-right: none;
+
+  /* Change animation duration */
+  -webkit-animation: rota 5s linear infinite;
+  -moz-animation: rota 5s linear infinite;
+  animation: rota 5s linear infinite;
+  /* ------------------------- */
+}
+
+.wrapper:hover .spinner,
+.wrapper:hover .filler, 
+.wrapper:hover .mask {
+
+  /* Change animation state on hover: pause or running */
+  -webkit-animation-play-state: pause;
+  -moz-animation-play-state: pause;
+  animation-play-state: pause;
+  /* ------------------------------------------------- */
+}
+
+.filler {
+  border-radius: 0 100% 100% 0 / 0 50% 50% 0; 
+  left: 50%;
+  opacity: 0;
+  z-index: 100;
+  border-left: none;
+
+  /* Change animation duration */
+  -webkit-animation: opa 5s steps(1,end) infinite reverse;
+  -moz-animation: opa 5s steps(1,end) infinite reverse;
+  animation: opa 5s steps(1,end) infinite reverse;
+  /* ------------------------- */
+}
+
+.mask {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  background: inherit;
+  opacity: 1;
+  z-index: 300;
+
+  /* Change animation duration */
+  -webkit-animation: opa 5s steps(1,end) infinite;
+  -moz-animation: opa 5s steps(1,end) infinite;
+  animation: opa 5s steps(1,end) infinite;
+  /* ------------------------- */
+}
+
+@-webkit-keyframes rota {
+  0%   { -webkit-transform: rotate(0deg);   }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@-webkit-keyframes opa {
+  0%   { opacity: 1; }
+  50%,
+  100% { opacity: 0; }
+}
+
+@-moz-keyframes rota {
+  0%   { -moz-transform: rotate(0deg);   }
+  100% { -moz-transform: rotate(360deg); }
+}
+
+@-moz-keyframes opa {
+  0%   { opacity: 1; }
+  50%, 
+  100% { opacity: 0; }
+}
+
+@keyframes rota {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes opa {
+  0%   { opacity: 1; }
+  50%, 
+  100% { opacity: 0; }
+}
+</style>
+
 <div class="background white">
   <div class="container">
+
+
+    <div class="wrapper">
+  <div class="pie spinner"></div>
+  <div class="pie filler"></div>
+  <div class="mask"></div>
+</div>
+
     <h2 style="margin: 0">Pricing</h2>
     <p style="margin: 0">We are going to have some feature listing going here</p>
     <h2 style="margin: 0">Pricing</h2>

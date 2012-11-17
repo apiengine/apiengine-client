@@ -360,13 +360,12 @@ We need to have disabled state I think ?
 ## Misc
 
 ```
-<ul class="slider-buttons home-slider">
-  <li><button></button>
-  <li><button></button>
-  <li><button></button>
+<ul class="slider-buttons">
+  <li></li>
+  <li class="active"></li>
+  <li class="last"></li>
 </ul>
 <div style="clear: both;"></div>
-      <button class="btn btn-regular btn-share"><span class="icon">&#89;</span></button>
 
 ```
 */
@@ -377,16 +376,22 @@ We need to have disabled state I think ?
   list-style: none;
   margin: 0;
   padding: 0;
+  display: inline-block;
 }
+.slider-buttons li {
 
-.slider-buttons button {
-  float: left;
-  margin-left: 5px;
-  border-radius: 5px;
   background: #444;
   height: 10px;
-  width: 5px;
-  border: 1px solid #ccc;
+  width: 10px;
+  float: left;
+  margin-right: 20px;
+}
+.slider-buttons li.last {
+  margin-right: 0;
+}
+
+.slider-buttons li.active {
+  background: #ccc;
 }
 
 /*

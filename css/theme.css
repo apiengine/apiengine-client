@@ -85,3 +85,6 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
 }
+.centered-content {
+  text-align: center;
+}
