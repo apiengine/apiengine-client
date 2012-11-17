@@ -18,9 +18,11 @@ Third party helper libraries
 @import url("footer.css");
 @import url("backgrounds.css");
 @import url("comments.css");
+@import url("dropdowns.css");
 @import url("button.css");
 @import url("icons.css");
 @import url("modal.css");
+@import url("header.css");
 @import url("members.css");
 @import url("tabs.css");
 @import url("profile.css");

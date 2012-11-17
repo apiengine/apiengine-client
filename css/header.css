@@ -1,0 +1,77 @@
+
+.logo {
+    float: left;
+    margin-top: 3px;
+    cursor: pointer;
+}
+.top-bar-container .logo-cog {
+    width: 30px;
+    height: 30px;
+    background-size: 257px;
+    float: left;
+    background: url('../img/api-engine-logo.png') no-repeat;
+    margin-top: 18px;
+}
+.logo-text {
+    margin-left: 10px;
+        width: 110px;
+    height: 29px;
+    background-size: 257px;
+    float: left;
+    background: url('../img/api-engine.png') no-repeat;
+    margin-top: 18px;
+}
+
+.top-bar-container {
+    background: #444 url('../img/titlebar-bg-grad.png');
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#252f33), color-stop(100%,#1f2020));
+    height: 73px;
+    position: relative;
+}
+.top-bar-menu {
+    list-style: none;
+    float: left;
+    height: 68px;
+    line-height: 70px;
+    padding: 0;
+    margin: 0;
+    margin-left: 20px;
+}
+.top-bar-menu li {
+    float: left;
+    margin-left: 10px;
+}
+.top-bar-menu li a {
+    text-decoration: none;
+    color: #959ca1;
+    display: inline-block;
+    height: 72px;
+    font-size: 14px;
+    text-transform: uppercase;
+
+     -webkit-transition:color 0.25s ease-in; 
+    cursor: pointer;
+    padding: 1px 11px 1px 11px;
+    font-family: 'Nexa';
+}
+.top-bar-menu li a:hover {
+    color: #fff;
+    background: #0075b3;
+}
+.top-bar-menu li a.active {
+     -webkit-transition:background 1s ease-in; 
+    color: #fff;
+    background: #019ff3;
+    padding: 0 10px 0 10px;
+}
+
+.account-menu-container {
+    list-style: none;
+    float: right;
+    height: 73px;
+    line-height: 73px;
+}
+.account-menu-container li {
+    float: left;
+    margin-left: 10px;
+}   
