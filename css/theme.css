@@ -111,7 +111,6 @@ html, body {
 }
 .logo {
     float: left;
-    margin-top: 3px;
     cursor: pointer;
 }
 .top-bar-container .logo-cog {
@@ -171,13 +170,13 @@ html, body {
 }
 .top-bar-menu li a:hover {
     color: #fff;
-    background: #0075b3;
 }
 .top-bar-menu li a.active {
      -webkit-transition:background 1s ease-in; 
     color: #fff;
     background: #019ff3;
     padding: 0 10px 0 10px;
+    font-family: 'Nexa Bold';
 }
 
 .profile-info-container {
