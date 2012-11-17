@@ -40,6 +40,7 @@
 {{/apis.length}}
 </ul>
 
+{{#currentUser}}
 
 {{^apis}}
      <div class="tempbox">
@@ -79,7 +80,14 @@
   </div>
   </div>
 {{/apis}}
+{{/currentUser}}
 
+{{^currentUser}}
+
+{{^apis}}
+<div class="no-more">This user doesn't have any public APIs yet</div>
+{{/apis}}
+{{/currentUser}}
 
 
 
