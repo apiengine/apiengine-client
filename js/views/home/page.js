@@ -303,13 +303,17 @@ jQuery.easing.def = "easeInBounce";
       var slides = [firstslide, secondslide, thirdslide];
 
 
+
       var Slider = function () {
         this.slides = [];
         this.currentSlide = 0;
       }
       Slider.prototype.complete = function () {
         var that = this;
-        setTimeout(function () {
+        if(this.completeTimer) {
+          clearTimeout(this.completeTimer);
+        }
+        this.completeTimer = setTimeout(function () {
           var oldIndex = that.currentSlide;
           if(that.currentSlide + 1 === that.slides.length) {
             that.currentSlide = 0;
@@ -327,6 +331,9 @@ jQuery.easing.def = "easeInBounce";
             lastSlide.onLeave();
           }
           this.currentSlide = newSlideIndex;
+
+          $('.slider-buttons li.active').removeClass('active');
+          $('.slider-buttons li[data-slide="'+this.currentSlide+'"]').addClass('active');
           newSlide.onEnter(this.complete.bind(this));
         }
       };
@@ -342,7 +349,9 @@ jQuery.easing.def = "easeInBounce";
       this.slider = new Slider();
       this.slider.slides = slides;
       this.slider.start();
-
+      $('body').on('click', '[data-slide]', function (ev) {
+        that.slider.changeSlide(that.slider.currentSlide, $(ev.currentTarget).attr('data-slide')*1);
+      });
 
       this.stage4 = new swiffy.Stage(document.getElementById('collaboration'),acollaboration);
       this.stage5 = new swiffy.Stage(document.getElementById('stylish'),astylish);
