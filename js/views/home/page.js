@@ -302,8 +302,178 @@ jQuery.easing.def = "easeInBounce";
 
       var slides = [firstslide, secondslide, thirdslide];
 
+(function ($) {
+    'use strict';
+    
+    var DEFAULT_VALUE = 360;
+    
+    var DEFAULT_SETTINGS = {
+        seconds: 10,
+        color: 'rgba(255, 255, 255, 0.8)',
+        height: null,
+        width: null
+    };
 
+    // Internal constants
+    var PIE_TIMER_INTERVAL = 40;
+    
+    var TIMER_CSS_CLASS = 'pie_timer';
+    
+    var PIE_TIMER_DATA_NAME = 'pie_timer';
+    
+    // Math constants
+    var THREE_PI_BY_TWO = 3 * Math.PI / 2;
+    
+    var PI_BY_180 = Math.PI / 180;
+    
+    var PieTimer = function (jquery_object, settings, callback) {
+        if (settings.width === null) {
+            settings.width = jquery_object.width();
+        }
+        if (settings.height === null) {
+            settings.height = jquery_object.height();
+        }
+        
+        this.settings = settings;
+        this.jquery_object = jquery_object;
+        this.interval_id = null;
+        this.current_value = DEFAULT_VALUE;
+        this.callback = callback;
+        this.is_paused = true;
+        this.jquery_object.html('<canvas class="' + TIMER_CSS_CLASS + '" width="' + settings.width + '" height="' + settings.height + '"></canvas>');
+        this.canvas = this.jquery_object.children('.' + TIMER_CSS_CLASS)[0];
+                    var ctx = this.canvas.getContext('2d');
 
+                    ctx.fillStyle = "#fff";
+                    ctx.beginPath();
+                    ctx.arc(5, 5, 5, 0, Math.PI*2, true);
+                    ctx.closePath();
+                    ctx.fill();
+
+    };
+    
+    PieTimer.prototype = {
+        start: function () {
+            if (this.is_paused) {
+                if (this.current_value <= 0) {
+                    this.current_value = DEFAULT_VALUE;
+                }
+                this.interval_id = setInterval($.proxy(this.run_timer, this), PIE_TIMER_INTERVAL);
+                this.is_paused = false;
+            }
+        },
+        
+        reseta: function () {
+                    var ctx = this.canvas.getContext('2d');
+                    this.canvas.width = this.settings.width;
+                    this.current_value = DEFAULT_VALUE;
+                clearInterval(this.interval_id);
+                this.is_paused = true;
+                      ctx.fillStyle = "#fff";
+                    ctx.beginPath();
+                    ctx.arc(5, 5, 5, 0, Math.PI*2, true);
+                    ctx.closePath();
+                    ctx.fill();
+        },
+        pause: function () {
+            if (!this.is_paused) {
+                clearInterval(this.interval_id);
+                this.is_paused = true;
+            }
+        },
+
+        run_timer: function () {
+            if (this.canvas.getContext) {
+
+                this.current_value -= (DEFAULT_VALUE / this.settings.seconds) / 24;
+
+                if (this.current_value <= 0) {
+                    clearInterval(this.interval_id);
+                    
+                    // This is a total hack to clear the canvas. It would be 
+                    // better to fill the canvas with the background color
+                    //this.canvas.width = this.settings.width;
+                    
+                    if ($.isFunction(this.callback)) {
+                        this.callback.call();
+                    }
+                    this.is_paused = true;
+
+                } else {
+                    // This is a total hack to clear the canvas. It would be 
+                    // better to fill the canvas with the background color
+                    this.canvas.width = this.settings.width;
+
+                    var ctx = this.canvas.getContext('2d');
+
+                    var canvas_size = [this.canvas.width, this.canvas.height];
+                    var radius = Math.min(canvas_size[0], canvas_size[1]) / 2;
+                    var center = [canvas_size[0] / 2, canvas_size[1] / 2];
+
+                      ctx.fillStyle = "#fff";
+                    ctx.beginPath();
+                    ctx.arc(5, 5, 5, 0, Math.PI*2, true);
+                    ctx.closePath();
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.moveTo(center[0], center[1]);
+                    var start = THREE_PI_BY_TWO;
+                    ctx.arc(
+                        center[0],
+                        center[1],
+                        radius,
+                        start - this.current_value * PI_BY_180,
+                        start,
+                        false
+                    );
+
+                    ctx.closePath();
+                    ctx.fillStyle = '#ea2452';
+                    ctx.fill();
+                }
+            }
+        }
+    };
+    
+    var create_timer = function (options, callback) {
+        var settings = $.extend({}, DEFAULT_SETTINGS, options);
+        
+        return this.each(function () {
+            var $element = $(this);
+            var pie_timer = new PieTimer($element, settings, callback);
+            $element.data(PIE_TIMER_DATA_NAME, pie_timer);
+        });
+    };
+    
+    var call_timer_method = function (method_name) {
+        if (!(method_name in PieTimer.prototype)) {
+            $.error('Method ' + method_name + ' does not exist on jQuery.pietimer');
+        }
+        var sliced_arguments = Array.prototype.slice.call(arguments, 1);
+        
+        return this.each(function () {
+            var $element = $(this);
+            var pie_timer = $element.data(PIE_TIMER_DATA_NAME);
+            
+            if (!pie_timer) {
+                // This element hasn't had pie timer constructed yet, so skip it
+                return true;
+            }
+            console.log(method_name);
+            pie_timer[method_name].apply(pie_timer, sliced_arguments);
+        });
+    };
+
+    $.fn.pietimer = function (method) {
+        
+        if (typeof method === 'object' || ! method) {
+            return create_timer.apply(this, arguments);
+        } else {
+            return call_timer_method.apply(this, arguments);
+        }
+    };
+
+})($);
       var Slider = function () {
         this.slides = [];
         this.currentSlide = 0;
@@ -334,6 +504,11 @@ jQuery.easing.def = "easeInBounce";
 
           $('.slider-buttons li.active').removeClass('active');
           $('.slider-buttons li[data-slide="'+this.currentSlide+'"]').addClass('active');
+
+  $('.slider-buttons li[data-slide="'+lastSlideIndex+'"]').pietimer('reseta');
+
+ $('.slider-buttons li[data-slide="'+this.currentSlide+'"]').pietimer('start');
+
           newSlide.onEnter(this.complete.bind(this));
         }
       };
@@ -346,6 +521,16 @@ jQuery.easing.def = "easeInBounce";
         this.stopped = true;
 
       }
+
+
+       $('.slider-buttons li').pietimer({
+          seconds: 7.5,
+          color: '#000',
+      },
+      function(){
+          //Do something
+      });
+
       this.slider = new Slider();
       this.slider.slides = slides;
       this.slider.start();
