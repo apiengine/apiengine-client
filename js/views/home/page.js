@@ -412,16 +412,18 @@ jQuery.easing.def = "easeInBounce";
 
                       ctx.fillStyle = "#fff";
                     ctx.beginPath();
-                    ctx.arc(5, 5, 5, 0, Math.PI*2, true);
+                    ctx.arc(6, 6, 5, 0, Math.PI*2, true);
                     ctx.closePath();
                     ctx.fill();
+ctx.strokeStyle = "black";
+ctx.stroke();
                     ctx.beginPath();
                     ctx.moveTo(center[0], center[1]);
                     var start = THREE_PI_BY_TWO;
                     ctx.arc(
-                        center[0],
-                        center[1],
-                        radius,
+                        6,
+                        6,
+                        5,
                         start - this.current_value * PI_BY_180,
                         start,
                         false

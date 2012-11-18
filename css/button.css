@@ -380,8 +380,8 @@ We need to have disabled state I think ?
 }
 .slider-buttons li {
   cursor: pointer;
-  height: 10px;
-  width: 10px;
+  height: 12px;
+  width: 12px;
   float: left;
   margin-right: 20px;
 }
