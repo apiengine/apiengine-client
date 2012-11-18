@@ -338,9 +338,9 @@ document.createStyleSheet().addRule(".rvml", "behavior:url(#default#VML)");
       refreshMillis: 60000,
       allowFuture: false,
       strings: {
-        prefixAgo: null,
+        prefixAgo: '',
         prefixFromNow: null,
-        suffixAgo: "ago",
+        suffixAgo: "",
         suffixFromNow: "from now",
         seconds: "less than a minute",
         minute: "about a minute",

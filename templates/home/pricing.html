@@ -7,8 +7,9 @@
 
 .wrapper { 
   /* Edit size */
-  width: 250px;
-  height: 250px;
+  width: 150px;
+  height: 150px;
+
   /* --------- */
 
   margin: 40px auto;
@@ -17,16 +18,16 @@
 }
 
 .pie {
-  width: 50%;
-  height: 100%;
+  width: 40%;
+  height: 80%;
   -webkit-transform-origin: 100% 50%;
   -moz-transform-origin: 100% 50%;
   transform-origin: 100% 50%;
   position: absolute;
 
   /* Edit background-color and border */
-  background: #08C;
-  border: 5px solid #232323;
+  background: #ffccff;
+  border: 2px solid #232323;
   /* -------------------------------- */
 }
 
@@ -36,9 +37,9 @@
   border-right: none;
 
   /* Change animation duration */
-  -webkit-animation: rota 5s linear infinite;
-  -moz-animation: rota 5s linear infinite;
-  animation: rota 5s linear infinite;
+  -webkit-animation: rota 1s linear infinite;
+  -moz-animation: rota 1s linear infinite;
+  animation: rota 1s linear infinite;
   /* ------------------------- */
 }
 
@@ -61,14 +62,14 @@
   border-left: none;
 
   /* Change animation duration */
-  -webkit-animation: opa 5s steps(1,end) infinite reverse;
-  -moz-animation: opa 5s steps(1,end) infinite reverse;
-  animation: opa 5s steps(1,end) infinite reverse;
+  -webkit-animation: opa 1s steps(1,end) infinite reverse;
+  -moz-animation: opa 1s steps(1,end) infinite reverse;
+  animation: opa 1s steps(1,end) infinite reverse;
   /* ------------------------- */
 }
 
 .mask {
-  width: 50%;
+  width: 20%;
   height: 100%;
   position: absolute;
   background: inherit;
@@ -76,9 +77,9 @@
   z-index: 300;
 
   /* Change animation duration */
-  -webkit-animation: opa 5s steps(1,end) infinite;
-  -moz-animation: opa 5s steps(1,end) infinite;
-  animation: opa 5s steps(1,end) infinite;
+  -webkit-animation: opa 1s steps(1,end) infinite;
+  -moz-animation: opa 1s steps(1,end) infinite;
+  animation: opa 1s steps(1,end) infinite;
   /* ------------------------- */
 }
 
