@@ -55,7 +55,7 @@ Some styles for API's
   font-size: 18px;
 }
 .profile-links a {
-  font-size: 12px;
+  font-size: 14px;
   text-decoration: none;
   color: #39f;
   margin-left: 5px;
@@ -84,8 +84,8 @@ Some styles for API's
   color: #6c6d6f;
 }
 .api-list-title {
-  margin: 4px 0 5px 0;
-  font-size: 20px;
+  margin: 4px 0 15px 0;
+  font-size: 24px;
   line-height: 18px;
   font-weight: normal;
 }
@@ -94,7 +94,8 @@ Some styles for API's
   text-decoration: none;
 }
 .api-list-desc {
-  font-size: 12px;
+  font-size: 14px;
+  line-height: 18px;
   margin: 0;
   margin-top: 5px;
   line-height: 18px;
