@@ -48,7 +48,7 @@ Tagline description
   width: 1040px;
   margin: auto;
   padding-top: 24px;
-  height: 400px;
+  height: 315px;
   overflow: hidden;
 }
 .slide {
@@ -76,10 +76,11 @@ Tagline description
 
 .social-networks-container {
 	text-align: center;
+	padding: 15px 0;
 }
 .social-networks {
 	display: inline-block;
-	padding: 15px;
+	padding: 0;
 }
 .social-networks span {
 	color: #EEE;
@@ -132,12 +133,10 @@ Tagline description
 }
 .signup-bar-container {
 	text-align: center;
+	padding:20px 0;
 }
 .signup-bar {
 	display: inline-block;
-  padding-top: 15px;
-  padding-bottom: 15px;
-
 }
 .signup-bar span {
   color: #fff;
@@ -185,5 +184,4 @@ padding-bottom: 80px;
 	width:165px;
 	height:23px;
 	display:inline-block;
-	margin-top:5px;
 }

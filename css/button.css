@@ -277,8 +277,8 @@ We need to have disabled state I think ?
 .sbtn:after {
   content: '>';
   margin-left: 5px;
-  line-height: 4px;
-  font-size: 16px;
+  line-height: 12px;
+  font-size: 24px;
   font-family: "ModernPics";
   float: right;
 }
@@ -286,12 +286,21 @@ We need to have disabled state I think ?
   background: #eeeeee;
   color: #485259;
 }
+.sbtn.grey:hover{
+  outline:1px solid #fff;
+}
 .sbtn.green {
   background: #65b04b;
+}
+.sbtn.green:hover{
+  outline:1px solid #72c954;
 }
 .sbtn.yellow {
   background: #fed563;
   color: #485259;
+}
+.sbtn.yellow:hover {
+  outline:1px solid #fce091;
 }
 /*
 
