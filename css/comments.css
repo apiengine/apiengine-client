@@ -1,3 +1,58 @@
+/*
+# Comments
+
+```
+<div class="comments-container">
+  <div class="comment-heading">
+    <h2 style="margin: 0;" class="">Comments</h2>
+      <span class="markdown-help">Markdown help</span>
+    </div>
+<div class="comment-box">
+      <form class="" style="">
+
+    <a href="thomasdavis"><img class="comment-profile" src="http://www.gravatar.com/avatar/cff733cf90823edd218a834980379c61.jpg?d=wavatar"></a>
+  <div class="comment-text">
+              <textarea placeholder="Add a comment" class="comment-input input-xlarge" id="input01"></textarea>
+  </div>
+  <a href="" style="display: none;" class="btn btn-regular add-comment">Add Comment</a>
+      </form>
+  <div style="clear: both;"></div>
+</div>
+<div class="comments-list-container">
+<ul class="comments">
+
+  <li>
+    <a href="thomasdavis"><img class="comment-profile" src="http://www.gravatar.com/avatar/cff733cf90823edd218a834980379c61?d=wavatar"></a>
+    <div class="comment-content">
+      <a href="thomasdavis" class="comment-username">thomasdavis</a>
+      <p class="comment-message">Overviews can now have comments</p>
+      <p class="timeago" title="2012-11-19T03:51:39.313Z">about 3 hours</p>
+    </div>
+    <div style="clear: both;"></div>
+  </li>
+
+
+  <li>
+    <a href="thomasdavis"><img class="comment-profile" src="http://www.gravatar.com/avatar/cff733cf90823edd218a834980379c61?d=wavatar"></a>
+    <div class="comment-content">
+      <a href="thomasdavis" class="comment-username">thomasdavis</a>
+      <p class="comment-message">asdasd</p>
+      <p class="timeago" title="2012-11-19T03:51:27.491Z">about 3 hours</p>
+    </div>
+    <div style="clear: both;"></div>
+  </li>
+
+
+</ul></div>
+
+
+  </div>
+```
+
+*/
+.markdown-help {
+  float: right;
+}
 .comment-box {
   padding: 30px 15px 30px 15px;
 }

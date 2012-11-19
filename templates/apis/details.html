@@ -1,11 +1,8 @@
 <div class="background white">
 <div class="container">
 <div class="api-container">
-  <style>
- 
-  </style>
 
-
+<!--
   <div class="tempbox" style="margin-top: 30px;">
     <span class="icon tempbox-close-icon js-close-modal">&#88;</span>
     <div class="tempbox-container">
@@ -18,21 +15,28 @@
           <a href="browse" class="btn btn-blue">Manage API Exposure now</a>
         </div>
   </div>
+-->
 
-
-  <div style="position: relative; margin-top: 30px;">
+  <div style="position: relative; padding-top: 30px;">
     <div class="api-icon-col">
-      <div class="cog-power" style="border: 1px solid #ccc; width: 150px; height: 150px; float: left"></div>
+      <div class="cog-power" style="border: 1px solid #ccc; width: 150px; height: 150px; float: left">
+        <img src="http://a-design.com.au/wp-content/uploads/2012/02/14394767688216108234.jpg" style="width; 150px; height: 150px;" /></div>
     </div>
     <div class="api-desc-col">
       <div style="padding-left: 15px;">
-        <h1 class="api-name" style=""><%= api.get('api') %></h1>
+        <h1 class="api-name" style="">{{api.attributes.api}}</h1>
         <ul class="quicklinks">
-          <li><span class="icon">f</span><a href="<%= api.get('user') %>"><%= api.get('user') %></a></li>
+          <li><span class="icon">f</span><a href="{{api.attributes.user}}">{{api.attributes.user}}</a></li>
           <li><span class="icon">J</span><a href="#">Uncategorized</a></li>
         </ul>
         <div style="clear: both;"></div>
+        {{#owner}}
         <p style="" class="api-description">Click to edit end description...</p>
+        {{/owner}}
+
+        {{^owner}}
+        <p style="" class="api-description">No description</p>
+        {{/owner}}
       </div>
   </div>
   <div class="api-actions-col">

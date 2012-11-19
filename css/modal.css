@@ -1,3 +1,20 @@
+/*
+# Modal Template 
+
+```
+<div class="modal-header"><span class="icon modal-close-icon js-close-modal">&#88;</span></div>
+<div class="modal-content">
+    <h3 class="modal-title">Login</h3>
+</div>
+<div class="modal-footer">
+    <div class="modal-buttons">
+        <button type="submit" class="btn btn-blue">Login</button><!--   <a class="modal-link" href="#/forgot_password">I forgot my password</a>-->
+    </div>
+</div>
+
+```
+*/
+
 .overlay {
   position: fixed;
   width: 100%;
@@ -116,4 +133,32 @@ display: inline-block;
 vertical-align: top;
 font-size: 11px;
 padding-left: 5px;
+}
+
+/*
+## Modal columns
+```
+<div class="modal-col">
+<h4>Phrase Emphasis</h4>
+<p>Setext-style</p>
+<div class="markdown-demo">
+*italic* **bold**
+_italic_ __italic__
+</div>
+</div>
+```
+*/
+.modal-col {
+  float: left;
+  width: 300px;
+  margin-right: 20px;
+}
+.modal-col.last {
+  margin-right: 0;
+}
+
+.markdown-demo {
+  padding: 15px;
+  background: #ebebeb;
+  border: 1px solid #ccc;
 }

@@ -3,12 +3,14 @@ define([
   'underscore',
   'backbone',
   'router',
+  'modal',
   'models/session',
   'text!templates/comments/comments.html',
   'models/comments',
   'collections/notifications',
-  'text!templates/comments/list.html'
-], function($, _, Backbone, Router, Session, commentsTemplate, CommentsModel, NotificationCollection, listTemplate){
+  'text!templates/comments/list.html',
+  'text!templates/modals/markdown.html'
+], function($, _, Backbone, Router, Modal, Session, commentsTemplate, CommentsModel, NotificationCollection, listTemplate, MarkDownTemplate){
   var CommentsWidget = Backbone.View.extend({
     el: '.comments-container',
     initialize: function (options) {
@@ -20,7 +22,13 @@ define([
     events: {
       'click .add-comment': 'postComment',
       'focus .comment-input': 'prepareComment',
-      'blur .comment-input': 'unprepareComment'
+      'blur .comment-input': 'unprepareComment',
+      'click .markdown-help': 'markdownModal'
+    },
+    markdownModal: function () {
+      var modal = new Modal.create({
+        content: MarkDownTemplate
+      })
     },
     prepareComment: function (ev) {
       $('.comment-input').animate({

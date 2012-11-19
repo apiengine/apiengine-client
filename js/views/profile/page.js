@@ -64,6 +64,8 @@ define([
       return false;
     },
     render: function () {
+      $('.top-bar-menu li a.active').removeClass('active');
+      
       var that = this;
       if($('.profile-box[data-login="'+that.options.username+'"]').length > 0 ) {
         this.renderSettings();

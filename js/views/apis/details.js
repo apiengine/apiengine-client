@@ -4,6 +4,7 @@ define([
   'backbone',
   'router',
   'vm',
+  'mustache',
   'qtip',
   'models/session',
   'text!templates/apis/details.html',
@@ -19,7 +20,7 @@ define([
   'modal',
   'text!templates/modals/editdescription.html',
   'views/apis/overview'
-], function($, _, Backbone, Router, Vm,  Qtip, Session, apiDetailsTemplate, ApiModel, MethodsCollection, ResourceListView, MethodDetailView, ApiModel, ResourceModel, MethodModel, hljs, ResourceForm, Modal, edt, OverView){
+], function($, _, Backbone, Router, Vm,  Mustache, Qtip, Session, apiDetailsTemplate, ApiModel, MethodsCollection, ResourceListView, MethodDetailView, ApiModel, ResourceModel, MethodModel, hljs, ResourceForm, Modal, edt, OverView){
   var NewApiPage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
@@ -139,7 +140,8 @@ define([
           success: function (api) {
             console.log('hljf' , hljs)
             if($('.api-container').length === 0) {
-              that.$el.html(_.template(apiDetailsTemplate, {api: api, errors: []}));
+              var owner = Session.get('login') === api.get('user') ? true : false;
+              that.$el.html(Mustache.render(apiDetailsTemplate, {api: api, errors: [], owner: owner}));
               if(typeof that.options.resource === 'undefined') {
                 var overview = Vm.create(that, 'overviewPage', OverView, that.options);
                 overview.render();
