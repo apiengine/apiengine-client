@@ -9,10 +9,13 @@ define([
       if(typeof this.options.methodId !== 'undefined') {
 
         return '/user/' + this.options.username + '/api/' + this.options.api + '/' + this.options.version + '/resource/' + this.options.resourceId + '/method/' + this.options.methodId + '/notification';
-      } else {
+      } else if(typeof this.options.resourceId !== 'undefined') {
 
         return '/user/' + this.options.username + '/api/' + this.options.api + '/' + this.options.version + '/resource/' + this.options.resourceId + '/notification';
-      };
+      } else {
+        return '/user/' + this.options.username + '/api/' + this.options.api + '/' + this.options.version + '/notification';
+
+      }
     },
     initialize: function () {
       console.log(this);

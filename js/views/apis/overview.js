@@ -17,10 +17,11 @@ define([
     render: function () {
       var that = this;
       this.$el.html(_.template(overviewTemplate, {errors: []}));
+      console.log(that.options, 'eeeeee')
             var commentsView = new CommentsView({
             methodId: that.options.method,
             version: that.options.version,
-            api: that.options.api,
+            api: that.options.apiname,
             username: that.options.username,
             resourceId: that.options.resourceId
           });

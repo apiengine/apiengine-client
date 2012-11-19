@@ -15,6 +15,7 @@ define([
       var that = this;
       this.commentModel = new CommentsModel();
       this.commentModel.options = options;
+      console.log('what are we getting here', options)
     },  
     events: {
       'click .add-comment': 'postComment',

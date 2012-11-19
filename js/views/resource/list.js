@@ -66,7 +66,6 @@ define([
       resources.fetch({
         success: function (collection) {
           that.$el.html(_.template(resourceListTemplate, {_:_, selectedResource: that.options.resourceId, is_public: that.options.is_public, resources: collection, username: Session.get('login'), location: that.options.location}));
-          $('.js-api-filter').button();
           if(typeof that.options.resourceId !== 'undefined') { //&& $('.method-list-container').attr('data-resource-id') !== that.options.resourceId) {
              that.showMethodList();           
           }
