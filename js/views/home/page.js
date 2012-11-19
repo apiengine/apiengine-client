@@ -83,7 +83,7 @@ jQuery.easing.def = "easeInBounce";
 
 
               $('.slide1 .heading-container').animate({
-                "top": '70px',
+                "top": '50px',
               opacity: 1
               }, {
                 duration: 750,
@@ -93,7 +93,7 @@ jQuery.easing.def = "easeInBounce";
 
 
               $('.slide1 .tag').animate({
-                "top": '190px',
+                "top": '170px',
               opacity: 1
               }, {
                 duration: 750,
@@ -167,7 +167,7 @@ jQuery.easing.def = "easeInBounce";
 
 
               $('.slide2 .heading-container').animate({
-                "top": '70px',
+                "top": '50px',
               opacity: 1
               }, {
                 duration: 750,
@@ -177,7 +177,7 @@ jQuery.easing.def = "easeInBounce";
 
 
               $('.slide2 .tag').animate({
-                "top": '190px',
+                "top": '170px',
               opacity: 1
               }, {
                 duration: 750,
@@ -247,7 +247,7 @@ jQuery.easing.def = "easeInBounce";
 
 
               $('.slide3 .heading-container').animate({
-                "top": '70px',
+                "top": '50px',
               opacity: 1
               }, {
                 duration: 750,
@@ -257,7 +257,7 @@ jQuery.easing.def = "easeInBounce";
 
 
               $('.slide3 .tag').animate({
-                "top": '190px',
+                "top": '170px',
               opacity: 1
               }, {
                 duration: 750,
@@ -494,7 +494,7 @@ ctx.stroke();
             that.currentSlide = that.currentSlide + 1;
           }
           that.changeSlide(oldIndex, that.currentSlide)
-        }, 7000);
+        }, 8000);
       };
       Slider.prototype.changeSlide = function (lastSlideIndex, newSlideIndex) {
         if(!this.stopped) {
