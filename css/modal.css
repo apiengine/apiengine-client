@@ -168,14 +168,16 @@ _italic_ __italic__
 width: 400px;
 border: 1px solid #CCC;
 outline: none;
+
+font-size: 14px;
+line-height: 18px;
 height: 150px;
 padding: 5px;
 margin-bottom: 30px;
 }
 
 .thank-you {
-height: 150px;
-  
+
   margin-bottom: 30px;
 width: 400px;
 }

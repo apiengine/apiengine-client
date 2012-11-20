@@ -21,17 +21,14 @@ define([
       'submit .feedback-form': 'submitFeedback'
     },
     submitFeedback: function (ev) {
+      var that = this;
       $('[type="submit"]', $(ev.currentTarget)).attr('disabled', 'disabled');
       var details = $(ev.currentTarget).serializeObject();
       details.page = window.location.href;
       var feedbackModel = new FeedbackModel();
       feedbackModel.save(details, {
         success: function () {
-          $('.modal textarea').hide();
-      $('[type="submit"]', $(ev.currentTarget)).hide();
-      $('.btn-red', $(ev.currentTarget)).show();
-
-          $('.thank-you').fadeIn(200);       
+          that.modal.hide();   
         }
       });
       return false;

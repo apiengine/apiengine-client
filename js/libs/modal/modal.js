@@ -50,10 +50,15 @@ define(['jquery'], function ($) {
     this.addClass('shown')
   };
   
-  modal.prototype.hide = function () {
-    this.el.remove();
-    this.overlay.remove();
-    delete this;
+  modal.prototype.hide = function (animation) {
+    var that = this;
+    this.el.fadeOut(200);
+    this.overlay.fadeOut(200, function () {
+
+      that.el.remove();
+      that.overlay.remove();
+      delete that;
+    });
   };
 
 
