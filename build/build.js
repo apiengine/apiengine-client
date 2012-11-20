@@ -46,9 +46,9 @@ var rootPath = '..';
     ]
 });
 var index = fs.readFileSync(rootPath + '/index.html', 'ascii');
-index = index.replace('css/styles.css', '/version/' + version + '/css/styles.css');
+index = index.replace('css/styles.css', 'http://assets.apiengine.io/version/' + version + '/css/styles.css');
 index = index.replace('<base href="/repos/apiengine-client/" />', '');
-index = index.replace(' data-main="js/main"', ' data-main="/version/' + version + '/js/main"');
+index = index.replace(' data-main="js/main"', ' data-main="http://assets.apiengine.io/version/' + version + '/js/main"');
 fs.writeFileSync('output/index.html', index);
   rjs.optimize({
     cssIn: rootPath + '/css/styles.css',
