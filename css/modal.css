@@ -162,3 +162,20 @@ _italic_ __italic__
   background: #ebebeb;
   border: 1px solid #ccc;
 }
+
+.feedback-textarea {
+  margin-bottom: 30px;
+width: 400px;
+border: 1px solid #CCC;
+outline: none;
+height: 150px;
+padding: 5px;
+margin-bottom: 30px;
+}
+
+.thank-you {
+height: 150px;
+  
+  margin-bottom: 30px;
+width: 400px;
+}
