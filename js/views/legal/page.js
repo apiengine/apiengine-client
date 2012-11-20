@@ -2,9 +2,14 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'mustache',
+  'marked',
   'models/session',
-  'text!templates/legal/privacy.md',
-], function($, _, Backbone, Session, privacyMd){
+  'text!templates/legal/layout.html',
+  'text!templates/legal/page.html',
+  'text!legal/privacy.md',
+  'text!legal/test.md'
+], function($, _, Backbone, Mustache, marked, Session, legalLayout, legalPage, privacyMd, testMd){
   var LegalPage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
@@ -13,10 +18,21 @@ define([
       // make our view act recordingly when auth changes
     },
     render: function () {
-      
-      $('.top-bar-menu li a.active').removeClass('active');
-      $('.top-bar-menu li a.features-button').addClass('active');
-      this.$el.html(featuresTemplate);
+      this.$el.html(legalLayout);
+      var heading, content;
+      switch(this.options.page) {
+        case 'privacy':
+          heading = 'Privacy';
+          content = marked(privacyMd);
+        break;
+        case 'test':
+         heading = 'Test';
+         content = marked(testMd);
+        break;
+      }
+      $('.settings-menu li a').removeClass('active');
+      $('.settings-menu li a.' + this.options.page).addClass('active');
+      this.$el.find('.settings-page-container').html(Mustache.render(legalPage, {heading: heading, content: content}))
     }
   });
   return LegalPage;

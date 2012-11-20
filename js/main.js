@@ -8,7 +8,7 @@ require.config({
     backbone: 'libs/backbone/backbone-min', // https://github.com/amdjs
     prettyprint: 'libs/prettyprint/prettyprint',
     qtip: 'libs/qtip2/jquery.qtip.min',
-    qtip: 'libs/marked/marked',
+    marked: 'libs/marked/marked',
     mustache: 'http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.0/mustache.min',
     modal: 'libs/modal/modal',
     // Require.js plugins
@@ -16,7 +16,8 @@ require.config({
 
     // Just a short cut so we can put our html outside the js dir
     // When you have HTML/CSS designers this aids in keeping them out of the js directory
-    templates: '../templates'
+    templates: '../templates',
+    legal: '../legal'
   }
 
 });

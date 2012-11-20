@@ -42,6 +42,10 @@ var rootPath = '..';
       {
         name: 'views/home/features',
         exclude: ['main']
+      },
+      {
+        name: 'views/legal/page',
+        exclude: ['main']
       }
     ]
 });
