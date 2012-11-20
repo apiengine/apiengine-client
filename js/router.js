@@ -99,6 +99,12 @@ define([
         features.render();
       });
     });
+    router.on('route:legal', function () {
+      require(['views/legal/page'], function (Legal) {
+        var legalPage = Vm.create(appView, 'page', Legal, {page:page});
+        legalPage.render();
+      });
+    });
     router.on('route:pricing', function () {
       require(['views/home/pricing'], function (Pricing) {
         var pricing = Vm.create(appView, 'page', Pricing, {});

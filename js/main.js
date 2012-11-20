@@ -8,6 +8,7 @@ require.config({
     backbone: 'libs/backbone/backbone-min', // https://github.com/amdjs
     prettyprint: 'libs/prettyprint/prettyprint',
     qtip: 'libs/qtip2/jquery.qtip.min',
+    qtip: 'libs/marked/marked',
     mustache: 'http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.0/mustache.min',
     modal: 'libs/modal/modal',
     // Require.js plugins
