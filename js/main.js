@@ -3,13 +3,13 @@
 require.config({
   paths: {
     // Major libraries
-    jquery: 'http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.2/jquery.min',
-    underscore: 'http://cdnjs.cloudflare.com/ajax/libs/lodash.js/0.9.2/lodash.min', // https://github.com/amdjs
+    jquery: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.2/jquery.min',
+    underscore: 'https://cdnjs.cloudflare.com/ajax/libs/lodash.js/0.9.2/lodash.min', // https://github.com/amdjs
     backbone: 'libs/backbone/backbone-min', // https://github.com/amdjs
     prettyprint: 'libs/prettyprint/prettyprint',
     qtip: 'libs/qtip2/jquery.qtip.min',
     marked: 'libs/marked/marked',
-    mustache: 'http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.0/mustache.min',
+    mustache: 'https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.0/mustache.min',
     modal: 'libs/modal/modal',
     // Require.js plugins
     text: 'libs/require/text',

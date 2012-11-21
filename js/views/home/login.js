@@ -26,6 +26,7 @@ define([
         } else {
         $('[type=submit]', that.modal.el).removeAttr('disabled');
           $('.modal-form-errors', that.modal.el).html('')
+          mixpanel.track('Login form errors');
 
           _.each(session.get('errors'), function(error){
           $('.modal-form-errors', that.modal.el).append($('<li>').html(_.template(errorT, {message: error})));

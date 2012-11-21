@@ -39,7 +39,7 @@ define([
       $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
         // Your server goes below
        if(options.url.indexOf('proxino') === -1) {
-        options.url = 'http://altz.apiengine.io' + options.url;
+        options.url = 'https://x.apiengine.io' + options.url;
         //options.url = 'http://192.168.2.111:3000' + options.url;
         }// else {
         //options.url = 'http://d3gscmgl75g1oq.cloudfront.net' + options.url;
@@ -65,6 +65,7 @@ define([
 
           } else {
             clicky.log($(this).attr('href'), $(this).attr('href'), 'pageview')
+            mixpanel.track_pageview();
             Backbone.router.navigate($(this).attr('href'), true);
             return false;
               

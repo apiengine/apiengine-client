@@ -8,8 +8,9 @@ define([
   'text!templates/legal/layout.html',
   'text!templates/legal/page.html',
   'text!legal/privacy.md',
+  'text!legal/terms-of-service.md',
   'text!legal/test.md'
-], function($, _, Backbone, Mustache, marked, Session, legalLayout, legalPage, privacyMd, testMd){
+], function($, _, Backbone, Mustache, marked, Session, legalLayout, legalPage, privacyMd, termsMd, testMd){
   var LegalPage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
@@ -24,6 +25,10 @@ define([
         case 'privacy':
           heading = 'Privacy';
           content = marked(privacyMd);
+        break;
+        case 'terms-of-service':
+          heading = 'Terms of service';
+          content = marked(termsMd);
         break;
         case 'test':
          heading = 'Test';
