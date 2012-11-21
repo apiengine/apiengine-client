@@ -34,6 +34,7 @@ define([
       });
     },
     render: function () {
+      mixpanel.track('Opened Signup');
       this.modal = Modal.create({
         content: registert
       });
@@ -54,11 +55,14 @@ define([
       var creds = $(ev.currentTarget).serializeObject();
       user.save(creds, {
         success: function (data) {
+        mixpanel.track('Signed up succesfully');
+
           if(data.get('errors').length > 0) {
             //alert(data.get('errors'));
           //  that.render();
           } else {
             Session.set({auth: null}, {silent: true});
+          mixpanel.track('Signup form errors');
 
             Session.getAuth(function () {
               

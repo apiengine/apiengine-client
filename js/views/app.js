@@ -65,6 +65,7 @@ define([
 
           } else {
             clicky.log($(this).attr('href'), $(this).attr('href'), 'pageview')
+            mixpanel.track_pageview();
             Backbone.router.navigate($(this).attr('href'), true);
             return false;
               
