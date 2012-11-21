@@ -22,6 +22,11 @@ define([
       });
       this.on('change:auth', function (model) {
         console.log('user details', model);
+        if(model.get('auth')) {
+          //mixpanel.people.identify();
+        } else {
+          mixpanel.people.identify(null);
+        }
         //mixpanel.people.identify("12148");
       });
     },
