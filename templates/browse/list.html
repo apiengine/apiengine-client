@@ -1,7 +1,7 @@
 <ul class="api-list">
     {{#apis}}
-    <li class="api-list-item">
-        <a href="{{attributes.user}}/{{attributes.name}}/version/1"><img class="api-list-pic" src="http://www.gravatar.com/avatar/{{attributes.name}}?d=identicon" /></a>
+    <li class="api-list-item" data-api-id="{{attributes.name}}" data-user-id="{{attributes.user}}">
+        <a href="{{attributes.user}}/{{attributes.name}}/version/1"><div style="width: 88px;height: 88px;" class="api-list-pic" src="http://www.gravatar.com/avatar/{{attributes.name}}?d=identicon" /></a>
         <div class="api-list-info">
             <h4 class="api-list-title fixie">
                 <a href="{{attributes.user}}/{{attributes.name}}/version/1">{{attributes.name}}</a>
@@ -28,19 +28,26 @@
                 {{^attributes.description}}
                 No description
                 {{/attributes.description}}
-
                 {{#attributes.description}}
                   {{description}}
                 {{/attributes.description}}
             </p>
         </div>
-        <!-- <div class="api-list-buttons">
-     <button class="btn triangle-border right">0</button>
-      <button class="btn btn-regular">FOLLOWERS</button>
+         <div class="api-list-buttons">
+     <button class="btn triangle-border right">{{attributes.follower_count}}</button>
+     {{^attributes.following}}
+      <button class="btn btn-blue js-follow ">Follow</button>
+
+     {{/attributes.following}}
+
+     {{#attributes.following}}
+      <button class="btn btn-green js-following">Following</button>
+
+     {{/attributes.following}}
       <div style="clear: both;"></div>
-      <button class="btn btn-regular btn-share"><span class="icon">&#106;</span></button>
+      <!--<button class="btn btn-regular btn-share"><span class="icon">&#106;</span></button>-->
     </div>
-  -->
+  
         <div style="clear: both;">
         </div>
     </li>

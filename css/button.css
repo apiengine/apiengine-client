@@ -109,9 +109,7 @@ a.btn {
   background: -ms-linear-gradient(top,  #ea2452 0%,#d43c4e 4%,#d43c4e 100%); /* IE10+ */
   background: linear-gradient(to bottom,  #ea2452 0%,#d43c4e 4%,#d43c4e 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ea2452', endColorstr='#d43c4e',GradientType=0 ); /* IE6-9 */
-  text-shadow: 0 1px 0 #b03241;
-  color: #fff;
-  text-transform: uppercase;
+
 }
 .btn-orange {
   border: 1px solid #b86700;
@@ -165,6 +163,7 @@ a.btn {
   background: linear-gradient(to bottom,  #69c5eb 0%,#25b5f0 4%,#25b5f0 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#69c5eb', endColorstr='#25b5f0',GradientType=0 ); /* IE6-9 */
 }
+
 .btn-green:hover {
   background: #adc45c; /* Old browsers */
   background: -moz-linear-gradient(top,  #adc45c 0%, #65c543 4%, #65c543 100%); /* FF3.6+ */
@@ -175,6 +174,7 @@ a.btn {
   background: linear-gradient(to bottom,  #adc45c 0%,#65c543 4%,#65c543 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#adc45c', endColorstr='#65c543',GradientType=0 ); /* IE6-9 */
 }
+.btn.btn-red-hover:hover, 
 .btn-red:hover {
   background: #fd7686; /* Old browsers */
   background: -moz-linear-gradient(top,  #fd7686 0%, #ff3048 4%, #ff3048 100%); /* FF3.6+ */
