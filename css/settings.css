@@ -9,7 +9,9 @@
 
 */
 
-
+.spacer {
+  height: 30px;
+}
 .cards {
   width: 199px;
   height: 20px;

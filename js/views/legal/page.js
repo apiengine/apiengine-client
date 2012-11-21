@@ -8,9 +8,13 @@ define([
   'text!templates/legal/layout.html',
   'text!templates/legal/page.html',
   'text!legal/privacy.md',
-  'text!legal/terms-of-service.md',
-  'text!legal/test.md'
-], function($, _, Backbone, Mustache, marked, Session, legalLayout, legalPage, privacyMd, termsMd, testMd){
+  'text!legal/beacon.md',
+  'text!legal/security.md',
+  'text!legal/support.md',
+  'text!legal/terms.md',
+  'text!legal/trademark.md',
+  'text!legal/money.md'
+], function($, _, Backbone, Mustache, marked, Session, legalLayout, legalPage, privacyMd, beaconMd, securityMd, supportMd,termsMd,trademarkMd,moneyMd){
   var LegalPage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
@@ -23,16 +27,32 @@ define([
       var heading, content;
       switch(this.options.page) {
         case 'privacy':
-          heading = 'Privacy';
+          heading = 'Privacy statement';
           content = marked(privacyMd);
         break;
-        case 'terms-of-service':
+        case 'terms':
           heading = 'Terms of service';
           content = marked(termsMd);
         break;
-        case 'test':
-         heading = 'Test';
-         content = marked(testMd);
+        case 'beacon':
+         heading = 'What acts as our beacon';
+         content = marked(beaconMd);
+        break;
+        case 'security':
+         heading = 'Security statement';
+         content = marked(securityMd);
+        break;
+        case 'support':
+         heading = 'Support statement';
+         content = marked(supportMd);
+        break;
+        case 'trademark':
+         heading = 'Trademarks and usage';
+         content = marked(trademarkMd);
+        break;
+        case 'money':
+         heading = 'Why we charge you money';
+         content = marked(moneyMd);
         break;
       }
       $('.settings-menu li a').removeClass('active');
