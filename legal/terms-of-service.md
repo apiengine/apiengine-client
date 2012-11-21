@@ -1,5 +1,5 @@
-APIENGINE.IO TERMS OF SERVICE
-=============================
+TERMS OF SERVICE
+================
 
 By using the apiengine.io web site ("Service"), or any services of Fourtribe (trading as APIENGINE.IO), you are agreeing to be bound by the following terms and conditions ("Terms of Service"). IF YOU ARE ENTERING INTO THIS AGREEMENT ON BEHALF OF A COMPANY OR OTHER LEGAL ENTITY, YOU REPRESENT THAT YOU HAVE THE AUTHORITY TO BIND SUCH ENTITY, ITS AFFILIATES AND ALL USERS WHO ACCESS OUR SERVICES THROUGH YOUR ACCOUNT TO THESE TERMS AND CONDITIONS, IN WHICH CASE THE TERMS "YOU" OR "YOUR" SHALL REFER TO SUCH ENTITY, ITS AFFILIATES AND USERS ASSOCIATED WITH IT. IF YOU DO NOT HAVE SUCH AUTHORITY, OR IF YOU DO NOT AGREE WITH THESE TERMS AND CONDITIONS, YOU MUST NOT ACCEPT THIS AGREEMENT AND MAY NOT USE THE SERVICES.
 
@@ -71,6 +71,7 @@ E. Modifications to the Service and Prices
 3.  APIENGINE.IO shall not be liable to you or to any third party for any modification, price change, suspension or discontinuance of the Service.
 
 F. Copyright and Content Ownership
+----------------------------------
 
 1.  APIENGINE.IO claims no intellectual property rights over the material you provide to the Service. Your profile and materials uploaded remain yours. However, by designating any of your APIs pages as public, you agree to allow others to view your Content.
 

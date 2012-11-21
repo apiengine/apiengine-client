@@ -1,2 +1,2 @@
-APIENGINE.IO PRIVACY POLICY
-===========================
+PRIVACY POLICY
+==============
