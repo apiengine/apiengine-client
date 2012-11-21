@@ -77,7 +77,7 @@ define([
             }
             return model;
           });
-          $('.api-list-container').html(Mustache.render(apiListTemplate, {apis: apisl, _:_}));
+          $('.api-list-container').html(Mustache.render(apiListTemplate, {authed: Session.get('auth'), apis: apisl, _:_}));
         }
       })
     }

@@ -36,6 +36,7 @@
          <div class="api-list-buttons">
      <button class="btn triangle-border right">{{attributes.follower_count}}</button>
      {{^attributes.owner}}
+     {{#authed}}
 
      {{^attributes.following}}
       <button class="btn btn-blue js-follow ">Follow</button>
@@ -46,8 +47,13 @@
       <button class="btn btn-green js-following">Following</button>
 
      {{/attributes.following}}
+     {{/authed}}
      {{/attributes.owner}}
 
+     {{^authed}}
+      <button class="btn btn-regular">FOLLOWERS</button>
+
+     {{/authed}}
      {{#attributes.owner}}
       <button class="btn btn-regular">FOLLOWERS</button>
 

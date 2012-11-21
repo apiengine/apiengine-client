@@ -105,7 +105,7 @@ define([
       };
       apis.fetch({
         success: function (collection) {
-          that.$el.html(Mustache.render(apisListTemplate, {currentUser: that.options.currentUser, _:_, is_public: that.options.is_public, apis: collection.models, username: Session.get('login'), location: that.options.location}));
+          that.$el.html(Mustache.render(apisListTemplate, {authed: Session.get('auth'), currentUser: that.options.currentUser, _:_, is_public: that.options.is_public, apis: collection.models, username: Session.get('login'), location: that.options.location}));
         }
       });
 
