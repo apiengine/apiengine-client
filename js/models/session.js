@@ -25,8 +25,12 @@ define([
         if(model.get('auth')) {
           mixpanel.people.identify(model.get('login'));
           mixpanel.people.set({
+    "$username": model.get('login'),    // only special properties need the $
+    "$name": model.get('user').profile.name,    // only special properties need the $
     "$email": model.get('user').email,    // only special properties need the $
-    "$created": model.get('user').profile.joindate
+    "$created": model.get('user').profile.joindate,
+    company: model.get('user').profile.company
+
 });
         } else {
           mixpanel.people.identify(null);
