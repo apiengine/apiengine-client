@@ -23,7 +23,11 @@ define([
       this.on('change:auth', function (model) {
         console.log('user details', model);
         if(model.get('auth')) {
-          //mixpanel.people.identify();
+          mixpanel.people.identify(model.get('login'));
+          mixpanel.people.set({
+    "$email": model.get('user').email,    // only special properties need the $
+    "$created": model.get('user').profile.joindate
+});
         } else {
           mixpanel.people.identify(null);
         }
