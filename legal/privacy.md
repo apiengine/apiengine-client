@@ -1,2 +1,2 @@
-PRIVACY POLICY
-==============
+PRIVACY STATEMENT
+=================
