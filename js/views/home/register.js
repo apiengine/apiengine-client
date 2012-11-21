@@ -56,17 +56,12 @@ define([
       user.save(creds, {
         success: function (data) {
 
-          if(data.get('errors').length > 0) {
-            //alert(data.get('errors'));
-          //  that.render();
-          } else {
             Session.set({auth: null}, {silent: true});
             mixpanel.track('Signed up succesfully');
 
             Session.getAuth(function () {
              // if(Session)
             });
-          }
         },
         error: function (model, res) {
           mixpanel.track('Signup form errors');
