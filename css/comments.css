@@ -3,10 +3,9 @@
 
 ```
 <div class="comments-container">
-  <div class="comment-heading">
-    <h2 style="margin: 0;" class="">Comments</h2>
+    <span class="comments-title">Comments</span>
       <span class="markdown-help">Markdown help</span>
-    </div>
+      <div style="clear: both;"></div>
 <div class="comment-box">
       <form class="" style="">
 
@@ -48,13 +47,31 @@
 
   </div>
 ```
-
+.comment-heading {
+  padding-bottom: 15px;
+}
 */
+
+.comments-title {
+  margin: 0;
+display: inline-block;
+font-size: 24px;
+float: left;
+}
 .markdown-help {
   float: right;
+  font-size: 12px;
+  color: #39f;
+  line-height: 35px;
+  cursor: pointer;
+}
+
+.markdown-help:hover {
+  text-decoration: underline;
 }
 .comment-box {
   padding: 30px 15px 30px 15px;
+  border-top: 1px solid #CCC;
 }
 .comment-profile {
   float: left;
@@ -108,7 +125,7 @@
     line-height: 22px;
     letter-spacing: 0px;
   }
-  .timeago {
+  .dateposted {
     color: #6b6d70;
     font-size: 12px;
     margin-bottom: 0;

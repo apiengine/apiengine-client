@@ -6,7 +6,7 @@
     <div class="comment-content">
       <a href="<%= notification.get('user').login %>" class="comment-username"><%= notification.get('user').login %></a>
       <p class='comment-message'><%= notification.get('message') %></p>
-      <p class="timeago" title="<%= notification.get('created_at') %>"></p>
+      <p class="dateposted">about <span class="timeago" title="<%= notification.get('created_at') %>"></span> ago</p>
     </div>
     <div style="clear: both;"></div>
 
