@@ -71,6 +71,7 @@ E. Modifications to the Service and Prices
 3.  APIENGINE.IO shall not be liable to you or to any third party for any modification, price change, suspension or discontinuance of the Service.
 
 F. Copyright and Content Ownership
+----------------------------------
 
 1.  APIENGINE.IO claims no intellectual property rights over the material you provide to the Service. Your profile and materials uploaded remain yours. However, by designating any of your APIs pages as public, you agree to allow others to view your Content.
 
