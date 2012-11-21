@@ -3,6 +3,7 @@ define([
   'underscore',
   'backbone',
   'vm',
+  'mustache',
   'models/session',
   'text!templates/header/account-menu.html',
   'views/home/login',
@@ -10,7 +11,7 @@ define([
   'views/header/newapi',
   'qtip',
   'text!templates/header/account-menu-dropdown.html'
-], function($, _, Backbone, Vm, Session, mainMenuTemplate, LoginView, RegisterView, NewApiView, qtip, accountDropdown){
+], function($, _, Backbone, Vm, Mustache, Session, mainMenuTemplate, LoginView, RegisterView, NewApiView, qtip, accountDropdown){
   var MainMenuView = Backbone.View.extend({
     el: '.account-menu-container',
     initialize: function () {
@@ -52,15 +53,15 @@ define([
     dropdownMenu: function (ev) {
       $(ev.currentTarget).qtip({
         content: {
-          text: accountDropdown
+          text: Mustache.render(accountDropdown, {user: Session.get('login')})
         },
         show: {
           event: false, // Don't specify a show event...
           ready: true // ... but show the tooltip when ready
         },
       hide: {
-        delay: 100,
-        event: 'mouseleave',//'unfocus mouseleave',
+        delay: 400,
+        event: 'unfocus mouseleave',//'unfocus mouseleave',
         fixed: true // Make sure we can interact with the qTip by setting it as fixed
       },
       position: {

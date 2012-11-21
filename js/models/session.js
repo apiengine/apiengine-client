@@ -4,7 +4,7 @@ define([
 ], function(_, Backbone) {
   var SessionModel = Backbone.Model.extend({
   
-    urlRoot: '/session',
+    url: '/session',
     initialize: function () {
       var that = this;
       // Hook into jquery

@@ -55,21 +55,21 @@ define([
       var creds = $(ev.currentTarget).serializeObject();
       user.save(creds, {
         success: function (data) {
-        mixpanel.track('Signed up succesfully');
 
           if(data.get('errors').length > 0) {
             //alert(data.get('errors'));
           //  that.render();
           } else {
             Session.set({auth: null}, {silent: true});
-          mixpanel.track('Signup form errors');
+            mixpanel.track('Signed up succesfully');
 
             Session.getAuth(function () {
-              
+             // if(Session)
             });
           }
         },
         error: function (model, res) {
+          mixpanel.track('Signup form errors');
           var res = JSON.parse(res.responseText);
           $('.modal-form-errors', that.modal.el).html('')
           console.log(arguments);
