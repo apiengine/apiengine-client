@@ -58,10 +58,16 @@ define([
 
             Session.set({auth: null}, {silent: true});
             mixpanel.track('Signed up succesfully');
+            if(data.get('beta') === true) {
+              $('.modal-footer').hide();
+              $('.modal-content').empty();
+              $('.modal-content').html('<h3 class="modal-title">Thank you!</h3><p class="alpha-message">The email you entered is not currently approved for alpha testing but an invite will be sent as soon as possible.</p>');
+            } else {
 
-            Session.getAuth(function () {
-             // if(Session)
-            });
+              Session.getAuth(function () {
+               // if(Session)
+              });
+            }
         },
         error: function (model, res) {
           mixpanel.track('Signup form errors');
