@@ -39,7 +39,8 @@ define([
       followerModel.id = 'fake';
       followerModel.destroy({
         success: function () {
-          $(button).removeClass('btn-green btn-blue').addClass('btn-blue').text('FOLLOW');
+          $(button).removeClass('btn-green btn-red js-following').addClass('btn-blue js-follow').text('FOLLOW');
+          $(button).prev().text($(button).prev().text()*1 -1);
         }
       })
     },
@@ -53,7 +54,9 @@ define([
       followerModel.api = api;
       followerModel.save({}, {
         success: function () {
-          $(button).removeClass('btn-blue').addClass('btn-green').text('FOLLOWING');
+          $(button).prev().text($(button).prev().text()*1 +1);
+
+          $(button).removeClass('btn-blue js-follow').addClass('btn-green js-following').text('FOLLOWING');
         }
       })
       return false;
@@ -68,7 +71,13 @@ define([
 
       apis.fetch({
         success: function (apis) {
-          $('.api-list-container').html(Mustache.render(apiListTemplate, {apis: apis.models, _:_}));
+           var apisl = _.each(apis.models, function (model, key){
+            if(model.get('user') === Session.get('login')) {
+              model.set({owner: true});
+            }
+            return model;
+          });
+          $('.api-list-container').html(Mustache.render(apiListTemplate, {apis: apisl, _:_}));
         }
       })
     }

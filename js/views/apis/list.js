@@ -6,17 +6,64 @@ define([
   'models/session',
   'text!templates/apis/list.html',
   'collections/apis',
-  'models/api'
-], function($, _, Backbone, Mustache, Session, apisListTemplate, ApisCollection, ApiModel){
+  'models/api',
+  'models/follower'
+], function($, _, Backbone, Mustache, Session, apisListTemplate, ApisCollection, ApiModel, FollowerModel){
   var ApisPage = Backbone.View.extend({
     el: '.private-container',
     initialize: function () {
       var that = this;
       
+      $('body').on('hover', '.js-following', function (ev) {
+        var button = $(ev.currentTarget);
+        if(ev.type === 'mouseenter') {
+          $(button).removeClass('btn-green').addClass('btn-red').text('UNSUBSCRIBE');
+        }
+        if(ev.type === 'mouseleave') {
+          $(button).removeClass('btn-red').addClass('btn-green').text('FOLLOWING');
+          
+        }
+      });
     },
     events: {
       'click .js-new-api-button': 'editApi',
-      'submit .js-new-api-form': 'saveApi'
+      'submit .js-new-api-form': 'saveApi',
+      'click .js-follow.btn-blue': 'followApi',
+      'click .js-following.btn-red': 'unfollow'
+    },
+    unfollow: function (ev) {
+        var button = $(ev.currentTarget);
+
+      var apiEl = $(ev.currentTarget).parents('.api-list-item');
+      var api = apiEl.attr('data-api-id');
+      var user = apiEl.attr('data-user-id');
+      var followerModel = new FollowerModel;
+      followerModel.user = user;
+      followerModel.api = api;
+      followerModel.id = 'fake';
+      followerModel.destroy({
+        success: function () {
+          $(button).removeClass('btn-green btn-red js-following').addClass('btn-blue js-follow').text('FOLLOW');
+          $(button).prev().text($(button).prev().text()*1 -1);
+        }
+      })
+    },
+    followApi: function (ev) {
+        var button = $(ev.currentTarget);
+      var apiEl = $(ev.currentTarget).parents('.api-list-item');
+      var api = apiEl.attr('data-api-id');
+      var user = apiEl.attr('data-user-id');
+      var followerModel = new FollowerModel;
+      followerModel.user = user;
+      followerModel.api = api;
+      followerModel.save({}, {
+        success: function () {
+          $(button).prev().text($(button).prev().text()*1 +1);
+
+          $(button).removeClass('btn-blue js-follow').addClass('btn-green js-following').text('FOLLOWING');
+        }
+      })
+      return false;
     },
     editApi: function (ev) {
       $('#js-new-api-modal').modal('show');
