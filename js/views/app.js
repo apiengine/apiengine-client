@@ -39,7 +39,7 @@ define([
       $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
         // Your server goes below
        if(options.url.indexOf('proxino') === -1) {
-        options.url = 'http://altz.apiengine.io' + options.url;
+        options.url = 'http://x.apiengine.io' + options.url;
         //options.url = 'http://192.168.2.111:3000' + options.url;
         }// else {
         //options.url = 'http://d3gscmgl75g1oq.cloudfront.net' + options.url;

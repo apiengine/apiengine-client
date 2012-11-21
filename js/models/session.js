@@ -20,6 +20,10 @@ define([
           jqXHR.setRequestHeader('X-CSRF-Token', that.get('csrf'));
         }
       });
+      this.on('change:auth', function (model) {
+        console.log('user details', model);
+        //mixpanel.people.identify("12148");
+      });
     },
     defaults: {
      

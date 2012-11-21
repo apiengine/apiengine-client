@@ -13,7 +13,7 @@ define([
       // make our view act recordingly when auth changes
     },
     render: function () {
-
+      mixpanel.track("Video play");
       $('.top-bar-menu li a.active').removeClass('active');
       $('.top-bar-menu li a.pricing-button').addClass('active');
       this.$el.html(pricingTemplate);

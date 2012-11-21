@@ -34,6 +34,7 @@ define([
       if(el.length > 0) { 
         this.expandMethods($(el).parents('li[data-resource-id]'));
       }
+      
       //var methodListView = new MethodsListView({username: that.options.username, api: that.options.api, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
       //methodListView.render();        
       var resourcePageView = Vm.create(this, 'resourcepageview', ResourcePageView, {username: that.options.username, api: that.options.api, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
