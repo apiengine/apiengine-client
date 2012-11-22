@@ -62,7 +62,7 @@ fs.writeFileSync('output/index.html', index);
 var path = require('path');
 
 function cssIncImages(cssFile) {
-  var imgRegex = /url\s?\(['"]?(\.\.\/img.*?)(?=['"]?\))/gi;
+  var imgRegex = /url\s?\(['"]?(\.\.\/img.*?\?embed)(?=['"]?\))/gi;
   var css = fs.readFileSync(cssFile, 'utf-8');
   while (match = imgRegex.exec(css)) {
     var imgPath = path.join(path.dirname(cssFile), match[1]);
