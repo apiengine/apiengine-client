@@ -2,7 +2,7 @@ PRIVACY STATEMENT
 =================
 
 Fourtribe (trading as APIENGINE.IO) is committed to protecting the privacy of your information. This Privacy
- Policy describes APIENGINE.IO web site privacy practices.
+ Statement describes APIENGINE.IO web site privacy practices.
 
 A. Coverage
 -----------
