@@ -1,4 +1,10 @@
+/*
+# Features page
 
+```
+<div class="background grey">
+
+</div>
 <div class="background light-grey">
 <div class="container features-section">
 <div class="features-toolbox"></div>
@@ -14,3 +20,24 @@
 
 </div>
 <div class="background light-grey"></div>
+```
+
+*/
+.features-section {
+  padding: 75px 0;
+}
+.features-toolbox {
+  background: url('../img/features-toolbox.png');
+  width: 337px;
+  height: 252px;
+  float: right;
+}
+.features-heading {
+  font-size: 28px;
+  font-family: 'Nexa Bold';
+  font-weight: normal;
+}
+.features-tag {
+  font-size: 28px;
+  font-family: 'Nexa';
+}
