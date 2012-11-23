@@ -48,7 +48,7 @@
     font-size: 16px;
     text-transform: uppercase;
 
-     -webkit-transition:color 0.25s ease-in; 
+     -webkit-transition:color 0.175s ease-in; 
     cursor: pointer;
     padding: 1px 11px 1px 11px;
     font-family: 'Nexa';
@@ -57,7 +57,7 @@
     color: #fff;
 }
 .top-bar-menu li a.active {
-    -webkit-transition:background 1s ease-in; 
+    -webkit-transition:background 0.5s ease-in; 
     color: #fff;
     background: #019ff3;
     padding: 0 10px 0 10px;

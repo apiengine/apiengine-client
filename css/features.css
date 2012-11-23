@@ -58,7 +58,7 @@
 
 */
 .features-section {
-  padding: 75px 0 75px 39px;
+  padding: 75px 0 50px 39px;
   color: #333;
 }
 .features-toolbox {
@@ -74,19 +74,30 @@
   color:#333;
   font-weight: normal;
   margin-top: 0;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
+  letter-spacing: 3px;
 }
 .features-tag {
-  font-size: 28px;
+  font-size: 24px;
   font-family: 'Nexa';
   margin: 0;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   width:530px;
+  line-height: 30px;
 }
-.features-desc {
-  font-size: 18px;
+.features-preamble {
+  font-size: 24px;
+  line-height: 30px;
   font-family: 'Nexa';
   text-align: left;
+  margin-top:0;
+}
+.features-desc {
+  font-size: 20px;
+  line-height: 24px;
+  font-family: 'Nexa';
+  text-align: left;
+  margin-top:0;
 }
 .features-info {
   width: 910px;
@@ -120,10 +131,22 @@ right: 0;
   background: url('../img/features-docs-icon.png');
 }
 
-
-.two-column {
-  width: 50%;
+.for-tag{
+  font-family: 'Nexa Bold';
+  font-size: 24px;
+  line-height:24px;
+  margin: 25px 0 25px 0;
+  color:#333;  
+}
+.column-one {
+  width: 48%;
   float: left;
+  text-align: center;
+  margin-top: 50px;
+}
+.column-two {
+  width: 48%;
+  float: right;
   text-align: center;
   margin-top: 50px;
 }
@@ -168,7 +191,8 @@ right: 0;
 }
 .features-list li {
 
-  font-size: 18px;
+  font-size: 20px;
+  line-height: 24px;
   font-family: 'Nexa';
   text-align: left;
 }
