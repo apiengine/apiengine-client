@@ -12,10 +12,8 @@ var outputFolder = 'output/version/' + version
 console.log('Building client');
 var startTime = Date.now();
 
-fs.removeSync('relic');
 fs.removeSync('output');
 fs.mkdirSync('output');
-fs.mkdirSync('relic');
 fs.mkdirSync('output/version');
 fs.mkdirSync(outputFolder);
 var rootPath = '..';
