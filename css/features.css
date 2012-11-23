@@ -1,0 +1,161 @@
+/*
+# Features page
+
+```
+<div class="background grey">
+
+</div>
+<div class="background light-grey">
+<div class="container features-section">
+<div class="features-toolbox"></div>
+<h2 class="features-heading">GREAT TOOLS</h2>
+<p class="features-tag">API Engine comes with a feature set of tools to suit large businesses, start-ups and individual developers alike</p>
+<a href="" class="sbtn green">SIGN UP</a>
+<div style="clear: both;"></div>
+</div>
+</div>
+<div class="background white">
+<div class="container ">
+<div class="features-section">
+
+<div class="features-pic">
+  <div class="features-pic-discovery"></div>
+</div>
+<div class="features-info">
+<h2 class="features-heading">DOCUMENTATION</h2>
+
+<p class="features-desc">When you host your APIs on API Engine you can be confident that they are accessible, stylish, and responsive on all platforms.</p>
+
+  <div class="two-column">
+    <div class="yellow-developers"></div>
+    <h3 class="for-tag">FOR API DEVELOPERS</h3>
+    <p class="features-desc">Stylish, acccesible, and hassle free API documents.</p>
+    <ul class="features-list">
+      <li>Stylish docs</li>
+      <li>Consistent theme</li>
+      <li>Responsive design</li>
+    <ul>
+
+  </div>
+  <div class="two-column">
+    <div class="yellow-consumers"></div>
+    <h3 class="for-tag">FOR API CONSUMERS</h3>
+    <p class="features-desc">When you host your APIs on API Engine you can be confident that they are accesible stylish.</p>
+</div>
+<div style="clear: both;"></div>
+
+</div>
+  <div style="clear: both;"></div>
+
+</div>
+  <div style="clear: both;"></div>
+
+</div>
+
+</div>
+<div class="background light-grey"></div>
+```
+
+*/
+.features-section {
+  padding: 75px 0 75px 38px;
+}
+.features-toolbox {
+  background: url('../img/features-toolbox.png');
+  width: 337px;
+  height: 252px;
+  float: right;
+}
+.features-heading {
+  font-size: 28px;
+  font-family: 'Nexa Bold';
+  font-weight: normal;
+  margin-top: 0;
+}
+.features-tag {
+  font-size: 28px;
+  font-family: 'Nexa';
+}
+.features-desc {
+  font-size: 18px;
+  font-family: 'Nexa';
+  text-align: left;
+}
+.features-info {
+  width: 910px;
+  float: left;
+}
+.features-pic {
+  float: left;'
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
+}
+.features-pic-discovery {
+  width: 51px;
+  height: 49px;
+  background: url('../img/features-discovery-icon.png');
+}
+.features-pic-collab {
+  width: 55px;
+  height: 50px;
+  background: url('../img/features-collaboration-icon.png');
+}
+.features-pic-docs {
+  width: 39px;
+  height: 50px;
+  background: url('../img/features-docs-icon.png');
+}
+
+
+.two-column {
+  width: 50%;
+  float: left;
+  text-align: center;
+  margin-top: 50px;
+}
+.red-developers {
+  width: 169px;
+  height: 100px;
+  background: url('../img/features-red-for-developers.png');
+  display: inline-block;
+}
+
+.red-consumers {
+  width: 103px;
+  display: inline-block;
+  height: 100px;
+  background: url('../img/features-red-for-consumers.png');
+}
+.blue-developers {
+  width: 169px;
+  height: 100px;
+  background: url('../img/features-blue-for-developers.png');
+  display: inline-block;
+}
+
+.blue-consumers {
+  width: 103px;
+  display: inline-block;
+  height: 100px;
+  background: url('../img/features-blue-for-consumers.png');
+}
+.yellow-developers {
+  width: 169px;
+  height: 100px;
+  background: url('../img/features-yellow-for-developers.png');
+  display: inline-block;
+}
+
+.yellow-consumers {
+  width: 103px;
+  display: inline-block;
+  height: 100px;
+  background: url('../img/features-yellow-for-consumers.png');
+}
+.features-list li {
+
+  font-size: 18px;
+  font-family: 'Nexa';
+  text-align: left;
+}
