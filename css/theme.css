@@ -88,3 +88,16 @@ body {
 .centered-content {
   text-align: center;
 }
+
+body [data-show-authed],
+body [data-hide-authed] {
+  display: none;
+}
+
+body [data-show-authed="true"] {
+  display: block;
+}
+
+body [data-hide-authed="false"] {
+  display: block;
+}

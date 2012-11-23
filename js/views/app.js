@@ -59,6 +59,9 @@ define([
       var headerView = new HeaderView();
       headerView.render();
       footerView.render(); 
+
+
+
       Session.getAuth(function () {
         $('body').on('click', 'a', function (e) {
           if($(this).attr('href').substr(0,4) === 'http') {

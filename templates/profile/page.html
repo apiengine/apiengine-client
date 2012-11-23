@@ -39,7 +39,9 @@
   </div>
   <div class="profile-box-buttons">
     {{#currentUser}}
+    <!--
     <button class="btn btn-regular">EDIT PROFILE</button>
+  -->
     {{/currentUser}}
     
     <div style="clear: both;"></div>
@@ -54,7 +56,9 @@
   <div class="tabs-container">
     <ul class="tabs">
       <li class="active apilist"><a href="{{user.attributes.login}}">APIs</a></li>
+      <!--
       <li class=" "><a href="{{user.attributes.login}}">Activity</a></li>
+    -->
       {{#currentUser}}
       <li class="settings"><a href="{{user.attributes.login}}/settings/profile">Settings</a></li>
       {{/currentUser}}
