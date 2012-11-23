@@ -13,8 +13,8 @@ And that we will exceed your expectations.
 
 _Anything else?_
 
-We want to deliver you a fast, reliable and relevant service.
+We want to deliver you a fast, reliable and stonkin' service.
 
 We have the skills and people to do it.
 
-Money enables us to focus on this.
+Sorting the money enables us to focus on this.
