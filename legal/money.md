@@ -1,8 +1,6 @@
 WHY WE CHARGE YOU MONEY
 =======================
 
-First up, we are not in this for the money.
-
 _So, why do you charge money?_
 
 Money is a generally accepted record and store of value.  
