@@ -13,7 +13,7 @@ define([
       // make our view act recordingly when auth changes
     },
     render: function () {
-      mixpanel.track('Viewed features');
+     // mixpanel.track('Viewed features');
 
       $('.top-bar-menu li a.active').removeClass('active');
       $('.top-bar-menu li a.features-button').addClass('active');

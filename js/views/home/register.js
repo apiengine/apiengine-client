@@ -34,7 +34,7 @@ define([
       });
     },
     render: function () {
-      mixpanel.track('Opened Signup');
+    //  mixpanel.track('Opened Signup');
       this.modal = Modal.create({
         content: registert
       });
