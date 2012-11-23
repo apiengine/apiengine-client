@@ -58,7 +58,8 @@
 
 */
 .features-section {
-  padding: 75px;
+  padding: 75px 0 75px 39px;
+  color: #333;
 }
 .features-toolbox {
   background: url('../img/features-toolbox.png');
@@ -95,6 +96,12 @@
   width: 60px;
   height: 60px;
   margin-right: 20px;
+  position: relative;
+  width: 35px;
+}
+.features-pic > div {
+  position: absolute;
+right: 0;
 }
 .features-pic-discovery {
   width: 51px;
