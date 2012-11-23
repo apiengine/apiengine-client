@@ -18,6 +18,3 @@ We want to deliver you a fast, reliable and relevant service.
 We have the skills and people to do it.
 
 Money enables us to focus on this.
-
-__We believe, and expect to, put in more than we take out - in everything
-we do.__
