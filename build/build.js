@@ -69,7 +69,7 @@ function cssIncImages(cssFile) {
     try {
       var img = fs.readFileSync(imgPath, 'base64');
       var ext = imgPath.substr(imgPath.lastIndexOf('.') + 1);
-      css = css.replace(match[1], 'data:image/' + ext + ';base64,' + img);
+      css = css.replace(match[1] + '?embed', 'data:image/' + ext + ';base64,' + img);
     } catch (err) {
       console.log('Image not found (%s).', imgPath);
     }
