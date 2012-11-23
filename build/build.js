@@ -12,8 +12,10 @@ var outputFolder = 'output/version/' + version
 console.log('Building client');
 var startTime = Date.now();
 
+fs.removeSync('relic');
 fs.removeSync('output');
 fs.mkdirSync('output');
+fs.mkdirSync('relic');
 fs.mkdirSync('output/version');
 fs.mkdirSync(outputFolder);
 var rootPath = '..';
@@ -86,9 +88,10 @@ function cssIncImages(cssFile) {
       fs.copy(rootPath + '/css/fonts', outputFolder +'/css/fonts', function () {
         
 cssIncImages(outputFolder + '/css/styles.css');
-
+      fs.copy('output', 'relic', function () {
+        
         var endTime = (Date.now() - startTime) / 1000;
-
+});
       });
       });
     });
