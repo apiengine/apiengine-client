@@ -1,7 +1,7 @@
 WHY WE CHARGE YOU MONEY
 =======================
 
-_So, why do you charge money?_
+_So, why do we charge you money?_
 
 Money is a generally accepted record and store of value.  
 
@@ -17,4 +17,4 @@ We want to deliver you a fast, reliable and stonkin' service.
 
 We have the skills and people to do it.
 
-Sorting the money enables us to focus on this.
+Sorting the money issue enables us to focus exclusively on delivery.
