@@ -269,16 +269,16 @@ We need to have disabled state I think ?
 */
 .sbtn {
   color: white;
-  padding: 10px 20px 8px 20px;
+  padding: 10px 10px 8px 10px;
   font-family: 'Nexa Bold';
   display: inline-block;
   font-size: 18px;
-  line-height: 14px;
+  line-height: 19px;
 }
 .sbtn:after {
   content: '>';
   margin-left: 5px;
-  line-height: 12px;
+  line-height: 16px;
   font-size: 24px;
   font-family: "ModernPics";
   float: right;
@@ -302,6 +302,13 @@ We need to have disabled state I think ?
 }
 .sbtn.yellow:hover {
   outline:1px solid #fce091;
+}
+.sbtn.blue {
+  background: #019ff3;
+  color: #fff;
+}
+.sbtn.blue:hover {
+  outline:1px solid #24b3ff;
 }
 /*
 
