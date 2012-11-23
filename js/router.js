@@ -34,6 +34,7 @@ define([
       ':username/:apiname/version/:version/resource/:resource/:method': 'apiPage',
       ':username/:apiname/version/:version/resource/:resource': 'apiPage',
       ':username/:apiname/version/:version': 'apiPage',
+      ':username/:apiname/settings/:page': 'apiSettingsPage',
       ':username/settings/:page': 'settingsTab',
       ':username': 'defaultAction' // All urls will trigger this route
     }
@@ -45,7 +46,12 @@ define([
     var router = new AppRouter(options);
     Backbone.router = router;
     router.on('route:apiPage', function (username, apiname, version, resourceId, method) {
-        var apiDetailsView = Vm.create(appView, 'ApiDetailsView', ApiDetailsView, {username: username, apiname: apiname, version: version, resourceId: resourceId, method: method});
+        var apiDetailsView = Vm.create(appView, 'page', ApiDetailsView, {username: username, apiname: apiname, version: version, resourceId: resourceId, method: method});
+        apiDetailsView.render();
+    });
+
+    router.on('route:apiSettingsPage', function (username, apiname, page) {
+        var apiDetailsView = Vm.create(appView, 'page', ApiDetailsView, {username: username, apiname: apiname, page: page, settings: true});
         apiDetailsView.render();
     });
     /*

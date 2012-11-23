@@ -154,20 +154,6 @@ define([
             };
            
             that.showDetails();
-             /*
-            var owner = false;
-            if(Session.get('user_id') === api.get('UserId')){
-              owner = true;
-            }
-              that.$el.html(_.template(apiDetailsTemplate, {api: api, errors: []}));
-              var methodsListView = Vm.create(that, 'methodslistview', MethodsListView, {apiId: that.options.apiId, owner: owner});
-              methodsListView.render();
-            
-             if(typeof that.options.methodId !== 'undefined') {
-                var methodDetailView = Vm.create(that, 'methoddetailview', MethodDetailView, {methodId: that.options.methodId, apiId: that.options.apiId, owner: owner});
-                methodDetailView.render();
-             }
-             */
           }
         })
       } else {
