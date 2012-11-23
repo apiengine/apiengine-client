@@ -34,7 +34,8 @@ define([
     render: function () {
       console.log('why no rerender view');
       var that = this;
-      $('.active').removeClass('active');
+            $('.api-menu-container a.active').removeClass('active');
+
       $('[data-method-id='+ this.options.method +']', $('[data-resource-id='+this.options.resourceId+']')).addClass('active');
 
       this.method = new MethodModel();

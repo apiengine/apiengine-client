@@ -16,8 +16,9 @@ define([
     },  
     render: function () {
       var that = this;
+      $('.api-menu-container a.active').removeClass('active');
+      $('.overview-link').addClass('active');
       this.$el.html(_.template(overviewTemplate, {errors: []}));
-      console.log(that.options, 'eeeeee')
             var commentsView = new CommentsView({
             methodId: that.options.method,
             version: that.options.version,

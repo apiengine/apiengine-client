@@ -226,7 +226,10 @@ Some styles for API's
     text-align: right;
   }
 
-  
+  .descriptive {
+    font-size: 14px;
+    color: #333;
+  }
 
     .method-title {
     height: 50px;

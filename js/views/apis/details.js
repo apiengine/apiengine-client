@@ -111,7 +111,10 @@ define([
     },
     showDetails: function () {
       var that = this;
-      console.log('show details');
+       if(typeof that.options.resourceId === 'undefined') {
+        var overview = Vm.create(that, 'apipage', OverView, that.options);
+        overview.render();
+      }
       if($('.resource-list-container').attr('data-api-id') !== that.options.apiname) {
         var resourceListView = Vm.create(that, 'resourceListView', ResourceListView, {username: that.options.username, api: that.options.apiname, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
         resourceListView.render();
@@ -132,7 +135,7 @@ define([
       var that = this;
       console.log('re-render');
       if($('.api-container').length === 0) {
-        this.$el.html('Loading API');
+        this.$el.html('');
       
         var apiModel = new ApiModel({username: this.options.username, apiname: this.options.apiname, version: this.options.version});
 
@@ -142,16 +145,14 @@ define([
             if($('.api-container').length === 0) {
               var owner = Session.get('login') === api.get('user') ? true : false;
               that.$el.html(Mustache.render(apiDetailsTemplate, {api: api, errors: [], owner: owner}));
-              if(typeof that.options.resource === 'undefined') {
-                var overview = Vm.create(that, 'overviewPage', OverView, that.options);
-                overview.render();
-              }
+      
               $('code').each(function(i, e) {hljs.highlightBlock(e); });
                 $('.js-api-pages a').click(function (e) {
                 e.preventDefault();
                 $(this).tab('show');
               });
             };
+           
             that.showDetails();
              /*
             var owner = false;
@@ -170,6 +171,7 @@ define([
           }
         })
       } else {
+
          that.showDetails();
 
       }
