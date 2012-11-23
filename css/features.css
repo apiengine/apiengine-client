@@ -58,23 +58,30 @@
 
 */
 .features-section {
-  padding: 75px 0 75px 38px;
+  padding: 75px 0 75px 39px;
+  color: #333;
 }
 .features-toolbox {
   background: url('../img/features-toolbox.png');
-  width: 337px;
-  height: 252px;
+  background-repeat: no-repeat;
+  width: 335px;
+  height: 274px;
   float: right;
 }
 .features-heading {
-  font-size: 28px;
+  font-size: 36px;
   font-family: 'Nexa Bold';
+  color:#333;
   font-weight: normal;
   margin-top: 0;
+  margin-bottom: 15px;
 }
 .features-tag {
   font-size: 28px;
   font-family: 'Nexa';
+  margin: 0;
+  margin-bottom: 30px;
+  width:530px;
 }
 .features-desc {
   font-size: 18px;
@@ -90,6 +97,12 @@
   width: 60px;
   height: 60px;
   margin-right: 20px;
+  position: relative;
+  width: 35px;
+}
+.features-pic > div {
+  position: absolute;
+right: 0;
 }
 .features-pic-discovery {
   width: 51px;
