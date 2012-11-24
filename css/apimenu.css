@@ -277,4 +277,8 @@
 
     .method-label {
     font-size: 14px;
+    width: 204px;
+height: 16px;
+display: inline-block;
+overflow: hidden;
   }
