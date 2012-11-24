@@ -27,7 +27,7 @@ define([
       if(ev){
         var el = $(ev.currentTarget);
         this.options.resourceId = $(el).attr('data-resource-id');
-        this.options.methodId = null;
+        this.options.method = null;
       } else {
        var el = $('[data-resource-id=' + this.options.resourceId + ']');
       }
