@@ -23,7 +23,7 @@ define([
       
     },  
     events: {
-      'click .api-description': 'editDescription'
+      'click .edit-api-description': 'editDescription'
     },
     editDescription: function(ev) {
       var modal = Modal.create({

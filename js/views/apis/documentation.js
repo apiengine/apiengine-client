@@ -30,7 +30,7 @@ define([
     events: {
       'click .js-new-resource': 'newResource',
       'click .js-new-method': 'newMethod',
-      'click .api-description': 'editDescription'
+      'click .edit-api-description': 'editDescription'
     },
     editDescription: function(ev) {
       var modal = Modal.create({

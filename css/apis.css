@@ -258,7 +258,7 @@ Some styles for API's
   }
 
 
-.api-description:hover {
+.edit-api-description:hover {
   outline: 1px solid #ccc;
   background: #ebebeb;
 }

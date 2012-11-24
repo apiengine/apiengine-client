@@ -17,7 +17,6 @@ define([
     events: {
     },
     render: function () {
-      console.log('HELLOOOOOO', this.options.resourceId);
       $('.api-menu-container a.active').removeClass('active');
 
       $('a[data-resource-id='+this.options.resourceId+']').addClass('active');

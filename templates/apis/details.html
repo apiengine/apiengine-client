@@ -31,7 +31,7 @@
         </ul>
         <div style="clear: both;"></div>
         {{#owner}}
-        <p style="" class="api-description">Click to edit end description...</p>
+        <p style="" class="edit-api-description">Click to edit end description...</p>
         {{/owner}}
 
         {{^owner}}
@@ -50,7 +50,9 @@
   <div class="tabs-container">
     <ul class="tabs">
       <li  class="api-docs"><a href="#{{api.attributes.user}}/{{api.attributes.apiname}}/version/1">Documentation</a></li>
+              {{#owner}}
       <li class="api-settings"><a href="#{{api.attributes.user}}/{{api.attributes.apiname}}/settings/general" >Manage API</a></li>
+        {{/owner}}
     </ul>
     <div style="clear: both;"></div>
   </div>
