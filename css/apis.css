@@ -232,8 +232,8 @@ Some styles for API's
   }
 
     .method-title {
-    height: 50px;
-    line-height: 50px;
+height: 40px;
+line-height: 44px;
     font-size: 26px;
     letter-spacing: 2px;
     text-transform: uppercase;

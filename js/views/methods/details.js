@@ -4,13 +4,14 @@ define([
   'backbone',
   'vm',
   'router',
+  'mustache',
   'models/session',
   'text!templates/methods/details.html',
   'models/method',
   'views/forms/method',
   'views/comments/comments',
   'models/clearnotification'
-], function($, _, Backbone, Vm, Router, Session, methodTemplate, MethodModel, MethodForm, CommentsView, ClearNModel){
+], function($, _, Backbone, Vm, Router, Mustache, Session, methodTemplate, MethodModel, MethodForm, CommentsView, ClearNModel){
   var MethodDetailsView = Backbone.View.extend({
     el: '.method-container',
     initialize: function () {
@@ -48,7 +49,7 @@ define([
       });
       this.method.fetch({
         success: function(model) {
-          that.$el.html(_.template(methodTemplate, {method: model}));
+          that.$el.html(Mustache.render(methodTemplate, {method: model}));
           var clearNModel = new ClearNModel({id: that.options.method});
           clearNModel.options = that.options;
           console.log('YOOOOOOOOOOOOOo', clearNModel);
