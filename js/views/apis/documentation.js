@@ -7,7 +7,7 @@ define([
   'mustache',
   'qtip',
   'models/session',
-  'text!templates/apis/details.html',
+  'text!templates/apis/documentation.html',
   'models/api',
   'collections/methods',
   'views/resource/list',
@@ -20,9 +20,9 @@ define([
   'modal',
   'text!templates/modals/editdescription.html',
   'views/apis/overview'
-], function($, _, Backbone, Router, Vm,  Mustache, Qtip, Session, apiDetailsTemplate, ApiModel, MethodsCollection, ResourceListView, MethodDetailView, ApiModel, ResourceModel, MethodModel, hljs, ResourceForm, Modal, edt, OverView){
+], function($, _, Backbone, Router, Vm,  Mustache, Qtip, Session, docsTemplate, ApiModel, MethodsCollection, ResourceListView, MethodDetailView, ApiModel, ResourceModel, MethodModel, hljs, ResourceForm, Modal, edt, OverView){
   var NewApiPage = Backbone.View.extend({
-    el: '.page',
+    el: '.api-page-container',
     initialize: function () {
       var that = this;
       
@@ -111,12 +111,12 @@ define([
     },
     showDetails: function () {
       var that = this;
-      
+      console.log('westside', that.options);
        if(typeof that.options.resourceId === 'undefined') {
         var overview = Vm.create(that, 'apipage', OverView, that.options);
         overview.render();
       }
-      if($('.resource-list-container').attr('data-api-id') !== that.options.apiname) {
+      if($('.resource-list-container').attr('data-api-id') !== that.options.apiname && $('.resource-list').length === 0) {
         var resourceListView = Vm.create(that, 'resourceListView', ResourceListView, {username: that.options.username, api: that.options.apiname, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
         resourceListView.render();
         console.log('show list container');
@@ -132,37 +132,15 @@ define([
     renderOverview: function () {
 
     },
-    render: function () { 
-      var that = this;
-      console.log('re-render');
-      if($('.api-container').length === 0) {
-        this.$el.html('');
-      
-        var apiModel = new ApiModel({username: this.options.username, apiname: this.options.apiname, version: this.options.version});
-
-        apiModel.fetch({
-          success: function (api) {
-            console.log('hljf' , hljs)
-            if($('.api-container').length === 0) {
-              var owner = Session.get('login') === api.get('user') ? true : false;
-              that.$el.html(Mustache.render(apiDetailsTemplate, {api: api, errors: [], owner: owner}));
-              
-              $('code').each(function(i, e) {hljs.highlightBlock(e); });
-                $('.js-api-pages a').click(function (e) {
-                e.preventDefault();
-                $(this).tab('show');
-              });
-            };
-            
-            that.showDetails();
-          }
-        })
-      } else {
-
-         that.showDetails();
-
+    render: function (options) { 
+      if($('.api-details-container').length === 0) {
+           var owner = Session.get('login') ===  this.options.username ? true : false;
+              console.log(this.options, 'friday night');
+      $('.api-container .tabs li.active').removeClass('active');
+      $('.api-container .tabs .api-docs').addClass('active');
+      this.$el.html(Mustache.render(docsTemplate, {api: this.options.apiname,user: this.options.username,version:this.options.version, owner: owner}));
       }
-     
+           this.showDetails();
     }
   });
   return NewApiPage;

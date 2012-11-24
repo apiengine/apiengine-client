@@ -5,14 +5,13 @@ define([
   'underscore',
   'backbone',
 	'vm',
-  'views/apis/details',
+  'views/apis/page',
   'views/browse/page',
   'views/home/forgot_password',
-  'views/apis/details',
   'views/apis/edit',
   'views/methods/edit',
   'views/profile/page'
-], function (require, $, _, Backbone, Vm,ApiDetailsView,BrowseView,ForgotView,ApiDetailsView,EditApiView,EditMethodView,ProfilePage) {
+], function (require, $, _, Backbone, Vm,ApiPageView,BrowseView,ForgotView,EditApiView,EditMethodView,ProfilePage) {
   var AppRouter = Backbone.Router.extend({
     routes: {
 
@@ -46,12 +45,12 @@ define([
     var router = new AppRouter(options);
     Backbone.router = router;
     router.on('route:apiPage', function (username, apiname, version, resourceId, method) {
-        var apiDetailsView = Vm.create(appView, 'page', ApiDetailsView, {username: username, apiname: apiname, version: version, resourceId: resourceId, method: method});
+        var apiDetailsView = Vm.create(appView, 'page', ApiPageView, {username: username, apiname: apiname, version: version, resourceId: resourceId, method: method});
         apiDetailsView.render();
     });
 
     router.on('route:apiSettingsPage', function (username, apiname, page) {
-        var apiDetailsView = Vm.create(appView, 'page', ApiDetailsView, {username: username, apiname: apiname, page: page, settings: true});
+        var apiDetailsView = Vm.create(appView, 'page', ApiPageView, {username: username, apiname: apiname, page: page, settings: true});
         apiDetailsView.render();
     });
     /*
