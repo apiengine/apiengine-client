@@ -67,6 +67,7 @@
     background: #fff;
     border-left: 1px solid #ebebeb;
     border-right: 1px solid #ebebeb;
+    margin-bottom: 50px;
   }
   .api-menu-list {
     list-style: none;
@@ -277,7 +278,7 @@
 
     .method-label {
     font-size: 14px;
-    width: 204px;
+    width: 180px;
 height: 16px;
 display: inline-block;
 overflow: hidden;

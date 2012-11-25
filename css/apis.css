@@ -133,6 +133,7 @@ Some styles for API's
     border-bottom: 1px solid #ccc;
     width: 302px; 
     padding-bottom: 15px;
+    font-family: 'Nexa';
 }
 .method-container .menu-title {
   padding-left: 40px;

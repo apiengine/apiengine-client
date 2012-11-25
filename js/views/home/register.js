@@ -57,7 +57,7 @@ define([
         success: function (data) {
 
             Session.set({auth: null}, {silent: true});
-            mixpanel.track('Signed up succesfully');
+            //mixpanel.track('Signed up succesfully');
             if(data.get('beta') === true) {
               $('.modal-footer').hide();
               $('.modal-content').empty();
@@ -70,7 +70,7 @@ define([
             }
         },
         error: function (model, res) {
-          mixpanel.track('Signup form errors');
+          //mixpanel.track('Signup form errors');
           var res = JSON.parse(res.responseText);
           $('.modal-form-errors', that.modal.el).html('')
           console.log(arguments);
