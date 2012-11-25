@@ -1,12 +1,11 @@
-
 <ul class="comments">
-<% _.each(notifications, function(notification) { %>
+  {{#notifications}}
   <li>
-    <a href="<%= notification.get('user').login %>"><img class="comment-profile" src="http://www.gravatar.com/avatar/<%= notification.get('user').gravatar %>?d=wavatar" /></a>
+    <a href="{{attributes.user.login}}"><img class="comment-profile" src="http://www.gravatar.com/avatar/{{attributes.user.gravatar}}?d=wavatar" /></a>
     <div class="comment-content">
-      <a href="<%= notification.get('user').login %>" class="comment-username"><%= notification.get('user').login %></a>
-      <p class='comment-message'><%= notification.get('message') %></p>
-      <p class="dateposted">about <span class="timeago" title="<%= notification.get('created_at') %>"></span> ago</p>
+      <a href="{{attributes.user.login}}" class="comment-username">{{attributes.user.login}}</a>
+      <p class='comment-message'>{{attributes.message}}</p>
+      <p class="dateposted">about <span class="timeago" title="{{attributes.created_at}}"></span> ago</p>
     </div>
     <div style="clear: both;"></div>
 
@@ -20,5 +19,8 @@
 
 
   </li>
-
-<% }); %>
+  {{/notifications}}
+  {{^notifications}}
+  <li>No comments</li>
+  {{/notifications}}
+</ul>

@@ -4,15 +4,41 @@
     <h2 style="margin: 0;" class="method-title">{{method.attributes.label}}</h2>
 </div>
     
-<div style="padding: 20px 0 20px 40px;">
-   
+<div class="method-page-container">
+   <section class="method-section">
+   <h3>HTTP request</h3>
+   <div class="http-request">
 <span class="method method-{{method.attributes.method}}">{{method.attributes.method}}</span>
-        /user/{user}
-   
+       <span class="http-request-text">/user/{user}</span>
+      </div>
+    </section>
+   <section class="method-section">
+   <h3>Method notes</h3>
   
     <p class="descriptive">{{method.attributes.description}} Fusce ac risus tellus. Praesent fermentum aliquam lectus sit amet tristique. In eget magna diam, non tristique neque. Sed fermentum, risus at posuere accumsan, velit sem hendrerit dolor, et sodales neque turpis id quam. In est turpis, feugiat ac tempor in, ultrices sit amet justo. Nullam risus quam, accumsan at dignissim et, mollis interdum urna.<p>
+    </section>
+   <section class="method-section">
 
+   <h3>Request</h3>
+   <h4>Headers</h4>
+<table class="bodybuilder {{method.attributes.method}}">
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>field</td>
+      <td>string</td>
+      <td><p class="fixie"></p></td>
+    </tr>
+  </tbody>
+</table>
 
+   <h4>Body</h4>
 <table class="bodybuilder {{method.attributes.method}}">
   <thead>
     <tr>
@@ -34,7 +60,7 @@
     </tr>
   </tbody>
 </table>
-
+</section>
 <!--
 <h3>Request</h3>
 <table class="table request-table">
@@ -146,4 +172,4 @@ curl  url -i -H "Accept: application/json" http://192.168.0.165/persons/person/1
 
 <div class="comments-container">aa</div>
 
-  </div>
+</div>

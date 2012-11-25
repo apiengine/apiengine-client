@@ -3,6 +3,7 @@ define([
   'underscore',
   'backbone',
   'router',
+  'mustache',
   'modal',
   'models/session',
   'text!templates/comments/comments.html',
@@ -10,7 +11,7 @@ define([
   'collections/notifications',
   'text!templates/comments/list.html',
   'text!templates/modals/markdown.html'
-], function($, _, Backbone, Router, Modal, Session, commentsTemplate, CommentsModel, NotificationCollection, listTemplate, MarkDownTemplate){
+], function($, _, Backbone, Router, Mustache, Modal, Session, commentsTemplate, CommentsModel, NotificationCollection, listTemplate, MarkDownTemplate){
   var CommentsWidget = Backbone.View.extend({
     el: '.comments-container',
     initialize: function (options) {
@@ -75,7 +76,7 @@ define([
       $('.comments-list-container').html('');
       notification.fetch({
         success: function (notifications) {
-          $('.comments-list-container').html(_.template(listTemplate, {user: Session.get('user'), _:_, notifications: notifications.models}));
+          $('.comments-list-container').html(Mustache.render(listTemplate, {user: Session.get('user'), _:_, notifications: notifications.models}));
           $('.timeago').timeago();
         }
       })

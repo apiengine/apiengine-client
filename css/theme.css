@@ -7,6 +7,9 @@ a {
   color: #39f;
   text-decoration: none;
 }
+p { 
+font-size: 14px;
+}
 /*a:hover {
   color: #39f;
   text-decoration: underline;

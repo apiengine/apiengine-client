@@ -262,3 +262,23 @@ line-height: 44px;
   outline: 1px solid #ccc;
   background: #ebebeb;
 }
+.method-page-container {
+  padding: 20px 0 20px 40px;
+}
+.method-section {
+  overflow: auto;
+  margin-bottom: 40px;
+}
+.method-section h3 {
+  margin: 0 0 15px 0;
+  font-weight: normal;
+  font-family: 'Nexa Bold';
+}
+.http-request {
+  border: 1px solid #ccc;
+  height: 23px;
+}
+.http-request-text {
+  line-height: 22px;
+  color: #555;
+}
