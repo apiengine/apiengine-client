@@ -70,7 +70,7 @@ define([
     },
     render: function () {
       var that = this;
-      this.$el.html(_.template(commentsTemplate, {user: Session.get('user'), errors: []}));
+      this.$el.html(Mustache.render(commentsTemplate, {user: Session.get('user'), errors: []}));
       var notification = new NotificationCollection();
       notification.options = that.options;
       $('.comments-list-container').html('');

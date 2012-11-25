@@ -36,7 +36,7 @@ define([
       console.log('why no rerender view');
       var that = this;
             $('.api-menu-container a.active').removeClass('active');
-
+            console.log(this.options, 'is there a resource id');
       $('[data-method-id='+ this.options.method +']', $('[data-resource-id='+this.options.resourceId+']')).addClass('active');
 
       this.method = new MethodModel();
@@ -47,9 +47,10 @@ define([
         username: this.options.username,
         resourceId: this.options.resourceId
       });
+      var resourceUrl = $('li[data-resource-id="'+this.options.resourceId+'"]').attr('data-resource-resource');
       this.method.fetch({
         success: function(model) {
-          that.$el.html(Mustache.render(methodTemplate, {method: model}));
+          that.$el.html(Mustache.render(methodTemplate, {method: model, resourceUrl: resourceUrl}));
           var clearNModel = new ClearNModel({id: that.options.method});
           clearNModel.options = that.options;
           console.log('YOOOOOOOOOOOOOo', clearNModel);
