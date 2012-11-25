@@ -275,8 +275,6 @@ line-height: 44px;
   font-family: 'Nexa Bold';
 }
 .http-request {
-  border: 1px solid #ccc;
-  height: 23px;
 }
 .http-request-text {
   line-height: 22px;
