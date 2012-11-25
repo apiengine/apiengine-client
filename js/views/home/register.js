@@ -71,11 +71,13 @@ define([
         },
         error: function (model, res) {
           //mixpanel.track('Signup form errors');
-          var res = JSON.parse(res.responseText);
+           try { res = JSON.parse(res.responseText); } catch (exception) { res = null; } 
+           if(res){
           $('.modal-form-errors', that.modal.el).html('')
           console.log(arguments);
           $('.modal-form-errors', that.modal.el).append($('<li>').html(_.template(errorT, {message: res.error}) ));
         $('[type=submit]', that.modal.el).removeAttr('disabled');
+      }
 
         }
       });
