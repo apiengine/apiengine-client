@@ -3,7 +3,16 @@
 <div class="profile-box" data-login="{{user.attributes.login}}">
   <img class="profile-box-pic" src="//www.gravatar.com/avatar/{{user.attributes.gravatar}}.jpg?s=150" />
   <div class="profile-box-info">
+
+    {{#user.attributes.profile.name}}
+    <h3>{{user.attributes.profile.name}}({{user.attributes.login}})</h3>
+
+    {{/user.attributes.profile.name}}
+    {{^user.attributes.profile.name}}
     <h3>{{user.attributes.login}}</h3>
+
+    {{/user.attributes.profile.name}}
+
     <span class="extra">Member for <span class="timeago" title="{{user.attributes.profile.joindate}}"></span>.</span><br />
     <span class="extra">Location: {{user.attributes.profile.location}}</span><br />
     <p class="">{{user.attributes.profile.description}}</p>
