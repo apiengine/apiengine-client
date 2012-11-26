@@ -19,8 +19,9 @@ define([
   'views/forms/resource',
   'modal',
   'text!templates/modals/editdescription.html',
-  'views/apis/overview'
-], function($, _, Backbone, Router, Vm,  Mustache, Qtip, Session, apiDetailsTemplate, ApiModel, MethodsCollection, ResourceListView, MethodDetailView, ApiModel, ResourceModel, MethodModel, hljs, ResourceForm, Modal, edt, OverView){
+  'views/apis/overview',
+  'views/apis/tablelist'
+], function($, _, Backbone, Router, Vm,  Mustache, Qtip, Session, apiDetailsTemplate, ApiModel, MethodsCollection, ResourceListView, MethodDetailView, ApiModel, ResourceModel, MethodModel, hljs, ResourceForm, Modal, edt, OverView, TableList){
   var NewApiPage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
@@ -147,6 +148,7 @@ define([
               var owner = Session.get('login') === api.get('user') ? true : false;
               that.$el.html(Mustache.render(apiDetailsTemplate, {api: api, errors: [], owner: owner}));
               
+           
               $('code').each(function(i, e) {hljs.highlightBlock(e); });
                 $('.js-api-pages a').click(function (e) {
                 e.preventDefault();

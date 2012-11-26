@@ -6,8 +6,9 @@ define([
   'models/session',
   'text!templates/apis/overview.html',
   'views/comments/comments',
-  'models/api'
-], function($, _, Backbone, Router, Session, overviewTemplate, CommentsView, ApiModel){
+  'models/api',
+  'views/resource/tablelist'
+], function($, _, Backbone, Router, Session, overviewTemplate, CommentsView, ApiModel, TableList){
   var NewApiPage = Backbone.View.extend({
     el: '.method-container',
     initialize: function () {
@@ -19,6 +20,8 @@ define([
       $('.api-menu-container a.active').removeClass('active');
       $('.overview-link').addClass('active');
       this.$el.html(_.template(overviewTemplate, {errors: []}));
+       var tableList = new TableList({username: that.options.username, api: that.options.apiname, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
+            tableList.render();
             var commentsView = new CommentsView({
             methodId: that.options.method,
             version: that.options.version,
