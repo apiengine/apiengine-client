@@ -24,7 +24,7 @@ define([
       this.modal = Modal.create({
         content: registert
       });
-      $('.modal input').focus();
+      $('.modal input[name="name"]').focus();
     },
     events: {
 

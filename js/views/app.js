@@ -22,8 +22,8 @@ define([
  if(res.status >= 500 && res.status <= 600) {
   var error = new ErrorModel();
   error.save({
-    "page": window.location,
-"context": req.type + ' ' req.url,
+    "page": window.location.href,
+"context": req.type + ' ' + req.url,
 "code": res.status,
 "error": res.responseText,
 "payload": req.data
