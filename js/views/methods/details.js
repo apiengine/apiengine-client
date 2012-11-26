@@ -58,6 +58,8 @@ define([
           clearNModel.destroy({
             success: function (arguments) {
               console.log('YOLO', arguments);
+              $('.method-notification[data-resource-id="'+that.options.resourceId+'"][data-method-id="'+that.options.method+'"]').fadeOut(200).text('0');
+
             }
           })
           var commentsView = new CommentsView({

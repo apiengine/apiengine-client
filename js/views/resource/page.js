@@ -45,8 +45,7 @@ define([
           console.log('YOOOOOOOOOOOOOo', clearNModel);
           clearNModel.destroy({
             success: function (arguments) {
-              console.log('YOLO', arguments, $('.notification[data-resource-id="'+that.options.resourceId+'"]'));
-              $('.notification[data-resource-id="'+that.options.resourceId+'"]').fadeOut(200).text('0');
+              $('.resource-notification[data-resource-id="'+that.options.resourceId+'"]').fadeOut(200).text('0');
             }
           })
 

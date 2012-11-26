@@ -5,20 +5,20 @@
 </style>
 <ul class="api-menu-list method-list" style="">
 
-			 <% _.each(methods.models, function (method) { %>
- 				<li data-method-id="<%= method.get('method') %>" class="<%= selectedMethod === method.get('method') ? 'active' : '' %>">
+{{#methods}}
+ 				<li data-method-id="{{attributes.method}}" class="{{active}}">
 
-<a data-method-id="<%= method.get('method') %>" href="<%= methods.username%>/<%= methods.api%>/version/<%= methods.version %>/resource/<%= methods.resourceId%>/<%= method.get('method') %>">
+<a data-method-id="{{attributes.method}}" href="{{attributes.user}}/{{attributes.api}}/version/{{attributes.version}}/resource/{{attributes.resource}}/{{attributes.method}}">
 
-<span class="method method-<%= method.get('method') %>"><%= method.get('method') %></span>
+<span class="method method-{{attributes.method}}">{{attributes.method}}</span>
   
- <span class="method-label"><%= method.get('label') %></span>  
+ <span class="method-label">{{attributes.label}}</span>  
 
-  <span class="method_notification notification" data-method-id="<%= method.get('method') %>" style="display:none;"></span>
+  <span class="method-notification notification" data-resource-id="{{attributes.resource}}" data-method-id="{{attributes.method}}" style="display:none;"></span>
 
 </a>
 			  </li> 
-			 <% }); %>
 
+{{/methods}}
 
 </ul>     
