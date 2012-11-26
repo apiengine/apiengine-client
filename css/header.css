@@ -8,7 +8,7 @@
     height: 31px;
     background-size: 257px;
     float: left;
-    background: url('../img/api-engine-logo.png') no-repeat;
+    background: url('../img/api-engine-logo.png?embed') no-repeat;
     margin-top: 21px;
 }
 .logo-text {
@@ -17,14 +17,14 @@
     height: 31px;
     background-size: 257px;
     float: left;
-    background: url('../img/api-engine.png') no-repeat;
+    background: url('../img/api-engine.png?embed') no-repeat;
     margin-top: 21px;
 }
 
 .top-bar-container {
-    background: #444 url('../img/titlebar-bg-grad.png');
+    background: #444 url('../img/titlebar-bg-grad.png?embed');
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#252f33), color-stop(100%,#1f2020));
-    height: 73px;
+    height: 72px;
     position: relative;
 }
 .top-bar-menu {

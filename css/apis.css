@@ -133,6 +133,7 @@ Some styles for API's
     border-bottom: 1px solid #ccc;
     width: 302px; 
     padding-bottom: 15px;
+    font-family: 'Nexa';
 }
 .method-container .menu-title {
   padding-left: 40px;
@@ -226,11 +227,14 @@ Some styles for API's
     text-align: right;
   }
 
-  
+  .descriptive {
+    font-size: 14px;
+    color: #333;
+  }
 
     .method-title {
-    height: 50px;
-    line-height: 50px;
+height: 40px;
+line-height: 44px;
     font-size: 26px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -255,7 +259,25 @@ Some styles for API's
   }
 
 
-.api-description:hover {
+.edit-api-description:hover {
   outline: 1px solid #ccc;
   background: #ebebeb;
+}
+.method-page-container {
+  padding: 20px 0 20px 40px;
+}
+.method-section {
+  overflow: auto;
+  margin-bottom: 40px;
+}
+.method-section h3 {
+  margin: 0 0 15px 0;
+  font-weight: normal;
+  font-family: 'Nexa Bold';
+}
+.http-request {
+}
+.http-request-text {
+  line-height: 22px;
+  color: #555;
 }

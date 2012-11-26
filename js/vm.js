@@ -27,9 +27,17 @@ define([
 		return view;
 	}
 	
+  var get = function (name) {
+    if(typeof views[name] !== 'undefined') {
+      return views[name];
+    } else {
+      return false;
+    }
+  }
 	
   return {
-  	create: create
+  	create: create,
+    get: get
   };
 })
 ;

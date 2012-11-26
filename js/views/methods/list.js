@@ -45,13 +45,16 @@ define([
       return false;
     },
     showMethodView: function (ev) {
-      var that = this;
-      if(ev) {
-        console.log('ooo')
-        that.options.method = $(ev.currentTarget).attr('data-method-id');
+        var that = this;
+
+      if(that.options.method || ev) {
+        if(ev) {
+          console.log('ooo')
+          that.options.method = $(ev.currentTarget).attr('data-method-id');
+        }
+        var methodView = Vm.create(this, 'methodpageview', MethodView, {username: that.options.username, api: that.options.api, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
+        methodView.render();  
       }
-      var methodView = Vm.create(this, 'methodpageview', MethodView, {username: that.options.username, api: that.options.api, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
-      methodView.render();  
     },
     render: function () {
       console.log(this.options.method, 'WHY IS THERE NO DAMN METHOD');

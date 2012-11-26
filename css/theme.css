@@ -7,6 +7,9 @@ a {
   color: #39f;
   text-decoration: none;
 }
+p { 
+font-size: 14px;
+}
 /*a:hover {
   color: #39f;
   text-decoration: underline;
@@ -87,4 +90,17 @@ body {
 }
 .centered-content {
   text-align: center;
+}
+
+body [data-show-authed],
+body [data-hide-authed] {
+  display: none;
+}
+
+body [data-show-authed="true"] {
+  display: block;
+}
+
+body [data-hide-authed="false"] {
+  display: block;
 }

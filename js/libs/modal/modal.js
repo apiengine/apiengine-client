@@ -18,6 +18,7 @@ define(['jquery'], function ($) {
     $('body').append(this.el);
 
 
+
     if(options.inline) {
       var from = options.inline.from;
       var to = $(options.inline.to, this.el);
@@ -62,10 +63,18 @@ define(['jquery'], function ($) {
   };
 
 
+
   var create = function (options) {
     var Modal = new modal(options);
     $('.js-close-modal', Modal.el).on('click', function (){
       Modal.hide();
+    });
+
+    $(document).on('keydown', function (ev){
+      if(ev.which == 27){
+
+       Modal.hide();
+      }
     })
     return Modal;
   };

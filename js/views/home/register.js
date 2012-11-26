@@ -34,7 +34,7 @@ define([
       });
     },
     render: function () {
-      mixpanel.track('Opened Signup');
+    //  mixpanel.track('Opened Signup');
       this.modal = Modal.create({
         content: registert
       });
@@ -57,7 +57,7 @@ define([
         success: function (data) {
 
             Session.set({auth: null}, {silent: true});
-            mixpanel.track('Signed up succesfully');
+            //mixpanel.track('Signed up succesfully');
             if(data.get('beta') === true) {
               $('.modal-footer').hide();
               $('.modal-content').empty();
@@ -70,12 +70,14 @@ define([
             }
         },
         error: function (model, res) {
-          mixpanel.track('Signup form errors');
-          var res = JSON.parse(res.responseText);
+          //mixpanel.track('Signup form errors');
+           try { res = JSON.parse(res.responseText); } catch (exception) { res = null; } 
+           if(res){
           $('.modal-form-errors', that.modal.el).html('')
           console.log(arguments);
           $('.modal-form-errors', that.modal.el).append($('<li>').html(_.template(errorT, {message: res.error}) ));
         $('[type=submit]', that.modal.el).removeAttr('disabled');
+      }
 
         }
       });

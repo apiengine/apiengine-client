@@ -23,19 +23,19 @@ define([
       this.on('change:auth', function (model) {
         console.log('user details', model);
         if(model.get('auth')) {
-          mixpanel.people.identify(model.get('login'));
-          mixpanel.name_tag(model.get('login'));
-          mixpanel.people.set({
-    "$username": model.get('login'),    // only special properties need the $
-    "$name": model.get('login'),    // only special properties need the $
-    "$first_name": model.get('user').profile.name,    // only special properties need the $
-    "$email": model.get('user').email,    // only special properties need the $
-    "$created": model.get('user').profile.joindate,
-    company: model.get('user').profile.company
+         // mixpanel.people.identify(model.get('login'));
+       //   mixpanel.name_tag(model.get('login'));
+       //   mixpanel.people.set({
+   // "$username": model.get('login'),    // only special properties need the $
+   // "$name": model.get('login'),    // only special properties need the $
+   // "$first_name": model.get('user').profile.name,    // only special properties need the $
+   // "$email": model.get('user').email,    // only special properties need the $
+  //  "$created": model.get('user').profile.joindate,
+  //  company: model.get('user').profile.company
 
-});
+//});
         } else {
-          mixpanel.people.identify(null);
+        //  mixpanel.people.identify(null);
         }
         //mixpanel.people.identify("12148");
       });
@@ -56,8 +56,8 @@ define([
       var that = this;
       this.destroy({
         success: function (model, resp) {
-          mixpanel.track('Logged out');
-          mixpanel.people.identify(null);
+        //  mixpanel.track('Logged out');
+        //  mixpanel.people.identify(null);
           
           // Set auth to false to trigger a change:auth event
           // The server also returns a new csrf token so that

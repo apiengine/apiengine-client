@@ -1,64 +1,31 @@
 <style>
-
 </style>
-
 <ul class="api-menu-list resource-list">
-  
-  <% 
-  _.each(resources.models, function (resource) { 
-    
+    {{#resources.models}}
+    <li class="{{active}}" data-resource-id="{{id}}" data-resource-resource="{{attributes.resource}}">
+        <div style="">
+            <a data-resource-id="{{id}}" href="#{{attributes.user}}/{{attributes.api}}/version/{{attributes.version}}/resource/{{id}}">
+      <span  class="resource-label">{{attributes.label}}</span>
 
-  %> 
-
-  <li class="<%= selectedResource*1 === resource.id ? 'active' : '' %>" data-resource-id="<%= resource.id %>">
-    <div style="">
-    <a data-resource-id="<%= resource.id %>" href="<%= resources.username%>/<%= resources.api%>/version/<%= resources.version %>/resource/<%= resource.id%>">
-      <span  class="resource-label"><%= resource.get('label') %> </span>
-
-    <span data-resource-id="<%= resource.id %>" class="resource_notification notification"></span>
+    <span data-resource-id="{{id}}" class="resource_notification notification"></span>
 
     </a>
-    <div style="clear: both;"></div>
-    </div>
-  </li>
-  <li style="display: none; border-top: none;">
-    <div class="resource-submenu">
-    <ul class="api-menu-list">
-
-      <!--
-        <li><a class="overview-link" data-resource-id="<%= resource.id %>" href="<%= resources.username%>/<%= resources.api%>/version/<%= resources.version %>/resource/<%= resource.id%>">Overview
-
- <span data-resource-id="<%= resource.id %>" class="method_notification notification"></span>
-        </a></li>-->
-      </ul>
-    <div class="method-sublist-container">
- <div class="api-list-ajax"><div class="ajax-cog" ></div> <span class="loading">Loading</span></div>
-      
-    </div>
-    </div> 
-  </li>
-  <% }); %>
-
-<!--
-	<% 
-	var lastTag = '';
-	_.each(resources.models, function (resource) { 
-		
-
-		if(lastTag !== resource.get('tag')) {
-		%>
-	  <li class="nav-header" style="margin-top: 10px;">
-    <%= resource.get('tag') %>
-  </li>	
-  <%
-  };
-  lastTag = resource.get('tag');
-  %> 
-	<li class="<%= selectedResource*1 === resource.id ? 'active' : '' %>" data-resource-id="<%= resource.id %>">
-    <a href="<%= resources.username%>/<%= resources.api%>/version/<%= resources.version %>/resource/<%= resource.id%>">
-			<%= resource.get('label') %>
-	  </a>
-	</li>
-  <% }); %>
--->
-			</ul>
+            <div style="clear: both;">
+            </div>
+        </div>
+    </li>
+    <li style="display: none; border-top: none;">
+        <div class="resource-submenu">
+                <div class="method-sublist-container">
+                    <div class="api-list-ajax">
+                        <div class="ajax-cog">
+                        </div>
+                        <span class="loading">
+                            Loading
+                        </span>
+                    </div>
+                </div>
+        </div>
+    </li>
+    {{/resources.models}}
+    </ul>
