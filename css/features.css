@@ -71,7 +71,7 @@
 .features-heading {
   font-size: 36px;
   font-family: 'Nexa Bold';
-  color:#333;
+  color:#171717;
   font-weight: normal;
   margin-top: 0;
   margin-bottom: 5px;
@@ -82,7 +82,7 @@
   font-family: 'Nexa';
   margin: 0;
   margin-bottom: 20px;
-  width:530px;
+  width:520px;
   line-height: 30px;
 }
 .features-preamble {
@@ -136,7 +136,7 @@ right: 0;
   font-size: 24px;
   line-height:24px;
   margin: 25px 0 25px 0;
-  color:#333;  
+  color:#171717;  
 }
 .column-one {
   width: 48%;
