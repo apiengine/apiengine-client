@@ -6,8 +6,9 @@ define([
   'models/session',
   'models/resource',
   'text!templates/resource/page.html',
+  'models/clearnotification',
   'views/comments/comments'
-  ], function($, _, Backbone, Vm, Session, ResourceModel, resourcePageTemplate, CommentsView){
+  ], function($, _, Backbone, Vm, Session, ResourceModel, resourcePageTemplate, ClearNModel, CommentsView){
   var ResourcesPage = Backbone.View.extend({
     el: '.method-container',
     initialize: function () {
@@ -17,9 +18,9 @@ define([
     events: {
     },
     render: function () {
-      console.log('HELLOOOOOO', this.options.resourceId);
-       $('.active').removeClass('active');
-      $('.overview-link', $('li[data-resource-id='+this.options.resourceId+']')).addClass('active');
+      $('.api-menu-container a.active').removeClass('active');
+
+      $('a[data-resource-id='+this.options.resourceId+']').addClass('active');
       var that = this;
       var resource = new ResourceModel();
       resource.set({
@@ -39,7 +40,14 @@ define([
             resourceId: that.options.resourceId
           });
           commentsView.render();
-
+          var clearNModel = new ClearNModel({id: 'dummy'});
+          clearNModel.options = that.options;
+          console.log('YOOOOOOOOOOOOOo', clearNModel);
+          clearNModel.destroy({
+            success: function (arguments) {
+              $('.resource-notification[data-resource-id="'+that.options.resourceId+'"]').fadeOut(200).text('0');
+            }
+          })
 
 
         }

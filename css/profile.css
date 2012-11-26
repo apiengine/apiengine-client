@@ -31,6 +31,11 @@
 
 */
 
+.cog-power {
+  width: 146px;
+  height: 146px;
+  background: url('../img/cog-power-146x146.png?embed');
+}
 
   .user-profile-image {
     width: 60px;

@@ -4,13 +4,14 @@ define([
   'backbone',
   'vm',
   'router',
+  'mustache',
   'models/session',
   'text!templates/methods/details.html',
   'models/method',
   'views/forms/method',
   'views/comments/comments',
   'models/clearnotification'
-], function($, _, Backbone, Vm, Router, Session, methodTemplate, MethodModel, MethodForm, CommentsView, ClearNModel){
+], function($, _, Backbone, Vm, Router, Mustache, Session, methodTemplate, MethodModel, MethodForm, CommentsView, ClearNModel){
   var MethodDetailsView = Backbone.View.extend({
     el: '.method-container',
     initialize: function () {
@@ -34,7 +35,8 @@ define([
     render: function () {
       console.log('why no rerender view');
       var that = this;
-      $('.active').removeClass('active');
+            $('.api-menu-container a.active').removeClass('active');
+            console.log(this.options, 'is there a resource id');
       $('[data-method-id='+ this.options.method +']', $('[data-resource-id='+this.options.resourceId+']')).addClass('active');
 
       this.method = new MethodModel();
@@ -45,17 +47,21 @@ define([
         username: this.options.username,
         resourceId: this.options.resourceId
       });
+      var resourceUrl = $('li[data-resource-id="'+this.options.resourceId+'"]').attr('data-resource-resource');
       this.method.fetch({
         success: function(model) {
-          that.$el.html(_.template(methodTemplate, {method: model}));
+          that.$el.html(Mustache.render(methodTemplate, {method: model, resourceUrl: resourceUrl}));
           var clearNModel = new ClearNModel({id: that.options.method});
           clearNModel.options = that.options;
+          clearNModel.options.method = model.get('method');
           console.log('YOOOOOOOOOOOOOo', clearNModel);
-         // clearNModel.destroy({
-         //   success: function (arguments) {
-         //     console.log('YOLO', arguments);
-         //   }
-         // })
+          clearNModel.destroy({
+            success: function (arguments) {
+              console.log('YOLO', arguments);
+              $('.method-notification[data-resource-id="'+that.options.resourceId+'"][data-method-id="'+that.options.method+'"]').fadeOut(200).text('0');
+
+            }
+          })
           var commentsView = new CommentsView({
             methodId: that.options.method,
             version: that.options.version,

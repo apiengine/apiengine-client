@@ -1,0 +1,102 @@
+/*
+# Pricing
+
+```
+<div class="background light-grey pricing-container">
+
+<div class="tri-box yellow">
+  <span class='heading'>LIMITED API</span>
+</div>
+<div class="tri-box green">
+  <span class='heading'>LIMITED API</span>
+</div>
+<div class="tri-box blue">
+  <span class='heading'>LIMITED API</span>
+</div>
+<div style="clear: both;"></div>
+
+<div class="tri-box promo">
+  <span class="free">FREE</span>
+</div>
+<div class="tri-box promo">
+  <span class="price">$10</span><br />
+  <span class="promo-desc">A MONTH</span>
+</div><div class="tri-box promo">
+  <span class='heading'>LIMITED API</span>
+</div>
+<div style="clear: both;"></div>
+
+
+</div>
+<div class="background blue"></div>
+```
+*/
+.pricing-container {
+  padding: 50px 0;
+}
+.tri-box {
+  width: 320px;
+  background: #222;
+  float: left;
+  position: relative;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+.tri-box:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0; 
+  height: 0; 
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid #F7F7F7;
+  
+  border-left: 15px solid transparent;
+
+}
+.tri-box.promo {
+  text-align: center;
+}
+.free {
+  display: inline-block;
+  font-size: 36px;
+  font-family: 'Nexa';
+  color: #ebebeb;
+  padding: 30px 0;
+
+}
+.price {
+
+  display: inline-block;
+  font-size: 36px;
+  font-family: 'Nexa';
+  color: #ebebeb;
+  padding: 30px 0 10px 0;
+  }
+  .promo-desc {
+    display: inline-block;
+    color: #ccc;
+  }
+.tri-box.yellow {
+  background: #fed563;
+}
+.tri-box.green {
+  background: #65b04b;
+}
+.tri-box.blue {
+  background: #019ff3;
+}
+.tri-box.yellow .heading,
+.tri-box.green .heading,
+.tri-box.blue .heading {
+  color: #222;
+}
+.tri-box .heading {
+  font-size: 20px;
+  display: inline-block;
+  padding: 10px;
+  color: #ebebeb;
+  line-height: 16px;
+  font-family: 'Nexa';
+}

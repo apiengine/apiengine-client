@@ -64,49 +64,49 @@ body.grey {
   background: #fff;
 }
 .background.white:before {
-  background: url('../img/backgrounds/scollop-white.png');
+  background: url('../img/backgrounds/scollop-white-with-shadow.png?embed');
 }
 .background.dark-grey {
   background: #171717;
 }
 .background.dark-grey:before {
-  background: url('../img/backgrounds/scollop-dark-grey.png');
+  background: url('../img/backgrounds/scollop-dark-grey.png?embed');
 }
 .background.yellow {
   background: #fed563;
 }
 .background.yellow:before {
-  background: url('../img/backgrounds/scollop-yellow.png');
+  background: url('../img/backgrounds/scollop-yellow.png?embed');
 }
 .background.blue {
   background: #019ff3;
 }
 .background.blue:before {
-  background: url('../img/backgrounds/scollop-blue.png');
+  background: url('../img/backgrounds/scollop-blue.png?embed');
 }
 .background.grey {
   background: #485259;
 }
 .background.grey:before {
-  background: url('../img/backgrounds/scollop-grey.png');
+  background: url('../img/backgrounds/scollop-grey.png?embed');
 }
 .background.light-grey {
   background: #f7f7f7;
 }
 .background.light-grey:before {
-  background: url('../img/backgrounds/scollop-light-grey.png');
+  background: url('../img/backgrounds/scollop-light-grey.png?embed');
 }
 .background.red {
   background: #ea2452;
 }
 .background.red:before {
-  background: url('../img/backgrounds/scollop-red.png');
+  background: url('../img/backgrounds/scollop-red.png?embed');
 }
 
 
 
 .titlebar {
-  background: url('../img/backgrounds/titlebar-bg.png');
+  background: url('../img/backgrounds/titlebar-bg.png?embed');
   z-index: 1;
   position: relative;
 }
@@ -115,7 +115,7 @@ body.grey {
 
 .titlebar-scollop{
   position:absolute;
-  background: url('../img/backgrounds/titlebar-scollop.png');
+  background: url('../img/backgrounds/titlebar-scollop.png?embed');
   height:2px;
   width:100%;
 }

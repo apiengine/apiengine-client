@@ -3,9 +3,10 @@ define([
   'underscore',
   'backbone',
   'models/session',
+  'mustache',
   'text!templates/header/main-menu.html',
   'views/header/account-menu'
-], function($, _, Backbone, Session, mainMenuTemplate, AccountMenuView){
+], function($, _, Backbone, Session, Mustache, mainMenuTemplate, AccountMenuView){
   var MainMenuView = Backbone.View.extend({
     el: '.main-menu-container',
     initialize: function () {
@@ -21,10 +22,10 @@ define([
     render: function () {
       if(Session.get('auth')){
         
-        this.$el.html(_.template(mainMenuTemplate, {username: Session.get('login')}));
+        this.$el.html(Mustache.render(mainMenuTemplate, {username: Session.get('login')}));
       } else {
         
-        this.$el.html(_.template(mainMenuTemplate, {username: null}));
+        this.$el.html(Mustache.render(mainMenuTemplate, {username: null}));
       }
       var value = 0
 

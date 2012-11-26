@@ -31,7 +31,7 @@
         </ul>
         <div style="clear: both;"></div>
         {{#owner}}
-        <p style="" class="api-description">Click to edit end description...</p>
+        <p style="" class="edit-api-description">Click to edit end description...</p>
         {{/owner}}
 
         {{^owner}}
@@ -49,36 +49,18 @@
 
   <div class="tabs-container">
     <ul class="tabs">
-      <li class="active"><a href="">Documentation</a></li>
-      <li><a href="">Manage API</a></li>
+      <li  class="api-docs"><a href="#{{api.attributes.user}}/{{api.attributes.apiname}}/version/1">Documentation</a></li>
+              {{#owner}}
+      <li class="api-settings"><a href="#{{api.attributes.user}}/{{api.attributes.apiname}}/settings/general" >Manage API</a></li>
+        {{/owner}}
     </ul>
     <div style="clear: both;"></div>
   </div>
     <div style="clear: both;"></div>
+    <div class="api-page-container"></div>
+    <!--
 
-<div class="api-details-container">
-
-  <div class="side-menu">
-    <div class="menu-title">
-      API map
-    </div>
-    <div class="api-menu-container">
-
-
-      <ul class="api-menu-list">
-        <li><a href="">Overview</a></li>
-      </ul>
-      <div class="resource-list-container">
-        Loading resources
-      </div>
-    </div>
-  </div>
-  <div class="" style="float: left; width: 722px;">
-    <div class="method-container">
-    </div>
-  </div>
-</div>
-
+-->
 </div>
 </div>
 </div>

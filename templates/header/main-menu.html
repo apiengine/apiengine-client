@@ -5,21 +5,31 @@
       <div class="logo-text"></div>
     </a>
         <ul class="top-bar-menu">
+            {{#username}}
             <li>
-                <a class="home-button" href="#">Home</a>
+                <a class="dashboard-button" href="#{{username}}">Dashboard</a>
             </li>
+
             <li>
                 <a class="explore-button" href="#browse">Explore</a>
             </li>
+            
+            {{/username}}
+            {{^username}}
             <li>
-                <a class="features-button" href="#features">Features</a>
+                <a class="home-button" href="#">Home</a>
+            </li>
+
+            <li>
+                <a class="features-button"  href="#features">Features</a>
             </li>
             <li>
-                <a class="pricing-button" href="#pricing">Pricing</a>
+                <a class="pricing-button"  href="#pricing">Pricing</a>
             </li>
             <li>
-                <a class="news-button" href="#pricing">News</a>
+                <a class="news-button"  href="#pricing">News</a>
             </li>
+            {{/username}}
         </ul>
         <ul style="padding: 0; margin: 0; display: none;" class="account-menu-container ">
         </ul>

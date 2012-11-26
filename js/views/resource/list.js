@@ -3,6 +3,7 @@ define([
   'underscore',
   'backbone',
   'vm',
+  'mustache',
   'models/session',
   'text!templates/resource/list.html',
   'collections/resources',
@@ -10,7 +11,7 @@ define([
   'models/resource',
   'views/resource/page',
   'models/notificationtotal'
-], function($, _, Backbone, Vm, Session, resourceListTemplate, ResourcesCollection, MethodsListView, ResourceModel, ResourcePageView, NTotals){
+], function($, _, Backbone, Vm, Mustache, Session, resourceListTemplate, ResourcesCollection, MethodsListView, ResourceModel, ResourcePageView, NTotals){
   var ApisPage = Backbone.View.extend({
     el: '.resource-list-container',
     initialize: function () {
@@ -27,7 +28,7 @@ define([
       if(ev){
         var el = $(ev.currentTarget);
         this.options.resourceId = $(el).attr('data-resource-id');
-        this.options.methodId = null;
+        this.options.method = null;
       } else {
        var el = $('[data-resource-id=' + this.options.resourceId + ']');
       }
@@ -66,7 +67,11 @@ define([
       that.$el.attr('data-api-id', that.options.api);
       resources.fetch({
         success: function (collection) {
-          that.$el.html(_.template(resourceListTemplate, {_:_, selectedResource: that.options.resourceId, is_public: that.options.is_public, resources: collection, username: Session.get('login'), location: that.options.location}));
+          if(that.options.resourceId) {
+            
+          collection.get(that.options.resourceId).set({active: 'active'});
+          }
+          that.$el.html(Mustache.render(resourceListTemplate, {_:_, selectedResource: that.options.resourceId, is_public: that.options.is_public, resources: collection, username: Session.get('login'), location: that.options.location}));
           if(typeof that.options.resourceId !== 'undefined') { //&& $('.method-list-container').attr('data-resource-id') !== that.options.resourceId) {
              that.showMethodList();           
           }
@@ -84,8 +89,8 @@ define([
               //var notifEl = $('.notification[data-resource-id='+model.options.resourceId+']');
              // notifEl.text(model.get('resource')).show();
               _.each(model.get('resources'), function(method){
-                console.log(method);
-                var anotifEl = $('.resource_notification[data-resource-id='+method.key+']');
+                console.log(method,'wtf is this');
+                var anotifEl = $('.resource-notification[data-resource-id='+method.key+']');
                 anotifEl.text(method.count).show();
 
               });

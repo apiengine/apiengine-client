@@ -15,7 +15,23 @@ define([
   var AppView = Backbone.View.extend({
     el: 'body',
     initialize: function () {
-      
+      var ErrorModel = Backbone.Model.extend({
+        url: '/error'
+      });
+      $("body").ajaxError(function(ev, res, req) {
+ if(res.status >= 500 && res.status <= 600) {
+  var error = new ErrorModel();
+  error.save({
+    "page": window.location.href,
+"context": req.type + ' ' + req.url,
+"code": res.status,
+"error": res.responseText,
+"payload": req.data
+
+  }, {})
+ }
+  console.log(arguments);
+});
       // This snipper should usually be loaded elsewhere
       // It simply takes a <form> and converts its values to an object
       $.fn.serializeObject = function() {
@@ -43,7 +59,6 @@ define([
         //options.url = 'http://192.168.2.111:3000' + options.url;
         }// else {
         //options.url = 'http://d3gscmgl75g1oq.cloudfront.net' + options.url;
-         
 
        // };
 
@@ -59,13 +74,16 @@ define([
       var headerView = new HeaderView();
       headerView.render();
       footerView.render(); 
+
+
+
       Session.getAuth(function () {
         $('body').on('click', 'a', function (e) {
           if($(this).attr('href').substr(0,4) === 'http') {
 
           } else {
             clicky.log($(this).attr('href'), $(this).attr('href'), 'pageview')
-            mixpanel.track_pageview();
+           // mixpanel.track_pageview();
             Backbone.router.navigate($(this).attr('href'), true);
             return false;
               

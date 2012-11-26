@@ -19,7 +19,7 @@
 }
 
 .settings-container {
-  margin-top: 30px;
+  padding-top: 30px;
   min-height: 400px;
 }
 .settings-menu-container {
@@ -44,7 +44,16 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  margin-bottom: 30px;
   border-right: 1px solid #ebebeb;
+}
+.settings-menu {
+  border-top: 1px solid #ebebeb;
+
+}
+.settings-menu:first-child {
+  border-top: none;
+
 }
 .settings-menu li {
   border-bottom: 1px solid #ebebeb;

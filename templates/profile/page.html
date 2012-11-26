@@ -3,7 +3,16 @@
 <div class="profile-box" data-login="{{user.attributes.login}}">
   <img class="profile-box-pic" src="//www.gravatar.com/avatar/{{user.attributes.gravatar}}.jpg?s=150" />
   <div class="profile-box-info">
+
+    {{#user.attributes.profile.name}}
+    <h3>{{user.attributes.profile.name}}({{user.attributes.login}})</h3>
+
+    {{/user.attributes.profile.name}}
+    {{^user.attributes.profile.name}}
     <h3>{{user.attributes.login}}</h3>
+
+    {{/user.attributes.profile.name}}
+
     <span class="extra">Member for <span class="timeago" title="{{user.attributes.profile.joindate}}"></span>.</span><br />
     <span class="extra">Location: {{user.attributes.profile.location}}</span><br />
     <p class="">{{user.attributes.profile.description}}</p>
@@ -17,29 +26,31 @@
 
 
       {{#user.attributes.profile.twitter}}
-      <a href="http://twitter.com/{{user.attributes.profile.twitter}}"><img class="favicon icon" src="http://twitter.com/favicon.ico" /></a>
+      <a href="http://twitter.com/{{user.attributes.profile.twitter}}"><img class="favicon icon" src="//twitter.com/favicon.ico" /></a>
       {{/user.attributes.profile.twitter}}
 
       {{#user.attributes.profile.facebook}}
-      <a href="http://facebook.com/{{user.attributes.profile.facebook}}"><img class="favicon icon" src="http://facebook.com/favicon.ico" /></a>
+      <a href="http://facebook.com/{{user.attributes.profile.facebook}}"><img class="favicon icon" src="//facebook.com/favicon.ico" /></a>
       {{/user.attributes.profile.facebook}}
 
       {{#user.attributes.profile.github}}
-      <a href="http://github.com/{{user.attributes.profile.github}}"><img class="favicon icon" src="http://github.com/favicon.ico" /></a>
+      <a href="http://github.com/{{user.attributes.profile.github}}"><img class="favicon icon" src="//github.com/favicon.ico" /></a>
       {{/user.attributes.profile.github}}
 
       {{#user.attributes.profile.stackoverflow}}
-      <a href="http://stackoverflow.com/{{user.attributes.profile.stackoverflow}}"><img class="favicon icon" src="http://stackoverflow.com/favicon.ico" /></a>
+      <a href="http://stackoverflow.com/{{user.attributes.profile.stackoverflow}}"><img class="favicon icon" src="//stackoverflow.com/favicon.ico" /></a>
       {{/user.attributes.profile.stackoverflow}}
 
       {{#user.attributes.profile.linkedin}}
-      <a href="http://linkedin.com/{{user.attributes.profile.linkedin}}"><img class="favicon icon" src="http://linkedin.com/favicon.ico" /></a>
+      <a href="http://linkedin.com/{{user.attributes.profile.linkedin}}"><img class="favicon icon" src="//linkedin.com/favicon.ico" /></a>
       {{/user.attributes.profile.linkedin}}
     </div> 
   </div>
   <div class="profile-box-buttons">
     {{#currentUser}}
+    <!--
     <button class="btn btn-regular">EDIT PROFILE</button>
+  -->
     {{/currentUser}}
     
     <div style="clear: both;"></div>
@@ -54,7 +65,9 @@
   <div class="tabs-container">
     <ul class="tabs">
       <li class="active apilist"><a href="{{user.attributes.login}}">APIs</a></li>
+      <!--
       <li class=" "><a href="{{user.attributes.login}}">Activity</a></li>
+    -->
       {{#currentUser}}
       <li class="settings"><a href="{{user.attributes.login}}/settings/profile">Settings</a></li>
       {{/currentUser}}

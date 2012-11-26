@@ -19,12 +19,12 @@ define([
       });
     },
     render: function () {
-      mixpanel.track('Opened API modal');
+     // mixpanel.track('Opened API modal');
 
       this.modal = Modal.create({
         content: registert
       });
-      $('.modal input').focus();
+      $('.modal input[name="name"]').focus();
     },
     events: {
 
@@ -45,11 +45,11 @@ define([
         success: function (data) {
             Backbone.router.navigate(data.get('user') + '/' + data.get('name') + '/version/' + data.get('versions')[0], true);
           that.modal.hide();
-      mixpanel.track('Created a new API');
+     // mixpanel.track('Created a new API');
 
         },
         error: function (model, res) {
-      mixpanel.track('New API Form errors');
+    //  mixpanel.track('New API Form errors');
 
           var res = JSON.parse(res.responseText);
           console.log(arguments);

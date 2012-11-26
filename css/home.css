@@ -185,3 +185,19 @@ padding-bottom: 80px;
 	height:23px;
 	display:inline-block;
 }
+
+.feature-1 {
+  background: url('../img/hp-feature-1.png');
+  width: 222px;
+  height: 222px;
+}
+.feature-2 {
+  background: url('../img/hp-feature-2.png');
+  width: 222px;
+  height: 222px;
+}
+.feature-3 {
+  background: url('../img/hp-feature-3.png');
+  width: 222px;
+  height: 222px;
+}

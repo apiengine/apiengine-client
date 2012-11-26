@@ -50,9 +50,9 @@ var rootPath = '..';
     ]
 });
 var index = fs.readFileSync(rootPath + '/index.html', 'ascii');
-index = index.replace('css/styles.css', '//d3oqwi49u9bqjg.cloudfront.net/version/' + version + '/css/styles.css');
+index = index.replace('css/styles.css', 'https://d3oqwi49u9bqjg.cloudfront.net/version/' + version + '/css/styles.css');
 index = index.replace('<base href="/repos/apiengine-client/" />', '');
-index = index.replace(' data-main="js/main"', ' data-main="//d3oqwi49u9bqjg.cloudfront.net/version/' + version + '/js/main"');
+index = index.replace(' data-main="js/main"', ' data-main="https://d3oqwi49u9bqjg.cloudfront.net/version/' + version + '/js/main"');
 fs.writeFileSync('output/index.html', index);
   rjs.optimize({
     cssIn: rootPath + '/css/styles.css',
@@ -62,14 +62,14 @@ fs.writeFileSync('output/index.html', index);
 var path = require('path');
 
 function cssIncImages(cssFile) {
-  var imgRegex = /url\s?\(['"]?(\.\.\/img.*?\?embed)(?=['"]?\))/gi;
+  var imgRegex = /url\s?\(['"]?(\.\.\/img.*?)\?embed(?=['"]?\))/gi;
   var css = fs.readFileSync(cssFile, 'utf-8');
   while (match = imgRegex.exec(css)) {
     var imgPath = path.join(path.dirname(cssFile), match[1]);
     try {
       var img = fs.readFileSync(imgPath, 'base64');
       var ext = imgPath.substr(imgPath.lastIndexOf('.') + 1);
-      css = css.replace(match[1], 'data:image/' + ext + ';base64,' + img);
+      css = css.replace(match[1] + '?embed', 'data:image/' + ext + ';base64,' + img);
     } catch (err) {
       console.log('Image not found (%s).', imgPath);
     }
@@ -86,9 +86,10 @@ function cssIncImages(cssFile) {
       fs.copy(rootPath + '/css/fonts', outputFolder +'/css/fonts', function () {
         
 cssIncImages(outputFolder + '/css/styles.css');
-
+      fs.copy('output', 'relic', function () {
+        
         var endTime = (Date.now() - startTime) / 1000;
-
+});
       });
       });
     });
