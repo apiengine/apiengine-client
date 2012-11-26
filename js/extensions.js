@@ -1,5 +1,15 @@
 define(['jquery'], function ($) {
-  
+  if (!Date.prototype.toISOString) {
+    Date.prototype.toISOString = function() {
+        function pad(n) { return n < 10 ? '0' + n : n }
+        return this.getUTCFullYear() + '-'
+            + pad(this.getUTCMonth() + 1) + '-'
+            + pad(this.getUTCDate()) + 'T'
+            + pad(this.getUTCHours()) + ':'
+            + pad(this.getUTCMinutes()) + ':'
+            + pad(this.getUTCSeconds()) + 'Z';
+    };
+}
 (function($) {
 var supportedCSS,styles=document.getElementsByTagName("head")[0].style,toCheck="transformProperty WebkitTransform OTransform msTransform MozTransform".split(" ");
 for (var a=0;a<toCheck.length;a++) if (styles[toCheck[a]] !== undefined) supportedCSS = toCheck[a];

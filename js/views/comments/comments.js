@@ -63,7 +63,7 @@ define([
         var attributes = {
           user: Session.get('user'),
           message: comment.get('comment'),
-          created_at: new Date()
+          created_at: new Date().toISOString()
         }
           $('.comments-list-container .comments').prepend(Mustache.render(SingleComment, {attributes: attributes}));
           $('.timeago').timeago();
