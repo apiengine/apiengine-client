@@ -12,13 +12,10 @@ define([
   'modal',
   'text!templates/modals/login.html',
   'animations/cogs',
-  'animations/collaboration',
-  'animations/framework',
   'animations/mobile',
   'animations/private',
-  'animations/public',
-  'animations/stylish'
-], function($, _, Backbone, swiffy, Session, homeTemplate, AuthView, ApisList, exampleLoginTemplate, exampleLogoutTemplate, Modal, logint, acogs, acollaboration, aframework,amobile,aprivate,apublic,astylish){
+  'animations/public'
+], function($, _, Backbone, swiffy, Session, homeTemplate, AuthView, ApisList, exampleLoginTemplate, exampleLogoutTemplate, Modal, logint, acogs, amobile,aprivate,apublic){
   var ExamplePage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
@@ -543,16 +540,10 @@ define([
           that.slider.changeSlide(that.slider.currentSlide, $(ev.currentTarget).attr('data-slide')*1);
         });
 
-        this.stage4 = new swiffy.Stage(document.getElementById('collaboration'),acollaboration);
-        this.stage5 = new swiffy.Stage(document.getElementById('stylish'),astylish);
-        this.stage6 = new swiffy.Stage(document.getElementById('framework'),aframework);
         this.stage7 = new swiffy.Stage(document.getElementById('cogs'),acogs);
 
 
         
-        this.stage4.start();
-        this.stage5.start();
-        this.stage6.start();
         this.stage7.start();
 
 
