@@ -90,8 +90,10 @@ define([
              // notifEl.text(model.get('resource')).show();
               _.each(model.get('resources'), function(method){
                 console.log(method,'wtf is this');
-                var anotifEl = $('.resource-notification[data-resource-id='+method.key+']');
-                anotifEl.text(method.count).show();
+                if(method.count > 0) {
+                  var anotifEl = $('.resource-notification[data-resource-id='+method.key+']');
+                  anotifEl.text(method.count).show();
+                }
 
               });
             }

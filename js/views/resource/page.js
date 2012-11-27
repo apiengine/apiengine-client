@@ -45,7 +45,14 @@ define([
           console.log('YOOOOOOOOOOOOOo', clearNModel);
           clearNModel.destroy({
             success: function (arguments) {
-              $('.resource-notification[data-resource-id="'+that.options.resourceId+'"]').fadeOut(200).text('0');
+              var resourceEl = $('.resource-notification[data-resource-id="'+that.options.resourceId+'"]');
+              if($(resourceEl).attr('data-method-totals')*1 > 0) {
+               $(resourceEl).text($(resourceEl).attr('data-method-totals')*1).fadeIn(200);
+
+              } else {
+                $(resourceEl).fadeOut(200).text('0');
+
+              }
             }
           })
 

@@ -84,15 +84,18 @@ define([
             notificationTotals.options = that.options;
             notificationTotals.fetch({
               success: function (model) {
-                var notifEl = $('.method-notification[data-resource-id='+model.options.resourceId+']');
-                if(model.get('resource') !== 0){                  
-                notifEl.text(model.get('resource')).show();
-                }
+                var notifEla = $('.resource-notification[data-resource-id='+model.options.resourceId+']');
+                var methodTotals = 0;
                 _.each(model.get('methods'), function(method){
                   var anotifEl = $('.method-notification[data-method-id='+method.key+']');
+                  methodTotals += method.count*1;
                   anotifEl.text(method.count).show();
-
                 });
+                notifEla.attr('data-method-totals', methodTotals);
+               $(notifEla).text($(notifEla).attr('data-method-totals')).show(200);
+                if(model.get('resource') !== 0){                  
+                  notifEla.text(model.get('resource')).show();
+                }
               }
             });
 

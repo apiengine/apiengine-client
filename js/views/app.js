@@ -10,8 +10,9 @@ define([
   'views/header/account-menu',
   'views/header/header',
   'views/footer/footer',
-  'views/feedback/feedback'
-], function($, _, Backbone, extensions, Vm, Events, Session, layoutTemplate, AccountMenu, HeaderView, FooterView, FeedbackView){
+  'views/feedback/feedback',
+  'views/notifications/main'
+], function($, _, Backbone, extensions, Vm, Events, Session, layoutTemplate, AccountMenu, HeaderView, FooterView, FeedbackView, Notifications){
   var AppView = Backbone.View.extend({
     el: 'body',
     initialize: function () {
@@ -89,7 +90,7 @@ define([
               
           }
         });
-    
+        var notifications = new Notifications();
         var root = '/';
         if(window.location.hostname === 'localhost') {
           root = '/repos/apiengine-client/';

@@ -58,9 +58,19 @@ define([
           clearNModel.destroy({
             success: function (arguments) {
               console.log('YOLO', arguments);
-              $('.method-notification[data-resource-id="'+that.options.resourceId+'"][data-method-id="'+that.options.method+'"]').fadeOut(200).text('0');
+              var methodEl = $('.method-notification[data-resource-id="'+that.options.resourceId+'"][data-method-id="'+that.options.method+'"]');
+              var methodCount = methodEl.text();
+              methodEl.fadeOut(200).text('0');
+              var resourceEl = $('.resource-notification[data-resource-id="'+that.options.resourceId+'"]');
+              
+               $(resourceEl).attr('data-method-totals', $(resourceEl).attr('data-method-totals')*1 - methodCount*1);
+               $(resourceEl).text($(resourceEl).attr('data-method-totals'));
+               if($(resourceEl).attr('data-method-totals')*1 === 0) {
+                $(resourceEl).fadeOut(200);
 
-            }
+               }
+              }
+            
           })
           var commentsView = new CommentsView({
             methodId: that.options.method,
