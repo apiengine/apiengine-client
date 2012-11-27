@@ -12,8 +12,10 @@
 .pricing-heading {
   font-weight: normal;
   font-family: 'Nexa Bold';
-  font-size: 40px;
+  font-size: 36px;
+  color:#171717;
   margin: 0;
+  letter-spacing: 2px;
 }
 
 .pricing-tag {
@@ -21,6 +23,7 @@
   font-size: 24px;
   padding-bottom: 30px;
   display: inline-block;
+  color:#333;
 }
 
 /*
@@ -110,15 +113,15 @@
 ```
 */
 .pricing-container {
-  padding: 50px 0;
+  padding: 75px 0 50px 0;
 }
 .tri-box {
   width: 320px;
   background: #222;
   float: left;
   position: relative;
-  margin-right: 5px;
-  margin-bottom: 5px;
+  margin-right: 2px;
+  margin-bottom: 2px;
 }
 .tri-box:after {
   content: '';
@@ -144,13 +147,23 @@
 }
 .tri-box ul li:last-child {
   border-bottom: none;
+  padding-bottom:10px;
+}
+.sign-up-and-create-btn{
+  width:100%;
+  text-align:center;
+}
+.sign-up-and-create-btn a{
+  margin:10px auto;
+  color: #171717 !important;
 }
 .tri-box .list-heading {
   line-height: 50px;
   display: inline-block;
   font-family: 'Nexa Bold';
-  font-size: 22px;
+  font-size: 18px;
   padding-left: 10px;
+  letter-spacing: 2px;
 }
 .tri-box .list-heading.yellow {
   color: #fed563;
@@ -171,48 +184,88 @@
 }
 .tri-box.promo {
   text-align: center;
-  height: 155px;
+  height: 170px;
 }
 .free {
   display: inline-block;
-  font-size: 53px;
+  font-size: 48px;
   font-family: 'Nexa';
   color: #ebebeb;
   padding: 45px 0;
 
 }
 .price {
-
   display: inline-block;
-  font-size: 60px;
+  font-size: 72px;
   font-family: 'Nexa';
-  color: #ebebeb;
+  color: #f7f7f7;
   padding: 30px 0 0px 0;
-  }
+}
+.price.price-collab{
+  font-size: 48px;
+}
   .promo-desc {
     display: inline-block;
-  font-family: 'Nexa';
-    color: #555;
+    font-family: 'Nexa';
+    font-size: 14px;
+    color: #777;
+    line-height: 24px;
   }
 .tri-box.yellow {
   background: #fed563;
+  height:50px;
+  border-top:1px solid #e4bf59;
+  color: #333333;
+}
+.tri-box.yellow.hidden {
+  visibility: hidden;
 }
 .tri-box.green {
   background: #65b04b;
+  height:50px;
+  border-top:1px solid #5b9e43;
+  color: #0c2f00;
 }
 .tri-box.blue {
   background: #019ff3;
+  height:50px;
+  border-top:1px solid #018fda;
+  color: #00293f;
 }
 .tri-box.yellow .heading,
 .tri-box.green .heading,
 .tri-box.blue .heading {
-  color: #222;
+  line-height: 30px;
 }
 .tri-box .heading {
   font-size: 20px;
   display: inline-block;
   padding: 10px;
-  color: #ebebeb;
   line-height: 16px;
   font-family: 'Nexa';
+}
+.enterprise-heading {
+  padding-top: 50px;
+  padding-bottom: 15px;
+  font-family: 'Nexa Bold';
+  font-size:36px;
+  margin: 0;
+  text-align: left;
+  color: #FFF;
+}
+.enterprise-desc {
+  float: left;
+  color: #00293f;
+  font-family:  'Nexa';
+  font-size: 24px;
+  display: inline-block;
+  margin-bottom:50px;
+  margin-top:0;
+}
+.enterprise-desc a{
+  color:#fed563;
+  text-decoration: none;
+}
+.enterprise-desc a:hover{
+  text-decoration: underline;
 }

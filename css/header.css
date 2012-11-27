@@ -23,7 +23,7 @@
 
 .top-bar-container {
     background: #444 url('../img/titlebar-bg-grad.png?embed');
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#252f33), color-stop(100%,#1f2020));
+    background: #171717;
     height: 72px;
     position: relative;
 }
@@ -42,7 +42,7 @@
 }
 .top-bar-menu li a {
     text-decoration: none;
-    color: #959ca1;
+    color: #c4cace;
     display: inline-block;
     height: 72px;
     font-size: 16px;
