@@ -61,7 +61,8 @@ define([
       window.modal = modal;
     },
     newResource: function () {
-      var newResource = Vm.create(this, 'modal', NewResource, {});
+      console.log(this.options);
+      var newResource = Vm.create(this, 'modal', NewResource, this.options);
       newResource.render();
 
       return false;

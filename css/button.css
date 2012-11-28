@@ -1,5 +1,4 @@
 /*
-
 # Buttons
 
 ## Inline actions
@@ -22,6 +21,7 @@ hrmm
   padding: 5px 5px 5px 25px;
   color: #0078bd;
   position: relative;
+  text-align: left;
 }
 .ebtn-blue {
   background: #e4f5fd;
