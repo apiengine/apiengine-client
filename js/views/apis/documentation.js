@@ -19,8 +19,10 @@ define([
   'views/forms/resource',
   'modal',
   'text!templates/modals/editdescription.html',
-  'views/apis/overview'
-], function($, _, Backbone, Router, Vm,  Mustache, Qtip, Session, docsTemplate, ApiModel, MethodsCollection, ResourceListView, MethodDetailView, ApiModel, ResourceModel, MethodModel, hljs, ResourceForm, Modal, edt, OverView){
+  'views/apis/overview',
+  'views/modals/newmethod',
+  'views/modals/newresource',
+], function($, _, Backbone, Router, Vm,  Mustache, Qtip, Session, docsTemplate, ApiModel, MethodsCollection, ResourceListView, MethodDetailView, ApiModel, ResourceModel, MethodModel, hljs, ResourceForm, Modal, edt, OverView, NewMethod, NewResource){
   var NewApiPage = Backbone.View.extend({
     el: '.api-page-container',
     initialize: function () {
@@ -59,17 +61,13 @@ define([
       window.modal = modal;
     },
     newResource: function () {
-      var resourceForm = Vm.create(this, 'resourceform', ResourceForm, {
-        username: this.options.username,
-        version: this.options.version,
-        api: this.options.apiname
-      });
-      resourceForm.render();
+      var newResource = Vm.create(this, 'modal', NewResource, {});
+      newResource.render();
 
       return false;
     },
     newMethod: function () {
-      $('#js-new-method-modal').modal('show');
+      alert('new methods');
       return false;
     },
     saveMethod: function (ev) {

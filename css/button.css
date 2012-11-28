@@ -2,6 +2,57 @@
 
 # Buttons
 
+## Inline actions
+
+```
+<button class="ebtn ebtn-blue">Add a new resource</button>
+
+```
+*/
+
+
+
+.ebtn {
+  background: #e4f5fd;
+  border: 1px solid #0078bd;
+  border-radius: 0px;
+  padding: 0;
+  margin: 0;
+  padding: 5px 5px 5px 25px;
+  color: #0078bd;
+  position: relative;
+}
+.ebtn-blue {
+  background: #e4f5fd;
+  border: 1px solid #0078bd;
+
+  color: #0078bd;
+}
+
+.ebtn:before {
+  font-family: 'ModernPics';
+  padding: 0;
+  margin: 0;
+  content: 'r';
+  color: #fff;
+  font-size: 24px;
+  line-height: 31px;
+  position: absolute;
+  left: 0;
+  height: 100%;
+  top:0;
+  background: #0078bd;
+}
+
+.ebtn-blue:hover {
+
+  background: #0078bd;
+
+  color: #ebebeb;
+}
+
+/*
+## Standard buttons
 ```
 <a href="" class="btn btn-blue">Follow</a>
 <a href="" class="btn btn-green">Follow</a>
