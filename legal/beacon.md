@@ -16,7 +16,7 @@ mistakes.  We will at times be open and accountable.
 Our continued existence and ability to contribute relies on building a
 financially successful API platform.  The API platform is our sole focus
 for financial renumeration.  We will therefore be putting 100% of our 
-effort into.
+effort into it.
 
 We are just one service in a large ecosystem of services.  We aim to
 contribute to this ecosystem rather than lock in or control a part of it.
