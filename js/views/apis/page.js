@@ -14,8 +14,9 @@ define([
   'text!templates/modals/editdescription.html',
   'views/apis/overview',
   'views/apis/documentation',
-  'views/apis/settings'
-], function($, _, Backbone, Router, Vm,  Mustache, Qtip, Session, apiDetailsTemplate, ApiModel,  hljs, Modal, edt, OverView, DocsView, SettingsView){
+  'views/apis/settings',
+  'views/apis/collaborators'
+], function($, _, Backbone, Router, Vm,  Mustache, Qtip, Session, apiDetailsTemplate, ApiModel,  hljs, Modal, edt, OverView, DocsView, SettingsView, CollaboratorsView){
   var NewApiPage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
@@ -73,6 +74,10 @@ var api;
               if(that.options.settings) {
                 var settingsView = Vm.create(that, 'apitab', SettingsView, that.options);
                 settingsView.render();
+              }   
+               if(that.options.collaborators) {
+                var collaboratorsView = Vm.create(that, 'apitab', CollaboratorsView, that.options);
+                collaboratorsView.render();
               }
           }
         }
@@ -89,6 +94,10 @@ var api;
                 settingsView.render();
               }
 
+              if(that.options.collaborators) {
+                var collaboratorsView = Vm.create(that, 'apitab', CollaboratorsView, that.options);
+                collaboratorsView.render();
+              }
       }
      
     }

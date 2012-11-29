@@ -110,15 +110,13 @@ define([
     },
     showDetails: function () {
       var that = this;
-      console.log('westside', that.options);
        if(typeof that.options.resourceId === 'undefined') {
         var overview = Vm.create(that, 'apipage', OverView, that.options);
         overview.render();
       }
       if($('.resource-list-container').attr('data-api-id') !== that.options.apiname && $('.resource-list').length === 0) {
-        var resourceListView = Vm.create(that, 'resourceListView', ResourceListView, {username: that.options.username, api: that.options.apiname, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
+        var resourceListView = Vm.create(that, 'resourceListView', ResourceListView, that.options);
         resourceListView.render();
-        console.log('show list container');
       };
     // if(typeof that.options.resourceId !== 'undefined' && $('.method-list-container').attr('data-resource-id') !== that.options.resourceId) {
     //   that.showMethodList();           

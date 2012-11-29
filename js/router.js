@@ -35,6 +35,7 @@ define([
       ':username/:apiname/version/:version': 'apiPage',
       ':username/:apiname/settings/:page': 'apiSettingsPage',
       ':username/settings/:page': 'settingsTab',
+      ':username/:apiname/collaborators': 'collaboratorsTab',
       ':username': 'defaultAction' // All urls will trigger this route
     }
   });
@@ -49,6 +50,10 @@ define([
         apiDetailsView.render();
     });
 
+    router.on('route:collaboratorsTab', function (username, apiname) {
+        var apiDetailsView = Vm.create(appView, 'page', ApiPageView, {username: username, apiname: apiname, collaborators: true});
+        apiDetailsView.render();
+    });
     router.on('route:apiSettingsPage', function (username, apiname, page) {
         var apiDetailsView = Vm.create(appView, 'page', ApiPageView, {username: username, apiname: apiname, page: page, settings: true});
         apiDetailsView.render();

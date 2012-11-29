@@ -22,23 +22,17 @@ define([
 
       $('a[data-resource-id='+this.options.resourceId+']').addClass('active');
       var that = this;
+      console.log(this.options,  'they don');
       var resource = new ResourceModel();
+      resource.options = this.options;
       resource.set({
-        username: this.options.username,
-        api: this.options.api,
-        version: this.options.version,
-        resourceId: this.options.resourceId
+        id: this.options.resourceId
       });
       resource.fetch({
         success: function (resource) {
           console.log('we can now render the resouce page using', resource);
           that.$el.html(_.template(resourcePageTemplate, {_:_, resource: resource}));
-          var commentsView = new CommentsView({
-            version: that.options.version,
-            api: that.options.api,
-            username: that.options.username,
-            resourceId: that.options.resourceId
-          });
+          var commentsView = new CommentsView(that.options);
           commentsView.render();
           var clearNModel = new ClearNModel({id: 'dummy'});
           clearNModel.options = that.options;

@@ -21,10 +21,9 @@ define([
       var resource = new Resource();
       resource.options = this.options;
       var request = resource.save(details, {success:function () {
-        console.log(request);
+          Backbone.history.navigate(that.options.username + '/' + that.options.apiname + '/version/' + that.options.version + '/resource/' + '19',  {trigger: true});
           that.modal.hide();
 
-         // Backbone.router.navigate(session.get('login') + '/' + that.options.apiname + '/' + that.options.version + '/resource/' + deta, {trigger: true});
       }});
       return false;
     },

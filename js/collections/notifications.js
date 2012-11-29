@@ -8,12 +8,12 @@ define([
     url: function () {
       if(typeof this.options.methodId !== 'undefined') {
 
-        return '/user/' + this.options.username + '/api/' + this.options.api + '/' + this.options.version + '/resource/' + this.options.resourceId + '/method/' + this.options.methodId + '/notification';
+        return '/user/' + this.options.username + '/api/' + this.options.apiname + '/' + this.options.version + '/resource/' + this.options.resourceId + '/method/' + this.options.methodId + '/notification';
       } else if(typeof this.options.resourceId !== 'undefined') {
 
-        return '/user/' + this.options.username + '/api/' + this.options.api + '/' + this.options.version + '/resource/' + this.options.resourceId + '/notification';
+        return '/user/' + this.options.username + '/api/' + this.options.apiname + '/' + this.options.version + '/resource/' + this.options.resourceId + '/notification';
       } else {
-        return '/user/' + this.options.username + '/api/' + this.options.api + '/' + this.options.version + '/notification';
+        return '/user/' + this.options.username + '/api/' + this.options.apiname + '/' + this.options.version + '/notification';
 
       }
     },

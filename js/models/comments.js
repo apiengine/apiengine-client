@@ -7,12 +7,12 @@ define([
     urlRoot: function () {
       if(typeof this.options.methodId !== 'undefined') {
 
-        return '/user/' + this.options.username + '/api/' + this.options.api + '/' + this.options.version + '/resource/' + this.options.resourceId + '/method/' + this.options.methodId + '/comment';
+        return '/user/' + this.options.username + '/api/' + this.options.apiname + '/' + this.options.version + '/resource/' + this.options.resourceId + '/method/' + this.options.methodId + '/comment';
       } else if(typeof this.options.resourceId !== 'undefined') {
 
-        return '/user/' + this.options.username + '/api/' + this.options.api + '/' + this.options.version + '/resource/' + this.options.resourceId + '/comment';
+        return '/user/' + this.options.username + '/api/' + this.options.apiname + '/' + this.options.version + '/resource/' + this.options.resourceId + '/comment';
       } else {
-        return '/user/' + this.options.username + '/api/' + this.options.api + '/' + this.options.version + '/comment';
+        return '/user/' + this.options.username + '/api/' + this.options.apiname + '/' + this.options.version + '/comment';
 
       }
     }

@@ -38,7 +38,7 @@ define([
       
       //var methodListView = new MethodsListView({username: that.options.username, api: that.options.api, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
       //methodListView.render();        
-      var resourcePageView = Vm.create(this, 'resourcepageview', ResourcePageView, {username: that.options.username, api: that.options.api, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
+      var resourcePageView = Vm.create(this, 'resourcepageview', ResourcePageView, that.options);
       resourcePageView.render();  
     },
     expandMethodsHandler: function (ev) {
@@ -62,9 +62,9 @@ define([
       var that = this;
       var resources = new ResourcesCollection();
       resources.username = that.options.username;
-      resources.api = that.options.api;
+      resources.apiname = that.options.apiname;
       resources.version = that.options.version;
-      that.$el.attr('data-api-id', that.options.api);
+      that.$el.attr('data-api-id', that.options.apiname);
       resources.fetch({
         success: function (collection) {
           if(that.options.resourceId) {
@@ -79,7 +79,7 @@ define([
 
           var notificationTotals = new NTotals();
           notificationTotals.options = {
-            api: that.options.api,
+            api: that.options.apiname,
             version: that.options.version,
             username: that.options.username
           };
