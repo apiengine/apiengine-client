@@ -10,6 +10,7 @@ define(['jquery'], function ($) {
             + pad(this.getUTCSeconds()) + 'Z';
     };
 }
+
 (function($) {
 var supportedCSS,styles=document.getElementsByTagName("head")[0].style,toCheck="transformProperty WebkitTransform OTransform msTransform MozTransform".split(" ");
 for (var a=0;a<toCheck.length;a++) if (styles[toCheck[a]] !== undefined) supportedCSS = toCheck[a];
