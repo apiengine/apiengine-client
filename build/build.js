@@ -79,6 +79,7 @@ function cssIncImages(cssFile) {
 }
 
   fs.copy(rootPath + '/googleaa49fe030680ef6c.html', 'output/googleaa49fe030680ef6c.html', function (){
+  fs.copy(rootPath + '/site.xml', 'output/site.xml', function (){
   fs.copy(rootPath + '/.htaccess', 'output/.htaccess', function (){
   fs.copy(rootPath + '/favicon.ico', 'output/favicon.ico', function (){
     fs.copy(rootPath + '/css/img', outputFolder +'/css/img', function () {
@@ -90,6 +91,7 @@ cssIncImages(outputFolder + '/css/styles.css');
         
         var endTime = (Date.now() - startTime) / 1000;
 });
+      });
       });
       });
     });
