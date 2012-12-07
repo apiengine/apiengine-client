@@ -20,8 +20,10 @@ define([
       $('body').on('click', '.js-logout', function () {
         that.logout();
       });
-      $('body').on('click', '.js-signup', function () {
+      $('body').on('click', '.js-signup', function (ev) {
         that.signup();
+
+        return false;
       });
       Session.on('change:auth', function (session) {
         that.render();
@@ -96,11 +98,14 @@ define([
     signup: function (ev) {
       var registerView = Vm.create(this, 'RegisterView', RegisterView, {});
       registerView.render();
-    }
-    ,
+    },
     newapi: function (ev) {
       var newApiView = Vm.create(this, 'NewApiView', NewApiView, {});
       newApiView.render();
+      return false;
+    },
+    clean: function () {
+      $('body').off('click', '.js-signup');
     }
   });
   return MainMenuView;

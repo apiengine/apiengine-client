@@ -2,18 +2,18 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'vm',
   'models/session',
   'mustache',
   'text!templates/header/main-menu.html',
   'views/header/account-menu'
-], function($, _, Backbone, Session, Mustache, mainMenuTemplate, AccountMenuView){
+], function($, _, Backbone, Vm, Session, Mustache, mainMenuTemplate, AccountMenuView){
   var MainMenuView = Backbone.View.extend({
     el: '.main-menu-container',
     initialize: function () {
       var that = this;
       Session.on('change:auth', function (session) {
         that.render();
-
       });
       Session.on('change:errors', function (errors) {
         that.render();
@@ -34,7 +34,7 @@ define([
         $('.logo-cog').rotate({ duration:2000, animateTo:value});
 
       });
-      var accountMenu = new AccountMenuView();
+      var accountMenu = Vm.create(this, 'accountmenu', AccountMenuView, {});
       accountMenu.render();
     },
     events: {
