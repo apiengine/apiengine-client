@@ -28,6 +28,7 @@ define([
       'forgot_password': 'forgot_password',
       'register': 'register',
       'features': 'features',
+      'help': 'help',
       'pricing': 'pricing',
       '': 'home',
       ':username/:apiname/version/:version/resource/:resource/:method': 'apiPage',
@@ -121,7 +122,14 @@ define([
         var pricing = Vm.create(appView, 'page', Pricing, {});
         pricing.render();
       });
-    });        
+    });  
+
+    router.on('route:help', function () {
+      require(['views/help/page'], function (Help) {
+        var help = Vm.create(appView, 'page', Help, {});
+        help.render();
+      });
+    });         
 		router.on('route:defaultAction', function (username) {
         var profilePage = Vm.create(appView, 'page', ProfilePage, {username: username});
         profilePage.render();
