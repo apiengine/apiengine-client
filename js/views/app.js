@@ -86,6 +86,7 @@ define([
             clicky.log($(this).attr('href'), $(this).attr('href'), 'pageview')
            // mixpanel.track_pageview();
             Backbone.router.navigate($(this).attr('href'), true);
+            $(document).scrollTop(0);
             return false;
               
           }
