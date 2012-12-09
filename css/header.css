@@ -46,7 +46,6 @@
     display: inline-block;
     height: 72px;
     font-size: 16px;
-    text-transform: uppercase;
 
      -webkit-transition:color 0.175s ease-in; 
     cursor: pointer;

@@ -40,6 +40,10 @@ var rootPath = '..';
         exclude: ['main']
       },
       {
+        name: 'views/help/page',
+        exclude: ['main']
+      },
+      {
         name: 'views/home/features',
         exclude: ['main']
       },
