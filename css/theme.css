@@ -104,3 +104,13 @@ body [data-show-authed="true"] {
 body [data-hide-authed="false"] {
   display: block;
 }
+
+.legal-container h1,
+.legal-container h2,
+.legal-container h3,
+.legal-container h4,
+.legal-container h5,
+.legal-container h6 {
+  font-family: 'Nexa';
+  font-weight: normal;
+}
