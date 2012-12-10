@@ -9,11 +9,11 @@ contact us at brand@apiengine.io.
 Using the APIENGINE.IO assets and marks
 ---------------------------------------
 
-APIENGINE.IO marks include, the name "Api Engine", the name APIENGINE.IO, 
-the Cog symbol, the Api Engine symbol, the Spinning Cog symbol and the Cogsy 
+APIENGINE.IO marks include, the name "API Engine", the name APIENGINE.IO, 
+the Cog symbol, the API Engine symbol, the Spinning Cog symbol and the Cogsy 
 mascot (who we love dearly).
 
-The name "Api Engine" and APIENGINE.IO can be used in general form to reference
+The name "API Engine" and APIENGINE.IO can be used in general form to reference
 the service provided.  These names are subject to the general usages guidelines.
 
 The Cog symbol ![Cog Symbol](/img/logo.png) is permitted to be embedded 
