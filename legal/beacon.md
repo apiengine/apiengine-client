@@ -23,7 +23,7 @@ contribute to this ecosystem rather than lock in or control a part of it.
 Our API platform was built by developers for developers and the developer
 community.  Our people have a track record of contributing.
 
-And on contributing, our ethos is to contribute, and expect to contribue,
+And on contributing, our ethos is to contribute, and expect to contribute,
 more than we ever take or use.
 
 Thank you.
