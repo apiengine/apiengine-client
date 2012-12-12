@@ -75,6 +75,7 @@
    padding-left: 10px;
   line-height: 24px;
   color: #171717;
+  width:100%;
 }
 .model input[type=text] {
   min-width: 250px;
@@ -156,35 +157,29 @@ _italic_ __italic__
 .modal-col.last {
   margin-right: 0;
 }
-
 .markdown-demo {
   padding: 15px;
   background: #ebebeb;
   border: 1px solid #ccc;
 }
-
 .feedback-textarea {
   margin-bottom: 30px;
 width: 400px;
 border: 1px solid #CCC;
 outline: none;
-
 font-size: 14px;
 line-height: 18px;
 height: 150px;
 padding: 5px;
 margin-bottom: 30px;
 }
-
 .thank-you {
-
   margin-bottom: 30px;
-width: 400px;
+  width: 400px;
 }
-
 .alpha-message {
-  
-width: 250px;
-color: #4D4D4D;
-font-size: 12px;
+  margin-bottom: 30px;  
+  width: 100%;
+  color: #4D4D4D;
+  font-size: 14px;
 }
