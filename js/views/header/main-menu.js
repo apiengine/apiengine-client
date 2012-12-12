@@ -29,7 +29,7 @@ define([
       }
       var value = 0
 
-      $(".logo").on('hover', function (){
+      $(".logo").on('mouseover', function (){
         value +=180;
         $('.logo-cog').rotate({ duration:2000, animateTo:value});
 
