@@ -153,8 +153,9 @@
   width:100%;
   text-align:center;
 }
-.sign-up-and-create-btn a{
+.sign-up-and-create-btn .sbtn {
   margin:10px auto;
+  border: none;
   color: #171717 !important;
 }
 .tri-box .list-heading {
