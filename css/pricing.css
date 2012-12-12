@@ -19,10 +19,11 @@
 }
 
 .pricing-tag {
-  font-family: 'Nexa';
+  font-family: 'Nexa Bold';
   font-size: 24px;
   padding-bottom: 30px;
   display: inline-block;
+  margin:0 auto;
   color:#333;
 }
 
