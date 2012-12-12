@@ -19,10 +19,11 @@
 }
 
 .pricing-tag {
-  font-family: 'Nexa';
+  font-family: 'Nexa Bold';
   font-size: 24px;
   padding-bottom: 30px;
   display: inline-block;
+  margin:0 auto;
   color:#333;
 }
 
@@ -153,8 +154,9 @@
   width:100%;
   text-align:center;
 }
-.sign-up-and-create-btn a{
+.sign-up-and-create-btn .sbtn {
   margin:10px auto;
+  border: none;
   color: #171717 !important;
 }
 .tri-box .list-heading {

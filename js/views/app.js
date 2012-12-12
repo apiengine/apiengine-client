@@ -80,7 +80,7 @@ define([
 
       Session.getAuth(function () {
         $('body').on('click', 'a', function (e) {
-          if($(this).attr('href').substr(0,4) === 'http') {
+          if($(this).attr('href').substr(0,4) === 'http' || $(this).attr('href').substr(0,4) === 'mail') {
 
           } else {
             clicky.log($(this).attr('href'), $(this).attr('href'), 'pageview')

@@ -114,3 +114,12 @@ body [data-hide-authed="false"] {
   font-family: 'Nexa';
   font-weight: normal;
 }
+
+.coming-soon {
+  font-family: 'Nexa Bold';
+  font-size: 24px;
+  padding-bottom: 30px;
+  margin:0 auto;
+  color:#333;
+  text-align: center;
+}
