@@ -1,4 +1,3 @@
-WHY WE CHARGE YOU MONEY
-=======================
-
+WHY WE CHARGE
+=============
 Coming soon
