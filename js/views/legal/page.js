@@ -31,7 +31,7 @@ define([
           content = marked(privacyMd);
         break;
         case 'terms':
-          heading = 'Terms of service';
+          heading = 'Terms of Service';
           content = marked(termsMd);
         break;
         case 'beacon':

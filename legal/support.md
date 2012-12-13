@@ -1,6 +1,3 @@
-SUPPORT
-=======
-
 APIENGINE.IO is committed to providing an outstanding experience. As part of this commitment, we offer
 standard level technical support to all APIENGINE.IO account holders. Standard technical support is limited to 
 the scope, hours, contacts, and channels covered below.
