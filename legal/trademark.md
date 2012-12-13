@@ -13,7 +13,7 @@ mascot (who we love dearly).
 The name "API Engine" and APIENGINE.IO can be used in general form to reference
 the service provided.  These names are subject to the general usages guidelines.
 
-The Cog symbol ![Cog Symbol](/img/logo.png) is permitted to be embedded 
+The Cog symbol is permitted to be embedded 
 in your web page as a mechanism for:
 * Linking to your API (generally public) to its definition on the APIENGINE.IO system. 
 * Signifying that your web site provides an API which is defined on the APIENGINE.IO system.
