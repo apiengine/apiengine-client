@@ -1,4 +1,4 @@
-Our companies values are as follows:
+Our company values are as follows:
 
 * We are dedicated to building an API platform that meets your needs.
 * We will provide you full control over your data and firmly believe it is your right to backup, export and delete ALL of your data whenever you want.
