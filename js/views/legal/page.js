@@ -35,7 +35,7 @@ define([
           content = marked(termsMd);
         break;
         case 'beacon':
-         heading = 'What acts as our beacon';
+         heading = 'Our values';
          content = marked(beaconMd);
         break;
         case 'security':
