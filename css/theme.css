@@ -111,10 +111,32 @@ body [data-hide-authed="false"] {
 .legal-container h4,
 .legal-container h5,
 .legal-container h6 {
-  font-family: 'Nexa';
+  font-family: Arial;
   font-weight: normal;
+  color:#171717;
+  margin-top:0 0 15px 0;
 }
-
+.legal-container h1{
+  font-size:20px;
+  margin:0 0 15px 0;
+}
+.legal-container h2{
+  font-size:18px;
+  margin-top: 50px;
+}
+.legal-container p{
+  font-size: 14px;
+  line-height: 20px;
+  color:#171717;
+  margin: 0;
+}
+.legal-container ol, ul{
+}
+.legal-container li{
+  font-size:14px;
+  line-height: 20px;
+  color:#171717;
+}
 .coming-soon {
   font-family: 'Nexa Bold';
   font-size: 24px;
@@ -122,4 +144,11 @@ body [data-hide-authed="false"] {
   margin:0 auto;
   color:#333;
   text-align: center;
+}
+code{
+  font-family: "Lucida Console", Monaco, monospace !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+  color: green !important;
+  font-weight:normal !important;
 }

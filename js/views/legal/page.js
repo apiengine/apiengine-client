@@ -51,7 +51,7 @@ define([
          content = marked(trademarkMd);
         break;
         case 'money':
-         heading = 'Why we charge you money';
+         heading = 'Our service fees';
          content = marked(moneyMd);
         break;
       }
