@@ -32,6 +32,10 @@ require([
   'libs/proxino/proxino'
 ], function(AppView, Vm, Router, norefclicky, norefProxino){
   // Some hackery to include clicky in our app
+        if (typeof console == 'undefined' || typeof console.log == 'undefined') { 
+        window.console = {};
+        window.console.log = function (message) { };
+      }
   try{ clicky.init(66633495); }catch(e){}
 
   Proxino.key = "QI-BctdhtytsUUJERc5HfA";
@@ -40,4 +44,5 @@ require([
   var appView = Vm.create({}, 'AppView', AppView);
   Router.initialize({appView: appView});
   appView.render(); // render() calls Backbone.history when its ready to start
+
 });
