@@ -126,6 +126,9 @@ Tagline description
 .our-apis-desc a {
 	color: #FED563;
 }
+.our-apis-desc a:hover {
+	color:#171717;
+}
 .tagline {
   display: block;
   text-align: center;
