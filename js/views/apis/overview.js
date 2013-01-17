@@ -25,7 +25,7 @@ define([
             var commentsView = new CommentsView({
             methodId: that.options.method,
             version: that.options.version,
-            api: that.options.apiname,
+            apiname: that.options.apiname,
             username: that.options.username,
             resourceId: that.options.resourceId
           });
