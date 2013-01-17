@@ -50,7 +50,7 @@ define([
     expandMethods: function (ele) {   
       var resourceId = $(ele).attr('data-resource-id');
       var el =  $(ele).next('li');
-      var methodListView = Vm.create(this, 'methodlist'+this.options.resourceId, MethodsListView, {username: this.options.username, api: this.options.api, version: this.options.version, resourceId: resourceId, method: this.options.method, el: el});
+      var methodListView = Vm.create(this, 'methodlist'+this.options.resourceId, MethodsListView, {username: this.options.username, apiname: this.options.apiname, version: this.options.version, resourceId: resourceId, method: this.options.method, el: el});
       methodListView.setElement(el);
       methodListView.render();    
     },

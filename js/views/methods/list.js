@@ -65,13 +65,13 @@ define([
 
       this.resource.set({
         username: that.options.username,
-        api: that.options.api,
+        apiname: that.options.apiname,
         version: that.options.version,
         resourceId: that.options.resourceId
       });
       this.resource.fetch();
       this.methods.username = that.options.username;
-      this.methods.api = that.options.api;
+      this.methods.apiname = that.options.apiname;
       this.methods.version = that.options.version;
       this.methods.resourceId = that.options.resourceId;
         this.methods.fetch({
