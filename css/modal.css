@@ -19,7 +19,7 @@
   position: fixed;
   width: 100%;
   height: 100%;
-  background: #444;
+  background: #000;
   display: -webkit-box;
   -webkit-box-orient: horizontal;
   -webkit-box-align: stretch;
@@ -27,7 +27,7 @@
   top: 0;
   left: 0;
   z-index: 3;
-  opacity: 0.6;
+  opacity: 0.5;
 }
 .modal {
   position: fixed;

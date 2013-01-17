@@ -27,27 +27,27 @@ define([
       var heading, content;
       switch(this.options.page) {
         case 'privacy':
-          heading = 'Privacy statement';
+          heading = 'Privacy policy';
           content = marked(privacyMd);
         break;
         case 'terms':
-          heading = 'Terms of service';
+          heading = 'Terms of Service';
           content = marked(termsMd);
         break;
         case 'beacon':
-         heading = 'What acts as our beacon';
+         heading = 'Our values';
          content = marked(beaconMd);
         break;
         case 'security':
-         heading = 'Security statement';
+         heading = 'Security';
          content = marked(securityMd);
         break;
         case 'support':
-         heading = 'Support statement';
+         heading = 'Support';
          content = marked(supportMd);
         break;
         case 'trademark':
-         heading = 'Trademarks and usage';
+         heading = 'Trademarks';
          content = marked(trademarkMd);
         break;
         case 'money':
