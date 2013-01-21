@@ -1,20 +1,24 @@
+<form class="form update-account">
 <div class="settings-title-container">
     <span class="settings-title"><span class="arrows">»</span> Account settings</span>
-    <button class="btn btn-blue title-button">UPDATE</button>
-  </div>
-  <div class="settings-page-contents">
-    <form class="form">
-      <label>Account Email</label> 
-      <input type="text" value="thomasdavis" />
-      <span class="settings-title inline"><span class="arrows">»</span> Account password</span>
-      <label>Old Password</label>
-      <input type="password" value="API Engine" />
-      <label>New Password</label>
-      <input type="password" value="" />
-      <label>Verify New Password</label>
-      <input type="password" value="" />
-      <span class="settings-title inline"><span class="arrows">»</span> Delete account</span>
-      <p class="form-description">Deleting your account will also delete your APIs. APIs you are collaborating on will not be deleted.</p>
-      <button class="btn btn-red">Delete account</button>
-    </form>
-  </div>
+    <button type="submit" class="btn btn-blue title-button">UPDATE</button>
+</div>
+<div class="settings-page-contents">
+	<label class="form-error" for="password">The provided passwords did not match.</label>
+
+	<label>Account Email</label>
+	<input type="email" value="{{user.email}}" name="email" />
+
+	<span class="settings-title inline"><span class="arrows">»</span> Account password</span>
+	<label>Old Password</label>
+	<input type="password" name="password_old" value="" />
+	<label>New Password</label>
+	<input type="password" name="password" value="" />
+	<label>Verify New Password</label>
+	<input type="password" name="password_check" value="" />
+
+	<span class="settings-title inline"><span class="arrows">»</span> Delete account</span>
+	<p class="form-description">Deleting your account will also delete your APIs. APIs you are collaborating on will not be deleted.</p>
+	<button type="button" class="btn btn-red delete-button">Delete account</button>
+</div>
+</form>
