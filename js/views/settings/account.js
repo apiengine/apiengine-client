@@ -49,7 +49,8 @@ define([
 		$('[type="submit"]').attr('disabled', 'disabled');
 
 		// fire off the request
-		var userModel = new UserModel();
+		var userModel = new UserModel(),
+			that = this;
 		profileDetails.login = Session.get('user').login;
 		userModel.save(profileDetails, {
 			success: function () {
@@ -81,11 +82,14 @@ define([
 			userModel.destroy(accountDetails, {
 				success: function () {
 					console.log('BAHLEET', arguments);
+
 					// :TODO: logout & redirect to goodbye page?
+					that.modal.hide();
 					$('[type="submit"]').removeAttr('disabled');
 				},
 				error: function () {
 					console.log('ERROR NO DELETE', arguments);
+
 					// :TODO: show error in UI
 					$('[type="submit"]').removeAttr('disabled');
 				}
