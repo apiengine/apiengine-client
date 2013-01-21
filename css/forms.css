@@ -3,7 +3,7 @@
 
 ```
 <form class="form">
-  <label>Username</label> 
+  <label>Username</label>
   <input type="text" value="thomasdavis" />
   <label>Description</label>
   <textarea class="fixie"></textarea>
@@ -30,11 +30,14 @@
   font-size: 14px;
   line-height: 18px;
 }
+.form input.error, .form textarea.error {
+	background: #F99;	/* :TODO: */
+}
 textarea::-webkit-input-placeholder,
 textarea:-moz-placeholder,
 input::-webkit-input-placeholder,
 input:-moz-placeholder {
- color:#f00; 
+ color:#f00;
  font-family: 'Arial';
 }
 .form .favicon {
@@ -47,9 +50,33 @@ input:-moz-placeholder {
   float: right;
 }
 
+/*
+# Error messages, notes and so forth
+```
+<form class="form">
+	<!-- styling applied to show in demo only -->
+	<label class="form-error" for="errored-field" style="display: block;">OH GNOES a proglemb happens</label>
+	<label class="form-error" for="errored-field2" style="display: block;">This one is bad too</label>
+
+	<input type="text" value="I'm Sad" id="errored-field" class="error" />
+	<input type="text" value="I'm OK" />
+	<input type="text" value="I'm Mad" id="errored-field2" class="error" />
+
+	<p class="form-description">You may be interested in knowing this...</p>
+</form>
+```
+ */
+
 .form-description {
   padding: 0;
   margin: 0;
   font-size: 14px;
   margin-bottom: 15px;
+}
+
+.form .form-error {	/* :TODO: */
+	display: none;
+	color: #D00;
+	font-weight: bolder;
+	margin-top: -1em;
 }
