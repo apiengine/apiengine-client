@@ -3,9 +3,10 @@ define(['jquery'], function ($) {
 
   };
   var modal = function (options) {
-    var options = $.extend({}, defaultOptions, options);
+    var options = $.extend({}, defaultOptions, options),
+    	that = this;
 
-    
+
     this.overlay = $('<div>');
     this.overlay.addClass('overlay')
     $('body').append(this.overlay);
@@ -41,6 +42,13 @@ define(['jquery'], function ($) {
       });
     }
 
+    // bind close buttons for confirmation dialogs automatically
+    if (options.confirm) {
+    	$('.js-ui-cancel').on('click', function(ev) {
+    		that.hide();
+    	});
+    }
+
     this.el.css({visibility: 'visible'});
 
 
@@ -48,9 +56,9 @@ define(['jquery'], function ($) {
   };
 
   modal.prototype.show = function () {
-    this.addClass('shown')
+    this.el.addClass('shown')
   };
-  
+
   modal.prototype.hide = function (animation) {
     var that = this;
     this.el.fadeOut(200);
