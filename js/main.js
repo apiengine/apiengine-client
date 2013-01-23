@@ -11,6 +11,7 @@ require.config({
     marked: 'libs/marked/marked',
     mustache: 'https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.0/mustache.min',
     modal: 'libs/modal/modal',
+    form: 'libs/form/form',
     // Require.js plugins
     text: 'libs/require/text',
 
