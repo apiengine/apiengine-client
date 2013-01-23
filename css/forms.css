@@ -54,13 +54,15 @@ input:-moz-placeholder {
 # Error messages, notes and so forth
 ```
 <form class="form">
-	<!-- styling applied to show in demo only -->
-	<label class="form-error" for="errored-field" style="display: block;">OH GNOES a proglemb happens</label>
-	<label class="form-error" for="errored-field2" style="display: block;">This one is bad too</label>
+	<div class="form-errors">
+		<!-- styling applied to show in demo only -->
+		<label class="form-error" for="errored-field" style="display: block;">OH GNOES a proglemb happens</label>
+		<label class="form-error" for="errored-field2" style="display: block;">This one is bad too</label>
+	</div>
 
-	<input type="text" value="I'm Sad" id="errored-field" class="error" />
+	<input type="text" value="I'm Sad" id="errored-field" name="errored-field" class="error" />
 	<input type="text" value="I'm OK" />
-	<input type="text" value="I'm Mad" id="errored-field2" class="error" />
+	<input type="text" value="I'm Mad" id="errored-field2" name="errored-2field2" class="error" />
 
 	<p class="form-description">You may be interested in knowing this...</p>
 </form>

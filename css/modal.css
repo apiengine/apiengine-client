@@ -1,5 +1,5 @@
 /*
-# Modal Template 
+# Modal Template
 
 ```
 <div class="modal-header"><span class="icon modal-close-icon js-close-modal">&#88;</span></div>
@@ -79,7 +79,7 @@
 }
 .model input[type=text] {
   min-width: 250px;
-  
+
 }
 .modal input:hover {
   background: #f7f7f7;
@@ -98,9 +98,9 @@
 }
 
 .modal-link {
-  text-decoration: none; 
+  text-decoration: none;
   color: #4A92FD;
-  font-size: 12px; 
+  font-size: 12px;
   float: right;
   line-height: 30px;
 }
@@ -118,7 +118,7 @@
   color: #370005;
 }
 
-.error {
+.modal .error {
   width: 29px;
   height: 28px;
   background: #ce3442;
@@ -178,7 +178,7 @@ margin-bottom: 30px;
   width: 400px;
 }
 .alpha-message {
-  margin-bottom: 30px;  
+  margin-bottom: 30px;
   width: 100%;
   color: #4D4D4D;
   font-size: 14px;
