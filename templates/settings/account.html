@@ -4,18 +4,22 @@
     <button type="submit" class="btn btn-blue title-button">UPDATE</button>
 </div>
 <div class="settings-page-contents">
-	<label class="form-error" for="password">The provided passwords did not match.</label>
+	<div class="form-errors">
+		<label class="form-error" for="current_password" data-errcode="password.mismatch">The provided password does not match your current password.</label>
+		<label class="form-error" for="password_check" data-errcode="password.mismatch">The provided passwords did not match.</label>
+		<label class="form-error" for="current_password" data-errcode="password.notprovided">You must specify your current password to update it.</label>
+	</div>
 
 	<label>Account Email</label>
 	<input type="email" value="{{user.email}}" name="email" />
 
 	<span class="settings-title inline"><span class="arrows">»</span> Account password</span>
 	<label>Old Password</label>
-	<input type="password" name="password_old" value="" />
+	<input type="password" name="current_password" id="current_password" value="" />
 	<label>New Password</label>
 	<input type="password" name="password" value="" />
 	<label>Verify New Password</label>
-	<input type="password" name="password_check" value="" />
+	<input type="password" name="password_check" id="password_check" value="" />
 
 	<span class="settings-title inline"><span class="arrows">»</span> Delete account</span>
 	<p class="form-description">Deleting your account will also delete your APIs. APIs you are collaborating on will not be deleted.</p>
