@@ -63,15 +63,29 @@ define(['jquery'], function ($) {
 
 		if (!options.skipSubmitEvent) {
 			this.element.on('submit', function(ev) {
-				var attributes = that.element.serializeObject();
-				attributes = that.presend(attributes);
-				if (attributes === false) {
-					return false;
-				}
+				var pressed = $(this).data('clicked'),
+					action = pressed.data('action') || 'save';
+
 				that.resetUI();
-				that.save(attributes);
+
+				if (action == 'save') {
+					var attributes = that.element.serializeObject();
+					attributes = that.presend(attributes);
+
+					if (attributes === false) {
+						return false;
+					}
+
+					that[action](attributes);
+				} else {
+					that[action]();
+				}
 
 				return false;
+			});
+
+			this.element.on('click', function(e) {
+				$(this).data('clicked', $(e.target));
 			});
 		}
 	};
