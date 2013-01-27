@@ -1,13 +1,15 @@
 <form class="form update-account">
 <div class="settings-title-container">
     <span class="settings-title"><span class="arrows">»</span> Account settings</span>
-    <button type="submit" class="btn btn-blue title-button">UPDATE</button>
 </div>
 <div class="settings-page-contents">
 	<div class="form-errors">
 		<label class="form-error" for="current_password" data-errcode="password.mismatch">The provided password does not match your current password.</label>
 		<label class="form-error" for="password_check" data-errcode="password.mismatch">The provided passwords did not match.</label>
 		<label class="form-error" for="current_password" data-errcode="password.notprovided">You must specify your current password to update it.</label>
+	</div>
+	<div class="form-success">
+		<label class="form-ok">Account details updated successfully.</label>
 	</div>
 
 	<label>Account Email</label>
@@ -20,6 +22,10 @@
 	<input type="password" name="password" value="" />
 	<label>Verify New Password</label>
 	<input type="password" name="password_check" id="password_check" value="" />
+
+	<div class="form-submit">
+	    <button type="submit" class="btn btn-blue">UPDATE</button>
+	</div>
 
 	<span class="settings-title inline"><span class="arrows">»</span> Delete account</span>
 	<p class="form-description">Deleting your account will also delete your APIs. APIs you are collaborating on will not be deleted.</p>

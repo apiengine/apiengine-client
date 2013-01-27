@@ -17,7 +17,6 @@ define([
     initialize: function () {
     },
     events: {
-    	'submit .update-account': 'updateAccount',
     	'click .delete-button' : 'deleteAccount'
     },
     render: function (options) {
@@ -61,43 +60,29 @@ define([
       });
     },
 
-    updateAccount : function(ev)
-    {
-		this.form.save();
-
-    	return false;
-    },
-
+	// show delete confirmation dialog
     deleteAccount : function(ev)
     {
-    	// show confirmation dialog
+    	var that = this;
+
 		this.modal = Modal.create({
 			content: confirmTemplate,
-			confirm : true
-		});
+			confirm : true,
 
-		// bind to modal form submission
-		$('.modal .account-delete-form').on('submit', function(ev) {
-			var accountModel = new AccountModel({
-					login : Session.get('user').login
-				});
-
-			accountModel.destroy({
+			form: {
+				element : '.account-delete-form',
+				model : new AccountModel({
+			      	login : Session.get('login')
+			      }),
 				success: function () {
 					console.log('BAHLEET', arguments);
 
-					// :TODO: logout & redirect to goodbye page?
+					// hide the dialog
 					that.modal.hide();
-					$('[type="submit"]').removeAttr('disabled');
-				},
-				error: function () {
-					console.log('ERROR NO DELETE', arguments);
-
-					// :TODO: show error in UI
-					$('[type="submit"]').removeAttr('disabled');
+					// logout
+					Session.logout();
 				}
-			});
-			return false;
+			}
 		});
 
     	this.modal.show();
