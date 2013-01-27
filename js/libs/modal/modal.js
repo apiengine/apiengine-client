@@ -1,4 +1,4 @@
-define(['jquery'], function ($) {
+define(['jquery', 'form'], function ($, FormFactory) {
   var defaultOptions = {
 
   };
@@ -51,7 +51,10 @@ define(['jquery'], function ($) {
 
     this.el.css({visibility: 'visible'});
 
-
+    // bind form controller if one is specified in options
+    if (options.form) {
+    	this.form = FormFactory.create($(options.form.element, this.el), options.form.model, options.form);
+    }
 
   };
 
