@@ -28,6 +28,11 @@
  * 			    	  Simply return the desired object.
  * 	skipSubmitEvent	- can be used to skip binding the form <submit> action, if you wish to call .save() by your own code.
  *
+ *  flashTime		- time in ms to show success notification messages for
+ *
+ *  success			- same as with Backbone.Model, and runs instead of the form's default success message behaviour.
+ *  error			- same as with Backbone.Model, and runs instead of the form's default error callback when an unknown error is encountered.
+ *
  * :TODO:
  * - success flash messages
  *
@@ -40,6 +45,8 @@ define(['jquery'], function ($) {
 		onPreValidate : null,
 		onPreSend : null,
 		validate : null,
+
+		flashTime : 4000,
 
 		skipSubmitEvent : false
 	};
@@ -63,6 +70,8 @@ define(['jquery'], function ($) {
 				}
 				that.resetUI();
 				that.save(attributes);
+
+				return false;
 			});
 		}
 	};
@@ -124,22 +133,39 @@ define(['jquery'], function ($) {
 	};
 
 	// bind default callbacks for request actions
-	form.prototype.extendOptions = function(options)
+	form.prototype.extendOptions = function(inOptions)
 	{
 		var that = this;
 		return $.extend({
 			success: function(model, response, options) {
 				that.enable.call(that);
 
-				console.log(response);
+				// :TODO: check for an API error
+
+				// fire custom success callback instead of default one if present
+				if (inOptions && inOptions.success) {
+					inOptions.success(model, response, options);
+				} else {
+					that.showSuccess();
+				}
+
+				// :TODO: show configured success message
+
+				console.log(model, response, options);
 			},
 			error: function(model, xhr, options) {
 				that.enable.call(that);
-				that.handleUncaughtError();		// :TODO:
 
-				console.log(xhr);
+				// fire custom error callback if present, otherwise throw global notification
+				if (inOptions && inOptions.error) {
+					inOptions.error(model, xhr, options);
+				} else {
+					that.handleUncaughtError();		// :TODO:
+				}
+
+				console.log(model, xhr, options);
 			}
-		}, options);
+		}, inOptions);
 	}
 
 	/**
@@ -163,6 +189,17 @@ define(['jquery'], function ($) {
 		}
 	};
 
+	form.prototype.showSuccess = function(code)
+	{
+		var el;
+		if (code) {
+			el = $('label.form-ok[data-code=\'' + code + '\']', this.element);
+		} else {
+			el = $('label.form-ok', this.element);
+		}
+		el.hide().slideDown('fast').delay(this.options.flashTime).slideUp('slow');
+	}
+
 	/**
 	 * Reset to default state (except for the values.. y'know..)
 	 */
@@ -170,7 +207,7 @@ define(['jquery'], function ($) {
 	{
 		this.enable();
 		$('input', this.element).removeClass('error');
-		$('label.form-error', this.element).css('display', '');
+		$('label.form-error, label.form-ok', this.element).css('display', '');
 	};
 
 	/**
