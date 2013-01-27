@@ -33,6 +33,9 @@
  *  success			- same as with Backbone.Model, and runs instead of the form's default success message behaviour.
  *  error			- same as with Backbone.Model, and runs instead of the form's default error callback when an unknown error is encountered.
  *
+ *  errorMapping	- a hash mapping API error codes to input names or IDs which should be indicated to be in error when the code is returned.
+ *  				  When non-handled codes are returned, they simply show the error message assigned to them without highlighting any particular fields.
+ *
  * :TODO:
  * - success flash messages
  *
@@ -45,6 +48,8 @@ define(['jquery'], function ($) {
 		onPreValidate : null,
 		onPreSend : null,
 		validate : null,
+
+		errorMapping : {},
 
 		flashTime : 4000,
 
@@ -174,11 +179,15 @@ define(['jquery'], function ($) {
 			success: function(model, response, options) {
 				that.enable.call(that);
 
-				// :TODO: check for an API error
+				// check for an API error
+				if (response.error) {
+					that.handleAPIError(model, response, options);
+					return;
+				}
 
 				// fire custom success callback instead of default one if present
-				if (inOptions && inOptions.success) {
-					inOptions.success(model, response, options);
+				if (that.options && that.options.success) {
+					that.options.success(model, response, options);
 				} else {
 					that.showSuccess();
 				}
@@ -186,36 +195,65 @@ define(['jquery'], function ($) {
 			error: function(model, xhr, options) {
 				that.enable.call(that);
 
-				// fire custom error callback if present, otherwise throw global notification
-				if (inOptions && inOptions.error) {
-					inOptions.error(model, xhr, options);
-				} else {
-					that.handleUncaughtError();		// :TODO:
-				}
+				var responseJSON = xhr.responseText;
+				try {
+					responseJSON = JSON.parse(xhr.responseText);
+				} catch (e) {}
 
-				console.log(model, xhr, options);
+				if (that.options && that.options.error) {		// fire custom error callback if present
+					that.options.error(model, responseJSON, options);
+				} else if ($.isPlainObject(responseJSON)) {		// if response was OK, attempt to throw it as an API error
+					that.handleAPIError(model, responseJSON, options);
+				} else {										// otherwise throw up to global error handler
+					that.handleUncaughtError(model, xhr, options);
+				}
 			}
-		}, inOptions);
+		}, this.options);
 	}
 
 	/**
 	 * Error handling
 	 */
-	form.prototype.handleUncaughtError = function()
+	form.prototype.handleUncaughtError = function(model, xhr, options)
 	{
 		// :TODO:
 	};
-	form.prototype.handleAPIError = function()
+	form.prototype.handleAPIError = function(model, response, options)
 	{
+		if (this.options && this.options.error) {
+			this.options.error(model, response, options);
+			return;
+		}
+		if (!response.error || !response.error.key) {
+			this.handleUncaughtError(model, response, options);
+			return;
+		}
 
+		var that = this, fields, errCode = response.error.key;
+
+		if (this.options.errorMapping[errCode]) {
+			fields = this.options.errorMapping[errCode];
+			if (!$.isArray(fields)) {
+				fields = [fields];
+			}
+			$.each(fields, function(k, fld) {
+				that.showError(fld, errCode);
+			});
+		} else {
+			this.showError(null, errCode);
+		}
 	};
 	form.prototype.showError = function(field, code)
 	{
-		$('[name=\'' + field + '\'], [id=\'' + field + '\']', this.element).addClass('error');
-		if (code === true) {
-			$('label.form-error[for=\'' + field + '\']', this.element).css('display', 'block');
-		} else {
-			$('label.form-error[for=\'' + field + '\'][data-errcode=\'' + code + '\']', this.element).css('display', 'block');
+		if (field && code) {
+			$('[name=\'' + field + '\'], [id=\'' + field + '\']', this.element).addClass('error');
+			if (code === true) {
+				$('label.form-error[for=\'' + field + '\']', this.element).css('display', 'block');
+			} else {
+				$('label.form-error[for=\'' + field + '\'][data-errcode=\'' + code + '\']', this.element).css('display', 'block');
+			}
+		} else if (code) {
+			$('label.form-error[data-errcode=\'' + code + '\']', this.element).css('display', 'block');
 		}
 	};
 
