@@ -9,6 +9,13 @@
   <textarea class="fixie"></textarea>
   <label>Company</label>
   <input type="text" value="API Engine" />
+
+	<label>Boolean options</label>
+	<div class="button-group toggle" id="bool-field">
+	  <input name="bool-field" type="hidden" value="1" />
+	  <button type="button" class="btn btn-right-join btn-regular" value="1">Yes</button>	<!-- the btn-regular class is swapped for btn-green by JS -->
+	  <button type="button" class="btn btn-left-join btn-regular" value="0">No</button>
+	</div>
 </form>
 ```
 */
@@ -61,7 +68,7 @@ input:-moz-placeholder {
 	</div>
 
 	<div class="form-success">
-		<label class="form-ok">Account details updated successfully.</label>
+		<label class="form-ok" style="display: block;">Account details updated successfully.</label>
 	</div>
 
 	<input type="text" value="I'm Sad" id="errored-field" name="errored-field" class="error" />
