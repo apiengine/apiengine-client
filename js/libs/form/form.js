@@ -61,6 +61,26 @@ define(['jquery'], function ($) {
 		// bind DOM events
 		this.element = $(el);
 
+		// toggle buttons
+		var btns = $('.button-group.toggle', this.element);
+		if (btns.length) {
+			btns.each(function() {
+				var btn = $(this),
+					hidden = $('input[type="hidden"]', btn);
+
+				btn.find($('button[value="' + hidden.val() + '"]')).removeClass('btn-regular').addClass('btn-green');
+			});
+			btns.on('click', 'button.btn', function(e) {
+				var $this = $(this),
+					top = $this.closest('.toggle');
+
+				top.find('input').val($this.val());
+				top.find('button').removeClass('btn-green').addClass('btn-regular');
+				$this.removeClass('btn-regular').addClass('btn-green');
+			});
+		}
+
+		// submit action
 		if (!options.skipSubmitEvent) {
 			this.element.on('submit', function(ev) {
 				var pressed = $(this).data('clicked'),
@@ -191,7 +211,7 @@ define(['jquery'], function ($) {
 	};
 	form.prototype.showError = function(field, code)
 	{
-		$('input[name=\'' + field + '\'], input[id=\'' + field + '\']', this.element).addClass('error');
+		$('[name=\'' + field + '\'], [id=\'' + field + '\']', this.element).addClass('error');
 		if (code === true) {
 			$('label.form-error[for=\'' + field + '\']', this.element).css('display', 'block');
 		} else {
@@ -216,7 +236,7 @@ define(['jquery'], function ($) {
 	form.prototype.resetUI = function()
 	{
 		this.enable();
-		$('input', this.element).removeClass('error');
+		$('[name], [id]', this.element).removeClass('error');
 		$('label.form-error, label.form-ok', this.element).css('display', '');
 	};
 
