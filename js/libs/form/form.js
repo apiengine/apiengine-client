@@ -134,7 +134,9 @@ define(['jquery'], function ($) {
 				if (v.length) {
 					invalidCount++;
 					$.each(v, function(k2, errCode) {
-						that.showError(fldName, errCode);
+						if (!that.showError(fldName, errCode)) {
+							that.showNonConfiguredError(fldName, errCode);
+						}
 					});
 				}
 			});
@@ -156,23 +158,23 @@ define(['jquery'], function ($) {
 	form.prototype.save = function(attributes)
 	{
 		this.disable();
-		this.model.save(attributes, this.extendOptions(this.options));
+		this.model.save(attributes, this.extendOptions());
 	};
 
 	form.prototype.fetch = function()
 	{
 		this.disable();
-		this.model.fetch(this.extendOptions(this.options));
+		this.model.fetch(this.extendOptions());
 	};
 
 	form.prototype.destroy = function()
 	{
 		this.disable();
-		this.model.destroy(this.extendOptions(this.options));
+		this.model.destroy(this.extendOptions());
 	};
 
 	// bind default callbacks for request actions
-	form.prototype.extendOptions = function(inOptions)
+	form.prototype.extendOptions = function()
 	{
 		var that = this;
 		return $.extend({
@@ -180,7 +182,7 @@ define(['jquery'], function ($) {
 				that.enable.call(that);
 
 				// check for an API error
-				if (response.error) {
+				if (response && response.error) {
 					that.handleAPIError(model, response, options);
 					return;
 				}
@@ -237,24 +239,41 @@ define(['jquery'], function ($) {
 				fields = [fields];
 			}
 			$.each(fields, function(k, fld) {
-				that.showError(fld, errCode);
+				if (!that.showError(fld, errCode)) {
+					that.showNonConfiguredError(fld, errCode);
+				}
 			});
 		} else {
-			this.showError(null, errCode);
+			if (!this.showError(null, errCode)) {
+				this.showNonConfiguredError(null, errCode);
+			}
 		}
 	};
 	form.prototype.showError = function(field, code)
 	{
+		var errorLbl;
+
 		if (field && code) {
 			$('[name=\'' + field + '\'], [id=\'' + field + '\']', this.element).addClass('error');
 			if (code === true) {
-				$('label.form-error[for=\'' + field + '\']', this.element).css('display', 'block');
+				errorLbl = $('label.form-error[for=\'' + field + '\']', this.element);
 			} else {
-				$('label.form-error[for=\'' + field + '\'][data-errcode=\'' + code + '\']', this.element).css('display', 'block');
+				errorLbl = $('label.form-error[for=\'' + field + '\'][data-errcode=\'' + code + '\']', this.element);
 			}
 		} else if (code) {
-			$('label.form-error[data-errcode=\'' + code + '\']', this.element).css('display', 'block');
+			errorLbl = $('label.form-error[data-errcode=\'' + code + '\']', this.element);
 		}
+
+		if (!errorLbl.length) {
+			return false;
+		}
+		errorLbl.css('display', 'block');
+		return true;
+	};
+	form.prototype.showNonConfiguredError = function(field, code)
+	{
+		// this method is mainly to prevent tedious bug track-downs for developers not familiar with the code.
+		alert("Form error not found in DOM: " + field + ":" + code);
 	};
 
 	form.prototype.showSuccess = function(code)
