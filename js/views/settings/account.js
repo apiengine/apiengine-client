@@ -25,7 +25,10 @@ define([
       $('.settings-menu .account').addClass('active');
       this.$el.html(Mustache.render(settingTemplate, {user : Session.get('user')}));
 
-      this.form = FormFactory.create($('form.update-account'), new AccountModel({ login : Session.get('user').login }), {
+      this.form = FormFactory.create($('form.update-account'), new AccountModel({
+      	login : Session.get('login'),
+      	publicize : Session.get('user').profile.publicize
+      }), {
       	onPreValidate : function(profileDetails) {
       		// don't send password if not filled in
 			if (!profileDetails.password && !profileDetails.password_check) {
@@ -51,8 +54,6 @@ define([
 			return errors;
     	},
       	onPreSend : function(profileDetails) {
-      		profileDetails.publicize = false;	// :TODO: required buy API. Needs to come from somewhere
-
 			delete profileDetails.password_check;	// don't need to send this
 
 			return profileDetails;
