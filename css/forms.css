@@ -60,6 +60,10 @@ input:-moz-placeholder {
 		<label class="form-error" for="errored-field2" style="display: block;">This one is bad too</label>
 	</div>
 
+	<div class="form-success">
+		<label class="form-ok">Account details updated successfully.</label>
+	</div>
+
 	<input type="text" value="I'm Sad" id="errored-field" name="errored-field" class="error" />
 	<input type="text" value="I'm OK" />
 	<input type="text" value="I'm Mad" id="errored-field2" name="errored-2field2" class="error" />
@@ -76,9 +80,17 @@ input:-moz-placeholder {
   margin-bottom: 15px;
 }
 
-.form .form-error {	/* :TODO: */
+.form-submit {
+	margin-bottom: 30px;
+}
+
+.form .form-error, .form .form-ok {	/* :TODO: */
 	display: none;
 	color: #D00;
 	font-weight: bolder;
 	margin-top: -1em;
+}
+
+.form .form-ok {
+	color: #0D0;
 }
