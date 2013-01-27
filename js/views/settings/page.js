@@ -7,12 +7,15 @@ define([
   'models/session',
   'text!templates/settings/page.html',
   'views/settings/profile',
-  'views/settings/account'
-], function($, _, Backbone, Router, Vm, Session, pageTemplate, ProfileView, AccountView){
+  'views/settings/account',
+  'views/settings/history',
+  'views/settings/billing',
+  'views/settings/notifications'
+], function($, _, Backbone, Router, Vm, Session, pageTemplate, ProfileView, AccountView, HistoryView, BillingView, NotificationsView){
   var NewApiPage = Backbone.View.extend({
     el: '.tab-container',
     initialize: function () {
-    },  
+    },
     events: {
     },
     render: function (options) {
@@ -24,7 +27,6 @@ define([
           var profileView = new ProfileView();
           profileView.render();
         break;
-        /*
       case 'history':
           var historyView = new HistoryView();
           historyView.render();
@@ -37,7 +39,6 @@ define([
           var notificationsView = new NotificationsView();
           notificationsView.render();
         break;
-        */
       case 'account':
           var accountView = new AccountView();
           accountView.render();
