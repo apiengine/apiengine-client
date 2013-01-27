@@ -1,7 +1,6 @@
 <form class="form profile-form">
 <div class="settings-title-container">
     <span class="settings-title"><span class="arrows">»</span> Profile settings</span>
-    <button type="submit" class="btn btn-blue title-button">UPDATE</button>
 </div>
 <div class="settings-page-contents">
       <!--
@@ -20,6 +19,11 @@
       <input type="text" name="website" value="{{user.attributes.website}}" placeholder="http://" />
       <label>Location</label>
       <input type="text" name="location" value="{{user.attributes.location}}" placeholder="Where do you live?" />
+
+	<div class="form-submit">
+	    <button type="submit" class="btn btn-blue">UPDATE</button>
+	</div>
+
     <span class="settings-title inline"><span class="arrows">»</span> Social settings</span>
 
        <label><img class="favicon" src="http://twitter.com/favicon.ico" />Twitter</label>
@@ -40,5 +44,9 @@
 
              <label><img class="favicon" src="http://plus.google.com/favicon.ico" />Google+</label>
       <input name="google" value="{{user.attributes.google}}"  type="text" placeholder="Your Google Plus id" />
+
+	<div class="form-submit">
+	    <button type="submit" class="btn btn-blue">UPDATE</button>
+	</div>
 </div>
 </form>
