@@ -128,22 +128,22 @@ define(['jquery'], function ($) {
 	/**
 	 * Request wrappers
 	 */
-	form.prototype.save = function(attributes, options)
+	form.prototype.save = function(attributes)
 	{
 		this.disable();
-		this.model.save(attributes, this.extendOptions(options));
+		this.model.save(attributes, this.extendOptions(this.options));
 	};
 
-	form.prototype.fetch = function(options)
+	form.prototype.fetch = function()
 	{
 		this.disable();
-		this.model.fetch(this.extendOptions(options));
+		this.model.fetch(this.extendOptions(this.options));
 	};
 
-	form.prototype.destroy = function(options)
+	form.prototype.destroy = function()
 	{
 		this.disable();
-		this.model.destroy(this.extendOptions(options));
+		this.model.destroy(this.extendOptions(this.options));
 	};
 
 	// bind default callbacks for request actions
@@ -162,10 +162,6 @@ define(['jquery'], function ($) {
 				} else {
 					that.showSuccess();
 				}
-
-				// :TODO: show configured success message
-
-				console.log(model, response, options);
 			},
 			error: function(model, xhr, options) {
 				that.enable.call(that);
