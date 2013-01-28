@@ -43,7 +43,7 @@
  * @author	Sam Pospischil <pospi@spadgos.com>
  * @since	23/1/13
  */
-define(['jquery'], function ($) {
+define(['require', 'jquery', 'mustache'], function (require, $, Mustache) {
 	var defaultOptions = {
 		onPreValidate : null,
 		onPreSend : null,
@@ -181,12 +181,6 @@ define(['jquery'], function ($) {
 			success: function(model, response, options) {
 				that.enable.call(that);
 
-				// check for an API error
-				if (response && response.error) {
-					that.handleAPIError(model, response, options);
-					return;
-				}
-
 				// fire custom success callback instead of default one if present
 				if (that.options && that.options.success) {
 					that.options.success(model, response, options);
@@ -218,20 +212,27 @@ define(['jquery'], function ($) {
 	 */
 	form.prototype.handleUncaughtError = function(model, xhr, options)
 	{
-		// :TODO:
+		var that = this;
+		require(['modal', 'text!templates/modals/error.html'],
+			function (Modal, errorTemplate) {
+				errorTemplate = Mustache.render(errorTemplate, {
+					ajaxError : xhr
+				});
+				that.modal = Modal.create({
+					content: errorTemplate
+				});
+				that.modal.show();
+			}
+		);
 	};
 	form.prototype.handleAPIError = function(model, response, options)
 	{
-		if (this.options && this.options.error) {
-			this.options.error(model, response, options);
-			return;
-		}
-		if (!response.error || !response.error.key) {
+		if (!response.key) {
 			this.handleUncaughtError(model, response, options);
 			return;
 		}
 
-		var that = this, fields, errCode = response.error.key;
+		var that = this, fields, errCode = response.key;
 
 		if (this.options.errorMapping[errCode]) {
 			fields = this.options.errorMapping[errCode];
@@ -240,12 +241,12 @@ define(['jquery'], function ($) {
 			}
 			$.each(fields, function(k, fld) {
 				if (!that.showError(fld, errCode)) {
-					that.showNonConfiguredError(fld, errCode);
+					that.showNonConfiguredError(fld, errCode, response.message);
 				}
 			});
 		} else {
 			if (!this.showError(null, errCode)) {
-				this.showNonConfiguredError(null, errCode);
+				this.showNonConfiguredError(null, errCode, response.message);
 			}
 		}
 	};
@@ -270,10 +271,23 @@ define(['jquery'], function ($) {
 		errorLbl.css('display', 'block');
 		return true;
 	};
-	form.prototype.showNonConfiguredError = function(field, code)
+	form.prototype.showNonConfiguredError = function(field, code, msg)
 	{
 		// this method is mainly to prevent tedious bug track-downs for developers not familiar with the code.
-		alert("Form error not found in DOM: " + field + ":" + code);
+		require(['modal', 'text!templates/modals/error.html'],
+			function (Modal, errorTemplate) {
+				var modal,
+				errorHTML = Mustache.render(errorTemplate, {
+					apiError : true,
+					code : code,
+					message : msg ? msg : "Unknown error code " + code
+				});
+				modal = Modal.create({
+					content: errorHTML
+				});
+				modal.show();
+			}
+		);
 	};
 
 	form.prototype.showSuccess = function(code)
