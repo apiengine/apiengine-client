@@ -87,6 +87,10 @@ input:-moz-placeholder {
   margin-bottom: 15px;
 }
 
+.modal .form-description {	/* clamp form paragraph width in modal popups */
+	max-width: 600px;
+}
+
 .form-submit {
 	margin-bottom: 30px;
 }
