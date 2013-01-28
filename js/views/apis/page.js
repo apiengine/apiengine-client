@@ -9,6 +9,7 @@ define([
   'models/session',
   'text!templates/apis/details.html',
   'models/api',
+  'models/api-overview',
   'libs/highlight/highlight',
   'modal',
   'text!templates/modals/editdescription.html',
@@ -16,13 +17,13 @@ define([
   'views/apis/documentation',
   'views/apis/settings',
   'views/apis/collaborators'
-], function($, _, Backbone, Router, Vm,  Mustache, Qtip, Session, apiDetailsTemplate, ApiModel,  hljs, Modal, edt, OverView, DocsView, SettingsView, CollaboratorsView){
+], function($, _, Backbone, Router, Vm,  Mustache, Qtip, Session, apiDetailsTemplate, ApiModel, ApiSummary, hljs, Modal, edt, OverView, DocsView, SettingsView, CollaboratorsView){
   var NewApiPage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
       var that = this;
-      
-    },  
+
+    },
     events: {
       'click .edit-api-description': 'editDescription'
     },
@@ -52,13 +53,13 @@ define([
       });
       window.modal = modal;
     },
-    render: function () { 
+    render: function () {
       var that = this;
-var api;
+
       if($('.api-container').length === 0) {
         this.$el.html('');
-      
-        var apiModel = new ApiModel({username: this.options.username, apiname: this.options.apiname, version: this.options.version});
+
+        var apiModel = new ApiSummary({username: this.options.username, apiname: this.options.apiname, version: this.options.version});
 
         apiModel.fetch({
           success: function (api) {
