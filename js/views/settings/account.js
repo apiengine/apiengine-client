@@ -28,6 +28,9 @@ define([
       	login : Session.get('login'),
       	publicize : Session.get('user').profile.publicize
       }), {
+      	errorMapping : {
+      		'password.mismatch' : 'current_password'
+      	},
       	onPreValidate : function(profileDetails) {
       		// don't send password if not filled in
 			if (!profileDetails.password && !profileDetails.password_check) {
