@@ -1,0 +1,35 @@
+<div class="modal-header"><span class="icon modal-close-icon js-close-modal">&#88;</span></div>
+<div class="modal-content">
+    <h3 class="modal-title error-alert">Oops!</h3>
+
+	<p class="form-description">APIEngine seems to have encountered a critical problem.</p>
+
+	<p class="form-description">
+		You could try what you were doing again to see if it works, or you could just refresh the page and give it another shot.
+		If problems persist, you should probably just wait for us to fix it.</p>
+
+	<p class="form-description">Details of the error are below, for you developer types:</p>
+
+	<p class="error-contents form">
+	{{#ajaxError}}
+		<label>The server gave an HTTP {{status}}, and returned invalid data.</label>
+		<label>The data returned was:</label>
+		<textarea>{{responseText}}</textarea>
+	{{/ajaxError}}
+	{{^ajaxError}}
+		{{#apiError}}
+			<label>API error <strong>{{code}}</strong>:</label>
+			<label>{{message}}</label>
+		{{/apiError}}
+		{{^apiError}}
+			<label>Error <strong>{{code}}</strong>:</label>
+			<label>{{message}}</label>
+		{{/apiError}}
+	{{/ajaxError}}
+	</p>
+</div>
+<div class="modal-footer">
+    <div class="modal-buttons">
+    	<button type="button" class="btn btn-regular js-close-modal">Close</button>
+    </div>
+</div>
