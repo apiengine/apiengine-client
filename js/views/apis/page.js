@@ -75,7 +75,7 @@ define([
               if(that.options.settings) {
                 var settingsView = Vm.create(that, 'apitab', SettingsView, that.options);
                 settingsView.render();
-              }   
+              }
                if(that.options.collaborators) {
                 var collaboratorsView = Vm.create(that, 'apitab', CollaboratorsView, that.options);
                 collaboratorsView.render();
@@ -100,7 +100,7 @@ define([
                 collaboratorsView.render();
               }
       }
-     
+
     }
   });
   return NewApiPage;

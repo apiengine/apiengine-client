@@ -45,11 +45,11 @@ define([
     },
     editProfile: function (ev) {
       $('#js-edit-profile-form').modal('show');
-    },  
+    },
     saveProfile: function (ev) {
       var that = this;
       this.userModel.set($(ev.currentTarget).serializeObject());
-      if(this.userModel.get('publicize') === 'true') { 
+      if(this.userModel.get('publicize') === 'true') {
         this.userModel.set({publicize: true});
       } else {
         this.userModel.set({publicize: false});
@@ -58,14 +58,14 @@ define([
       this.userModel.id = this.options.username;
       this.userModel.save({}, {
         success: function(resp){
-          
+
         }
       });
       return false;
     },
     render: function () {
       $('.top-bar-menu li a.active').removeClass('active');
-      
+
       $('.top-bar-menu li a.dashboard-button').addClass('active');
       var that = this;
       if($('.profile-box[data-login="'+that.options.username+'"]').length > 0 ) {
@@ -73,7 +73,7 @@ define([
       } else {
         this.userModel.fetch({
           success: function (user) {
-            
+
           },
           error: function () {
             that.$el.html(MissingPage);
@@ -85,7 +85,7 @@ define([
 
       var that = this;
       currentUser = false;
-      if(Session.get('login') === that.options.username ) { 
+      if(Session.get('login') === that.options.username ) {
         currentUser = true;
       }
       that.$el.html(Mustache.render(profileTemplate, {user: that.userModel, currentUser: currentUser}));
@@ -95,8 +95,8 @@ define([
     renderSettings: function () {
       var that = this;
       if(typeof this.options.tab === 'undefined') {
-        
-        if(Session.get('login') === that.options.username ) { 
+
+        if(Session.get('login') === that.options.username ) {
           currentUser = true;
         }
         var apisList = new ApisList({currentUser: currentUser, username: that.options.username, el: '.private-container'});
