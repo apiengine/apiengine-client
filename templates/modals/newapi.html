@@ -1,23 +1,21 @@
-<form class="newapi">
+<form class="form newapi">
 
 <div class="modal-header"><span class="icon modal-close-icon js-close-modal">&#88;</span></div>
 <div class="modal-content">
     <h3 class="modal-title">NEW API</h3>
 
-    <ul class="modal-form-errors">
-    </ul>
+    <div class="modal-form-errors">
+    	<label class="form-error" for="name" data-errcode="api.name.invalid">Invalid API name. API names may contain letters, numbers, underscores and dashes only.</label>
+    </div>
 
-        <input  style="margin-bottom: 30px;" placeholder="Enter the name of your API..." name="name" type="text" required autofocus />
-      <br />
-        <input id="private" name="private" type="checkbox" />
-        <label for="private" style="font-size: 12px;">Create a private API</label>
-        <br />
+    <input placeholder="Enter the name of your API..." name="name" id="name" type="text" required autofocus />
 
+	<label class="checkbox"><input type="checkbox" name="private" /> Create a private API</label>
 
 </div>
 <div class="modal-footer">
     <div class="modal-buttons">
-        <button type="submit" class="btn btn-blue">Create API</button>  
+        <button type="submit" class="btn btn-blue">Create API</button>
     </div>
 </div>
 

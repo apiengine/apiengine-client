@@ -20,45 +20,32 @@ define([
     },
     render: function () {
      // mixpanel.track('Opened API modal');
+     var that = this;
 
       this.modal = Modal.create({
-        content: registert
-      });
-      $('.modal input[name="name"]').focus();
-    },
-    events: {
+        content: registert,
 
-      'submit form.newapi': 'newapi'
-    },
-      newapi: function (ev) {
-       // Disable the button
-      var that = this;
-      $('[type=submit]', ev.currentTarget).val('Registering').attr('disabled', 'disabled');
-      var api = new Api({username: Session.get('login')});
-      var creds = $(ev.currentTarget).serializeObject();
-      if(creds.private === 'on') {
-        creds.private = true;
-      } else {
-        creds.private = false;
-      }
-      api.save(creds, {
-        success: function (data) {
-            Backbone.router.navigate(data.get('user') + '/' + data.get('name') + '/version/' + data.get('versions')[0], true);
-          that.modal.hide();
-     // mixpanel.track('Created a new API');
+        form : {
+        	element : 'form.newapi',
+        	model : new Api({username: Session.get('login')}),
 
-        },
-        error: function (model, res) {
-    //  mixpanel.track('New API Form errors');
-
-          var res = JSON.parse(res.responseText);
-          console.log(arguments);
-          $('.modal-form-errors', that.modal.el).append($('<li>').text(res.error));
-        $('[type=submit]', that.modal.el).removeAttr('disabled');
-
+	      	onPreValidate : function(creds) {
+	      		// don't send password if not filled in
+				if(creds.private === 'on') {
+					creds.private = true;
+				} else {
+					creds.private = false;
+				}
+	      		return creds;
+	    	},
+	    	success: function(data) {
+	          	that.modal.hide();
+            	Backbone.router.navigate(data.get('user') + '/' + data.get('name') + '/version/' + data.get('versions')[0], true);
+	     // mixpanel.track('Created a new API');
+	        }
         }
       });
-      return false;     
+      $('.modal input[name="name"]').focus();
     }
   });
   return ExamplePage;
