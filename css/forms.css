@@ -13,9 +13,11 @@
 	<label>Boolean options</label>
 	<div class="button-group toggle" id="bool-field">
 	  <input name="bool-field" type="hidden" value="1" />
-	  <button type="button" class="btn btn-right-join btn-regular" value="1">Yes</button>	<!-- the btn-regular class is swapped for btn-green by JS -->
+	  <button type="button" class="btn btn-right-join btn-green" value="1">Yes</button>	<!-- the btn-regular class is swapped for btn-green by JS -->
 	  <button type="button" class="btn btn-left-join btn-regular" value="0">No</button>
 	</div>
+
+	<label class="checkbox"><input type="checkbox" name="a-checkbox" /> Here is a checkbox option</label>
 </form>
 ```
 */
@@ -50,6 +52,16 @@ input:-moz-placeholder {
 .form .favicon {
   margin-right: 5px;
   width: 16px;
+}
+
+label.checkbox { font-weight: bold; }
+label.checkbox input {
+	float: none;
+	display: inline;
+	width: auto;
+	line-height: 18px;
+	padding-right: 0.5em;
+	margin-bottom: 0;
 }
 
 
@@ -87,8 +99,8 @@ input:-moz-placeholder {
   margin-bottom: 15px;
 }
 
-.modal .form-description {	/* clamp form paragraph width in modal popups */
-	max-width: 600px;
+.modal .form-description, .modal .modal-form-errors {	/* clamp form paragraph width in modal popups */
+	max-width: 500px;
 }
 
 .form-submit {
@@ -105,3 +117,8 @@ input:-moz-placeholder {
 .form .form-ok {
 	color: #0D0;
 }
+
+
+/* Overrides for special forms */
+
+.newapi .modal-form-errors, .newapi input, .newapi textarea { width: 250px; }
