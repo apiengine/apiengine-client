@@ -43,7 +43,7 @@
  * @author	Sam Pospischil <pospi@spadgos.com>
  * @since	23/1/13
  */
-define(['require', 'jquery', 'mustache'], function (require, $, Mustache) {
+define(['require', 'jquery', 'underscore', 'mustache', 'models/error'], function (require, $, _, Mustache, ErrorModel) {
 	var defaultOptions = {
 		onPreValidate : null,
 		onPreSend : null,
@@ -135,7 +135,7 @@ define(['require', 'jquery', 'mustache'], function (require, $, Mustache) {
 					invalidCount++;
 					$.each(v, function(k2, errCode) {
 						if (!that.showError(fldName, errCode)) {
-							that.showNonConfiguredError(fldName, errCode);
+							that.handleNonConfiguredError(fldName, null, errCode);
 						}
 					});
 				}
@@ -199,9 +199,9 @@ define(['require', 'jquery', 'mustache'], function (require, $, Mustache) {
 				if (that.options && that.options.error) {		// fire custom error callback if present
 					that.options.error(model, responseJSON, options);
 				} else if ($.isPlainObject(responseJSON)) {		// if response was OK, attempt to throw it as an API error
-					that.handleAPIError(model, responseJSON, options);
+					that.handleAPIError(xhr, responseJSON, options);
 				} else {										// otherwise throw up to global error handler
-					that.handleUncaughtError(model, xhr, options);
+					that.handleUncaughtError(xhr, options);
 				}
 			}
 		}, this.options);
@@ -210,8 +210,9 @@ define(['require', 'jquery', 'mustache'], function (require, $, Mustache) {
 	/**
 	 * Error handling
 	 */
-	form.prototype.handleUncaughtError = function(model, xhr, options)
+	form.prototype.handleUncaughtError = function(xhr, options)
 	{
+		// show notification of the error
 		var that = this;
 		require(['modal', 'text!templates/modals/error.html'],
 			function (Modal, errorTemplate) {
@@ -224,11 +225,24 @@ define(['require', 'jquery', 'mustache'], function (require, $, Mustache) {
 				that.modal.show();
 			}
 		);
+
+		// don't duplicate the global logging performed in app.js
+		if (xhr.status < 500 || xhr.status >= 600) {
+			// log to server
+			var error = new ErrorModel();
+			error.save({
+				"page": window.location.href,
+				"context": this.model.url(),
+				"code": xhr.status,
+				"error": xhr.responseText,
+				"payload": _.clone(that.model.attributes)
+			}, {});
+		}
 	};
-	form.prototype.handleAPIError = function(model, response, options)
+	form.prototype.handleAPIError = function(xhr, response, options)
 	{
 		if (!response.key) {
-			this.handleUncaughtError(model, response, options);
+			this.handleUncaughtError(response, options);
 			return;
 		}
 
@@ -241,12 +255,12 @@ define(['require', 'jquery', 'mustache'], function (require, $, Mustache) {
 			}
 			$.each(fields, function(k, fld) {
 				if (!that.showError(fld, errCode)) {
-					that.showNonConfiguredError(fld, errCode, response.message);
+					that.handleNonConfiguredError(fld, xhr, errCode, response.message);
 				}
 			});
 		} else {
 			if (!this.showError(null, errCode)) {
-				this.showNonConfiguredError(null, errCode, response.message);
+				this.handleNonConfiguredError(null, xhr, errCode, response.message);
 			}
 		}
 	};
@@ -271,11 +285,12 @@ define(['require', 'jquery', 'mustache'], function (require, $, Mustache) {
 		errorLbl.css('display', 'block');
 		return true;
 	};
-	form.prototype.showNonConfiguredError = function(field, code, msg)
+	form.prototype.handleNonConfiguredError = function(field, xhr, code, msg)
 	{
-		// this method is mainly to prevent tedious bug track-downs for developers not familiar with the code.
+		var that = this;
 		require(['modal', 'text!templates/modals/error.html'],
 			function (Modal, errorTemplate) {
+				// show notification of the error
 				var modal,
 				errorHTML = Mustache.render(errorTemplate, {
 					apiError : true,
@@ -286,6 +301,16 @@ define(['require', 'jquery', 'mustache'], function (require, $, Mustache) {
 					content: errorHTML
 				});
 				modal.show();
+
+				// log to server
+				var error = new ErrorModel();
+				error.save({
+					"page": window.location.href,
+					"context": that.model.url(),
+					"code": xhr ? xhr.status : 0,
+					"error": "Error key '" + code + "' is unhandled in the UI",
+					"payload": _.clone(that.model.attributes)
+				}, {});
 			}
 		);
 	};

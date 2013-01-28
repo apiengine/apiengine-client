@@ -6,33 +6,33 @@ define([
   'vm',
 	'events',
   'models/session',
+  'models/error',
   'text!templates/layout.html',
   'views/header/account-menu',
   'views/header/header',
   'views/footer/footer',
   'views/feedback/feedback',
   'views/notifications/main'
-], function($, _, Backbone, extensions, Vm, Events, Session, layoutTemplate, AccountMenu, HeaderView, FooterView, FeedbackView, Notifications){
+], function($, _, Backbone, extensions, Vm, Events, Session, ErrorModel, layoutTemplate, AccountMenu, HeaderView, FooterView, FeedbackView, Notifications){
   var AppView = Backbone.View.extend({
     el: 'body',
     initialize: function () {
-      var ErrorModel = Backbone.Model.extend({
-        url: '/error'
-      });
+ // log all 500 error codes with the server. We may also log others - this is done in libs/form/form.js
+ // when no UI elements are found for handling a valid server error condition.
       $("body").ajaxError(function(ev, res, req) {
- if(res.status >= 500 && res.status <= 600) {
-  var error = new ErrorModel();
-  error.save({
-    "page": window.location.href,
-"context": req.type + ' ' + req.url,
-"code": res.status,
-"error": res.responseText,
-"payload": req.data
+		 if(res.status >= 500 && res.status <= 600) {
+		  var error = new ErrorModel();
+		  error.save({
+		    "page": window.location.href,
+			"context": req.type + ' ' + req.url,
+			"code": res.status,
+			"error": res.responseText,
+			"payload": req.data
+		  }, {});
+		 }
+		  console.log(arguments);
+	   });
 
-  }, {})
- }
-  console.log(arguments);
-});
       // This snipper should usually be loaded elsewhere
       // It simply takes a <form> and converts its values to an object
       $.fn.serializeObject = function() {
@@ -64,17 +64,17 @@ define([
        // };
 
       });
-    
+
     },
     render: function () {
 
 			var that = this;
-      $(this.el).html(layoutTemplate);     
+      $(this.el).html(layoutTemplate);
       var footerView = new FooterView();
 
       var headerView = new HeaderView();
       headerView.render();
-      footerView.render(); 
+      footerView.render();
 
 
 
@@ -88,7 +88,7 @@ define([
             Backbone.router.navigate($(this).attr('href'), true);
             $(document).scrollTop(0);
             return false;
-              
+
           }
         });
         var notifications = new Notifications();
@@ -97,7 +97,7 @@ define([
           root = '/repos/apiengine-client/';
         }
         Backbone.history.start({pushState: true, root: root});
-      });    
+      });
 
 
 //$.ajax('http://d3gscmgl75g1oq.cloudfront.net/user/thomasdavis/api/ApiEngine/1/resource/8', {
