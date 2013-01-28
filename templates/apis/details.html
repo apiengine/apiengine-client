@@ -24,36 +24,72 @@
     </div>
     <div class="api-desc-col">
       <div style="padding-left: 15px;">
-        <h1 class="api-name" style="">{{api.attributes.api}}</h1>
+  	{{#api.attributes}}
+        <h1 class="api-name">{{api}}</h1>
         <ul class="quicklinks">
-          <li><span class="icon">f</span><a href="{{api.attributes.user}}">{{api.attributes.user}}</a></li>
-          <li><span class="icon">J</span><a href="#">Uncategorized</a></li>
+          <li><span class="icon">f</span><a href="{{api.attributes.user}}">{{user}}</a></li>
+          <li><span class="icon">J</span><a href="#">{{#tag}}{{tag}}{{/tag}}{{^tag}}Uncategorized{{/tag}}</a></li>	<!-- :TODO: API tags -->
+          <li><span class="icon">w</span><a href="#">{{#private}}Limited access{{/private}}{{^private}}Public{{/private}}</a></li>	<!-- :TODO: correct logic for access ternary state -->
+          <li><span class="icon">g</span><a href="#">{{#collaborators}}{{collaborators}}{{/collaborators}}{{^collaborators}}No{{/collaborators}} collaborators</a></li>	<!-- :TODO: collaborators -->
         </ul>
+  	{{/api.attributes}}
         <div style="clear: both;"></div>
         {{#owner}}
-        <p style="" class="edit-api-description">Click to edit end description...</p>
+        <p class="edit-api-description">
+        	{{#api.attributes.description}}
+        		{{api.attributes.description}}
+        	{{/api.attributes.description}}
+        	{{^api.attributes.description}}
+        		Click to edit API description...
+        	{{/api.attributes.description}}</p>
         {{/owner}}
 
         {{^owner}}
-        <p style="" class="api-description">No description</p>
+        <p class="api-description">
+        	{{#api.attributes.description}}
+        		{{api.attributes.description}}
+        	{{/api.attributes.description}}
+        	{{^api.attributes.description}}
+        		No description
+        	{{/api.attributes.description}}
+        </p>
         {{/owner}}
       </div>
   </div>
   <div class="api-actions-col">
     <ul class="actions-menu">
-      <li><button class="btn triangle-border right">19</button>
-      <button class="btn btn-regular">FOLLOWERS</button></li>
+      	<li>
+      		<button class="btn triangle-border right">{{api.attributes.follower_count}}</button>
+      		{{#authed}}
+				{{^currentUser}}
+					{{^api.attributes.following}}
+						<button class="btn btn-blue js-follow">Follow</button>
+					{{/api.attributes.following}}
+					{{#api.attributes.following}}
+						<button class="btn btn-green js-following">Following</button>
+					{{/api.attributes.following}}
+				{{/currentUser}}
+				{{#currentUser}}
+					<button class="btn btn-regular">FOLLOWERS</button>
+				{{/currentUser}}
+			{{/authed}}
+			{{^authed}}
+				<button class="btn btn-regular">FOLLOWERS</button>
+			{{/authed}}
+
+      	</li>
+      	<li><button class="btn btn-regular btn-share js-share"><span class="icon">l</span></button></li>
     </ul>
   </div>
     <div style="clear: both;"></div>
 
   <div class="tabs-container">
     <ul class="tabs">
-      <li  class="api-docs"><a href="#{{api.attributes.user}}/{{api.attributes.apiname}}/version/1">Documentation</a></li>
+      <li  class="api-docs"><a href="#{{api.attributes.user}}/{{api.attributes.apiname}}/version/{{api.attributes.version}}">Documentation</a></li>
       <li  class="api-collab"><a href="#{{api.attributes.user}}/{{api.attributes.apiname}}/collaborators">Collaborators</a></li>
-              {{#owner}}
-      <li class="api-settings"><a href="#{{api.attributes.user}}/{{api.attributes.apiname}}/settings/general" >Manage API</a></li>
-        {{/owner}}
+     {{#owner}}
+    	<li class="api-settings"><a href="#{{api.attributes.user}}/{{api.attributes.apiname}}/settings/general">Manage API</a></li>
+     {{/owner}}
     </ul>
     <div style="clear: both;"></div>
   </div>
