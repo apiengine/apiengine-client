@@ -42,13 +42,6 @@ define(['jquery', 'form'], function ($, FormFactory) {
       });
     }
 
-    // bind close buttons for confirmation dialogs automatically
-    if (options.confirm) {
-    	$('.js-ui-cancel').on('click', function(ev) {
-    		that.hide();
-    	});
-    }
-
     this.el.css({visibility: 'visible'});
 
     // bind form controller if one is specified in options

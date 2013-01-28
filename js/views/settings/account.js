@@ -67,7 +67,6 @@ define([
 
 		this.modal = Modal.create({
 			content: confirmTemplate,
-			confirm : true,
 
 			form: {
 				element : '.account-delete-form',
