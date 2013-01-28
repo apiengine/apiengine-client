@@ -18,7 +18,7 @@ define([
   'libs/highlight/highlight',
   'views/forms/resource',
   'modal',
-  'text!templates/modals/editdescription.html',
+  'text!templates/modals/inlineedit.html',
   'views/apis/overview',
   'views/apis/tablelist'
 ], function($, _, Backbone, Router, Vm,  Mustache, Qtip, Session, apiDetailsTemplate, ApiModel, MethodsCollection, ResourceListView, MethodDetailView, ApiModel, ResourceModel, MethodModel, hljs, ResourceForm, Modal, edt, OverView, TableList){
@@ -26,8 +26,8 @@ define([
     el: '.page',
     initialize: function () {
       var that = this;
-      
-    },  
+
+    },
     events: {
       'click .js-new-resource': 'newResource',
       'click .js-new-method': 'newMethod',
@@ -108,11 +108,11 @@ define([
     showMethodList: function () {
       var that = this;
       var methodListView = new MethodsListView({username: that.options.username, api: that.options.apiname, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
-      methodListView.render();    
+      methodListView.render();
     },
     showDetails: function () {
       var that = this;
-      
+
        if(typeof that.options.resourceId === 'undefined') {
         var overview = Vm.create(that, 'apipage', OverView, that.options);
         overview.render();
@@ -123,22 +123,22 @@ define([
         console.log('show list container');
       };
     // if(typeof that.options.resourceId !== 'undefined' && $('.method-list-container').attr('data-resource-id') !== that.options.resourceId) {
-    //   that.showMethodList();           
+    //   that.showMethodList();
     //}
     //  if(typeof that.options.method !== 'undefined') {
     //    var methodView = new MethodView({username: that.options.username, api: that.options.apiname, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
-    //     methodView.render();              
+    //     methodView.render();
     //  }
     },
     renderOverview: function () {
 
     },
-    render: function () { 
+    render: function () {
       var that = this;
       console.log('re-render');
       if($('.api-container').length === 0) {
         this.$el.html('');
-      
+
         var apiModel = new ApiModel({username: this.options.username, apiname: this.options.apiname, version: this.options.version});
 
         apiModel.fetch({
@@ -147,15 +147,15 @@ define([
             if($('.api-container').length === 0) {
               var owner = Session.get('login') === api.get('user') ? true : false;
               that.$el.html(Mustache.render(apiDetailsTemplate, {api: api, errors: [], owner: owner}));
-              
-           
+
+
               $('code').each(function(i, e) {hljs.highlightBlock(e); });
                 $('.js-api-pages a').click(function (e) {
                 e.preventDefault();
                 $(this).tab('show');
               });
             };
-            
+
             that.showDetails();
           }
         })
@@ -164,7 +164,7 @@ define([
          that.showDetails();
 
       }
-     
+
     }
   });
   return NewApiPage;

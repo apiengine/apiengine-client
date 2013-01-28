@@ -12,7 +12,7 @@ define([
   'models/api-overview',
   'libs/highlight/highlight',
   'modal',
-  'text!templates/modals/editdescription.html',
+  'text!templates/modals/inlineedit.html',
   'views/apis/overview',
   'views/apis/documentation',
   'views/apis/settings',

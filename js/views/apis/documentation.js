@@ -18,7 +18,7 @@ define([
   'libs/highlight/highlight',
   'views/forms/resource',
   'modal',
-  'text!templates/modals/editdescription.html',
+  'text!templates/modals/inlineedit.html',
   'views/apis/overview',
   'views/modals/newmethod',
   'views/modals/newresource',
@@ -27,8 +27,8 @@ define([
     el: '.api-page-container',
     initialize: function () {
       var that = this;
-      
-    },  
+
+    },
     events: {
       'click .js-new-resource': 'newResource',
       'click .js-new-method': 'newMethod',
@@ -106,7 +106,7 @@ define([
     showMethodList: function () {
       var that = this;
       var methodListView = new MethodsListView({username: that.options.username, api: that.options.apiname, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
-      methodListView.render();    
+      methodListView.render();
     },
     showDetails: function () {
       var that = this;
@@ -119,17 +119,17 @@ define([
         resourceListView.render();
       };
     // if(typeof that.options.resourceId !== 'undefined' && $('.method-list-container').attr('data-resource-id') !== that.options.resourceId) {
-    //   that.showMethodList();           
+    //   that.showMethodList();
     //}
     //  if(typeof that.options.method !== 'undefined') {
     //    var methodView = new MethodView({username: that.options.username, api: that.options.apiname, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
-    //     methodView.render();              
+    //     methodView.render();
     //  }
     },
     renderOverview: function () {
 
     },
-    render: function (options) { 
+    render: function (options) {
       if($('.api-details-container').length === 0) {
            var owner = Session.get('login') ===  this.options.username ? true : false;
               console.log(this.options, 'friday night');
