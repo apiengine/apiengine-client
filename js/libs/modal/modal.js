@@ -102,6 +102,7 @@ define(['jquery', 'mustache', 'form', 'text!templates/modals/inlineedit.html'], 
 
       that.el.remove();
       that.overlay.remove();
+      delete that.form;
       delete that;
     });
   };
