@@ -9,9 +9,10 @@ define([
   'modal',
   'form',
   'text!templates/settings/account.html',
+  'text!templates/settings/account-errordef.html',
   'text!templates/modals/deleteaccount.html',
   'models/account'
-], function($, _, Backbone, Mustache, Router, Vm, Session, Modal, FormFactory, settingTemplate, confirmTemplate, AccountModel){
+], function($, _, Backbone, Mustache, Router, Vm, Session, Modal, FormFactory, settingTemplate, errorDefs, confirmTemplate, AccountModel){
   var SettingPage = Backbone.View.extend({
     el: '.settings-page-container',
     initialize: function () {
@@ -22,7 +23,7 @@ define([
     render: function (options) {
       $('.settings-menu a').removeClass('active');
       $('.settings-menu .account').addClass('active');
-      this.$el.html(Mustache.render(settingTemplate, {user : Session.get('user')}));
+      this.$el.html(Mustache.render(settingTemplate, {user : Session.get('user'), errordef : errorDefs}));
 
       this.form = FormFactory.create($('form.update-account'), new AccountModel({
       	login : Session.get('login'),

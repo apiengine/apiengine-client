@@ -18,11 +18,10 @@ define([
   'libs/highlight/highlight',
   'views/forms/resource',
   'modal',
-  'text!templates/modals/inlineedit.html',
   'views/apis/overview',
   'views/modals/newmethod',
   'views/modals/newresource',
-], function($, _, Backbone, Router, Vm,  Mustache, Qtip, Session, docsTemplate, ApiModel, MethodsCollection, ResourceListView, MethodDetailView, ApiModel, ResourceModel, MethodModel, hljs, ResourceForm, Modal, edt, OverView, NewMethod, NewResource){
+], function($, _, Backbone, Router, Vm,  Mustache, Qtip, Session, docsTemplate, ApiModel, MethodsCollection, ResourceListView, MethodDetailView, ApiModel, ResourceModel, MethodModel, hljs, ResourceForm, Modal, OverView, NewMethod, NewResource){
   var NewApiPage = Backbone.View.extend({
     el: '.api-page-container',
     initialize: function () {
@@ -36,29 +35,13 @@ define([
     },
     editDescription: function(ev) {
       var modal = Modal.create({
-        content: edt,
         inline: {
-          from: $(ev.currentTarget),
-          to: '.xx'
+        	from : $(ev.currentTarget),
+        	model : this.options.model,
+        	field : 'description'
         }
       });
-      $('.editdescription').on('submit', function(ev) {
-        console.log('asd');
-        var api = new ApiModel({
-          username: 'thomasdavis',
-          apiname: 'ApiEngine',
-          version: 1
-        });
-        var apiDetails = $(ev.currentTarget).serializeObject();
-        apiDetails.name = 'ApiEngine';
-        api.save(apiDetails, {
-          success: function (model) {
-
-          }
-        })
-        return false;
-      });
-      window.modal = modal;
+      modal.show();
     },
     newResource: function () {
       console.log(this.options);
