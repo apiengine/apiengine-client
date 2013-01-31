@@ -83,6 +83,17 @@ define(['jquery', 'mustache', 'form', 'text!templates/modals/inlineedit.html'], 
     			}
 
     			return attribs;
+    		},
+    		success : function(model, response, options) {
+    			try {
+    				from.val(model.get(options.inline.field));
+    			} catch(e) {
+    				from.text(model.get(options.inline.field));
+    			}
+    			if (options.inline.form && options.inline.form.success) {
+    				options.inline.form.success.call(this, model, response, options);
+    			}
+    			that.hide();
     		}
     	}, options.inline.form || {}));
     }
