@@ -72,8 +72,19 @@ define(['jquery', 'mustache', 'form', 'text!templates/modals/inlineedit.html'], 
     	this.form = FormFactory.create($(options.form.element, this.el), options.form.model, options.form);
     }
     // otherwise, bind submit event for inline modals
-    else if (options.inline && options.inline.model) {
-    	this.form = FormFactory.create($('form.inline-edit', this.el), options.inline.model, options.inline.form || {});
+    else if (options.inline && options.inline.model && options.inline.field) {
+    	this.form = FormFactory.create($('form.inline-edit', this.el), options.inline.model, $.extend({
+    		onPreValidate : function(attribs) {
+    			attribs[options.inline.field] = attribs.field;
+    			delete attribs.field;
+
+    			if (options.inline.form && options.inline.form.onPreValidate) {
+    				attribs = options.inline.form.onPreValidate.call(that.form, attribs);
+    			}
+
+    			return attribs;
+    		}
+    	}, options.inline.form || {}));
     }
 
     this.el.css({visibility: 'visible'});
