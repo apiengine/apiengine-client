@@ -37,7 +37,7 @@ define([
       var modal = Modal.create({
         inline: {
         	from : $(ev.currentTarget),
-        	model : this.options.model,
+        	model : this.options.model.toApi(),
         	field : 'description'
         }
       });
