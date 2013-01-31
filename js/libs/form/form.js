@@ -303,14 +303,16 @@ define(['require', 'jquery', 'underscore', 'mustache', 'models/error'], function
 				modal.show();
 
 				// log to server
-				var error = new ErrorModel();
-				error.save({
-					"page": window.location.href,
-					"context": that.model.url(),
-					"code": xhr ? xhr.status : 0,
-					"error": "Error key '" + code + "' is unhandled in the UI",
-					"payload": _.clone(that.model.attributes)
-				}, {});
+				if (xhr.status < 500 || xhr.status >= 600) {
+					var error = new ErrorModel();
+					error.save({
+						"page": window.location.href,
+						"context": that.model.url(),
+						"code": xhr ? xhr.status : 0,
+						"error": "Error key '" + code + "' is unhandled in the UI",
+						"payload": _.clone(that.model.attributes)
+					}, {});
+				}
 			}
 		);
 	};
