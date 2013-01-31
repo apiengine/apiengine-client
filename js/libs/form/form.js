@@ -183,7 +183,7 @@ define(['require', 'jquery', 'underscore', 'mustache', 'models/error'], function
 
 				// fire custom success callback instead of default one if present
 				if (that.options && that.options.success) {
-					that.options.success(model, response, options);
+					that.options.success.call(that, model, response, options);
 				} else {
 					that.showSuccess();
 				}
@@ -197,7 +197,7 @@ define(['require', 'jquery', 'underscore', 'mustache', 'models/error'], function
 				} catch (e) {}
 
 				if (that.options && that.options.error) {		// fire custom error callback if present
-					that.options.error(model, responseJSON, options);
+					that.options.error.call(that, model, responseJSON, options);
 				} else if ($.isPlainObject(responseJSON)) {		// if response was OK, attempt to throw it as an API error
 					that.handleAPIError(xhr, responseJSON, options);
 				} else {										// otherwise throw up to global error handler
