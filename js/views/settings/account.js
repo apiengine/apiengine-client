@@ -84,6 +84,8 @@ define([
 					that.modal.hide();
 					// logout
 					Session.logout();
+					// go back to homepage
+					Backbone.router.navigate('/');
 				}
 			}
 		});
