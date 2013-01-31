@@ -13,7 +13,7 @@ define([
     el: '.private-container',
     initialize: function () {
       var that = this;
-      
+
       $('body').on('hover', '.js-following', function (ev) {
         var button = $(ev.currentTarget);
         if(ev.type === 'mouseenter') {
@@ -74,7 +74,7 @@ define([
       console.log(apiData, 'headache');
       var apiModel = new ApiModel();
       apiModel.set({username: Session.get('login')});
-      if(apiData.private === 'true') { 
+      if(apiData.private === 'true') {
         apiData.private = true;
       } else {
         apiData.private = false;
@@ -96,7 +96,7 @@ define([
       console.log(this.options.username, 'asdasdasd');
       currentUser = false;
       console.log(Session.get('login'), that.options.username);
-      if(Session.get('login') === that.options.username && typeof Session.get('login') !== 'undefined') { 
+      if(Session.get('login') === that.options.username && typeof Session.get('login') !== 'undefined') {
         currentUser = true;
       }
       console.log(currentUser);
@@ -109,7 +109,7 @@ define([
         }
       });
 
-      
+
     }
   });
   return ApisPage;
