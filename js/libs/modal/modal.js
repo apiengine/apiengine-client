@@ -4,8 +4,10 @@ define(['jquery', 'mustache', 'form', 'text!templates/modals/inlineedit.html'], 
   // 	from : $(ev.currentTarget),					required. element to inline edit
   //   	model : this.options.model,					required. model to run the update on
   //   	field : 'description',						required. field to update in the model
-  //   	title : 'Edit description',					title for inline edit dialog. Defaults to 'data-inline-title' attribute of 'from' element.
   // 	value : 'value to prefill with',			defaults to value of element to inline, or its text contents
+  //	errordef : string							A block of markup to inflate into the dialog's error handler div for handling of serverside errors.
+  //												Edits which could result in any kind of client error should provide this field to avoid having the global error handler called.
+  //   	title : 'Edit description',					title for inline edit dialog. Defaults to 'data-inline-title' attribute of 'from' element.
   // 	savetext : 'text for OK button',			default 'Save'
   // 	canceltext : 'text for cancel button'		default 'Cancel'
   // }
@@ -32,6 +34,7 @@ define(['jquery', 'mustache', 'form', 'text!templates/modals/inlineedit.html'], 
 		this.el.html(Mustache.render(inlineEditTpl, {
 			title : options.inline.title || from.attr('data-inline-title') || 'Edit field',
 			value : $.trim(options.inline.value || from.val() || from.text()),
+			errordef : options.inline.errordef || '',
 			savetext : options.inline.savetext || 'Save',
 			canceltext : options.inline.canceltext || 'Cancel'
 		}));
