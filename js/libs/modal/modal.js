@@ -1,53 +1,79 @@
-define(['jquery', 'form'], function ($, FormFactory) {
+define(['jquery', 'mustache', 'form', 'text!templates/modals/inlineedit.html'], function ($, Mustache, FormFactory, inlineEditTpl) {
   var defaultOptions = {
-
+  // inline : {
+  // 	from : $(ev.currentTarget),					required. element to inline edit
+  //   	model : this.options.model,					required. model to run the update on
+  //   	field : 'description',						required. field to update in the model
+  //   	title : 'Edit description',					title for inline edit dialog. Defaults to 'data-inline-title' attribute of 'from' element.
+  // 	value : 'value to prefill with',			defaults to value of element to inline, or its text contents
+  // 	savetext : 'text for OK button',			default 'Save'
+  // 	canceltext : 'text for cancel button'		default 'Cancel'
+  // }
   };
   var modal = function (options) {
     var options = $.extend({}, defaultOptions, options),
     	that = this;
 
-
+    // add overlay
     this.overlay = $('<div>');
     this.overlay.addClass('overlay')
     $('body').append(this.overlay);
 
+    // create container element
     this.el = $('<div>');
-    this.el.html(options.content);
     this.el.addClass('modal')
     this.el.css({visibility: 'hidden'});
 
+    // set contents as appropriate
+    if (options.content) {
+	    this.el.html(options.content);
+	} else if (options.inline) {
+		var from = $(options.inline.from);
+		this.el.html(Mustache.render(inlineEditTpl, {
+			title : options.inline.title || from.attr('data-inline-title') || 'Edit field',
+			value : $.trim(options.inline.value || from.val() || from.text()),
+			savetext : options.inline.savetext || 'Save',
+			canceltext : options.inline.canceltext || 'Cancel'
+		}));
+	}
+
+    // append to DOM
     $('body').append(this.el);
 
-
-
+    // position onscreen depending on modal type
     if(options.inline) {
-      var from = options.inline.from;
-      var to = $(options.inline.to, this.el);
-      var fromTop = $(from).offset().top;
-      var fromLeft = $(from).offset().left;
-      $(to).css({
+      var to = $(".inline-field", this.el),
+      	fromTop = from.offset().top,
+      	fromLeft = from.offset().left,
+      	toTop = this.el.offset().top - to.offset().top,
+      	toLeft = this.el.offset().left - to.offset().left;
+
+      to.css({
         width: from.width(),
         height: from.height()
       });
-      var toTop = $(this.el).offset().top - $(to).offset().top;
-      var toLeft = $(this.el).offset().left - $(to).offset().left;
-      $(this.el).css({
+
+      this.el.css({
         top: fromTop + toTop,
         left: fromLeft + toLeft,
         position: 'absolute'
-      })
+      });
     } else {
       $(this.el).css({
         'margin-left': -($(this.el).width() / 2) + 'px'
       });
     }
 
-    this.el.css({visibility: 'visible'});
-
     // bind form controller if one is specified in options
     if (options.form) {
     	this.form = FormFactory.create($(options.form.element, this.el), options.form.model, options.form);
     }
+    // otherwise, bind submit event for inline modals
+    else if (options.inline && options.inline.model) {
+    	this.form = FormFactory.create($('form.inline-edit', this.el), options.inline.model, options.inline.form || {});
+    }
+
+    this.el.css({visibility: 'visible'});
 
   };
 

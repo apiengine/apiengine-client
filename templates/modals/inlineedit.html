@@ -1,22 +1,19 @@
-<form class="editdescription">
-
+<form class="inline-edit">
 <div class="modal-header"><span class="icon modal-close-icon js-close-modal">&#88;</span></div>
 <div class="modal-content">
-    <h3 class="modal-title">Edit Description</h3>
 
-    <ul class="modal-form-errors">
-    </ul>
+    <h3 class="modal-title">{{title}}</h3>
 
-        <textarea style="border: 1px solid #f0f0f0;" class="xx"></textarea><br />
-     
+    <div class="modal-form-errors">
+    	<label class="form-error" for="inline-field"></label>
+    </div>
 
-
+    <textarea name="field" class="inline-field">{{value}}</textarea>
 
 </div>
 <div class="modal-footer">
     <div class="modal-buttons">
-        <button type="submit" class="btn btn-blue">Save</button>   <a class="modal-link" href="#/forgot_password">Cancel</a>
+        <button type="submit" class="btn btn-blue">{{savetext}}</button>   <button type="button" class="btn btn-regular js-close-modal">{{canceltext}}</button>
     </div>
 </div>
-
 </form>
