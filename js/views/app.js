@@ -21,12 +21,17 @@ define([
  // when no UI elements are found for handling a valid server error condition.
       $("body").ajaxError(function(ev, res, req) {
 		 if(res.status >= 500 && res.status <= 600) {
+			var responseJSON = xhr.responseText;
+			try {
+				responseJSON = JSON.parse(xhr.responseText);
+			} catch (e) {}
+
 		  var error = new ErrorModel();
 		  error.save({
 		    "page": window.location.href,
 			"context": req.type + ' ' + req.url,
 			"code": res.status,
-			"error": res.responseText,
+			"error": responseJSON,
 			"payload": req.data
 		  }, {});
 		 }

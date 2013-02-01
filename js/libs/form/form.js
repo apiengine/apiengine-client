@@ -228,13 +228,18 @@ define(['require', 'jquery', 'underscore', 'mustache', 'models/error'], function
 
 		// don't duplicate the global logging performed in app.js
 		if (xhr.status < 500 || xhr.status >= 600) {
+			var responseJSON = xhr.responseText;
+			try {
+				responseJSON = JSON.parse(xhr.responseText);
+			} catch (e) {}
+
 			// log to server
 			var error = new ErrorModel();
 			error.save({
 				"page": window.location.href,
 				"context": this.model.url(),
 				"code": xhr.status,
-				"error": xhr.responseText,
+				"error": responseJSON,
 				"payload": _.clone(that.model.attributes)
 			}, {});
 		}
