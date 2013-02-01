@@ -135,7 +135,7 @@ define(['require', 'jquery', 'underscore', 'mustache', 'models/error'], function
 					invalidCount++;
 					$.each(v, function(k2, errCode) {
 						if (!that.showError(fldName, errCode)) {
-							that.handleNonConfiguredError(fldName, null, errCode);
+							that.handleNonConfiguredError(fldName, null, errCode, null);
 						}
 					});
 				}
@@ -260,12 +260,12 @@ define(['require', 'jquery', 'underscore', 'mustache', 'models/error'], function
 			}
 			$.each(fields, function(k, fld) {
 				if (!that.showError(fld, errCode)) {
-					that.handleNonConfiguredError(fld, xhr, errCode, response.message);
+					that.handleNonConfiguredError(fld, xhr, errCode, response);
 				}
 			});
 		} else {
 			if (!this.showError(null, errCode)) {
-				this.handleNonConfiguredError(null, xhr, errCode, response.message);
+				this.handleNonConfiguredError(null, xhr, errCode, response);
 			}
 		}
 	};
@@ -290,7 +290,7 @@ define(['require', 'jquery', 'underscore', 'mustache', 'models/error'], function
 		errorLbl.css('display', 'block');
 		return true;
 	};
-	form.prototype.handleNonConfiguredError = function(field, xhr, code, msg)
+	form.prototype.handleNonConfiguredError = function(field, xhr, code, response)
 	{
 		var that = this;
 		require(['modal', 'text!templates/modals/error.html'],
@@ -300,7 +300,7 @@ define(['require', 'jquery', 'underscore', 'mustache', 'models/error'], function
 				errorHTML = Mustache.render(errorTemplate, {
 					apiError : true,
 					code : code,
-					message : msg ? msg : "Unknown error code " + code
+					message : (response && response.message) ? response.message : "Unknown error code " + code
 				});
 				modal = Modal.create({
 					content: errorHTML
@@ -314,7 +314,10 @@ define(['require', 'jquery', 'underscore', 'mustache', 'models/error'], function
 						"page": window.location.href,
 						"context": that.model.url(),
 						"code": xhr ? xhr.status : 0,
-						"error": "Error key '" + code + "' is unhandled in the UI",
+						"error": {
+							"unhandled" : true,
+							"response" : response
+						},
 						"payload": _.clone(that.model.attributes)
 					}, {});
 				}
