@@ -1,4 +1,4 @@
-define(['jquery', 'mustache', 'form', 'text!templates/modals/inlineedit.html'], function ($, Mustache, FormFactory, inlineEditTpl) {
+define(['jquery', 'autogrow', 'mustache', 'form', 'text!templates/modals/inlineedit.html'], function ($, nothing, Mustache, FormFactory, inlineEditTpl) {
   var defaultOptions = {
   // inline : {
   // 	from : $(ev.currentTarget),					required. element to inline edit
@@ -62,6 +62,8 @@ define(['jquery', 'mustache', 'form', 'text!templates/modals/inlineedit.html'], 
         left: fromLeft + toLeft,
         position: 'absolute'
       });
+
+      to.autogrow().focus();
     } else {
       $(this.el).css({
         'margin-left': -($(this.el).width() / 2) + 'px'
