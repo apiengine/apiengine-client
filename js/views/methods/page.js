@@ -6,18 +6,18 @@ define([
   'router',
   'mustache',
   'models/session',
-  'text!templates/methods/details.html',
+  'text!templates/methods/page.html',
   'models/method',
   'views/forms/method',
   'views/comments/comments',
   'models/clearnotification'
 ], function($, _, Backbone, Vm, Router, Mustache, Session, methodTemplate, MethodModel, MethodForm, CommentsView, ClearNModel){
   var MethodDetailsView = Backbone.View.extend({
-    el: '.method-container',
+    el: '.docs-container',
     initialize: function () {
       var that = this;
-      
-    },  
+
+    },
     events: {
       'click .js-edit-method': 'saveMethod'
     },
@@ -62,7 +62,7 @@ define([
               var methodCount = methodEl.text();
               methodEl.fadeOut(200).text('0');
               var resourceEl = $('.resource-notification[data-resource-id="'+that.options.resourceId+'"]');
-              
+
                $(resourceEl).attr('data-method-totals', $(resourceEl).attr('data-method-totals')*1 - methodCount*1);
                $(resourceEl).text($(resourceEl).attr('data-method-totals'));
                if($(resourceEl).attr('data-method-totals')*1 === 0) {
@@ -70,7 +70,7 @@ define([
 
                }
               }
-            
+
           })
           var commentsView = new CommentsView({
             methodId: that.options.method,

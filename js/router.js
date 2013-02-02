@@ -20,6 +20,7 @@ define([
       'apis/:id': 'showApi',
       'apis/:id/method/:method_id': 'showApi',
       'apis/:id/methods/edit': 'editMethod',
+
       'login': 'login',
       'legal/:page': 'legal',
       'browse': 'browse',
@@ -31,18 +32,23 @@ define([
       'help': 'help',
       'pricing': 'pricing',
       '': 'home',
+
       ':username/:apiname/version/:version/resource/:resource/:method': 'apiPage',
       ':username/:apiname/version/:version/resource/:resource': 'apiPage',
       ':username/:apiname/version/:version': 'apiPage',
-      ':username/:apiname/settings/:page': 'apiSettingsPage',
-      ':username/settings/:page': 'settingsTab',
+      ':username/:apiname/version/:version/resource/:resource/:method/activity': 'apiActivityPage',
+      ':username/:apiname/version/:version/resource/:resource/activity': 'apiActivityPage',
+      ':username/:apiname/version/:version/activity' : 'apiActivityPage',
+      ':username/:apiname/settings': 'apiSettingsPage',
       ':username/:apiname/collaborators': 'collaboratorsTab',
+
+      ':username/settings/:page': 'settingsTab',
       ':username': 'defaultAction' // All urls will trigger this route
     }
   });
 
   var initialize = function(options){
-    
+
 		var appView = options.appView;
     var router = new AppRouter(options);
     Backbone.router = router;
@@ -55,8 +61,12 @@ define([
         var apiDetailsView = Vm.create(appView, 'page', ApiPageView, {username: username, apiname: apiname, collaborators: true});
         apiDetailsView.render();
     });
-    router.on('route:apiSettingsPage', function (username, apiname, page) {
-        var apiDetailsView = Vm.create(appView, 'page', ApiPageView, {username: username, apiname: apiname, page: page, settings: true});
+    router.on('route:apiActivityPage', function (username, apiname, version, resourceId, method) {
+        var apiDetailsView = Vm.create(appView, 'page', ApiPageView, {username: username, apiname: apiname, activity: true, version: version, resourceId: resourceId, method: method});
+        apiDetailsView.render();
+    });
+    router.on('route:apiSettingsPage', function (username, apiname) {
+        var apiDetailsView = Vm.create(appView, 'page', ApiPageView, {username: username, apiname: apiname, settings: true});
         apiDetailsView.render();
     });
     /*
@@ -74,17 +84,17 @@ define([
         var membersView = Vm.create(appView, 'MembersView', MembersView, {});
         membersView.render();
     });
-    */ 
+    */
     router.on('route:forgot_password', function (token) {
         var forgotView = Vm.create(appView, 'page', ForgotView, {token: token});
         forgotView.render();
-    }); 
+    });
     /*
     router.on('route:register', function (apiId) {
         var registerView = Vm.create(appView, 'RegisterView', RegisterView, {});
         registerView.render();
     });
-    */      
+    */
     router.on('route:showApi', function (apiId, methodId) {
         var apiDetailsView = Vm.create(appView, 'page', ApiDetailsView, {apiId: apiId, methodId: methodId});
         apiDetailsView.render();
@@ -122,14 +132,14 @@ define([
         var pricing = Vm.create(appView, 'page', Pricing, {});
         pricing.render();
       });
-    });  
+    });
 
     router.on('route:help', function () {
       require(['views/help/page'], function (Help) {
         var help = Vm.create(appView, 'page', Help, {});
         help.render();
       });
-    });         
+    });
 		router.on('route:defaultAction', function (username) {
         var profilePage = Vm.create(appView, 'page', ProfilePage, {username: username});
         profilePage.render();
@@ -139,7 +149,7 @@ define([
         var profilePage = Vm.create(appView, 'page', ProfilePage, {username: username, tab: 'settings', setting: page});
         profilePage.render();
     });
-   
+
   };
   return {
     initialize: initialize

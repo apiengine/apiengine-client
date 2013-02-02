@@ -7,11 +7,12 @@ define([
   'mustache',
   'qtip',
   'models/session',
-  'text!templates/apis/documentation.html',
+  'text!templates/apis/docs.html',
   'models/api',
   'collections/methods',
   'views/resource/list',
-  'views/methods/details',
+  'views/methods/page',
+  'views/resource/page',
   'models/resource',
   'models/method',
   'libs/highlight/highlight',
@@ -20,7 +21,7 @@ define([
   'views/apis/overview',
   'views/modals/newmethod',
   'views/modals/newresource',
-], function($, _, Backbone, Router, Vm,  Mustache, Qtip, Session, docsTemplate, ApiModel, MethodsCollection, ResourceListView, MethodDetailView, ResourceModel, MethodModel, hljs, ResourceForm, Modal, OverView, NewMethod, NewResource){
+], function($, _, Backbone, Router, Vm,  Mustache, Qtip, Session, docsTemplate, ApiModel, MethodsCollection, ResourceListView, MethodDetailView, ResourceDetailView, ResourceModel, MethodModel, hljs, ResourceForm, Modal, OverView, NewMethod, NewResource){
   var NewApiPage = Backbone.View.extend({
     el: '.api-page-container',
     initialize: function () {
@@ -29,28 +30,23 @@ define([
     },
     events: {
       'click .js-new-resource': 'newResource',
-      'click .js-new-method': 'newMethod',
-      'click .edit-api-description': 'editDescription'
+      'click .js-new-method': 'newMethod'
     },
-    editDescription: function(ev) {
-      var modal = Modal.create({
-        inline: {
-        	from : $(ev.currentTarget),
-        	model : this.options.model.toApi(),
-        	field : 'description'
-        }
-      });
-      modal.show();
-    },
+
+    /*------------- --actions -------------------*/
+
     newResource: function () {
-      console.log(this.options);
-      var newResource = Vm.create(this, 'modal', NewResource, this.options);
-      newResource.render();
+      var resourceForm = Vm.create(this, 'resourceform', NewResource, {
+        username: this.options.username,
+        version: this.options.version,
+        api: this.options.apiname
+      });
+      resourceForm.render();
 
       return false;
     },
     newMethod: function () {
-      alert('new methods');
+      $('#js-new-method-modal').modal('show');
       return false;
     },
     saveMethod: function (ev) {
@@ -85,41 +81,41 @@ define([
       });
       return false;
     },
+
+    /*--------------- UI -------------------*/
+
     showMethodList: function () {
       var that = this;
       var methodListView = new MethodsListView({username: that.options.username, api: that.options.apiname, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
       methodListView.render();
     },
-    showDetails: function () {
-      var that = this;
-       if(typeof that.options.resourceId === 'undefined') {
-        var overview = Vm.create(that, 'apipage', OverView, that.options);
-        overview.render();
-      }
-      if($('.resource-list-container').attr('data-api-id') !== that.options.apiname && $('.resource-list').length === 0) {
-        var resourceListView = Vm.create(that, 'resourceListView', ResourceListView, that.options);
-        resourceListView.render();
-      };
-    // if(typeof that.options.resourceId !== 'undefined' && $('.method-list-container').attr('data-resource-id') !== that.options.resourceId) {
-    //   that.showMethodList();
-    //}
-    //  if(typeof that.options.method !== 'undefined') {
-    //    var methodView = new MethodView({username: that.options.username, api: that.options.apiname, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
-    //     methodView.render();
-    //  }
-    },
-    renderOverview: function () {
-
+    renderPageBody: function () {
+		if(typeof this.options.resourceId == 'undefined') {
+			// overview page
+			var overview = Vm.create(this, 'apitab', OverView, _.extend({parent : this.parent}, this.options));
+	        overview.render();
+		} else if (typeof this.options.method == 'undefined') {
+			// resource page
+			var resourceDetailView = new ResourceDetailView({username: this.options.username, api: this.options.apiname, version: this.options.version, resourceId: this.options.resourceId, method: this.options.method});
+    		resourceDetailView.render();
+		} else {
+			// method page
+			var methodDetailView = new MethodDetailView({username: this.options.username, api: this.options.apiname, version: this.options.version, resourceId: this.options.resourceId, method: this.options.method});
+    		methodDetailView.render();
+		}
     },
     render: function (options) {
-      if($('.api-details-container').length === 0) {
-           var owner = Session.get('login') ===  this.options.username ? true : false;
-              console.log(this.options, 'friday night');
-      $('.api-container .tabs li.active').removeClass('active');
-      $('.api-container .tabs .api-docs').addClass('active');
-      this.$el.html(Mustache.render(docsTemplate, {api: this.options.apiname,user: this.options.username,version:this.options.version, owner: owner}));
-      }
-           this.showDetails();
+    	this.options.parent.activateTab('api-docs');
+
+        var owner = Session.get('login') ===  this.options.username ? true : false;
+		this.$el.html(Mustache.render(docsTemplate, {api: this.options.apiname,user: this.options.username,version:this.options.version, owner: owner}));
+
+		// main area
+		this.renderPageBody();
+
+		// sidebar
+		var resourceListView = Vm.create(this, 'resourceListView', ResourceListView, this.options);
+		resourceListView.render();
     }
   });
   return NewApiPage;

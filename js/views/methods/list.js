@@ -8,7 +8,7 @@ define([
   'text!templates/methods/list.html',
   'views/forms/resource',
   'views/forms/method',
-  'views/methods/details',
+  'views/methods/page',
   'collections/methods',
   'models/method',
   'models/notificationtotal'
@@ -17,7 +17,7 @@ define([
     el: '.method-list-container',
     initialize: function () {
       var that = this;
-      
+
     },
     events: {
       'click .js-edit-resource': 'editResource',
@@ -53,7 +53,7 @@ define([
           that.options.method = $(ev.currentTarget).attr('data-method-id');
         }
         var methodView = Vm.create(this, 'methodpageview', MethodView, {username: that.options.username, api: that.options.api, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
-        methodView.render();  
+        methodView.render();
       }
     },
     render: function () {
@@ -93,7 +93,7 @@ define([
                 });
                 notifEla.attr('data-method-totals', methodTotals);
                $(notifEla).text($(notifEla).attr('data-method-totals')).show(200);
-                if(model.get('resource') !== 0){                  
+                if(model.get('resource') !== 0){
                   notifEla.text(model.get('resource')).show();
                 }
               }
@@ -106,7 +106,7 @@ define([
           }
         });
 
-      
+
     }
   });
   return ApisPage;

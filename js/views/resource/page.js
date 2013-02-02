@@ -10,10 +10,10 @@ define([
   'views/comments/comments'
   ], function($, _, Backbone, Vm, Session, ResourceModel, resourcePageTemplate, ClearNModel, CommentsView){
   var ResourcesPage = Backbone.View.extend({
-    el: '.method-container',
+    el: '.docs-container',
     initialize: function () {
       var that = this;
-      
+
     },
     events: {
     },

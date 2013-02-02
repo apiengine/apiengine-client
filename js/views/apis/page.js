@@ -1,3 +1,12 @@
+/**
+ * Top-level page controller for API pages
+ *
+ * Contains logic available to the API as a whole view. This includes:
+ * 	- editing basic API details (description).
+ * 	  (Not to be confused with version details, which are managed by settings.js)
+ * 	- top-order page controls (tabs, etc)
+ * 	- following, unfollowing and sharing the API
+ */
 define([
   'jquery',
   'underscore',
@@ -5,23 +14,22 @@ define([
   'router',
   'vm',
   'mustache',
-  'qtip',
   'models/session',
-  'text!templates/apis/details.html',
   'models/api',
   'models/api-overview',
   'libs/highlight/highlight',
   'modal',
-  'text!templates/modals/inlineedit.html',
-  'views/apis/overview',
+  'views/apis/collaborators',
+  'views/apis/details',
   'views/apis/documentation',
+  'views/apis/overview',
   'views/apis/settings',
-  'views/apis/collaborators'
-], function($, _, Backbone, Router, Vm,  Mustache, Qtip, Session, apiDetailsTemplate, ApiModel, ApiSummary, hljs, Modal, edt, OverView, DocsView, SettingsView, CollaboratorsView){
+  'views/notifications/list',
+  'text!templates/apis/page.html'
+], function($, _, Backbone, Router, Vm,  Mustache, Session, ApiModel, ApiSummary, hljs, Modal, CollaboratorsView, DetailsView, DocsView, OverView, SettingsView, ActivityView, apiDetailsTemplate){
   var NewApiPage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
-      var that = this;
 
     },
     events: {
@@ -29,78 +37,95 @@ define([
     },
     editDescription: function(ev) {
       var modal = Modal.create({
-        content: edt,
         inline: {
-          from: $(ev.currentTarget),
-          to: '.xx'
+        	from : $(ev.currentTarget),
+        	model : this.options.model.toApi(),
+        	field : 'description'
         }
       });
-      $('.editdescription').on('submit', function(ev) {
-        console.log('asd');
-        var api = new ApiModel({
-          username: 'thomasdavis',
-          apiname: 'ApiEngine',
-          version: 1
-        });
-        var apiDetails = $(ev.currentTarget).serializeObject();
-        apiDetails.name = 'ApiEngine';
-        api.save(apiDetails, {
-          success: function (model) {
-
-          }
-        })
-        return false;
-      });
-      window.modal = modal;
+      modal.show();
     },
     render: function () {
-      var that = this;
 
-      if($('.api-container').length === 0) {
+      if(!this.model) {
+      	// load the API summary on first init
         this.$el.html('');
 
-        var apiModel = new ApiSummary({username: this.options.username, apiname: this.options.apiname, version: this.options.version});
+		var that = this,
+        	apiModel = new ApiSummary({username: this.options.username, apiname: this.options.apiname, version: this.options.version});
 
         apiModel.fetch({
-          success: function (api) {
-            if($('.api-container').length === 0) {
-              var owner = Session.get('login') === api.get('user') ? true : false;
-              console.log('why no api', api)
-              that.$el.html(Mustache.render(apiDetailsTemplate, {api: api, errors: [], owner: owner}));
-              if(that.options.version) {
-                var docsView = Vm.create(that, 'apitab', DocsView, that.options);
-                docsView.render({api: api});
-
-              }
-              if(that.options.settings) {
-                var settingsView = Vm.create(that, 'apitab', SettingsView, that.options);
-                settingsView.render();
-              }
-               if(that.options.collaborators) {
-                var collaboratorsView = Vm.create(that, 'apitab', CollaboratorsView, that.options);
-                collaboratorsView.render();
-              }
-          }
-        }
-        })
+          	success: function (api) {
+				that.options.model = api;
+				that.model = api;
+				that.rerenderChildren();
+            },
+            error : function () {
+            	// :TODO: how to handle this?
+            }
+        });
       } else {
-
-               if(that.options.version) {
-                var docsView = Vm.create(that, 'apitab', DocsView, that.options);
-                docsView.render({api: api});
-
-              }
-              if(that.options.settings) {
-                var settingsView = Vm.create(that, 'apitab', SettingsView, that.options);
-                settingsView.render();
-              }
-
-              if(that.options.collaborators) {
-                var collaboratorsView = Vm.create(that, 'apitab', CollaboratorsView, that.options);
-                collaboratorsView.render();
-              }
+      	this.rerenderChildren();
       }
+    },
 
+	rerenderChildren : function()
+	{
+		// :TODO: check passed in options for viewed resource / method ID and show according tabs
+
+		var owner = Session.get('login') === this.model.get('user') ? true : false;
+
+		// render base page template
+		this.$el.html(Mustache.render(apiDetailsTemplate, {api: this.model, owner: Session.get('login') === this.model.get('user')}));
+
+		// switch on active tab from router
+		if(this.options.collaborators) {
+			var collaboratorsView = Vm.create(this, 'apipage', CollaboratorsView, _.extend({parent : this}, this.options));
+			collaboratorsView.render();
+		}
+		else if(this.options.settings) {
+			var settingsView = Vm.create(this, 'apipage', SettingsView, _.extend({parent : this}, this.options));
+			settingsView.render();
+		} else if(this.options.activity) {
+    		this.activateTab('api-activity');
+			var actView = Vm.create(this, 'apipage', ActivityView, _.extend({parent : this}, this.options));
+			actView.render();
+		} else {
+			// default to documentation section
+			var docsView = Vm.create(this, 'apipage', DocsView, _.extend({parent : this}, this.options));
+			docsView.render();
+		}
+	},
+
+    /** ------------ shared behaviours ----------------*/
+
+    // mark tab active
+    activateTab : function(clss) {
+      $('.api-container .tabs li.active').removeClass('active');
+      $('.api-container .tabs .' + clss).addClass('active');
+    },
+
+    editDescription: function(ev) {
+      var modal = Modal.create({
+        inline: {
+        	from : $(ev.currentTarget),
+        	model : this.options.model.toApi(),
+        	field : 'description'
+        }
+      });
+      modal.show();
+    },
+
+    unfollowApi: function (ev) {
+
+        return false;
+    },
+    followApi: function (ev) {
+     	return false;
+    },
+
+    shareApi : function(ev) {
+    	// :TODO:
     }
   });
   return NewApiPage;
