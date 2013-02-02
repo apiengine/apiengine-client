@@ -63,7 +63,7 @@ define(['jquery', 'autogrow', 'mustache', 'form', 'text!templates/modals/inlinee
         position: 'absolute'
       });
 
-      to.autogrow().focus();
+      to.autogrow();
     } else {
       $(this.el).css({
         'margin-left': -($(this.el).width() / 2) + 'px'
@@ -76,6 +76,8 @@ define(['jquery', 'autogrow', 'mustache', 'form', 'text!templates/modals/inlinee
     }
     // otherwise, bind submit event for inline modals
     else if (options.inline && options.inline.model && options.inline.field) {
+    	this.inline = true;
+
     	this.form = FormFactory.create($('form.inline-edit', this.el), options.inline.model, $.extend({
     		onPreValidate : function(attribs) {
     			attribs[options.inline.field] = attribs.field;
@@ -102,11 +104,13 @@ define(['jquery', 'autogrow', 'mustache', 'form', 'text!templates/modals/inlinee
     }
 
     this.el.css({visibility: 'visible'});
-
   };
 
   modal.prototype.show = function () {
-    this.el.addClass('shown')
+    this.el.addClass('shown');
+    if (this.inline) {
+		$(".inline-field", this.el).focus().select();
+    }
   };
 
   modal.prototype.hide = function (animation) {
