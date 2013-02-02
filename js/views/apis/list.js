@@ -5,10 +5,11 @@ define([
   'mustache',
   'models/session',
   'text!templates/apis/list.html',
+  'text!templates/apis/list-item.html',
   'collections/apis',
   'models/api',
   'models/follower'
-], function($, _, Backbone, Mustache, Session, apisListTemplate, ApisCollection, ApiModel, FollowerModel){
+], function($, _, Backbone, Mustache, Session, apisListTemplate, apisListItemTemplate, ApisCollection, ApiModel, FollowerModel){
   var ApisPage = Backbone.View.extend({
     el: '.private-container',
     initialize: function () {
@@ -105,7 +106,7 @@ define([
       };
       apis.fetch({
         success: function (collection) {
-          that.$el.html(Mustache.render(apisListTemplate, {authed: Session.get('auth'), currentUser: that.options.currentUser, _:_, is_public: that.options.is_public, apis: collection.models, username: Session.get('login'), location: that.options.location}));
+          that.$el.html(Mustache.render(apisListTemplate, {authed: Session.get('auth'), currentUser: that.options.currentUser, _:_, is_public: that.options.is_public, apis: collection.models, username: Session.get('login'), location: that.options.location}, {listtemplate: apisListItemTemplate}));
         }
       });
 

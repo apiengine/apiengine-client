@@ -7,8 +7,9 @@ define([
   'text!templates/browse/page.html',
   'collections/apis',
   'text!templates/browse/list.html',
+  'text!templates/apis/list-item.html',
   'models/follower'
-], function($, _, Backbone, Mustache, Session, browseTemplate, Apis, apiListTemplate, FollowerModel){
+], function($, _, Backbone, Mustache, Session, browseTemplate, Apis, apiListTemplate, apisListItemTemplate, FollowerModel){
   var BrowseView = Backbone.View.extend({
     el: '.page',
     initialize: function () {
@@ -19,7 +20,7 @@ define([
         }
         if(ev.type === 'mouseleave') {
           $(button).removeClass('btn-red').addClass('btn-green').text('FOLLOWING');
-          
+
         }
       });
     },
@@ -77,7 +78,7 @@ define([
             }
             return model;
           });
-          $('.api-list-container').html(Mustache.render(apiListTemplate, {authed: Session.get('auth'), apis: apisl, _:_}));
+          $('.api-list-container').html(Mustache.render(apiListTemplate, {authed: Session.get('auth'), apis: apisl, _:_}, {listtemplate: apisListItemTemplate}));
         }
       })
     }

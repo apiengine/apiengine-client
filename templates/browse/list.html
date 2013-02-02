@@ -1,54 +1,6 @@
 <ul class="api-list">
   {{#apis}}
-    <li class="api-list-item" data-api-id="{{attributes.name}}" data-user-id="{{attributes.user}}">
-    <a href="{{attributes.user}}/{{attributes.name}}/version/1"><img class="cog-power api-list-pic" src="" /></a>
-    <div class="api-list-info">
-      <h4 class="api-list-title fixie"><a href="{{attributes.user}}/{{attributes.name}}/version/1">{{attributes.name}}</a></h4>
-            <ul class="profile-links">
-		        <li><span class="icon">a</span><a href="{{attributes.user}}">{{attributes.user}}</a></span></li>
-				<li><span class="icon">J</span><a href="#">{{#attributes.tag}}{{attributes.tag}}{{/attributes.tag}}{{^attributes.tag}}Uncategorized{{/attributes.tag}}</a></li>	<!-- :TODO: API tags & link -->
-				<li><span class="icon">w</span><a href="#">{{#attributes.private}}Limited access{{/attributes.private}}{{^attributes.private}}Public{{/attributes.private}}</a></li>	<!-- :TODO: correct logic for access ternary state -->
-				<li><span class="icon">g</span><a href="#">{{#attributes.collaborators}}{{attributes.collaborators}}{{/attributes.collaborators}}{{^attributes.collaborators}}No{{/attributes.collaborators}} collaborators</a></li>	<!-- :TODO: collaborators -->
-		    </ul>
-    <div style="clear: both;"></div>
-      <p class="api-list-desc fixie">
-      	{{#attributes.description}}
-    		{{attributes.description}}
-    	{{/attributes.description}}
-    	{{^attributes.description}}
-    		No description
-    	{{/attributes.description}}
-      </p>
-    </div>
-    <div class="api-list-buttons">
-     <button class="btn triangle-border right">{{attributes.follower_count}}</button>
-     {{#authed}}
-
-     {{^currentUser}}
-     {{^attributes.following}}
-      <button class="btn btn-blue js-follow">Follow</button>
-     {{/attributes.following}}
-
-     {{#attributes.following}}
-      <button class="btn btn-green js-following">Following</button>
-     {{/attributes.following}}
-     {{/currentUser}}
-
-      {{/authed}}
-
-     {{^authed}}
-      <button class="btn btn-regular">FOLLOWERS</button>
-      {{/authed}}
-
-
-     {{#currentUser}}
-      <button class="btn btn-regular">FOLLOWERS</button>
-     {{/currentUser}}
-      <div style="clear: both;"></div>
-      <button class="btn btn-regular btn-share js-share"><span class="icon">l</span></button>
-    </div>
-    <div style="clear: both;"></div>
-  </li>
+    {{>listtemplate}}
   {{/apis}}
     {{#apis.length}}
   <li class="no-more">No more APIs</li>
