@@ -34,9 +34,10 @@ define(['jquery', 'mustache', 'form', 'text!templates/modals/inlineedit.html'], 
 		this.el.html(Mustache.render(inlineEditTpl, {
 			title : options.inline.title || from.attr('data-inline-title') || 'Edit field',
 			value : $.trim(options.inline.value || from.val() || from.text()),
-			errordef : options.inline.errordef || '',
 			savetext : options.inline.savetext || 'Save',
 			canceltext : options.inline.canceltext || 'Cancel'
+		}, {
+			errordef : options.inline.errordef || ''
 		}));
 	}
 

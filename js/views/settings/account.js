@@ -23,7 +23,7 @@ define([
     render: function (options) {
       $('.settings-menu a').removeClass('active');
       $('.settings-menu .account').addClass('active');
-      this.$el.html(Mustache.render(settingTemplate, {user : Session.get('user'), errordef : errorDefs}));
+      this.$el.html(Mustache.render(settingTemplate, {user : Session.get('user')}, {errordef : errorDefs}));
 
       this.form = FormFactory.create($('form.update-account'), new AccountModel({
       	login : Session.get('login'),
