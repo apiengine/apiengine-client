@@ -31,8 +31,11 @@ define([
 		    "page": window.location.href,
 			"context": req.type + ' ' + req.url,
 			"code": res.status,
-			"error": responseJSON,
-			"payload": req.data
+			"error": "Internal API error",
+			"payload": {
+				sent : req.data,
+				received : responseJSON
+			}
 		  }, {});
 		 }
 		  console.log(arguments);

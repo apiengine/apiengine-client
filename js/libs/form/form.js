@@ -314,11 +314,11 @@ define(['require', 'jquery', 'underscore', 'mustache', 'models/error'], function
 						"page": window.location.href,
 						"context": that.model.url(),
 						"code": xhr ? xhr.status : 0,
-						"error": {
-							"unhandled" : true,
-							"response" : response
-						},
-						"payload": _.clone(that.model.attributes)
+						"error": "Error key '" + code + "' is unhandled in the UI",
+						"payload": {
+							sent : _.clone(that.model.attributes),
+							received : response
+						}
 					}, {});
 				}
 			}
