@@ -23,8 +23,7 @@ define(['jquery', 'autogrow', 'mustache', 'form', 'text!templates/modals/inlinee
 
     // create container element
     this.el = $('<div>');
-    this.el.addClass('modal')
-    this.el.css({visibility: 'hidden'});
+    this.el.addClass('modal');
 
     // set contents as appropriate
     if (options.content) {
@@ -49,12 +48,18 @@ define(['jquery', 'autogrow', 'mustache', 'form', 'text!templates/modals/inlinee
       var to = $(".inline-field", this.el),
       	fromTop = from.offset().top,
       	fromLeft = from.offset().left,
-      	toTop = this.el.offset().top - to.offset().top - parseInt(to.css('padding-top')),
-      	toLeft = this.el.offset().left - to.offset().left - parseInt(to.css('padding-left'));
+      	toTop = this.el.offset().top - to.offset().top -
+      			parseInt(to.css('padding-top')) + parseInt(from.css('padding-top')) -
+      			(parseInt(to.css('border-top-width')) - parseInt(from.css('border-top-width'))),
+      	toLeft = this.el.offset().left - to.offset().left -
+      			parseInt(to.css('padding-left')) + parseInt(from.css('padding-left')) -
+      			(parseInt(to.css('border-left-width')) - parseInt(from.css('border-left-width')));
 
       to.css({
         width: from.width(),
-        height: from.height()
+        height: from.height(),
+        fontSize : from.css('font-size'),
+        fontFamily : from.css('font-family')
       });
 
       this.el.css({
@@ -102,8 +107,6 @@ define(['jquery', 'autogrow', 'mustache', 'form', 'text!templates/modals/inlinee
     		}
     	}, options.inline.form || {}));
     }
-
-    this.el.css({visibility: 'visible'});
   };
 
   modal.prototype.show = function () {
