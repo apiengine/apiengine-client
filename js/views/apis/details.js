@@ -12,7 +12,6 @@ define([
   'collections/methods',
   'views/resource/list',
   'views/methods/details',
-  'models/api',
   'models/resource',
   'models/method',
   'libs/highlight/highlight',
@@ -20,7 +19,7 @@ define([
   'modal',
   'views/apis/overview',
   'views/apis/tablelist'
-], function($, _, Backbone, Router, Vm,  Mustache, Qtip, Session, apiDetailsTemplate, ApiModel, MethodsCollection, ResourceListView, MethodDetailView, ApiModel, ResourceModel, MethodModel, hljs, ResourceForm, Modal, OverView, TableList){
+], function($, _, Backbone, Router, Vm,  Mustache, Qtip, Session, apiDetailsTemplate, ApiModel, MethodsCollection, ResourceListView, MethodDetailView, ResourceModel, MethodModel, hljs, ResourceForm, Modal, OverView, TableList){
   var NewApiPage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
