@@ -49,8 +49,8 @@ define(['jquery', 'autogrow', 'mustache', 'form', 'text!templates/modals/inlinee
       var to = $(".inline-field", this.el),
       	fromTop = from.offset().top,
       	fromLeft = from.offset().left,
-      	toTop = this.el.offset().top - to.offset().top,
-      	toLeft = this.el.offset().left - to.offset().left;
+      	toTop = this.el.offset().top - to.offset().top - parseInt(to.css('padding-top')),
+      	toLeft = this.el.offset().left - to.offset().left - parseInt(to.css('padding-left'));
 
       to.css({
         width: from.width(),
