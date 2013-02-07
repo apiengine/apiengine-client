@@ -11,6 +11,7 @@ define(['jquery', 'autogrow', 'mustache', 'form', 'text!templates/modals/inlinee
   // 	savetext : 'text for OK button',			default 'Save'
   // 	canceltext : 'text for cancel button'		default 'Cancel'
   // }
+  	startHidden : false
   };
   var modal = function (options) {
     var options = $.extend({}, defaultOptions, options),
@@ -106,6 +107,10 @@ define(['jquery', 'autogrow', 'mustache', 'form', 'text!templates/modals/inlinee
     			that.hide();
     		}
     	}, options.inline.form || {}));
+    }
+
+    if (!options.startHidden) {
+    	this.show();
     }
   };
 

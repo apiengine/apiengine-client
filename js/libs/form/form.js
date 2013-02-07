@@ -222,7 +222,6 @@ define(['require', 'jquery', 'underscore', 'mustache', 'models/error'], function
 				that.modal = Modal.create({
 					content: errorTemplate
 				});
-				that.modal.show();
 			}
 		);
 
@@ -305,7 +304,6 @@ define(['require', 'jquery', 'underscore', 'mustache', 'models/error'], function
 				modal = Modal.create({
 					content: errorHTML
 				});
-				modal.show();
 
 				// log to server
 				if (xhr.status < 500 || xhr.status >= 600) {
