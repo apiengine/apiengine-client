@@ -43,7 +43,6 @@ define([
         	field : 'description'
         }
       });
-      modal.show();
     },
     render: function () {
 
@@ -113,7 +112,6 @@ define([
         	field : 'description'
         }
       });
-      modal.show();
     },
 
     unfollowApi: function (ev) {

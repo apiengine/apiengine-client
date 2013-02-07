@@ -89,8 +89,6 @@ define([
 				}
 			}
 		});
-
-    	this.modal.show();
     }
   });
   return SettingPage;
