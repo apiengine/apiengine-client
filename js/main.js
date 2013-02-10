@@ -44,6 +44,7 @@ require([
   Proxino.key = "QI-BctdhtytsUUJERc5HfA";
   Proxino.track_errors();
 
+
   var appView = Vm.create({}, 'AppView', AppView);
 
   Router.initialize({appView: appView});
