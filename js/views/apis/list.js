@@ -3,13 +3,14 @@ define([
   'underscore',
   'backbone',
   'mustache',
+  'addthis',
   'models/session',
   'text!templates/apis/list.html',
   'text!templates/apis/list-item.html',
   'collections/apis',
   'models/api',
   'models/follower'
-], function($, _, Backbone, Mustache, Session, apisListTemplate, apisListItemTemplate, ApisCollection, ApiModel, FollowerModel){
+], function($, _, Backbone, Mustache, unused, Session, apisListTemplate, apisListItemTemplate, ApisCollection, ApiModel, FollowerModel){
   var ApisPage = Backbone.View.extend({
     el: '.private-container',
     initialize: function () {
@@ -22,17 +23,17 @@ define([
         }
         if(ev.type === 'mouseleave') {
           $(button).removeClass('btn-red').addClass('btn-green').text('FOLLOWING');
-          
+
         }
       });
     },
     events: {
       'click .js-new-api-button': 'editApi',
       'submit .js-new-api-form': 'saveApi',
-      'click .js-follow.btn-blue': 'followApi',
-      'click .js-following.btn-red': 'unfollow'
+      'click .js-follow': 'followApi',
+      'click .js-following': 'unfollowApi'
     },
-    unfollow: function (ev) {
+    unfollowApi: function (ev) {
         var button = $(ev.currentTarget);
 
       var apiEl = $(ev.currentTarget).parents('.api-list-item');
@@ -107,6 +108,17 @@ define([
       apis.fetch({
         success: function (collection) {
           that.$el.html(Mustache.render(apisListTemplate, {authed: Session.get('auth'), currentUser: that.options.currentUser, _:_, is_public: that.options.is_public, apis: collection.models, username: Session.get('login'), location: that.options.location}, {listtemplate: apisListItemTemplate}));
+
+          // activate the share buttons
+          _.each(collection.models, function(model) {
+	          addthis.button('#' + model.get('user') + '-' + model.get('name'), {
+	          	services_compact : "facebook,twitter,digg,pinterest,email",
+	          	ui_click : true
+	          }, {
+	          	url: Backbone.router.getBaseUrl() + model.get('user') + '/' + model.get('name'),
+	          	title: model.get('name') + ' on API Engine'
+	          });
+	      });
         }
       });
 

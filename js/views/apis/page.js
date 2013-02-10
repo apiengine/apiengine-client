@@ -11,7 +11,6 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'router',
   'vm',
   'mustache',
   'models/session',
@@ -26,7 +25,7 @@ define([
   'views/apis/settings',
   'views/notifications/list',
   'text!templates/apis/page.html'
-], function($, _, Backbone, Router, Vm,  Mustache, Session, ApiModel, ApiSummary, hljs, Modal, CollaboratorsView, DetailsView, DocsView, OverView, SettingsView, ActivityView, apiDetailsTemplate){
+], function($, _, Backbone, Vm,  Mustache, Session, ApiModel, ApiSummary, hljs, Modal, CollaboratorsView, DetailsView, DocsView, OverView, SettingsView, ActivityView, apiDetailsTemplate){
   var NewApiPage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
@@ -77,6 +76,15 @@ define([
 		// render base page template
 		this.$el.html(Mustache.render(apiDetailsTemplate, {api: this.model, owner: Session.get('login') === this.model.get('user')}));
 
+		// activate addThis share button for the API
+		  addthis.button('#' + this.model.get('username') + '-' + this.model.get('apiname'), {
+	      	services_compact : "facebook,twitter,digg,pinterest,email",
+	      	ui_click : true
+	      }, {
+	      	url: Backbone.router.getBaseUrl() + this.model.get('username') + '/' + this.model.get('apiname'),
+	      	title: this.model.get('apiname') + ' on API Engine'
+	      });
+
 		// switch on active tab from router
 		if(this.options.collaborators) {
 			var collaboratorsView = Vm.create(this, 'apipage', CollaboratorsView, _.extend({parent : this}, this.options));
@@ -120,10 +128,6 @@ define([
     },
     followApi: function (ev) {
      	return false;
-    },
-
-    shareApi : function(ev) {
-    	// :TODO:
     }
   });
   return NewApiPage;
