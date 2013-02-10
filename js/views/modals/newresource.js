@@ -20,8 +20,8 @@ define([
       var details = $(ev.currentTarget).serializeObject();
       var resource = new Resource();
       resource.options = this.options;
-      var request = resource.save(details, {success:function () {
-          Backbone.history.navigate(that.options.username + '/' + that.options.apiname + '/version/' + that.options.version + '/resource/' + '19',  {trigger: true});
+      var request = resource.save(details, {success:function (model) {
+          Backbone.history.navigate(that.options.username + '/' + that.options.apiname + '/version/' + that.options.version + '/resource/' + model.get('id'),  {trigger: true});
           that.modal.hide();
 
       }});

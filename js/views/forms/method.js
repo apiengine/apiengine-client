@@ -13,10 +13,10 @@ define([
       var that = this;
       this.method = this.options.method;
       if(typeof this.options.method === 'undefined') {
-        this.method = new MethodModel({
+        this.method = new MethodModel({}, {
           username: this.options.username,
           version: this.options.version,
-          api: this.options.api,
+          apiname: this.options.api,
           resourceId: this.options.resourceId
         });
       }
@@ -39,7 +39,7 @@ define([
       var methodTypes = ['POST', 'GET', 'DELETE', 'PUT'];
       $('body').append(_.template(methodEditTemplate, {methodTypes: methodTypes, method: this.method}));
       $('#js-new-method-modal').modal('show');
-    
+
     }
   });
   return ResourceForm;

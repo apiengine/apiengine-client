@@ -39,23 +39,29 @@ define([
       var resourceForm = Vm.create(this, 'resourceform', NewResource, {
         username: this.options.username,
         version: this.options.version,
-        api: this.options.apiname
+        apiname: this.options.apiname
       });
       resourceForm.render();
 
       return false;
     },
     newMethod: function () {
-      $('#js-new-method-modal').modal('show');
+      var methodForm = Vm.create(this, 'methodform', NewMethod, {
+        username: this.options.username,
+        version: this.options.version,
+        apiname: this.options.apiname
+      });
+      methodForm.render();
+
       return false;
     },
     saveMethod: function (ev) {
       var that = this;
       var methodData = $(ev.currentTarget).serializeObject();
-      var methodModel = new MethodModel({
+      var methodModel = new MethodModel({}, {
         username: this.options.username,
         version: this.options.version,
-        api: this.options.apiname,
+        apiname: this.options.apiname,
         resourceId: this.options.resourceId
       });
       methodModel.save(methodData, {
@@ -72,7 +78,7 @@ define([
       var resourceModel = new ResourceModel({
         username: this.options.username,
         version: this.options.version,
-        api: this.options.apiname
+        apiname: this.options.apiname
       });
       resourceModel.save(resourceData, {
         success: function () {
@@ -86,7 +92,7 @@ define([
 
     showMethodList: function () {
       var that = this;
-      var methodListView = new MethodsListView({username: that.options.username, api: that.options.apiname, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
+      var methodListView = new MethodsListView({username: that.options.username, apiname: that.options.apiname, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
       methodListView.render();
     },
     renderPageBody: function () {
@@ -96,11 +102,11 @@ define([
 	        overview.render();
 		} else if (typeof this.options.method == 'undefined') {
 			// resource page
-			var resourceDetailView = new ResourceDetailView({username: this.options.username, api: this.options.apiname, version: this.options.version, resourceId: this.options.resourceId, method: this.options.method});
+			var resourceDetailView = new ResourceDetailView({username: this.options.username, apiname: this.options.apiname, version: this.options.version, resourceId: this.options.resourceId, method: this.options.method});
     		resourceDetailView.render();
 		} else {
 			// method page
-			var methodDetailView = new MethodDetailView({username: this.options.username, api: this.options.apiname, version: this.options.version, resourceId: this.options.resourceId, method: this.options.method});
+			var methodDetailView = new MethodDetailView({username: this.options.username, apiname: this.options.apiname, version: this.options.version, resourceId: this.options.resourceId, method: this.options.method});
     		methodDetailView.render();
 		}
     },

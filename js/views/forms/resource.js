@@ -16,7 +16,7 @@ define([
         this.resource = new ResourceModel({
           username: this.options.username,
           version: this.options.version,
-          api: this.options.api
+          apiname: this.options.api
         });
       }
     },
@@ -36,7 +36,7 @@ define([
     render: function () {
       $('body').append(_.template(resourceEditTemplate, {resource: this.resource}));
       $('#js-new-resource-modal').modal('show');
-    
+
     }
   });
   return ResourceForm;

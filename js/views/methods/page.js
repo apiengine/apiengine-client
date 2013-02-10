@@ -39,11 +39,11 @@ define([
             console.log(this.options, 'is there a resource id');
       $('[data-method-id='+ this.options.method +']', $('[data-resource-id='+this.options.resourceId+']')).addClass('active');
 
-      this.method = new MethodModel();
-      this.method.set({
-        id: this.options.method,
+      this.method = new MethodModel({
+        method: this.options.method
+      }, {
         version: this.options.version,
-        api: this.options.api,
+        apiname: this.options.api,
         username: this.options.username,
         resourceId: this.options.resourceId
       });

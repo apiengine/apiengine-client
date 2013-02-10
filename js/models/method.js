@@ -4,10 +4,9 @@ define([
   'models/session'
 ], function(_, Backbone, Session) {
   var MethodModel = Backbone.Model.extend({
+  	idAttribute : 'method',
     urlRoot: function () {
-
-    		return '/user/' +this.get('username')+ '/api/' +this.get('apiname')+ '/' + this.get('version') + '/resource/' + this.get('resourceId') + '/method';
-  
+    	return '/user/' +this.options.username+ '/api/' +this.options.apiname+ '/' + this.options.version + '/resource/' + this.options.resourceId;
     }
   });
   return MethodModel;
