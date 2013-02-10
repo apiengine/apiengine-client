@@ -44,6 +44,10 @@ define([
 
       ':username/settings/:page': 'settingsTab',
       ':username': 'defaultAction' // All urls will trigger this route
+    },
+
+    getBaseUrl : function() {
+    	return window.location.hostname + this.Config.base_url;
     }
   });
 
@@ -51,6 +55,7 @@ define([
 
 		var appView = options.appView;
     var router = new AppRouter(options);
+    router.Config = options.config;
     Backbone.router = router;
     router.on('route:apiPage', function (username, apiname, version, resourceId, method) {
         var apiDetailsView = Vm.create(appView, 'page', ApiPageView, {username: username, apiname: apiname, version: version, resourceId: resourceId, method: method});
