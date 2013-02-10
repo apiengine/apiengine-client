@@ -59,19 +59,10 @@ define([
           return o;
       };
 
-
-
-      $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
-        // Your server goes below
-       if(options.url.indexOf('proxino') === -1) {
-        options.url = 'https://s.apiengine.io' + options.url;
-        //options.url = 'http://192.168.2.111:3000' + options.url;
-        }// else {
-        //options.url = 'http://d3gscmgl75g1oq.cloudfront.net' + options.url;
-
-       // };
-
-      });
+      var that = this;
+		$.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
+			options.url = that.options.server_path + options.url;
+		});
 
     },
     render: function () {
@@ -100,11 +91,8 @@ define([
           }
         });
         var notifications = new Notifications();
-        var root = '/';
-        if(window.location.hostname === 'localhost') {
-          root = '/repos/apiengine-client/';
-        }
-        Backbone.history.start({pushState: true, root: root});
+
+        Backbone.history.start({pushState: true, root: that.options.base_url});
       });
 
 
