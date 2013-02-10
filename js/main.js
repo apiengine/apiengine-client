@@ -1,8 +1,12 @@
-// determine the host we're running on. :TODO: error check for nonexistent config files
-var APIE_HOST = window.location.hostname;
+require(['config/PERSONA'], function(confFile) {
 
-// determine the host we're running on
-require(['config/' + APIE_HOST], function(Config) {
+// load the current host's config file if no override config is specified
+if (!confFile) {
+	confFile = window.location.hostname;
+}
+
+// load the application configuration
+require(['config/' + confFile], function(Config) {
 
 	// require.js path aliases
 require.config({
@@ -32,7 +36,7 @@ require.config({
 });
 
 
-// Let's kick off the application
+// Actually kick off the application
 
 require([
   'views/app',
@@ -52,6 +56,8 @@ require([
 
   Router.initialize({appView: appView});
   appView.render(); // render() calls Backbone.history when its ready to start
+
+});
 
 });
 
