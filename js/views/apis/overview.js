@@ -2,19 +2,20 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'mustache',
   'router',
   'models/session',
-  'text!templates/apis/overview.html',
+  'text!templates/apis/docs-overview.html',
   'views/comments/comments',
   'models/api',
   'views/resource/tablelist'
-], function($, _, Backbone, Router, Session, overviewTemplate, CommentsView, ApiModel, TableList){
+], function($, _, Backbone, Mustache, Router, Session, overviewTemplate, CommentsView, ApiModel, TableList){
   var NewApiPage = Backbone.View.extend({
-    el: '.method-container',
+    el: '.docs-container',
     initialize: function () {
       var that = this;
-      
-    },  
+
+    },
     render: function () {
       var that = this;
       $('.api-menu-container a.active').removeClass('active');
