@@ -20,9 +20,10 @@ define([
       var that = this;
       $('.api-menu-container a.active').removeClass('active');
       $('.overview-link').addClass('active');
-      this.$el.html(_.template(overviewTemplate, {errors: []}));
-       var tableList = new TableList({username: that.options.username, api: that.options.apiname, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
-            tableList.render();
+      this.$el.html(Mustache.render(overviewTemplate, this.options));
+       // :TODO: complete tableList component
+       // var tableList = new TableList({username: that.options.username, api: that.options.apiname, version: that.options.version, resourceId: that.options.resourceId, method: that.options.method});
+       //      tableList.render();
             var commentsView = new CommentsView({
             methodId: that.options.method,
             version: that.options.version,
