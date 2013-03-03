@@ -13,8 +13,8 @@ require.config({
   paths: {
     // Major libraries
     jquery: Config.use_cdn ? 'https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.2/jquery.min' : 'libs/jquery/jquery-min',
-    underscore: Config.use_cdn ? 'https://cdnjs.cloudflare.com/ajax/libs/lodash.js/0.9.2/lodash.min' : 'libs/underscore/underscore-min', // https://github.com/amdjs
-    backbone: 'libs/backbone/backbone-min', // https://github.com/amdjs
+    underscore: 'libs/underscore/underscore', // https://github.com/amdjs
+    backbone: 'libs/backbone/backbone', // https://github.com/amdjs
     prettyprint: 'libs/prettyprint/prettyprint',
     qtip: 'libs/qtip2/jquery.qtip.min',
     marked: 'libs/marked/marked',
