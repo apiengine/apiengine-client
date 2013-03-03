@@ -48,9 +48,19 @@ define([
         this.expandMethods(ele);
     },
     expandMethods: function (ele) {
-      var resourceId = $(ele).attr('data-resource-id');
-      var el =  $(ele).next('li');
-      var methodListView = Vm.create(this, 'methodlist'+this.options.resourceId, MethodsListView, {username: this.options.username, apiname: this.options.apiname, version: this.options.version, resourceId: resourceId, method: this.options.method, el: el});
+      var resourceId = $(ele).attr('data-resource-id'),
+      	resource = this.resources.get(resourceId),
+      	el =  $(ele).next('li');
+
+      var methodListView = Vm.create(this, 'methodlist'+this.options.resourceId, MethodsListView, {
+    	username: this.options.username,
+    	apiname: this.options.apiname,
+    	version: this.options.version,
+    	resourceId: resourceId,
+    	resource: resource,
+    	method: this.options.method,
+    	el: el
+      });
       methodListView.setElement(el);
       methodListView.render();
     },
@@ -59,8 +69,11 @@ define([
       $('.resource-submenu').fadeOut(200);
     },
     render: function () {
-      var that = this;
-      var resources = new ResourcesCollection();
+      var that = this,
+    	resources = new ResourcesCollection();
+
+      that.resources = resources;	// assign to the view so we don't have to requery in method lists
+
       resources.username = that.options.username;
       resources.apiname = that.options.apiname;
       resources.version = that.options.version;
@@ -110,6 +123,11 @@ define([
       });
 
 
+    },
+
+    clean : function()
+    {
+    	this.resources = null;
     }
   });
   return ApisPage;

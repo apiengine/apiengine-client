@@ -10,9 +10,9 @@ define([
   'views/forms/method',
   'views/methods/page',
   'collections/methods',
-  'models/method',
+  'models/resource',
   'models/notificationtotal'
-  ], function($, _, Backbone, Vm, Mustache, Session, resourceListTemplate, ResourceForm, MethodForm, MethodView, Methods, MethodModel, NTotals){
+  ], function($, _, Backbone, Vm, Mustache, Session, resourceListTemplate, ResourceForm, MethodForm, MethodView, Methods, ResourceModel, NTotals){
   var ApisPage = Backbone.View.extend({
     el: '.method-list-container',
     initialize: function () {
@@ -59,17 +59,23 @@ define([
     render: function () {
       var that = this;
       this.methods = new Methods();
-      this.resource = new MethodModel();
+
+      // re-request resource only if necessary
+      if (that.options.resource) {
+      	  this.resource = that.options.resource;
+      } else {
+	      this.resource = new ResourceModel();
+	      this.resource.options = {
+	        username: that.options.username,
+	        apiname: that.options.apiname,
+	        version: that.options.version,
+	        resourceId: that.options.resourceId
+	      };
+	      this.resource.fetch();
+	  }
       that.$el.attr('data-resource-id', that.options.resourceId);
       that.$el.fadeIn(200);
 
-      this.resource.set({
-        username: that.options.username,
-        apiname: that.options.apiname,
-        version: that.options.version,
-        resourceId: that.options.resourceId
-      });
-      this.resource.fetch();
       this.methods.username = that.options.username;
       this.methods.apiname = that.options.apiname;
       this.methods.version = that.options.version;
