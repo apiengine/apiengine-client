@@ -80,7 +80,7 @@ define(['jquery', 'autogrow', 'mustache', 'form', 'text!templates/modals/inlinee
 
     // bind form controller if one is specified in options
     if (options.form) {
-    	this.form = FormFactory.create($(options.form.element, this.el), options.form.model, options.form);
+    	this.form = FormFactory.create($(options.form.element || 'form.inline-edit', this.el), options.form.model, options.form);
     }
     // otherwise, bind submit event for inline modals
     else if (options.inline && options.inline.model && options.inline.field) {
@@ -155,10 +155,9 @@ define(['jquery', 'autogrow', 'mustache', 'form', 'text!templates/modals/inlinee
   };
 
   modal.prototype.hide = function (animation) {
-    var that = this;
-    this.el.fadeOut(200);
-    this.overlay.fadeOut(200, function () {
-
+    var that = this,
+    	els = $().add(this.el).add(this.overlay);
+    els.fadeOut(200, function () {
       that.el.remove();
       that.overlay.remove();
       delete that.form;
