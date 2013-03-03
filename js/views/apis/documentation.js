@@ -19,7 +19,7 @@ define([
   'views/forms/resource',
   'modal',
   'views/apis/overview',
-  'models/method'
+  'models/method',
   'views/modals/newresource',
 ], function($, _, Backbone, Router, Vm,  Mustache, Qtip, Session, docsTemplate, ApiModel, MethodsCollection, ResourceListView, MethodDetailView, ResourceDetailView, ResourceModel, MethodModel, hljs, ResourceForm, Modal, OverView, Method, NewResource){
   var NewApiPage = Backbone.View.extend({
