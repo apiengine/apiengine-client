@@ -10,9 +10,16 @@ define(['jquery', 'autogrow', 'mustache', 'form', 'text!templates/modals/inlinee
   //   	title : 'Edit description',					title for inline edit dialog. Defaults to 'data-inline-title' attribute of 'from' element.
   // 	savetext : 'text for OK button',			default 'Save'
   // 	canceltext : 'text for cancel button'		default 'Cancel'
+  //
+  //	cloneDOM : false							if true, take the whole DOM node for 'from' element, instead of putting its value inside the edit field
   // }
   	startHidden : false
   };
+
+  //----------------------------------------------------------------------------
+  // INITIAL RENDERING
+  //----------------------------------------------------------------------------
+
   var modal = function (options) {
     var options = $.extend({}, defaultOptions, options),
     	that = this;
@@ -33,7 +40,7 @@ define(['jquery', 'autogrow', 'mustache', 'form', 'text!templates/modals/inlinee
 		var from = $(options.inline.from);
 		this.el.html(Mustache.render(inlineEditTpl, {
 			title : options.inline.title || from.attr('data-inline-title') || 'Edit field',
-			value : $.trim(options.inline.value || from.val() || from.text()),
+			value : options.inline.cloneDOM ? '' : ($.trim(options.inline.value || from.val() || from.text())),
 			savetext : options.inline.savetext || 'Save',
 			canceltext : options.inline.canceltext || 'Cancel'
 		}, {
@@ -45,35 +52,30 @@ define(['jquery', 'autogrow', 'mustache', 'form', 'text!templates/modals/inlinee
     $('body').append(this.el);
 
     // position onscreen depending on modal type
-    if(options.inline) {
-      var to = $(".inline-field", this.el),
-      	fromTop = from.offset().top,
-      	fromLeft = from.offset().left,
-      	toTop = this.el.offset().top - to.offset().top -
-      			parseInt(to.css('padding-top')) + parseInt(from.css('padding-top')) -
-      			(parseInt(to.css('border-top-width')) - parseInt(from.css('border-top-width'))),
-      	toLeft = this.el.offset().left - to.offset().left -
-      			parseInt(to.css('padding-left')) + parseInt(from.css('padding-left')) -
-      			(parseInt(to.css('border-left-width')) - parseInt(from.css('border-left-width')));
+    if (!options.inline) {
+		// REGULAR CENTERED MODALS
+		$(this.el).css({
+			'margin-left': -($(this.el).width() / 2) + 'px'
+		});
+    } else if (!options.inline.cloneDOM) {
+    	// INLINE EDIT MODALS
+        var to = $(".inline-field", this.el);
 
-      to.css({
-        width: from.width(),
-        height: from.height(),
-        fontSize : from.css('font-size'),
-        fontFamily : from.css('font-family')
-      });
+        matchPosition.call(this, from, to);
 
-      this.el.css({
-        top: fromTop + toTop,
-        left: fromLeft + toLeft,
-        position: 'absolute'
-      });
+      	to.css({
+	      fontSize : from.css('font-size'),
+	      fontFamily : from.css('font-family')
+	    });
 
-      to.autogrow();
+        to.autogrow();
     } else {
-      $(this.el).css({
-        'margin-left': -($(this.el).width() / 2) + 'px'
-      });
+    	// INLINE COMPLEX MODALS
+    	var to = $(options.inline.from).clone();
+
+		this.el.find('.inline-field').replaceWith(to);
+
+        matchPosition.call(this, from, to);
     }
 
     // bind form controller if one is specified in options
@@ -114,6 +116,37 @@ define(['jquery', 'autogrow', 'mustache', 'form', 'text!templates/modals/inlinee
     }
   };
 
+  //----------------------------------------------------------------------------
+  // INTERNALS
+  //----------------------------------------------------------------------------
+
+  function matchPosition(from, to)
+  {
+	fromTop = from.offset().top,
+  	fromLeft = from.offset().left,
+  	toTop = this.el.offset().top - to.offset().top -
+  			parseInt(to.css('padding-top')) + parseInt(from.css('padding-top')) -
+  			(parseInt(to.css('border-top-width')) - parseInt(from.css('border-top-width'))),
+  	toLeft = this.el.offset().left - to.offset().left -
+  			parseInt(to.css('padding-left')) + parseInt(from.css('padding-left')) -
+  			(parseInt(to.css('border-left-width')) - parseInt(from.css('border-left-width')));
+
+    to.css({
+      width: from.width(),
+      height: from.height()
+    });
+
+    this.el.css({
+      top: fromTop + toTop,
+      left: fromLeft + toLeft,
+      position: 'absolute'
+    });
+  }
+
+  //----------------------------------------------------------------------------
+  // OBJECT METHODS
+  //----------------------------------------------------------------------------
+
   modal.prototype.show = function () {
     this.el.addClass('shown');
     if (this.inline) {
@@ -133,7 +166,9 @@ define(['jquery', 'autogrow', 'mustache', 'form', 'text!templates/modals/inlinee
     });
   };
 
-
+  //----------------------------------------------------------------------------
+  // FACTORY
+  //----------------------------------------------------------------------------
 
   var create = function (options) {
     var Modal = new modal(options);
