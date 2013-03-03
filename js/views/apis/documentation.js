@@ -19,9 +19,9 @@ define([
   'views/forms/resource',
   'modal',
   'views/apis/overview',
-  'views/modals/newmethod',
+  'models/method'
   'views/modals/newresource',
-], function($, _, Backbone, Router, Vm,  Mustache, Qtip, Session, docsTemplate, ApiModel, MethodsCollection, ResourceListView, MethodDetailView, ResourceDetailView, ResourceModel, MethodModel, hljs, ResourceForm, Modal, OverView, NewMethod, NewResource){
+], function($, _, Backbone, Router, Vm,  Mustache, Qtip, Session, docsTemplate, ApiModel, MethodsCollection, ResourceListView, MethodDetailView, ResourceDetailView, ResourceModel, MethodModel, hljs, ResourceForm, Modal, OverView, Method, NewResource){
   var NewApiPage = Backbone.View.extend({
     el: '.api-page-container',
     initialize: function () {
@@ -46,12 +46,14 @@ define([
       return false;
     },
     newMethod: function () {
-      var methodForm = Vm.create(this, 'methodform', NewMethod, {
-        username: this.options.username,
-        version: this.options.version,
-        apiname: this.options.apiname
+      var that = this;
+
+      this.modal = Modal.create({
+        inline : {
+        	from : $('.resource-list-container'),
+        	cloneDOM : true
+        }
       });
-      methodForm.render();
 
       return false;
     },
