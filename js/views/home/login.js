@@ -9,7 +9,6 @@ define([
   'text!templates/modals/login.html',
   'text!templates/common/error-box.html'
 ], function($, _, Backbone, Session, loginTemplate, Mustache, Modal, logint, errorT){
-  console.log(Mustache);
   var ExamplePage = Backbone.View.extend({
     el: 'body',
     initialize: function () {

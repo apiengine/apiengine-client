@@ -19,13 +19,12 @@ define([
   'libs/highlight/highlight',
   'modal',
   'views/apis/collaborators',
-  'views/apis/details',
   'views/apis/documentation',
   'views/apis/overview',
   'views/apis/settings',
   'views/notifications/list',
   'text!templates/apis/page.html'
-], function($, _, Backbone, Vm,  Mustache, Session, ApiModel, ApiSummary, hljs, Modal, CollaboratorsView, DetailsView, DocsView, OverView, SettingsView, ActivityView, apiDetailsTemplate){
+], function($, _, Backbone, Vm,  Mustache, Session, ApiModel, ApiSummary, hljs, Modal, CollaboratorsView, DocsView, OverView, SettingsView, ActivityView, apiDetailsTemplate){
   var NewApiPage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
