@@ -21,7 +21,8 @@ define([
   'views/apis/overview',
   'models/method',
   'views/modals/newresource',
-], function($, _, Backbone, Router, Vm,  Mustache, Qtip, Session, docsTemplate, ApiModel, MethodsCollection, ResourceListView, MethodDetailView, ResourceDetailView, ResourceModel, MethodModel, hljs, ResourceForm, Modal, OverView, Method, NewResource){
+  'text!templates/modals/newmethod.html'
+], function($, _, Backbone, Router, Vm,  Mustache, Qtip, Session, docsTemplate, ApiModel, MethodsCollection, ResourceListView, MethodDetailView, ResourceDetailView, ResourceModel, MethodModel, hljs, ResourceForm, Modal, OverView, Method, NewResource, newMethodDialog){
   var NewApiPage = Backbone.View.extend({
     el: '.api-page-container',
     initialize: function () {
@@ -50,10 +51,52 @@ define([
 
       this.modal = Modal.create({
         inline : {
+        	title : "Choose Resource",
+        	savetext : "Create method",
         	from : $('.resource-list-container'),
         	cloneDOM : true
         }
       });
+
+      var modalEl = this.modal.el,
+      	modalForm = $('form.inline-edit', modalEl),
+      	modalResourceAs = $('a[data-resource-id]', modalEl),
+      	resourceInput = $('<input type="hidden" name="resource" />');
+
+      // hide stuff from the resource list we don't want to see
+      $('.notification', modalEl).remove();
+      $('.modal-form-errors', modalEl).remove();
+
+      // slide method rows up to hide them
+      $('.resource-list-container', modalEl).css('height', 'auto');
+      $('.resource-submenu', modalEl).slideUp('fast');
+
+      // add a hidden input for the resource ID and rebind resource row click events to it
+      modalForm.append(resourceInput);
+      modalResourceAs.removeClass('active').on('click', function() {
+      	// store value for form submission
+      	resourceInput.val($(this).data('resource-id'));
+
+      	// indicate current selection
+      	modalResourceAs.removeClass('active');
+      	$(this).addClass('active');
+
+      	$('.modal-confirm', modalEl).show();			// OK to show submit button now
+      	$('.modal-title', modalEl).html("New Method");	// and change the title hint
+
+      	// show and position the secondary dialog element we've injected below
+      	var topOffset = $(this).closest('li').position().top - parseInt($('.method-content', modalEl).css('padding-top'));
+      	$('.method-content', modalEl).css('top', topOffset).show();
+
+      	return false;
+      });
+
+      // inject the secondary dialog element for entering the method details
+      // :TODO: errordef
+      modalForm.append(Mustache.render(newMethodDialog, {}, {errorDef : ''}));
+
+      // hide confirm button until we've picked a resource
+      $('.modal-confirm', modalEl).hide();
 
       return false;
     },
