@@ -16,8 +16,7 @@
         <span data-resource-id="9" class="resource_notification notification" >5</span>
       </a>
     </li>
-    <li data-resource-id="9">
-    <div class="resource-submenu">
+    <li data-resource-id="9" class="resource-submenu">
       <div class="method-sublist-container">
         <ul class="api-menu-list method-list">
           <li data-method-id="DELETE" class="">
@@ -39,8 +38,8 @@
               <span class="method method-GET">GET</span>
               <span class="method-label">Get Api details</span><span class="method_notification notification" data-method-id="GET">1</span></a>
           </li>
-        </ul></div>
-    </div>
+        </ul>
+      </div>
   </li>
 
   <li class="" data-resource-id="8">
@@ -49,12 +48,10 @@
       <span data-resource-id="8" class="resource_notification notification" >3</span>
     </a>
   </li>
-  <li >
-    <div class="resource-submenu">
+  <li class="resource-submenu">
       <div class="method-sublist-container">
         <div class="api-list-ajax"><div class="ajax-cog" ></div> <span class="loading">Loading</span></div>
       </div>
-    </div>
   </li>
 </ul>
 </div>
