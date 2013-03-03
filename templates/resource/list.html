@@ -1,18 +1,12 @@
-<style>
-</style>
 <ul class="api-menu-list resource-list">
     {{#resources.models}}
     <li class="{{active}}" data-resource-id="{{id}}" data-resource-resource="{{attributes.resource}}">
-        <div style="">
-            <a data-resource-id="{{id}}" href="#{{attributes.user}}/{{attributes.api}}/version/{{attributes.version}}/resource/{{id}}">
-      <span  class="resource-label">{{attributes.label}}</span>
-
-    <span data-resource-id="{{id}}" class="resource-notification notification"></span>
-
-    </a>
-            <div style="clear: both;">
-            </div>
-        </div>
+      <a data-resource-id="{{id}}" href="#{{attributes.user}}/{{attributes.api}}/version/{{attributes.version}}/resource/{{id}}">
+		<span class="resource-label">{{attributes.label}}</span>
+    	<span class="resource-notification notification"></span>
+      </a>
+	  <div style="clear: both;">
+	  </div>
     </li>
     <li style="display: none; border-top: none;">
         <div class="resource-submenu">
@@ -28,4 +22,4 @@
         </div>
     </li>
     {{/resources.models}}
-    </ul>
+</ul>

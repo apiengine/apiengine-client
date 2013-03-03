@@ -8,8 +8,13 @@
 		<button class="ebtn ebtn-blue js-new-resource">Add a new resource</button>
 		<button class="ebtn ebtn-blue js-new-method">Add a new method</button>
 
-		<ul class="api-menu-list">
-			<li><a href="#{{user}}/{{api}}/version/{{version}}" class="overview-link">Overview</a></li>
+		<ul class="api-menu-list" data-api-id="{{api}}">
+			<li>
+				<a href="#{{user}}/{{api}}/version/{{version}}" class="overview-link">
+					Overview
+					<span class="api-notification notification"></span>
+				</a>
+			</li>
 		</ul>
 		<div class="resource-list-container">
 			Loading resources
