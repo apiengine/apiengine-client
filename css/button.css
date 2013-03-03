@@ -86,7 +86,7 @@ hrmm
   border-right: 2px solid #fff;
   border-bottom: 2px solid #fff;
   border-left: 2px solid #fff;
-  font-family: 'Nexa Bold'; 
+  font-family: 'Nexa Bold';
   letter-spacing: 1px;
   padding: 0 5px 5px 5px;
   /* Safari */
@@ -116,8 +116,8 @@ hrmm
   line-height: 30px;
   padding: 0 10px 0 10px;
   cursor: pointer;
-  -webkit-transition:background 0.5s ease-in; 
-  -webkit-transition:color 0.1s ease-in; 
+  -webkit-transition:background 0.5s ease-in;
+  -webkit-transition:color 0.1s ease-in;
   font-size: 14px;
 }
 a.btn {
@@ -226,7 +226,7 @@ a.btn {
   background: linear-gradient(to bottom,  #adc45c 0%,#65c543 4%,#65c543 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#adc45c', endColorstr='#65c543',GradientType=0 ); /* IE6-9 */
 }
-.btn.btn-red-hover:hover, 
+.btn.btn-red-hover:hover,
 .btn-red:hover {
   background: #fd7686; /* Old browsers */
   background: -moz-linear-gradient(top,  #fd7686 0%, #ff3048 4%, #ff3048 100%); /* FF3.6+ */
@@ -272,7 +272,7 @@ a.btn {
 
 /*
 
-## Disabled state 
+## Disabled state
 
 
 We need to have disabled state I think ?
@@ -508,7 +508,7 @@ We need to have disabled state I think ?
   border-style:solid;
   border-color:#5a8f00 transparent;
   /* reduce the damage in FF3.0 */
-  display:block; 
+  display:block;
   width:0;
 }
 
@@ -522,7 +522,7 @@ We need to have disabled state I think ?
   border-style:solid;
   border-color:#fff transparent;
   /* reduce the damage in FF3.0 */
-  display:block; 
+  display:block;
   width:0;
 }
 

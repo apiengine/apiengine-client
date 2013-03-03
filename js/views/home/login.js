@@ -34,7 +34,7 @@ define([
           });
         }
       });
-    
+
     },
     render: function () {
       this.modal = Modal.create({
