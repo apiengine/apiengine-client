@@ -439,7 +439,8 @@ We need to have disabled state I think ?
 ```
 */
 .btn-share .icon {
-  color: #171717;
+  background: transparent url(../img/share-icon.png);
+  width: 14px; height: 16px; display: block;
 }
 .slider-buttons {
   list-style: none;
