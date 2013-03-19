@@ -22,7 +22,12 @@ define([
       this.userModel.on('change', function(userModel) {
         that.renderProfile();
       });
-    },  
+
+      // refresh the views when we logout or login so we get contextual info
+      Session.on('change:auth', function() {
+        that.render();
+      });
+    },
     events: {
       'submit form.edit-api': 'editApi'
     },
