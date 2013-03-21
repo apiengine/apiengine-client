@@ -44,9 +44,9 @@ require([
   Proxino.key = "QI-BctdhtytsUUJERc5HfA";
   Proxino.track_errors();
 
-  var appView = Vm.create({}, 'AppView', AppView, Config);
+  var appView = Vm.create({}, 'AppView', AppView);
 
-  Router.initialize({appView : appView, config : Config});
+  Router.initialize({appView : appView});
   appView.render(); // render() calls Backbone.history when its ready to start
 
 });
