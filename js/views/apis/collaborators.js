@@ -4,9 +4,8 @@ define([
   'backbone',
   'router',
   'models/session',
-  'text!templates/apis/overview.html',
   'models/api'
-], function($, _, Backbone, Router, Session, overviewTemplate, ApiModel){
+], function($, _, Backbone, Router, Session,  ApiModel){
   var Collaborators = Backbone.View.extend({
     el: '.api-page-container',
     initialize: function () {

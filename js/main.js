@@ -1,13 +1,3 @@
-require(['config/PERSONA'], function(confFile) {
-
-// load the current host's config file if no override config is specified
-if (!confFile) {
-	confFile = window.location.hostname;
-}
-
-// load the application configuration
-require(['config/' + confFile], function(Config) {
-
 	// require.js path aliases
 require.config({
   paths: {
@@ -61,6 +51,3 @@ require([
 
 });
 
-});
-
-});
