@@ -5,6 +5,8 @@ define([
   'extensions',
   'vm',
 	'events',
+  'libs/events/event_bus',
+  'libs/events/events',
   'models/session',
   'models/error',
   'text!templates/layout.html',
@@ -13,14 +15,19 @@ define([
   'views/footer/footer',
   'views/feedback/feedback',
   'views/notifications/main'
-], function($, _, Backbone, extensions, Vm, Events, Session, ErrorModel, layoutTemplate, AccountMenu, HeaderView, FooterView, FeedbackView, Notifications){
+], function($, _, Backbone, extensions, Vm, Eventsa, EventBus, Events, Session, ErrorModel, layoutTemplate, AccountMenu, HeaderView, FooterView, FeedbackView, Notifications){
   var AppView = Backbone.View.extend({
     el: 'body',
     initialize: function () {
  // log all 500 error codes with the server. We may also log others - this is done in libs/form/form.js
  // when no UI elements are found for handling a valid server error condition.
+      EventBus.on('all', function (event) {
+        _gaq.push(['_trackEvent', 'app', event])
+        _gaq.push(['_trackEvent', 'Videos', 'Stop', 'Gone With the Wind']);
+      });
+      EventBus.trigger(Events.NEW_USER);
       $("body").ajaxError(function(ev, res, req) {
-		 if(res.status >= 500 && res.status <= 600) {
+		if(res.status >= 500 && res.status <= 600) {
 			var responseJSON = xhr.responseText;
 			try {
 				responseJSON = JSON.parse(xhr.responseText);
@@ -29,15 +36,15 @@ define([
 		  var error = new ErrorModel();
 		  error.save({
 		    "page": window.location.href,
-			"context": req.type + ' ' + req.url,
-			"code": res.status,
-			"error": "Internal API error",
-			"payload": {
-				sent : req.data,
-				received : responseJSON
-			}
+			  "context": req.type + ' ' + req.url,
+			  "code": res.status,
+			  "error": "Internal API error",
+			  "payload": {
+				  sent : req.data,
+				  received : responseJSON
+			  }
 		  }, {});
-		 }
+		}
 		  console.log(arguments);
 	   });
 
