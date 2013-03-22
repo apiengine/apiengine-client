@@ -5,6 +5,13 @@ var rjs = require('requirejs');
 var knox = require('knox');
 var glob = require("glob")
 
+console.log(process.argv);
+
+var cloudfront = 'https://d3oqwi49u9bqjg.cloudfront.net';
+
+if(process.argv[2] === 'stage') {
+  var cloudfront = 'https://d7f9lvhhazsa5.cloudfront.net';
+}
 
 
 var version = Date.now();
@@ -55,9 +62,9 @@ var rootPath = '..';
     ]
 });
 var index = fs.readFileSync(rootPath + '/index.html', 'ascii');
-index = index.replace('css/styles.css', 'https://d3oqwi49u9bqjg.cloudfront.net/version/' + version + '/css/styles.css');
+index = index.replace('css/styles.css', cloudfront + '/version/' + version + '/css/styles.css');
 index = index.replace('<base href="/repos/apiengine-client/" />', '');
-index = index.replace(' data-main="js/main"', ' data-main="https://d3oqwi49u9bqjg.cloudfront.net/version/' + version + '/js/main"');
+index = index.replace(' data-main="js/main"', ' data-main="' + cloudfront + '/version/' + version + '/js/main"');
 fs.writeFileSync('output/index.html', index);
   rjs.optimize({
     cssIn: rootPath + '/css/styles.css',
