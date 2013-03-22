@@ -101,6 +101,10 @@ define([
 
           } else {
             clicky.log($(this).attr('href'), $(this).attr('href'), 'pageview')
+            ga('send', {
+              'hitType': 'pageview',
+              'page': $(this).attr('href')
+            });
            // mixpanel.track_pageview();
             Backbone.router.navigate($(this).attr('href'), true);
             $(document).scrollTop(0);
