@@ -22,8 +22,12 @@ define([
  // log all 500 error codes with the server. We may also log others - this is done in libs/form/form.js
  // when no UI elements are found for handling a valid server error condition.
       EventBus.on('all', function (event) {
-        _gaq.push(['_trackEvent', 'app', event])
-        _gaq.push(['_trackEvent', 'Videos', 'Stop', 'Gone With the Wind']);
+        console.log('gaaa');
+        ga('send', {
+          hitType: 'event',
+          eventCategory: 'app',
+          eventAction: event
+        })
       });
       EventBus.trigger(Events.NEW_USER);
       $("body").ajaxError(function(ev, res, req) {

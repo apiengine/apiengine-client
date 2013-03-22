@@ -4,7 +4,9 @@ define([
   'backbone',
   'models/session',
   'text!templates/home/pricing.html',
-], function($, _, Backbone, Session, pricingTemplate){
+  'libs/events/event_bus',
+  'libs/events/events'
+], function($, _, Backbone, Session, pricingTemplate, EventBus, Events){
   var ExamplePage = Backbone.View.extend({
     el: '.page',
     initialize: function () {
@@ -17,6 +19,8 @@ define([
       $('.top-bar-menu li a.active').removeClass('active');
       $('.top-bar-menu li a.pricing-button').addClass('active');
       this.$el.html(pricingTemplate);
+      EventBus.trigger(Events.NEW_USER);
+      
     }
   });
   return ExamplePage;
