@@ -62,8 +62,13 @@ define([
       var that = this;
  $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
         // Your server goes below
-       if(options.url.indexOf('proxino') === -1) {
-        options.url = 'https://s.apiengine.io' + options.url;
+      if(options.url.indexOf('proxino') === -1) {
+        if(window.location.host === 'apiengine.io') {
+          options.url = 'https://x.apiengine.io' + options.url;
+
+        } else {
+          options.url = 'https://s.apiengine.io' + options.url;
+        }
         //options.url = 'http://192.168.2.111:3000' + options.url;
         }// else {
         //options.url = 'http://d3gscmgl75g1oq.cloudfront.net' + options.url;
