@@ -76,6 +76,7 @@ define([
 		this.$el.html(Mustache.render(apiDetailsTemplate, {api: this.model, owner: Session.get('login') === this.model.get('user')}));
 
 		// activate addThis share button for the API
+      /*
 		  addthis.button('#' + this.model.get('username') + '-' + this.model.get('apiname'), {
 	      	services_compact : "facebook,twitter,digg,pinterest,email",
 	      	ui_click : true
@@ -83,7 +84,7 @@ define([
 	      	url: Backbone.router.getBaseUrl() + this.model.get('username') + '/' + this.model.get('apiname'),
 	      	title: this.model.get('apiname') + ' on API Engine'
 	      });
-
+  */
 		// switch on active tab from router
 		if(this.options.collaborators) {
 			var collaboratorsView = Vm.create(this, 'apipage', CollaboratorsView, _.extend({parent : this}, this.options));

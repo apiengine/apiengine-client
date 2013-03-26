@@ -32,8 +32,7 @@ var rootPath = '..';
     paths: {
       'jquery': 'empty:',
       'mustache': 'empty:',
-      'underscore': 'empty:',
-      'addthis': 'empty:'
+      //'addthis': 'empty:'
     },
     modules: [
       {
