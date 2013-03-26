@@ -10,7 +10,7 @@ console.log(process.argv);
 var cloudfront = 'https://d3oqwi49u9bqjg.cloudfront.net';
 
 if(process.argv[2] === 'stage') {
-  var cloudfront = 'https://d7f9lvhhazsa5.cloudfront.net';
+  var cloudfront = 'https://d51ivijxlr7mx.cloudfront.net';
 }
 
 
