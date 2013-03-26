@@ -4,7 +4,7 @@ var http = require('http-get');
 var rjs = require('requirejs');
 var knox = require('knox');
 var glob = require("glob")
-var clc = require('cli-color');
+var clc = require('./cli-color');
 
 // CONFIG 
 
