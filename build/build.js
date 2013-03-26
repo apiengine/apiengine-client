@@ -8,7 +8,7 @@ var clc = require('cli-color');
 
 // CONFIG 
 
-var cloudfront_production = 'https://d3oqwi49u9bqjg.cloudfront.net';
+var cloudfront_production = 'https://d50sg51l36z7c.cloudfront.net';
 var cloudfront_stage = 'https://d51ivijxlr7mx.cloudfront.net';
 
 // Logging helpers
