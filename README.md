@@ -18,3 +18,5 @@ When privacy is paramount we have you covered. Switch between private & public a
 ## PUBLIC APIs WITH GREAT POTENTIAL 
 
 Build your community & start a dialogue with yo
+
+[http://stats.pingdom.com/wyvr99zdb86k](Pingdom Uptime)
