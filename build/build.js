@@ -10,7 +10,9 @@ console.log(process.argv);
 var cloudfront = 'https://d3oqwi49u9bqjg.cloudfront.net';
 
 if(process.argv[2] === 'stage') {
-  var cloudfront = 'https://d51ivijxlr7mx.cloudfront.net';
+  cloudfront = 'https://d51ivijxlr7mx.cloudfront.net';
+} else if (process.argv[2] === 'vagrant') {
+  cloudfront = 'https://apiengine-vagrant:40080';
 }
 
 
@@ -97,10 +99,10 @@ function cssIncImages(cssFile) {
     fs.copy(rootPath + '/css/img', outputFolder +'/css/img', function () {
     fs.copy(rootPath + '/img', outputFolder +'/img', function () {
       fs.copy(rootPath + '/css/fonts', outputFolder +'/css/fonts', function () {
-        
+
 cssIncImages(outputFolder + '/css/styles.css');
       fs.copy('output', 'relic', function () {
-        
+
         var endTime = (Date.now() - startTime) / 1000;
 });
       });
@@ -110,4 +112,3 @@ cssIncImages(outputFolder + '/css/styles.css');
     });
   });
   });
-
