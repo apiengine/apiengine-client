@@ -16,6 +16,7 @@
     "w3cjs": "0.1.6"
   },
   "dependencies": {
-    "superagent": "~0.8.1"
+    "superagent": "~0.8.1",
+    "commander": "~1.1.1"
   }
 }

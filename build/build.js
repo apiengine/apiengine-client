@@ -28,18 +28,28 @@ var log = function (message, _type) {
 }
 
 // Start build
+var program = require('commander');
+
+program
+  .version('0.0.1')
+  .option('-e, --environment [environment]', 'Which enviroment, development, stage or production? Changes where assets are pulled from', 'develop')
+  .option('-s, --server [server]', 'Is there a custom server url for this build? (https://*) Changes what API server you use')
+  .parse(process.argv);
+
+
 
 log('Api Engine Client Builder', types.heading)
 
 
-
-
-if(process.argv[2] === 'stage') {
-  var cloudfront = cloudfront_stage;
+var cloudfront = null
+if(program.environment === 'stage') {
+  cloudfront = cloudfront_stage;
   log('Staging enviroment selected', types.label)
-} else {
-  var cloudfront = cloudfront_production;
+} else if (program.environment === 'production' ) {
+  cloudfront = cloudfront_production;
   log('Production enviroment selected', types.label)
+} else {
+  log('Development enviroment selected', types.label)
 }
 
 
@@ -100,9 +110,20 @@ log('Optimization finished', types.action)
 log('Editing index.html to contain new enviroment variables', types.action)
 
 var index = fs.readFileSync(rootPath + '/index.html', 'ascii');
-index = index.replace('css/styles.css', cloudfront + '/version/' + version + '/css/styles.css');
 index = index.replace('<base href="/repos/apiengine-client/" />', '');
-index = index.replace(' data-main="js/main"', ' data-main="' + cloudfront + '/version/' + version + '/js/main"');
+if(cloudfront) {
+  index = index.replace('css/styles.css', cloudfront + '/version/' + version + '/css/styles.css');
+  index = index.replace(' data-main="js/main"', ' data-main="' + cloudfront + '/version/' + version + '/js/main"');
+} else {
+  index = index.replace('css/styles.css', 'version/' + version + '/css/styles.css');
+  index = index.replace(' data-main="js/main"', ' data-main="version/' + version + '/js/main"');
+
+}
+
+if(program.server) {
+  index = index.replace('</head>', '<meta name="server" data-server-url="'+program.server+'" /></head>')
+}
+
 
 log('Optimization css with require.js', types.action)
 

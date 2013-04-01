@@ -71,10 +71,13 @@ define([
       };
 
       var that = this;
+
  $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
         // Your server goes below
       if(options.url.indexOf('proxino') === -1) {
-        if(window.location.host === 'apiengine.io') {
+        if($('[data-server-url]').length > 0) {
+          options.url = $('[data-server-url]').attr('data-server-url');
+        } else if (window.location.host === 'apiengine.io') {
           options.url = 'https://x.apiengine.io' + options.url;
 
         } else {
@@ -119,7 +122,10 @@ define([
         });
         var notifications = new Notifications();
    var root = '/';
-        if(window.location.hostname === 'localhost') {
+        if(window.location.hostname === 'localhost' && window.location.pathname.indexOf('relic') !== -1) {
+          root = '/repos/apiengine-client/build/relic';
+
+        } else if(window.location.hostname === 'localhost') {
           root = '/repos/apiengine-client/';
         }
         Backbone.history.start({pushState: true, root: root});
