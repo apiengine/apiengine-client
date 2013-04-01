@@ -10,6 +10,7 @@ var clc = require('cli-color');
 
 var cloudfront_production = 'https://d50sg51l36z7c.cloudfront.net';
 var cloudfront_stage = 'https://d51ivijxlr7mx.cloudfront.net';
+var cloudfront_vagrant = 'https://vagrant-client.apiengine.io:40443';
 
 // Logging helpers
 
@@ -31,12 +32,12 @@ var log = function (message, _type) {
 
 log('Api Engine Client Builder', types.heading)
 
-
-
-
 if(process.argv[2] === 'stage') {
   var cloudfront = cloudfront_stage;
   log('Staging enviroment selected', types.label)
+} else if(process.argv[2] === 'vagrant') {
+  var cloudfront = cloudfront_vagrant;
+  log('Vagrant enviroment selected', types.label)
 } else {
   var cloudfront = cloudfront_production;
   log('Production enviroment selected', types.label)
