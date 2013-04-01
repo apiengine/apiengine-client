@@ -12,7 +12,7 @@ var cloudfront = 'https://d3oqwi49u9bqjg.cloudfront.net';
 if(process.argv[2] === 'stage') {
   cloudfront = 'https://d51ivijxlr7mx.cloudfront.net';
 } else if (process.argv[2] === 'vagrant') {
-  cloudfront = 'https://vagrant-client.apiengine.io:40080';
+  cloudfront = 'https://vagrant-client.apiengine.io:40443';
 }
 
 
