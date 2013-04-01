@@ -10,6 +10,7 @@ var clc = require('cli-color');
 
 var cloudfront_production = 'https://d50sg51l36z7c.cloudfront.net';
 var cloudfront_stage = 'https://d51ivijxlr7mx.cloudfront.net';
+var cloudfront_vagrant = 'https://vagrant-client.apiengine.io:40443';
 
 // Logging helpers
 
@@ -32,7 +33,7 @@ var program = require('commander');
 
 program
   .version('0.0.1')
-  .option('-e, --environment [environment]', 'Which enviroment, development, stage or production? Changes where assets are pulled from', 'develop')
+  .option('-e, --environment [environment]', 'Which enviroment, development, vagrant, stage or production? Changes where assets are pulled from', 'develop')
   .option('-s, --server [server]', 'Is there a custom server url for this build? (https://*) Changes what API server you use')
   .parse(process.argv);
 
@@ -45,9 +46,15 @@ var cloudfront = null
 if(program.environment === 'stage') {
   cloudfront = cloudfront_stage;
   log('Staging enviroment selected', types.label)
+
 } else if (program.environment === 'production' ) {
-  cloudfront = cloudfront_production;
   log('Production enviroment selected', types.label)
+  cloudfront = cloudfront_production;
+
+} else if(program.environment === 'vagrant') {
+  var cloudfront = cloudfront_vagrant;
+  log('Vagrant enviroment selected', types.label)
+
 } else {
   log('Development enviroment selected', types.label)
 }
