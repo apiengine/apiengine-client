@@ -37,23 +37,14 @@ require.config({
 // Actually kick off the application
 
 require([
+  'setup/setup'
   'views/app',
   'vm',
   'router',
-  'clicky',
-  'libs/proxino/proxino'
-], function(AppView, Vm, Router, norefclicky, norefProxino){
-
-
-  try{ clicky.init(66633495); }catch(e){}
-
-  Proxino.key = "QI-BctdhtytsUUJERc5HfA";
-  Proxino.track_errors();
-
+], function(Setup, AppView, Vm, Router){
+  Setup.setup();
   var appView = Vm.create({}, 'AppView', AppView);
-
   Router.initialize({appView : appView});
   appView.render(); // render() calls Backbone.history when its ready to start
-
 });
 

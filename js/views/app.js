@@ -19,75 +19,23 @@ define([
   var AppView = Backbone.View.extend({
     el: 'body',
     initialize: function () {
- // log all 500 error codes with the server. We may also log others - this is done in libs/form/form.js
- // when no UI elements are found for handling a valid server error condition.
-      EventBus.on('all', function (event) {
-        console.log('gaaa');
-        ga('send', {
-          hitType: 'event',
-          eventCategory: 'app',
-          eventAction: event
-        })
-      });
-      EventBus.trigger(Events.NEW_USER);
-      $("body").ajaxError(function(ev, res, req) {
-		if(res.status >= 500 && res.status <= 600) {
-			var responseJSON = xhr.responseText;
-			try {
-				responseJSON = JSON.parse(xhr.responseText);
-			} catch (e) {}
-
-		  var error = new ErrorModel();
-		  error.save({
-		    "page": window.location.href,
-			  "context": req.type + ' ' + req.url,
-			  "code": res.status,
-			  "error": "Internal API error",
-			  "payload": {
-				  sent : req.data,
-				  received : responseJSON
-			  }
-		  }, {});
-		}
-		  console.log(arguments);
-	   });
-
-      // This snipper should usually be loaded elsewhere
-      // It simply takes a <form> and converts its values to an object
-      $.fn.serializeObject = function() {
-          var o = {};
-          var a = this.serializeArray();
-          $.each(a, function() {
-              if (o[this.name] !== undefined) {
-                  if (!o[this.name].push) {
-                      o[this.name] = [o[this.name]];
-                  }
-                  o[this.name].push(this.value || '');
-              } else {
-                  o[this.name] = this.value || '';
-              }
-          });
-          return o;
-      };
+      
 
       var that = this;
 
- $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
-        // Your server goes below
-      if(options.url.indexOf('proxino') === -1) {
-        if($('[data-server-url]').length > 0) {
-          options.url = $('[data-server-url]').attr('data-server-url');
-        } else if (window.location.host === 'apiengine.io') {
-          options.url = 'https://x.apiengine.io' + options.url;
+      $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
+        // Move these server url declarations all to custom url data attribute
+        if(options.url.indexOf('proxino') === -1) {
+          if($('[data-server-url]').length > 0) {
+            options.url = $('[data-server-url]').attr('data-server-url');
+          } else if (window.location.host === 'apiengine.io') {
+            options.url = 'https://x.apiengine.io' + options.url;
 
-        } else {
-          options.url = 'https://s.apiengine.io' + options.url;
+          } else {
+            options.url = 'https://s.apiengine.io' + options.url;
+          }
         }
-        //options.url = 'http://192.168.2.111:3000' + options.url;
-        }// else {
-        //options.url = 'http://d3gscmgl75g1oq.cloudfront.net' + options.url;
 
-       // };
       });
 
     },

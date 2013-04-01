@@ -12,6 +12,9 @@ var cloudfront_production = 'https://d50sg51l36z7c.cloudfront.net';
 var cloudfront_stage = 'https://d51ivijxlr7mx.cloudfront.net';
 var cloudfront_vagrant = 'https://vagrant-client.apiengine.io:40443';
 
+var server_production = 'https://x.apiengine.io';
+var server_staging = 'https://s.apiengine.io';
+
 // Logging helpers
 
 var types = {
@@ -41,8 +44,33 @@ program
 
 log('Api Engine Client Builder', types.heading)
 
+var server = null;
+var cloudfront = null;
 
-var cloudfront = null
+if(program.environment === 'stage') {
+  cloudfront = cloudfront_stage;
+  log('Staging enviroment selected', types.label)
+  server = server_staging;
+
+} else if (program.environment === 'production' ) {
+  log('Production enviroment selected', types.label)
+  cloudfront = cloudfront_production;
+  server = server_production;
+
+} else if(program.environment === 'vagrant') {
+  var cloudfront = cloudfront_vagrant;
+  server = server_staging;
+  log('Vagrant enviroment selected', types.label)
+
+} else {
+  server = server_staging;
+  log('Development enviroment selected', types.label)
+}
+
+if(program.server) {
+  server = program.server;
+}
+
 if(program.environment === 'stage') {
   cloudfront = cloudfront_stage;
   log('Staging enviroment selected', types.label)
@@ -128,9 +156,7 @@ if(cloudfront) {
 
 }
 
-if(program.server) {
-  index = index.replace('</head>', '<meta name="server" data-server-url="'+program.server+'" /></head>')
-}
+index = index.replace('<meta data-server-url="https://s.apiengine.io" />', '<meta data-server-url="'+server+'" />')
 
 
 log('Optimization css with require.js', types.action)
