@@ -3,8 +3,8 @@ require.config({
   paths: {
     // Major libraries
     jquery: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.2/jquery.min',
-    underscore: 'libs/underscore/underscore', // https://github.com/amdjs
-    backbone: 'libs/backbone/backbone', // https://github.com/amdjs
+    underscore: 'https://cdnjs.cloudflare.com/ajax/libs/lodash.js/1.1.0/lodash.min', // https://github.com/amdjs
+    backbone: 'https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min', // https://github.com/amdjs
     prettyprint: 'libs/prettyprint/prettyprint',
     qtip: 'libs/qtip2/jquery.qtip.min',
     marked: 'libs/marked/marked',
@@ -23,6 +23,12 @@ require.config({
     // When you have HTML/CSS designers this aids in keeping them out of the js directory
     templates: '../templates',
     legal: '../legal'
+  },
+  shim: {
+    'backbone': {
+        deps: ['underscore', 'jquery'],
+        exports: 'Backbone'
+    }
   }
 
 });

@@ -85,7 +85,8 @@ log('Running require.js optimizer', types.action)
     paths: {
       'jquery': 'empty:',
       'mustache': 'empty:',
-      //'addthis': 'empty:'
+      'backbone': 'empty:',
+      'underscore': 'empty:'
     },
     modules: [
       {
