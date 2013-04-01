@@ -76,7 +76,7 @@ define([
         // Your server goes below
       if(options.url.indexOf('proxino') === -1) {
         if($('[data-server-url]').length > 0) {
-          options.url = $('[data-server-url]').attr('data-server-url');
+          options.url = $('[data-server-url]').attr('data-server-url') + options.url;
         } else if (window.location.host === 'apiengine.io') {
           options.url = 'https://x.apiengine.io' + options.url;
 
