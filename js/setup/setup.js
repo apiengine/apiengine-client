@@ -1,7 +1,11 @@
 define([
   'setup/logging'
 ], function (Logging){
-  Logging.setup();
-
+  var setup = function () {
+    Logging.setup();
+  }
+  return {
+    setup: setup
+  }
 
 });

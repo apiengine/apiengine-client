@@ -37,10 +37,10 @@ require.config({
 // Actually kick off the application
 
 require([
-  'setup/setup'
+  'setup/setup',
   'views/app',
   'vm',
-  'router',
+  'router'
 ], function(Setup, AppView, Vm, Router){
   Setup.setup();
   var appView = Vm.create({}, 'AppView', AppView);

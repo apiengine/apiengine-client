@@ -24,18 +24,9 @@ define([
       var that = this;
 
       $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
-        // Move these server url declarations all to custom url data attribute
         if(options.url.indexOf('proxino') === -1) {
-          if($('[data-server-url]').length > 0) {
-            options.url = $('[data-server-url]').attr('data-server-url');
-          } else if (window.location.host === 'apiengine.io') {
-            options.url = 'https://x.apiengine.io' + options.url;
-
-          } else {
-            options.url = 'https://s.apiengine.io' + options.url;
-          }
+          options.url = $('[data-server-url]').attr('data-server-url') + options.url;
         }
-
       });
 
     },

@@ -68,25 +68,10 @@ if(program.environment === 'stage') {
 }
 
 if(program.server) {
+  log('Custom server url selected', types.label)
+
   server = program.server;
 }
-
-if(program.environment === 'stage') {
-  cloudfront = cloudfront_stage;
-  log('Staging enviroment selected', types.label)
-
-} else if (program.environment === 'production' ) {
-  log('Production enviroment selected', types.label)
-  cloudfront = cloudfront_production;
-
-} else if(program.environment === 'vagrant') {
-  var cloudfront = cloudfront_vagrant;
-  log('Vagrant enviroment selected', types.label)
-
-} else {
-  log('Development enviroment selected', types.label)
-}
-
 
 
 var version = Date.now();
