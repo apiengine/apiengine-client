@@ -93,7 +93,9 @@ define([
       if(Session.get('login') === that.options.username ) {
         currentUser = true;
       }
-      that.$el.html(Mustache.render(profileTemplate, {user: that.userModel, currentUser: currentUser}));
+      that.$el.hide()
+          .html(Mustache.render(profileTemplate, {user: that.userModel, currentUser: currentUser}))
+          .fadeIn(700);
           $('.timeago').timeago();
       this.renderSettings();
     },

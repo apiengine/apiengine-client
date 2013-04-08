@@ -21,7 +21,10 @@ define([
     render: function (options) {
       $('.tabs-container li').removeClass('active');
       $('.tabs-container .settings').addClass('active');
-      this.$el.html(_.template(pageTemplate, {user: Session.get('user')}));
+      if($('.settings-container').length === 0) {
+
+        this.$el.hide().html(_.template(pageTemplate, {user: Session.get('user')})).fadeIn(350);
+      }
       switch(options.setting){
       case 'profile':
           var profileView = new ProfileView();

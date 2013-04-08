@@ -53,7 +53,7 @@ define([
               'page': $(this).attr('href')
             });
             Backbone.router.navigate($(this).attr('href'), true);
-            $(document).scrollTop(0);
+            //$(document).scrollTop(0);
             return false;
 
           }

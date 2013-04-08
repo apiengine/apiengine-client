@@ -106,8 +106,10 @@ define([
       };
       apis.fetch({
         success: function (collection) {
-          that.$el.html(Mustache.render(apisListTemplate, {authed: Session.get('auth'), currentUser: that.options.currentUser, _:_, is_public: that.options.is_public, apis: collection.models, username: Session.get('login'), location: that.options.location}, {listtemplate: apisListItemTemplate}));
-
+          that.$el.hide()
+            .html(Mustache.render(apisListTemplate, {authed: Session.get('auth'), currentUser: that.options.currentUser, _:_, is_public: that.options.is_public, apis: collection.models, username: Session.get('login'), location: that.options.location}, {listtemplate: apisListItemTemplate}))
+            .fadeIn(350);
+            
           // activate the share buttons
           /*_.each(collection.models, function(model) {
 	          addthis.button('#' + model.get('user') + '-' + model.get('name'), {

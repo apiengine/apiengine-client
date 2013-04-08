@@ -19,7 +19,7 @@ define([
       });
     },
     render: function () {
-      this.$el.hide().fadeIn(250);
+      this.$el.hide().fadeIn(500);
       this.$el.html(Mustache.render(headerLayoutTemplate, {username: Session.get('login')}));
       var mainMenu = new MainMenuView();
       mainMenu.render();

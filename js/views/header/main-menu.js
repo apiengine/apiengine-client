@@ -34,6 +34,14 @@ define([
         $('.logo-cog').rotate({ duration:2000, animateTo:value});
 
       });
+
+      $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
+ 
+        value +=180;
+        $('.logo-cog').rotate({ duration:4000, animateTo:value});
+
+      });
+
       var accountMenu = Vm.create(this, 'accountmenu', AccountMenuView, {});
       accountMenu.render();
     },
