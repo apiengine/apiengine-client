@@ -17,17 +17,23 @@
     <span class="settings-title"><span class="arrows">»</span> Billing settings</span>
   </div>
   <div class="settings-page-contents">
-    <form class="form">
+    <form class="billing-form form">
 		<div class="card-info-container">
 			<span class="card-info-title">YOUR SECURITY IS OUR SECURITY</span>
 			<p class="card-info-desc">We ensure that all API Engine payment details and transactions adhere to Payment Card Industry Data Security Standards (PCI-DSS) Procedures. </p>
 			<div class="cards"></div>
 		</div>
-		      <label>Card Holder Name</label>
-      <input type="text" placeholder="Mr Joe Blogs" />
+		  <label>Card Holder Name</label>
+      <input type="text" name="name" placeholder="Mr Joe Blogs" />
       <label>Credit Card Number</label>
-      <input type="text" placeholder="XXXX XXXX XXXX XXXX" />
+      <input type="text" name="card_number" placeholder="XXXX XXXX XXXX XXXX" />
 
+      <label>Expiry Month</label>
+      <input type="text" name="expiry_month" placeholder="XX" />
+      <label>Expiry Year</label>
+      <input type="text" name="expiry_year" placeholder="XX" />
+      <label>Security Number</label>
+      <input type="text" name="ccv" placeholder="" />
 		<div class="form-submit">
 		    <button type="submit" class="btn btn-blue">UPDATE</button>
 		</div>

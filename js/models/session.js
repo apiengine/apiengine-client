@@ -1,7 +1,9 @@
 define([
   'underscore',
-  'backbone'
-], function(_, Backbone) {
+  'backbone',
+  'libs/events/event_bus',
+  'libs/events/events'
+], function(_, Backbone, EventBus, Events) {
   var SessionModel = Backbone.Model.extend({
   
     url: '/session',
@@ -20,25 +22,6 @@ define([
           jqXHR.setRequestHeader('X-CSRF-Token', that.get('csrf'));
         }
       });
-      this.on('change:auth', function (model) {
-        console.log('user details', model);
-        if(model.get('auth')) {
-         // mixpanel.people.identify(model.get('login'));
-       //   mixpanel.name_tag(model.get('login'));
-       //   mixpanel.people.set({
-   // "$username": model.get('login'),    // only special properties need the $
-   // "$name": model.get('login'),    // only special properties need the $
-   // "$first_name": model.get('user').profile.name,    // only special properties need the $
-   // "$email": model.get('user').email,    // only special properties need the $
-  //  "$created": model.get('user').profile.joindate,
-  //  company: model.get('user').profile.company
-
-//});
-        } else {
-        //  mixpanel.people.identify(null);
-        }
-        //mixpanel.people.identify("12148");
-      });
     },
     defaults: {
      
@@ -47,7 +30,9 @@ define([
       // Do a POST to /session and send the serialized form creds
       this.clear({silent: true});
       this.save(creds, {
-         success: function () {},
+         success: function () {
+           EventBus.trigger(Events.USER_LOGGED_IN);
+         },
          wait: true
       });
     },
@@ -58,6 +43,7 @@ define([
         success: function (model, resp) {
         //  mixpanel.track('Logged out');
         //  mixpanel.people.identify(null);
+           EventBus.trigger(Events.USER_LOGGED_OUT);
           
           // Set auth to false to trigger a change:auth event
           // The server also returns a new csrf token so that

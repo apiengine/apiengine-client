@@ -16,6 +16,7 @@ define([
         eventCategory: 'app',
         eventAction: event
       })
+      console.log('Event:', event);
     });
 
     // Proxino Error tracking
