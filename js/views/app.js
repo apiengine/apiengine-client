@@ -52,7 +52,6 @@ define([
               'hitType': 'pageview',
               'page': $(this).attr('href')
             });
-           // mixpanel.track_pageview();
             Backbone.router.navigate($(this).attr('href'), true);
             $(document).scrollTop(0);
             return false;
@@ -60,7 +59,7 @@ define([
           }
         });
         var notifications = new Notifications();
-   var root = '/';
+        var root = '/';
         if(window.location.hostname === 'localhost' && window.location.pathname.indexOf('relic') !== -1) {
           root = '/repos/apiengine-client/build/relic';
 
@@ -70,10 +69,6 @@ define([
         Backbone.history.start({pushState: true, root: root});
       });
 
-
-//$.ajax('http://d3gscmgl75g1oq.cloudfront.net/user/thomasdavis/api/ApiEngine/1/resource/8', {
-  //success: function () {console.log(arguments);}
-//});
 		},
     events: {
       'click .js-feedback': 'openFeedback'

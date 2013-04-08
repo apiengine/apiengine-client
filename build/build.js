@@ -138,7 +138,6 @@ if(cloudfront) {
 } else {
   index = index.replace('css/styles.css', 'version/' + version + '/css/styles.css');
   index = index.replace(' data-main="js/main"', ' data-main="version/' + version + '/js/main"');
-
 }
 
 index = index.replace('<meta data-server-url="https://s.apiengine.io" />', '<meta data-server-url="'+server+'" />')
