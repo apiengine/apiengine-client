@@ -64,7 +64,7 @@ define([
           return text;
       }
       creds.login = 'beta' + makeid();
-      creds.password = makeid();
+      //creds.password = makeid();
       user.save(creds, {
         success: function (data) {
 
